@@ -33,4 +33,19 @@ class EnvHelper
 
         return (array) $value;
     }
+    public static function writeEnv(array $data): void
+{
+    $envPath = base_path('.env');
+
+    $content = '';
+    foreach ($data as $key => $value) {
+        $value = is_bool($value) ? ($value ? 'true' : 'false') : $value;
+        $content .= "{$key}=\"{$value}\"\n";
+    }
+
+    if (!file_put_contents($envPath, $content)) {
+        throw new \twentyfouronline\Exceptions\FileWriteFailedException("Failed to write to .env file at $envPath");
+    }
+}
+
 }
