@@ -139,7 +139,7 @@ class ComposerHelper
         }
 
         try {
-            EnvHelper::init();
+          //  EnvHelper::init();
             $vapid = VAPID::createVapidKeys();
 
             EnvHelper::writeEnv([
