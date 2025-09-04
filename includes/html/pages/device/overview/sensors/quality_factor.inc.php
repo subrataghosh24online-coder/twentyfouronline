@@ -6,3 +6,7 @@ $sensor_unit = 'dB';
 $sensor_type = 'quality_factor';
 
 require 'includes/html/pages/device/overview/generic/sensor.inc.php';
+
+
+
+

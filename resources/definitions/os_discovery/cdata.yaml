@@ -42,3 +42,7 @@ modules:
                     states:
                         - { descr: Normal, graph: 0, value: 0, generic: 0 }
                         - { descr: Abnormal, graph: 0, value: 1, generic: 2 }
+
+
+
+

@@ -1,6 +1,6 @@
 # Grouping Devices
 
-LibreNMS supports grouping your devices together in much the same way
+twentyfouronline supports grouping your devices together in much the same way
 as you can configure alerts. This document will hopefully help you get
 started.
 
@@ -13,7 +13,7 @@ structure your data is in and uses QueryBuilder to generate SQL
 queries to build your groups.
 
 You can browse around inside MySQL using `show tables` to view all
-of the tables within LibreNMS and then run `desc <tablename>` to
+of the tables within twentyfouronline and then run `desc <tablename>` to
 be able to see the table structure. Both of these then form the
 basic format for the QueryBuilder interface such as __tablename.columnname__.
 
@@ -45,3 +45,7 @@ You can now select this group from the Devices -> All Devices link in
 the navigation at the top. You can also use map your device groups to
 an alert rule in the section `Match devices, groups and locations list`
 against any alert rule.
+
+
+
+

@@ -1,10 +1,10 @@
-LibreNMS core team:
-- Paul Gear <paul@librenms.org> [paulgear](https://github.com/paulgear/)
-- Neil Lathwood <neil@librenms.org> [laf](https://github.com/laf/)
-- Daniel Preussker <f0o@librenms.org> [f0o](https://github.com/f0o/)
+twentyfouronline core team:
+- Paul Gear <paul@twentyfouronline.org> [paulgear](https://github.com/paulgear/)
+- Neil Lathwood <neil@twentyfouronline.org> [laf](https://github.com/laf/)
+- Daniel Preussker <f0o@twentyfouronline.org> [f0o](https://github.com/f0o/)
 - Søren Friis Rosiak <sorenrosiak@gmail.com> [rosiak](https://github.com/rosiak/)
 - Mike Rostermund <mike@kollegienet.dk> [SaaldjorMike](https://github.com/SaaldjorMike/)
-- Tony Murray <tonym@librenms.org> [murrant](https://github.com/murrant/)
+- Tony Murray <tonym@twentyfouronline.org> [murrant](https://github.com/murrant/)
 - David Bell <me@geordish.org> [geordish](https://github.com/geordish/)
 
 Notable contributors:
@@ -12,7 +12,7 @@ Notable contributors:
 - Clint Armstrong <clint@clintarmstrong.net> (clinta)
 - Aaron Daniels <aaron@daniels.id.au> (adaniels21487)
 
-LibreNMS contributors:
+twentyfouronline contributors:
 - Bohdan Sanders <git@bohdans.com> (bohdan-s)
 - Toni Cunyat <elbuit@gmail.com> (elbuit)
 - Tuomas Riihimäki <tuomari@iudex.fi> (tuomari)
@@ -56,7 +56,7 @@ LibreNMS contributors:
 - Juho Vanhanen <juho@vanhanen.me> (juhovan)
 - Bart de Bruijn <bart_de_bruijn@yahoo.com> (bartdebruijn)
 - Christophe Martinet <martinet.christophe@gmail.com> (chrisgfx)
-- Nils Steinger <librenms@voidptr.de> (n-st)
+- Nils Steinger <twentyfouronline@voidptr.de> (n-st)
 - Mark Nagel <mnagel@willingminds.com> (ciscoqid)
 - Sławomir Paszkiewicz <paszczus@pld-linux.org> (paszczus)
 - Frederik Mogensen <frederik@server-1.dk> (mogensen)
@@ -95,7 +95,7 @@ LibreNMS contributors:
 - Ibrahim Tachijian <barhom@netsat.se> (barhom)
 - Guillaume Coeugnet <aliasprotect-git@yahoo.fr> (gcoeugnet)
 - Jared Newell <jared.newell@gmail.com> (Jaredn)
-- Karsten Nerdinger <karsten-git-librenms@nerdinger.net> (piratonym)
+- Karsten Nerdinger <karsten-git-twentyfouronline@nerdinger.net> (piratonym)
 - Michael Nguyen <mnguyen1289@gmail.com> (mnguyen1289)
 - Casey Schoonover <casey.schoonover@llcc.edu> (cschoonover91)
 - Chris A. Evans <thecityofguanyu@outlook.com> (thecityofguanyu)
@@ -124,7 +124,7 @@ LibreNMS contributors:
 - Michael Hansen <nerdalertdk@gmail.com> (nerdalertdk)
 - Daniel Cox <danielcoxman@gmail.com> (ospfbgp)
 - Joseph Cunningham <joey.was@gmail.com> (joeywas)
-- Michael Van Delft <librenms@xo.tc> (HybridAU)
+- Michael Van Delft <twentyfouronline@xo.tc> (HybridAU)
 - Piotr Jurga <deutor1361@gmail.com> (deutor)
 - Jonathon Koyle <jonathon.koyle@gmail.com> (jonathon-k)
 - Tamas Szabo <jobs@szatam.com> (szatam)
@@ -146,7 +146,7 @@ LibreNMS contributors:
 - Joseph Eames <j.eames@outlook.com> (j-ems)
 - Eric Conroy <eric@conroy.co> (NetworkNub)
 - Timothy Willey <developer@timothywilley.net> (twilley)
-- Jon Ward  <librenms@yonzb.net> (yon2004)
+- Jon Ward  <twentyfouronline@yonzb.net> (yon2004)
 - Ian Viemeister <github@ian.viemeister.com> (iviemeister)
 - Thane Gill <me@thanegill.com> (thanegill)
 - Christoffer Stokbæk <christoffers@easyspeedy.com> (stokbaek)
@@ -168,8 +168,8 @@ LibreNMS contributors:
 - Aleksandr Stankevic <aleksandr.stankevic@gmail.com> (sysmonk)
 - Richard Mayhew <richard@splash.co.za> (InsaneSplash)
 - Jacob <wackychocolatefactory@gmail.com> (wackychocolatefactory)
-- Patrick Velder <patrick2+librenms@velder.li> (patrick7)
-- Andrew Wippler <andrew.wippler+librenms@gmail.com> (andrewwippler)
+- Patrick Velder <patrick2+twentyfouronline@velder.li> (patrick7)
+- Andrew Wippler <andrew.wippler+twentyfouronline@gmail.com> (andrewwippler)
 - Robert Towster <rnt-github at towster.com> (towster)
 - Rocky Luke <rockyluke@offline.net> (rockyluke)
 - Tim Jackson <jackson.tim@gmail.com> (jackson-tim)
@@ -205,7 +205,7 @@ LibreNMS contributors:
 - Nick Peelman <nick@peelman.us> (peelman)
 - Patrick Ryon <patrick@slashdoom.com> (slashdoom)
 - Mike Williams <mike@mgww.net> (network-guy)
-- Rob J. Epping <librenms@renf.us> (robje)
+- Rob J. Epping <twentyfouronline@renf.us> (robje)
 - Frank Petrilli <frank@petril.li> (frankpetrilli)
 - Joel Kociolek <joel@kociolek.org> (lejoko)
 - Rémy Jacquin <remy@remyj.fr> (remyj38)
@@ -224,3 +224,7 @@ Observium was written by:
 - Adam Armstrong
 - Tom Laermans
 - various others as indicated in the file contents and commit logs
+
+
+
+

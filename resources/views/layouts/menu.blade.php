@@ -65,7 +65,7 @@
                                                                          aria-hidden="true"></i> {{ __('RIPE NCC API') }}
                                     </a></li>
                                 @config('smokeping.integration')
-                                <li><a href="{{ \App\Facades\LibrenmsConfig::get('smokeping.url') }}"><i class="fa fa-line-chart fa-fw fa-lg"
+                                <li><a href="{{ \App\Facades\twentyfouronlineConfig::get('smokeping.url') }}"><i class="fa fa-line-chart fa-fw fa-lg"
                                                                        aria-hidden="true"></i> {{ __('Smokeping') }}</a>
                                 </li>
                                 @endconfig
@@ -338,7 +338,7 @@
                                                                                   aria-hidden="true"></i> {{ __('Peering') }}
                                     </a></li>
                                 @endconfig
-                                @if(\App\Facades\LibrenmsConfig::get('int_peering') && \App\Facades\LibrenmsConfig::get('int_transit'))
+                                @if(\App\Facades\twentyfouronlineConfig::get('int_peering') && \App\Facades\twentyfouronlineConfig::get('int_transit'))
                                     <li><a href="{{ url('iftype/type=peering,transit') }}"><i
                                                 class="fa fa-rocket fa-fw fa-lg"
                                                 aria-hidden="true"></i> {{ __('Peering + Transit') }}</a></li>
@@ -634,7 +634,7 @@
                                 <li><a href="{{ url('api-access') }}"><i class="fa fa-cog fa-fw fa-lg"
                                                                          aria-hidden="true"></i> {{ __('API Settings') }}
                                     </a></li>
-                                <li><a href="https://docs.librenms.org/API/" target="_blank" rel="noopener"><i
+                                <li><a href="https://docs.twentyfouronline.org/API/" target="_blank" rel="noopener"><i
                                             class="fa fa-book fa-fw fa-lg" aria-hidden="true"></i> {{ __('API Docs') }}</a>
                                 </li>
                             </ul>
@@ -836,3 +836,7 @@
     @endif
 
 </script>
+
+
+
+

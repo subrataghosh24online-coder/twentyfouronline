@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2018 Vivia Nguyen-Tran <vivia@ualberta.ca>
  *
@@ -11,7 +11,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Alert\Transport;
+use twentyfouronline\Alert\Transport;
 
 if (Auth::user()->hasGlobalAdmin()) {
     ?>
@@ -22,7 +22,7 @@ if (Auth::user()->hasGlobalAdmin()) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h5 class="modal-title" id="Edit-transport">Alert Transport :: <a target="_blank" href="https://docs.librenms.org/Alerting/">Docs <i class="fa fa-book fa-1x"></i></a> </h5>
+                    <h5 class="modal-title" id="Edit-transport">Alert Transport :: <a target="_blank" href="https://docs.twentyfouronline.org/Alerting/">Docs <i class="fa fa-book fa-1x"></i></a> </h5>
                 </div>
                 <div class="modal-body">
                     <form method="post" role="form" id="transports" class="form-horizontal transports-form">
@@ -298,3 +298,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 
     <?php
 }
+
+
+
+

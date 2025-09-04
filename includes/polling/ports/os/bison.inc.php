@@ -20,3 +20,7 @@ foreach ($dpdk_port_stats as $index => $sfpport_stats) {
 }
 
 unset($dpdk_port_stats);
+
+
+
+

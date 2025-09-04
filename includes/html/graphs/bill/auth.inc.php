@@ -8,3 +8,7 @@ if (is_numeric($vars['id']) && ($auth || bill_permitted($vars['id']))) {
 }
 
 global $dur;
+
+
+
+

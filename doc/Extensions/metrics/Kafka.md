@@ -24,7 +24,7 @@ really able to provide any help with this side of things.
 - Support for Kafka, we would highly recommend that you
   have some level of experience with these.
 
-RRD will continue to function as normal so LibreNMS itself should
+RRD will continue to function as normal so twentyfouronline itself should
 continue to function as normal.
 
 ## Configuration
@@ -42,7 +42,7 @@ lnms config:set kafka.debug false
 lnms config:set kafka.security.debug 'security'
 lnms config:set kafka.broker.list 'kafka:9092'
 lnms config:set kafka.idempotence true
-lnms config:set kafka.topic 'librenms'
+lnms config:set kafka.topic 'twentyfouronline'
 lmns config:set kafka.groups-exclude "group_name_1,group_name_2"
 lmns config:set kafka.measurement-exclude "measurement_name_1,measurement_name_2"
 lmns config:set kafka.device-fields-exclude "device_id,ip"
@@ -62,7 +62,7 @@ lnms config:set kafka.flush.timeout 1000
 lnms config:set kafka.enable true
 lnms config:set kafka.broker.list 'kafka:9092'
 lnms config:set kafka.idempotence true
-lnms config:set kafka.topic 'librenms'
+lnms config:set kafka.topic 'twentyfouronline'
 lmns config:set kafka.device-fields-exclude "device_id,ip"
 lnms config:set kafka.ssl.enable true
 lnms config:set kafka.ssl.protocol 'ssl'
@@ -77,7 +77,7 @@ lnms config:set kafka.flush.timeout 1000
 lnms config:set kafka.enable true
 lnms config:set kafka.broker.list 'kafka:9092'
 lnms config:set kafka.idempotence true
-lnms config:set kafka.topic 'librenms'
+lnms config:set kafka.topic 'twentyfouronline'
 lmns config:set kafka.device-fields-exclude "device_id,ip"
 lnms config:set kafka.flush.timeout 1000
 ```
@@ -92,7 +92,7 @@ Please note that polling will slow down when the poller isn't able to reach or w
 
 # Kafka Data Store Testing
 
-This document describes how to test the Kafka data store functionality in LibreNMS.
+This document describes how to test the Kafka data store functionality in twentyfouronline.
 
 ## Prerequisites
 
@@ -164,7 +164,7 @@ The Kafka tests are tagged with the `external-dependencies` group and are exclud
 The tests automatically configure Kafka settings during setup:
 
 - **Broker**: `localhost:9092`
-- **Topic**: `librenms`
+- **Topic**: `twentyfouronline`
 - **Batch settings**: Max 25 messages, buffer max 10 messages
 - **Linger time**: 5000ms
 - **Required acks**: 0 (fire and forget)
@@ -207,3 +207,7 @@ Config::set('kafka.debug', 'all');
 
 - Kafka tests use an actual Kafka connection during unit testing
 - The `external-dependencies` group allows you to easily include/exclude these tests
+
+
+
+

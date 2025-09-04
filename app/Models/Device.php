@@ -17,14 +17,14 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\MaintenanceStatus;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\IPv4;
-use LibreNMS\Util\IPv6;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Time;
-use LibreNMS\Util\Url;
+use twentyfouronline\Enum\MaintenanceStatus;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\IPv4;
+use twentyfouronline\Util\IPv6;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Time;
+use twentyfouronline\Util\Url;
 use Permissions;
 
 /**
@@ -225,7 +225,7 @@ class Device extends BaseModel
     {
         $hostname_is_ip = IP::isValid($this->hostname);
 
-        return SimpleTemplate::parse($this->display ?: \App\Facades\LibrenmsConfig::get('device_display_default', '{{ $hostname }}'), [
+        return SimpleTemplate::parse($this->display ?: \App\Facades\twentyfouronlineConfig::get('device_display_default', '{{ $hostname }}'), [
             'hostname' => $this->hostname,
             'sysName' => $this->sysName ?: $this->hostname,
             'sysName_fallback' => $hostname_is_ip ? $this->sysName : $this->hostname,
@@ -306,7 +306,7 @@ class Device extends BaseModel
             return $name;
         }
 
-        $length = \App\Facades\LibrenmsConfig::get('shorthost_target_length', $length);
+        $length = \App\Facades\twentyfouronlineConfig::get('shorthost_target_length', $length);
         if ($length < strlen($name)) {
             $take = max(substr_count($name, '.', 0, $length), 1);
 
@@ -1398,3 +1398,7 @@ class Device extends BaseModel
         return $this->hasMany(WirelessSensor::class, 'device_id');
     }
 }
+
+
+
+

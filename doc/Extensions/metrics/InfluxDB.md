@@ -22,7 +22,7 @@ really able to provide any help with this side of things.
 - Support for InfluxDB or Grafana, we would highly recommend that you
   have some level of experience with these.
 
-RRD will continue to function as normal so LibreNMS itself should
+RRD will continue to function as normal so twentyfouronline itself should
 continue to function as normal.
 
 ## Configuration
@@ -33,7 +33,7 @@ continue to function as normal.
     lnms config:set influxdb.transport http
     lnms config:set influxdb.host '127.0.0.1'
     lnms config:set influxdb.port 8086
-    lnms config:set influxdb.db 'librenms'
+    lnms config:set influxdb.db 'twentyfouronline'
     lnms config:set influxdb.username 'admin'
     lnms config:set influxdb.password 'admin'
     lnms config:set influxdb.timeout 0
@@ -48,3 +48,7 @@ No credentials are needed if you don't use InfluxDB authentication.
 The same data then stored within rrd will be sent to InfluxDB and
 recorded. You can then create graphs within Grafana to display the
 information you need.
+
+
+
+

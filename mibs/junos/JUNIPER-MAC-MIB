@@ -148,3 +148,7 @@ JnxVlanIndex ::= TEXTUAL-CONVENTION
         ::= { jnxMacStatsEntry 6 }
 
 END
+
+
+
+

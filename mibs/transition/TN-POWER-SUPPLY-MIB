@@ -150,3 +150,7 @@ tnPowerSupplyTemperature OBJECT-TYPE
 tnPowerSupplyMibConformance OBJECT IDENTIFIER ::= { tnPowerSupply 3 }
 
 END
+
+
+
+

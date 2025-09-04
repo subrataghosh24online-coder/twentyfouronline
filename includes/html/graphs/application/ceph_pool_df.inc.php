@@ -50,3 +50,7 @@ if ($vars['pool'] != 'c') {
     $rrd_options .= ' GPRINT:poolsize:LAST:%7.2lf%sB';
     $rrd_options .= ' GPRINT:poolsize:MAX:%7.2lf%sB\n';
 }
+
+
+
+

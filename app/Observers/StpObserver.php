@@ -4,8 +4,8 @@ namespace App\Observers;
 
 use App\Models\Eventlog;
 use App\Models\Stp;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Time;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Time;
 
 class StpObserver
 {
@@ -31,3 +31,7 @@ class StpObserver
         }
     }
 }
+
+
+
+

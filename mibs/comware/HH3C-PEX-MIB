@@ -413,3 +413,7 @@ hh3cPexEntPhysicalIndexBind OBJECT-TYPE
         "This index is identical to entPhysicalIndex in ENTITY-MIB."
     ::= { hh3cPexTrapObjects 1 }
 END
+
+
+
+

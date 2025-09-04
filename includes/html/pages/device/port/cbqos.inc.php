@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display Cisco Class-Based QoS Details
+ * twentyfouronline module to display Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -27,10 +27,10 @@ function find_child($components, $parent, $level)
                 // Its a policy, we need to make it a link.
                 $linkvars = array_merge($vars, ['policy' => $id]);
                 unset($linkvars['class']);
-                echo '<a href="' . \LibreNMS\Util\Url::generate($linkvars) . '">' . $array['label'] . '</a>';
+                echo '<a href="' . \twentyfouronline\Util\Url::generate($linkvars) . '">' . $array['label'] . '</a>';
             } elseif ($array['qos-type'] == 2) {
                 // Its a class, we need to make it a link.
-                echo '<a href="' . \LibreNMS\Util\Url::generate($vars, ['policy' => $parent, 'class' => $id]) . '">' . $array['label'] . '</a>';
+                echo '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['policy' => $parent, 'class' => $id]) . '">' . $array['label'] . '</a>';
             } else {
                 // Unknown, no link
                 echo $array['label'];
@@ -66,7 +66,7 @@ $found = false;
 foreach ($components as $id => $array) {
     if (($array['qos-type'] == 1) && ($array['ifindex'] == $port['ifIndex']) && ($array['direction'] == 1) && ($array['parent'] == 0)) {
         echo "<li class='liOpen'>";
-        echo '<a href="' . \LibreNMS\Util\Url::generate($vars, ['policy' => $id]) . '">' . $array['label'] . '</a>';
+        echo '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['policy' => $id]) . '">' . $array['label'] . '</a>';
         find_child($components, $id, 1);
         echo '</li>';
         $found = true;
@@ -85,7 +85,7 @@ $found = false;
 foreach ($components as $id => $array) {
     if (($array['qos-type'] == 1) && ($array['ifindex'] == $port['ifIndex']) && ($array['direction'] == 2) && ($array['parent'] == 0)) {
         echo "<li class='liOpen'>";
-        echo '<a href="' . \LibreNMS\Util\Url::generate($vars, ['policy' => $id]) . '">' . $array['label'] . '</a>';
+        echo '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['policy' => $id]) . '">' . $array['label'] . '</a>';
         find_child($components, $id, 1);
         echo '</li>';
         $found = true;
@@ -157,3 +157,7 @@ foreach ($components as $id => $array) {
         echo "</div>\n\n";
     }
 }
+
+
+
+

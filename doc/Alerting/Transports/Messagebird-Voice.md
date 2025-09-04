@@ -1,6 +1,6 @@
 ## Messagebird Voice
 
-LibreNMS can send messages through Messagebird voice Rest API transport (text to speech).
+twentyfouronline can send messages through Messagebird voice Rest API transport (text to speech).
 
 | Config | Example |
 | ------ | ------- |
@@ -10,3 +10,7 @@ LibreNMS can send messages through Messagebird voice Rest API transport (text to
 | Language | Select box for options  |
 | Spoken voice | Female or Male  |
 | Repeat | X times the message is repeated  |
+
+
+
+

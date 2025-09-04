@@ -25,3 +25,7 @@ foreach ($log_files as $index => $log_file) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

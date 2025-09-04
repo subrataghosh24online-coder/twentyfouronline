@@ -19,14 +19,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2020 LibreNMS
+ * @copyright  2020 twentyfouronline
  * @author     Ken Lui <tmpest1@yahoo.com>
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 // Try Q-BRIDGE-MIB::dot1qTpFdbPort first
 
@@ -86,3 +86,7 @@ if (! empty($fdbPort_table)) {
 }
 
 echo PHP_EOL;
+
+
+
+

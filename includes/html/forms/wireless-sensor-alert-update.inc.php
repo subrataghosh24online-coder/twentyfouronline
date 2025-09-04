@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk>
  * Copyright (c) 2017 Tony Murray <https://github.com/murrant>
@@ -34,7 +34,7 @@ if (isset($_POST['sub_type']) && $_POST['sub_type'] == 'remove-custom') {
 
     exit(json_encode([
         'status' => 'error',
-        'message' => 'Could not remove custom. Check librenms.log',
+        'message' => 'Could not remove custom. Check twentyfouronline.log',
     ]));
 } else {
     if (! is_numeric($_POST['device_id']) || ! is_numeric($_POST['sensor_id'])) {
@@ -70,3 +70,7 @@ if (isset($_POST['sub_type']) && $_POST['sub_type'] == 'remove-custom') {
         }
     }
 }
+
+
+
+

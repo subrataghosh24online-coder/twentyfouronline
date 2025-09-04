@@ -37,3 +37,7 @@ class DeviceRemove extends Command
         $device->delete();
     }
 }
+
+
+
+

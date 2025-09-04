@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  * Copyright (c) 2017 Tony Murray <https://github.com/murrant/>
@@ -13,7 +13,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 $init_modules = ['web', 'auth'];
 require realpath(__DIR__ . '/..') . '/includes/init.php';
@@ -36,3 +36,7 @@ if ($type && file_exists("includes/html/list/$type.inc.php")) {
         'pagination' => ['more' => $more],
     ]));
 }
+
+
+
+

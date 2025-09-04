@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2018 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2018 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use Illuminate\Support\Str;
@@ -40,3 +40,7 @@ if (Str::startsWith($device['sysObjectID'], '.1.3.6.1.4.1.8741.6')) {
         $current
     );
 }
+
+
+
+

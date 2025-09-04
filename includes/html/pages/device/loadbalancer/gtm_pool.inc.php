@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 GTM Wide IP Details
+ * twentyfouronline module to display F5 GTM Wide IP Details
  *
  * Adapted from F5 LTM module by Darren Napper
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
@@ -13,7 +13,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['filter' => ['disabled' => ['=', 0]]]);
 
 // We only care about our device id.
@@ -37,3 +37,7 @@ if (is_file("includes/html/pages/device/loadbalancer/$subtype.inc.php")) {
 } else {
     include 'includes/html/pages/device/loadbalancer/gtm_pool_all.inc.php';
 }//end if
+
+
+
+

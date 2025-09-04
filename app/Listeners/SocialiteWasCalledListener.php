@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Log;
 
 class SocialiteWasCalledListener
@@ -25,7 +25,7 @@ class SocialiteWasCalledListener
      */
     public function handle(\SocialiteProviders\Manager\SocialiteWasCalled $event): void
     {
-        foreach (LibrenmsConfig::get('auth.socialite.configs', []) as $provider => $config) {
+        foreach (twentyfouronlineConfig::get('auth.socialite.configs', []) as $provider => $config) {
             // Treat not set as "disabled"
             if (! isset($config['listener'])) {
                 continue;
@@ -42,3 +42,7 @@ class SocialiteWasCalledListener
         }
     }
 }
+
+
+
+

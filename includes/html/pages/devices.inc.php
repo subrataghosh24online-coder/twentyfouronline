@@ -6,11 +6,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 function show_device_group($device_group_id) {
@@ -47,7 +47,7 @@ foreach ($menu_options as $option => $text) {
     if ($vars['format'] == 'list_' . $option) {
         $listoptions .= '<span class="pagemenu-selected">';
     }
-    $listoptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['format' => 'list_' . $option]) . '">' . $text . '</a>';
+    $listoptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['format' => 'list_' . $option]) . '">' . $text . '</a>';
     if ($vars['format'] == 'list_' . $option) {
         $listoptions .= '</span>';
     }
@@ -73,7 +73,7 @@ foreach ($menu_options as $option => $text) {
     if ($vars['format'] == 'graph_' . $option) {
         $listoptions .= '<span class="pagemenu-selected">';
     }
-    $listoptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['format' => 'graph_' . $option, 'from' => '-24hour', 'to' => 'now']) . '">' . $text . '</a>';
+    $listoptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['format' => 'graph_' . $option, 'from' => '-24hour', 'to' => 'now']) . '">' . $text . '</a>';
     if ($vars['format'] == 'graph_' . $option) {
         $listoptions .= '</span>';
     }
@@ -83,33 +83,33 @@ foreach ($menu_options as $option => $text) {
 $headeroptions = '<select name="type" id="type" onchange="window.open(this.options[this.selectedIndex].value,\'_top\')" class="devices-graphs-select">';
 $type = 'device';
 foreach (get_graph_subtypes($type) as $avail_type) {
-    $display_type = \LibreNMS\Util\StringHelpers::niceCase($avail_type);
+    $display_type = \twentyfouronline\Util\StringHelpers::niceCase($avail_type);
     if ('graph_' . $avail_type == $vars['format']) {
         $is_selected = 'selected';
     } else {
         $is_selected = '';
     }
     $headeroptions .= '<option value="' .
-        \LibreNMS\Util\Url::generate($vars, [
+        \twentyfouronline\Util\Url::generate($vars, [
             'format' => 'graph_' . $avail_type,
-            'from' => $vars['from'] ?? \App\Facades\LibrenmsConfig::get('time.day'),
-            'to' => $vars['to'] ?? \App\Facades\LibrenmsConfig::get('time.now'),
+            'from' => $vars['from'] ?? \App\Facades\twentyfouronlineConfig::get('time.day'),
+            'to' => $vars['to'] ?? \App\Facades\twentyfouronlineConfig::get('time.now'),
         ]) . '" ' . $is_selected . '>' . $display_type . '</option>';
 }
 $headeroptions .= '</select>';
 
 if (isset($vars['searchbar']) && $vars['searchbar'] == 'hide') {
-    $headeroptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['searchbar' => '']) . '">Restore Search</a>';
+    $headeroptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['searchbar' => '']) . '">Restore Search</a>';
 } else {
-    $headeroptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['searchbar' => 'hide']) . '">Remove Search</a>';
+    $headeroptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['searchbar' => 'hide']) . '">Remove Search</a>';
 }
 
 $headeroptions .= ' | ';
 
 if (isset($vars['bare']) && $vars['bare'] == 'yes') {
-    $headeroptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['bare' => '']) . '">Restore Header</a>';
+    $headeroptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['bare' => '']) . '">Restore Header</a>';
 } else {
-    $headeroptions .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['bare' => 'yes']) . '">Remove Header</a>';
+    $headeroptions .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['bare' => 'yes']) . '">Remove Header</a>';
 }
 
 [$format, $subformat] = explode('_', $vars['format'], 2);
@@ -118,12 +118,12 @@ $no_refresh = $format == 'list';
 
 if ($format == 'graph') {
     if (empty($vars['from'])) {
-        $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+        $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
     } else {
         $graph_array['from'] = $vars['from'];
     }
     if (empty($vars['to'])) {
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
     } else {
         $graph_array['to'] = $vars['to'];
     }
@@ -232,9 +232,9 @@ if ($format == 'graph') {
     $row = 1;
     foreach (dbFetchRows($query, $sql_param) as $device) {
         if (is_integer($row / 2)) {
-            $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+            $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
         } else {
-            $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+            $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
         }
 
         if (device_permitted($device['device_id'])) {
@@ -266,10 +266,10 @@ if ($format == 'graph') {
             $link_array['type'] = $graph_type;
             $link_array['device'] = $device['device_id'];
             unset($link_array['height'], $link_array['width']);
-            $overlib_link = \LibreNMS\Util\Url::generate($link_array);
+            $overlib_link = \twentyfouronline\Util\Url::generate($link_array);
             echo '<div class="devices-overlib-box" style="min-width:' . ($width + 90) . '; max-width: ' . ($width + 90) . '">';
             echo '<div class="panel panel-default">';
-            echo \LibreNMS\Util\Url::overlibLink($overlib_link, \LibreNMS\Util\Url::lazyGraphTag($graph_array_new), \LibreNMS\Util\Url::graphTag($graph_array_zoom));
+            echo \twentyfouronline\Util\Url::overlibLink($overlib_link, \twentyfouronline\Util\Url::lazyGraphTag($graph_array_new), \twentyfouronline\Util\Url::graphTag($graph_array_zoom));
             echo "</div></div>\n\n";
         }
     }
@@ -288,7 +288,7 @@ if ($format == 'graph') {
 
     $os_selected = '""';
     if (isset($vars['os'])) {
-        $os_selected = json_encode(['id' => $vars['os'], 'text' => \App\Facades\LibrenmsConfig::getOsSetting($vars['os'], 'text', $vars['os'])]);
+        $os_selected = json_encode(['id' => $vars['os'], 'text' => \App\Facades\twentyfouronlineConfig::getOsSetting($vars['os'], 'text', $vars['os'])]);
     }
 
     $location_selected = '""';
@@ -401,8 +401,8 @@ if ($format == 'graph') {
             "<div class='form-group'><select name='location' id='location' class='form-control'></select></div>" +
             "<div class='form-group'><select name='type' id='device-type' class='form-control'></select></div>" +
             "<input type='submit' class='btn btn-info' value='Search'>" +
-            "<a href='<?php echo \LibreNMS\Util\Url::generate(array_diff_key($vars, ['_token' => 1])) ?>' title='Update the browser URL to reflect the search criteria.' class='btn btn-default'>Update URL</a>" +
-            "<a href='<?php echo \LibreNMS\Util\Url::generate(['page' => 'devices', 'section' => $vars['section'] ?? '', 'bare' => $vars['bare'] ?? '']) ?>' title='Reset criteria to default.' class='btn btn-default'>Reset</a>" +
+            "<a href='<?php echo \twentyfouronline\Util\Url::generate(array_diff_key($vars, ['_token' => 1])) ?>' title='Update the browser URL to reflect the search criteria.' class='btn btn-default'>Update URL</a>" +
+            "<a href='<?php echo \twentyfouronline\Util\Url::generate(['page' => 'devices', 'section' => $vars['section'] ?? '', 'bare' => $vars['bare'] ?? '']) ?>' title='Reset criteria to default.' class='btn btn-default'>Reset</a>" +
             "</form>" +
             "</div>"
         );
@@ -418,3 +418,7 @@ if ($format == 'graph') {
     </script>
     <?php
 }
+
+
+
+

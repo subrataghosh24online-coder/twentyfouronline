@@ -154,3 +154,7 @@ modules:
             - { descr: battery, graph: 1, value: 5, generic: 2 }
             - { descr: booster, graph: 1, value: 6, generic: 2 }
             - { descr: reducer, graph: 1, value: 7, generic: 2 }
+
+
+
+

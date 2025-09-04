@@ -17,3 +17,7 @@ class AuthLogoutListener
         DB::table('authlog')->insert(['user' => $user->username ?: '', 'address' => Request::ip(), 'result' => 'Logged Out']);
     }
 }
+
+
+
+

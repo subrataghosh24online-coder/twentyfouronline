@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $biasTable = SnmpQuery::walk('FS-SWITCH-V2-MIB::transBiasinformationTable')->table(1);
 
@@ -36,3 +36,7 @@ foreach ($biasTable as $ifIndex => $current) {
 }
 
 unset($biasTable, $current);
+
+
+
+

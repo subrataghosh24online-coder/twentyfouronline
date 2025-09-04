@@ -320,3 +320,7 @@ this.simpleversion=Math.round(this.version*100);this.major=parseInt(this.simplev
 function meets(reqdVersion){return(!reqdVersion)?false:this.simpleversion>=Math.round(100*parseFloat(reqdVersion));}
 registerHook("ol_content_simple",ol_content_simple,FALTERNATE,CSSOFF);registerHook("ol_content_caption",ol_content_caption,FALTERNATE,CSSOFF);registerHook("ol_content_background",ol_content_background,FALTERNATE,CSSOFF);registerHook("ol_content_simple",ol_content_simple,FALTERNATE,CSSCLASS);registerHook("ol_content_caption",ol_content_caption,FALTERNATE,CSSCLASS);registerHook("ol_content_background",ol_content_background,FALTERNATE,CSSCLASS);registerPostParseFunction(checkPositionFlags);registerHook("hideObject",nbspCleanup,FAFTER);registerHook("horizontalPlacement",horizontalPlacement,FCHAIN);registerHook("verticalPlacement",verticalPlacement,FCHAIN);if(olNs4||(olIe5&&isMac)||olKq)olLoaded=1;registerNoParameterCommands('sticky,autostatus,autostatuscap,fullhtml,hauto,vauto,closeclick,wrap,followmouse,mouseoff,compatmode');
 var olCheckMouseCapture=true;if((olNs4||olNs6||olIe4)){olMouseCapture();}else{overlib=no_overlib;nd=no_overlib;ver3fix=true;}
+
+
+
+

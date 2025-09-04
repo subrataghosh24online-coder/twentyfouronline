@@ -1,6 +1,6 @@
 <?php
 
-if (\App\Facades\LibrenmsConfig::get('old_graphs')) {
+if (\App\Facades\twentyfouronlineConfig::get('old_graphs')) {
     include 'includes/html/graphs/old_generic_simplex.inc.php';
 } else {
     // Draw generic bits graph
@@ -111,3 +111,7 @@ if (\App\Facades\LibrenmsConfig::get('old_graphs')) {
         $rrd_options .= ' AREA:' . $ds . 'X#99999966:';
     }
 }//end if
+
+
+
+

@@ -18,21 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Support\Str;
-use LibreNMS\Data\Source\NetSnmpQuery;
-use LibreNMS\Modules\Core;
-use LibreNMS\Tests\Mocks\SnmpQueryMock;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Data\Source\NetSnmpQuery;
+use twentyfouronline\Modules\Core;
+use twentyfouronline\Tests\Mocks\SnmpQueryMock;
+use twentyfouronline\Util\Debug;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Group;
@@ -75,7 +75,7 @@ class OSDiscoveryTest extends TestCase
             $this->app->bind(NetSnmpQuery::class, SnmpQueryMock::class);
         }
 
-        $glob = LibrenmsConfig::get('install_dir') . "/tests/snmpsim/$os_name*.snmprec";
+        $glob = twentyfouronlineConfig::get('install_dir') . "/tests/snmpsim/$os_name*.snmprec";
         $files = array_map(function ($file) {
             return basename($file, '.snmprec');
         }, glob($glob));
@@ -160,9 +160,9 @@ class OSDiscoveryTest extends TestCase
     public static function osProvider(): array
     {
         // make sure all OS are loaded
-        $config_os = array_keys(LibrenmsConfig::get('os'));
+        $config_os = array_keys(twentyfouronlineConfig::get('os'));
         if (count($config_os) < count(glob(resource_path('definitions/os_detection/*.yaml')))) {
-            $config_os = array_keys(LibrenmsConfig::get('os'));
+            $config_os = array_keys(twentyfouronlineConfig::get('os'));
         }
 
         $excluded_os = [
@@ -180,3 +180,7 @@ class OSDiscoveryTest extends TestCase
         return $all_os;
     }
 }
+
+
+
+

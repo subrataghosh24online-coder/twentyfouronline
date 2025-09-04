@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\ApiClients;
 
-use LibreNMS\Exceptions\ApiClientException;
+use twentyfouronline\Exceptions\ApiClientException;
 
 class RipeApi extends BaseApi
 {
@@ -77,3 +77,7 @@ class RipeApi extends BaseApi
         throw new ApiClientException("RIPE API call to $this->base_uri/$uri failed: " . $this->getClient()->get($uri, $options['query'])->status(), $response_data);
     }
 }
+
+
+
+

@@ -880,3 +880,7 @@ HH3C-NTP-MIB DEFINITIONS ::= BEGIN
             row can be made 'active'."
         ::= { hh3cNTPPeerEntry 36 }
 END
+
+
+
+

@@ -148,3 +148,7 @@ modules:
                     index: 'psu-shelf-{{ $index }}'
                     descr: "{{ NPT-SYSTEM-MIB::nptChassisPowerObjectName }} Current"
 
+
+
+
+

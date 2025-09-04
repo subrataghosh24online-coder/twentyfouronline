@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LibreNMS\Enum\Sensor;
+use twentyfouronline\Enum\Sensor;
 
 /** @extends Factory<\App\Models\Sensor> */
 class SensorFactory extends Factory
@@ -23,3 +23,7 @@ class SensorFactory extends Factory
         ];
     }
 }
+
+
+
+

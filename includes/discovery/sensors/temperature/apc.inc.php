@@ -218,3 +218,7 @@ foreach ($pre_cache['mem_sensors_status'] as $index => $data) {
         discover_sensor(null, 'temperature', $device, $cur_oid, 'memSensorsTemperature.' . $index, 'apc', $descr, $divisor, $multiplier, null, null, null, null, $value, 'snmp', null, null, $user_func);
     }
 }
+
+
+
+

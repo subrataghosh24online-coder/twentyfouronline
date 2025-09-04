@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,13 +26,13 @@
 
 namespace App\Http\Controllers\Install;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Exception;
 use Illuminate\Http\Request;
-use LibreNMS\Exceptions\FileWriteFailedException;
-use LibreNMS\Interfaces\InstallerStep;
-use LibreNMS\Util\EnvHelper;
-use LibreNMS\Util\Git;
+use twentyfouronline\Exceptions\FileWriteFailedException;
+use twentyfouronline\Interfaces\InstallerStep;
+use twentyfouronline\Util\EnvHelper;
+use twentyfouronline\Util\Git;
 
 class FinalizeController extends InstallationController implements InstallerStep
 {
@@ -172,8 +172,8 @@ class FinalizeController extends InstallationController implements InstallerStep
      */
     private function saveSetting(string $name, $value): void
     {
-        if (LibrenmsConfig::get($name) !== $value) {
-            LibrenmsConfig::persist($name, $value);
+        if (twentyfouronlineConfig::get($name) !== $value) {
+            twentyfouronlineConfig::persist($name, $value);
         }
     }
 
@@ -199,3 +199,7 @@ class FinalizeController extends InstallationController implements InstallerStep
         return 'fa-solid fa-check';
     }
 }
+
+
+
+

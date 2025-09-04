@@ -15,3 +15,7 @@ $descr = 'failed_analysis';
 $ds = 'failed_analysis';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

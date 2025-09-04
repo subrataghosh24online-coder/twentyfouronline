@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Authlog'))
 
@@ -49,3 +49,7 @@
     #manage-authlog-panel .panel-title { font-size: 18px; }
 </style>
 @endsection
+
+
+
+

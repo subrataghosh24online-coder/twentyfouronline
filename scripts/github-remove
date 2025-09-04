@@ -21,7 +21,7 @@ def confirm(question):
 def clear_cache():
     call(["php", "artisan", "optimize:clear"])
 
-librenms_dir = dirname(dirname(abspath(__file__)))
+twentyfouronline_dir = dirname(dirname(abspath(__file__)))
 
 parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group(required=True)
@@ -34,7 +34,7 @@ args = parser.parse_args()
 
 if args.discard:
     if confirm("Are you sure you want to delete all modified and untracked files?"):
-        dirs = ["app/", "bootstrap/", "contrib/", "database/", "doc/", "html/", "includes/", "LibreNMS/",
+        dirs = ["app/", "bootstrap/", "contrib/", "database/", "doc/", "html/", "includes/", "twentyfouronline/",
                 "licenses/", "mibs/", "misc/", "resources/", "routes", "scripts/", "tests/"]
         gitignores = ['.gitignore',
                       'bootstrap/cache/.gitignore',
@@ -50,20 +50,20 @@ if args.discard:
                       'storage/framework/views/.gitignore',
                       'storage/logs/.gitignore']
 
-        call(["git", "reset", "-q"], cwd=librenms_dir)
-        call(["git", "checkout", "."], cwd=librenms_dir)
-        call(["git", "clean", "-d", "-f"] + dirs, cwd=librenms_dir)
+        call(["git", "reset", "-q"], cwd=twentyfouronline_dir)
+        call(["git", "checkout", "."], cwd=twentyfouronline_dir)
+        call(["git", "clean", "-d", "-f"] + dirs, cwd=twentyfouronline_dir)
         # fix messed up gitignore file modes
-        call(["git", "checkout"] + gitignores, cwd=librenms_dir)
+        call(["git", "checkout"] + gitignores, cwd=twentyfouronline_dir)
 
         if args.vendor:
-            call(["git", "clean",  "-x",  "-d",  "-f",  "vendor/"], cwd=librenms_dir)
+            call(["git", "clean",  "-x",  "-d",  "-f",  "vendor/"], cwd=twentyfouronline_dir)
 
         clear_cache();
 
 elif args.save:
     msg = "github-remove saved on "+str(datetime.datetime.now())
-    call(["git", "stash", "save", msg], cwd=librenms_dir)
+    call(["git", "stash", "save", msg], cwd=twentyfouronline_dir)
     clear_cache()
 
 elif args.restore:
@@ -72,8 +72,12 @@ elif args.restore:
     last = out.decode("utf-8") .split('\n', 1)[0]
 
     if "github-remove" in last:
-        call(["git", "stash", "pop"], cwd=librenms_dir)
+        call(["git", "stash", "pop"], cwd=twentyfouronline_dir)
     else:
         print("Last stash was not created by " + __file__ + ". Aborting.")
 
     clear_cache()
+
+
+
+

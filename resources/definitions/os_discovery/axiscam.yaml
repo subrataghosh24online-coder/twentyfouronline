@@ -3,3 +3,7 @@ modules:
         sysDescr_regex: '/(?<hardware>[^;]+); [^;]+; (?<version>[^;]+)/'
         serial:
             - IF-MIB::ifPhysAddress.2
+
+
+
+

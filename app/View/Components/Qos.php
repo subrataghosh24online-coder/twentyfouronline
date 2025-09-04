@@ -35,3 +35,7 @@ class Qos extends Component
         return view('components.qos');
     }
 }
+
+
+
+

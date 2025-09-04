@@ -23,12 +23,62 @@ return [
         'PluginManager' => App\Facades\PluginManager::class,
         'Rrd' => App\Facades\Rrd::class,
         'SnmpQuery' => App\Facades\FacadeAccessorSnmp::class,
-        'LibrenmsConfig' => App\Facades\LibrenmsConfig::class,
+        'twentyfouronlineConfig' => App\Facades\twentyfouronlineConfig::class,
     ])->forget([
-        'Http', // don't use Laravel Http facade, LibreNMS has its own wrapper
+        'Http', // don't use Laravel Http facade, twentyfouronline has its own wrapper
     ])->toArray(),
 
     'charset' => env('CHARSET', ini_get('php.output_encoding') ?: ini_get('default_charset') ?: 'UTF-8'),
 
-    'name' => 'LibreNMS',
+    'name' => 'twentyfouronline',
+   
+
+    
+    'providers' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Laravel Framework Service Providers...
+        |--------------------------------------------------------------------------
+        */
+        Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Broadcasting\BroadcastServiceProvider::class,
+        Illuminate\Bus\BusServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+        Illuminate\Cookie\CookieServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
+        Illuminate\Encryption\EncryptionServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
+        Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
+        Illuminate\Pagination\PaginationServiceProvider::class,
+        Illuminate\Pipeline\PipelineServiceProvider::class,
+        Illuminate\Queue\QueueServiceProvider::class,
+        Illuminate\Redis\RedisServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        Illuminate\Session\SessionServiceProvider::class,
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Application Service Providers...
+        |--------------------------------------------------------------------------
+        */
+        App\Providers\AppServiceProvider::class,
+        // App\Providers\AuthServiceProvider::class,
+        // App\Providers\EventServiceProvider::class,
+        // App\Providers\RouteServiceProvider::class,
+    ],
 ];
+
+    
+
+
+
+
+

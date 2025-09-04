@@ -1,14 +1,14 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
-use LibreNMS\Enum\PortAssociationMode;
-use LibreNMS\Enum\Severity;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Mac;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Enum\PortAssociationMode;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Mac;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\StringHelpers;
 
 // Build SNMP Cache Array
 $data_oids = [
@@ -218,7 +218,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
     require 'ports/exalink-fusion.inc.php';
 } else {
     $selected_attrib = DeviceCache::get($device['device_id'] ?? null)->getAttrib('selected_ports');
-    if ($selected_attrib !== null ? $selected_attrib == 'true' : LibrenmsConfig::getOsSetting($device['os'], 'polling.selected_ports')) {
+    if ($selected_attrib !== null ? $selected_attrib == 'true' : twentyfouronlineConfig::getOsSetting($device['os'], 'polling.selected_ports')) {
         $fetched_data_string .= '(Selected ports polling): ';
 
         // remove the deleted and disabled ports and mark them skipped
@@ -230,7 +230,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
 
         // only try to guess if we should walk base oids if selected_ports is set only globally
         $walk_base = false;
-        if (! LibrenmsConfig::has("os.{$device['os']}.polling.selected_ports") && $selected_attrib === null) {
+        if (! twentyfouronlineConfig::has("os.{$device['os']}.polling.selected_ports") && $selected_attrib === null) {
             // if less than 5 ports or less than 10% of the total ports are skipped, walk the base oids instead of get
             $polled_port_count = count($polled_ports);
             $total_port_count = count($ports);
@@ -291,7 +291,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
         $fetched_data_string .= '(Full ports polling): ';
         // For devices that are on the bad_ifXentry list, try fetching ifAlias to have nice interface descriptions.
 
-        if (! in_array(strtolower($device['hardware'] ?? ''), array_map('strtolower', (array) LibrenmsConfig::getOsSetting($device['os'], 'bad_ifXEntry', [])))) {
+        if (! in_array(strtolower($device['hardware'] ?? ''), array_map('strtolower', (array) twentyfouronlineConfig::getOsSetting($device['os'], 'bad_ifXEntry', [])))) {
             $port_stats = snmpwalk_cache_oid($device, 'ifXEntry', $port_stats, 'IF-MIB');
         } else {
             $port_stats = snmpwalk_cache_oid($device, 'ifAlias', $port_stats, 'IF-MIB', null, '-OQUst');
@@ -314,7 +314,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
         }
         if ($device['os'] != 'asa') {
             $fetched_data_string .= 'dot3StatsDuplexStatus ';
-            if (LibrenmsConfig::get('enable_ports_poe') || LibrenmsConfig::get('enable_ports_etherlike')) {
+            if (twentyfouronlineConfig::get('enable_ports_poe') || twentyfouronlineConfig::get('enable_ports_etherlike')) {
                 $port_stats = snmpwalk_cache_oid($device, 'dot3StatsIndex', $port_stats, 'EtherLike-MIB');
             }
             $dot3StatsDuplexStatusSnmpFlags = '-OQUs';
@@ -332,7 +332,7 @@ if (file_exists($os_file)) {
     require $os_file;
 }
 
-if (LibrenmsConfig::get('enable_ports_poe')) {
+if (twentyfouronlineConfig::get('enable_ports_poe')) {
     // Code by OS device
 
     if ($device['os'] == 'ios' || $device['os'] == 'iosxe') {
@@ -451,13 +451,13 @@ $polled = time();
 // End Building SNMP Cache Array
 d_echo($port_stats);
 
-// By default libreNMS uses the ifIndex to associate ports on devices with ports discoverd/polled
+// By default twentyfouronline uses the ifIndex to associate ports on devices with ports discoverd/polled
 // before and stored in the database. On Linux boxes this is a problem as ifIndexes may be
 // unstable between reboots or (re)configuration of tunnel interfaces (think: GRE/OpenVPN/Tinc/...)
 // The port association configuration allows to choose between association via ifIndex, ifName,
 // or maybe other means in the future. The default port association mode still is ifIndex for
 // compatibility reasons.
-$port_association_mode = LibrenmsConfig::get('default_port_association_mode');
+$port_association_mode = twentyfouronlineConfig::get('default_port_association_mode');
 if ($device['port_association_mode']) {
     $port_association_mode = PortAssociationMode::getName($device['port_association_mode']);
 }
@@ -498,7 +498,7 @@ foreach ($port_stats as $ifIndex => $port) {
              * can be legally set to 0, which would yield True when checking if the
              * value is empty().
              */
-            if (LibrenmsConfig::get('ignore_unmapable_port') === true && in_array($port[$port_association_mode], ['', null])) {
+            if (twentyfouronlineConfig::get('ignore_unmapable_port') === true && in_array($port[$port_association_mode], ['', null])) {
                 continue;
             }
 
@@ -700,7 +700,7 @@ foreach ($ports as $port) {
                     $device_tune = DeviceCache::getPrimary()->getAttrib('override_rrdtool_tune');
                     if ($port_tune == 'true' ||
                         ($device_tune == 'true' && $port_tune != 'false') ||
-                        (LibrenmsConfig::get('rrdtool_tune') == 'true' && $port_tune != 'false' && $device_tune != 'false')) {
+                        (twentyfouronlineConfig::get('rrdtool_tune') == 'true' && $port_tune != 'false' && $device_tune != 'false')) {
                         $tune_port = $port[$oid] < $current_oid; // only tune when speed goes up
                     }
                 }
@@ -738,7 +738,7 @@ foreach ($ports as $port) {
         }//end foreach
 
         // Parse description (usually ifAlias) if config option set
-        if (LibrenmsConfig::has('port_descr_parser') && is_file(LibrenmsConfig::get('install_dir') . '/' . LibrenmsConfig::get('port_descr_parser'))) {
+        if (twentyfouronlineConfig::has('port_descr_parser') && is_file(twentyfouronlineConfig::get('install_dir') . '/' . twentyfouronlineConfig::get('port_descr_parser'))) {
             $port_attribs = [
                 'type',
                 'descr',
@@ -748,7 +748,7 @@ foreach ($ports as $port) {
             ];
 
             $port_ifAlias = []; // for port descr parser mappings
-            include LibrenmsConfig::get('install_dir') . '/' . LibrenmsConfig::get('port_descr_parser');
+            include twentyfouronlineConfig::get('install_dir') . '/' . twentyfouronlineConfig::get('port_descr_parser');
 
             foreach ($port_attribs as $attrib) {
                 $attrib_key = 'port_descr_' . $attrib;
@@ -809,7 +809,7 @@ foreach ($ports as $port) {
                 }//end if
             }//end foreach
 
-            if (LibrenmsConfig::get('debug_port.' . $port['port_id'])) {
+            if (twentyfouronlineConfig::get('debug_port.' . $port['port_id'])) {
                 $port_debug = $port['port_id'] . '|' . $polled . '|' . $polled_period . '|' . $this_port['ifHCInOctets'] . '|' . $this_port['ifHCOutOctets'];
                 $port_debug .= '|' . $current_port_stats['ifInOctets_rate'] . '|' . $current_port_stats['ifOutOctets_rate'] . "\n";
                 file_put_contents('/tmp/port_debug.txt', $port_debug, FILE_APPEND);
@@ -910,12 +910,12 @@ foreach ($ports as $port) {
 
             // End Update PAgP
             // Do EtherLike-MIB
-            if (LibrenmsConfig::get('enable_ports_etherlike')) {
+            if (twentyfouronlineConfig::get('enable_ports_etherlike')) {
                 include 'ports/port-etherlike.inc.php';
             }
 
             // Do PoE MIBs
-            if (LibrenmsConfig::get('enable_ports_poe')) {
+            if (twentyfouronlineConfig::get('enable_ports_poe')) {
                 include 'ports/port-poe.inc.php';
             }
 
@@ -956,3 +956,7 @@ d_echo("$updated updated\n");
 
 // Clear Variables Here
 unset($port_stats, $ports_found, $data_oids, $stat_oids, $stat_oids_db, $stat_oids_db_extended, $cisco_oids, $pagp_oids, $ifmib_oids, $hc_test, $ports_mapped, $ports, $_stat_oids, $rrd_def);
+
+
+
+

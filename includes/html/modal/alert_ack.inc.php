@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 ?>
 <form class="form-horizontal">
@@ -48,7 +48,7 @@ use App\Facades\LibrenmsConfig;
             $('#ack_section').show();
         }
         document.getElementById('ack-alert').innerText = button_label;
-        $("#ack_until_clear").bootstrapSwitch('state', <?php echo LibrenmsConfig::get('alert.ack_until_clear') ? 'true' : 'false'; ?>);
+        $("#ack_until_clear").bootstrapSwitch('state', <?php echo twentyfouronlineConfig::get('alert.ack_until_clear') ? 'true' : 'false'; ?>);
     });
     $("#ack-alert").on("click", function(event) {
         event.preventDefault();
@@ -79,3 +79,7 @@ use App\Facades\LibrenmsConfig;
         });
     });
 </script>
+
+
+
+

@@ -5,8 +5,8 @@ namespace App\Observers;
 use App\Models\Eventlog;
 use App\Models\Ipv6Nd;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\IPv6;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\IPv6;
 
 class Ipv6NdObserver
 {
@@ -22,3 +22,7 @@ class Ipv6NdObserver
         }
     }
 }
+
+
+
+

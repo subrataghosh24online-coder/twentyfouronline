@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 LTM Virtual Server Details
+ * twentyfouronline module to display F5 LTM Virtual Server Details
  *
  * Copyright (c) 2021 Martin Bergström <martin@bergstr0m.se>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', 'f5-ltm-vs'];
 $components = $component->getComponents($device['device_id'], $options);
@@ -42,3 +42,7 @@ if (isset($components[$vars['id']])) {
         require 'includes/html/graphs/generic_simplex.inc.php';
     }
 }
+
+
+
+

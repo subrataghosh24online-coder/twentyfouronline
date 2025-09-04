@@ -63,3 +63,7 @@ SYSLOG DEFINITIONS ::= BEGIN
                             configuration to the persistent storage or clearing unsaved changes."
         ::= { syslogCfg 1000 }
 END
+
+
+
+

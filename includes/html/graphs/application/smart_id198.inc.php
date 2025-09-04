@@ -8,3 +8,7 @@ $smalldescrlen = 15;
 $rrdVar = 'id198';
 
 require 'smart-common.inc.php';
+
+
+
+

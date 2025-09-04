@@ -1,13 +1,13 @@
 <?php
 
-$COMPONENT = new LibreNMS\Component();
+$COMPONENT = new twentyfouronline\Component();
 $options = [];
 $options['filter']['ignore'] = ['=', 0];
 $options['type'] = 'Cisco-OTV';
 $COMPONENTS = $COMPONENT->getComponents(null, $options);
 
 foreach ($COMPONENTS as $DEVICE_ID => $COMP) {
-    $LINK = \LibreNMS\Util\Url::generate(['page' => 'device', 'device' => $DEVICE_ID, 'tab' => 'routing', 'proto' => 'cisco-otv']); ?>
+    $LINK = \twentyfouronline\Util\Url::generate(['page' => 'device', 'device' => $DEVICE_ID, 'tab' => 'routing', 'proto' => 'cisco-otv']); ?>
 <div class="panel panel-default" id="overlays-<?php echo $DEVICE_ID?>">
     <div class="panel-heading">
         <h3 class="panel-title"><a href="<?php echo $LINK?>"><?php echo gethostbyid($DEVICE_ID)?> - Overlay's & Adjacencies</a></h3>
@@ -48,3 +48,7 @@ foreach ($COMPONENTS as $DEVICE_ID => $COMP) {
 </div>
     <?php
 }
+
+
+
+

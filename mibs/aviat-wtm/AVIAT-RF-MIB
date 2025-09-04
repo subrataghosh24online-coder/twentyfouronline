@@ -619,3 +619,7 @@ AVIAT-RF-MIB DEFINITIONS ::= BEGIN
             ::= { aviatRfCompliance 1 }
 
 END
+
+
+
+

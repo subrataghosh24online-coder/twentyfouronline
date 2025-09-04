@@ -73,3 +73,7 @@ NPT-ROOT-MIB	DEFINITIONS ::= BEGIN
 	nptMsdp	OBJECT IDENTIFIER
 		::=  {  eciNpti  13  }
 END
+
+
+
+

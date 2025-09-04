@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\Http\Controllers\Ajax;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use LibreNMS\Util\Color;
+use twentyfouronline\Util\Color;
 
 class DeviceSearchController extends SearchController
 {
@@ -54,14 +54,14 @@ class DeviceSearchController extends SearchController
                     ->orWhere('serial', 'LIKE', $like_search)
                     ->orWhere('notes', 'LIKE', $like_search);
 
-                if (\LibreNMS\Util\IPv4::isValid($search, false)) {
+                if (\twentyfouronline\Util\IPv4::isValid($search, false)) {
                     $baseQuery->leftJoin('ports', 'ports.device_id', '=', 'devices.device_id')
                         ->leftJoin('ipv4_addresses', 'ipv4_addresses.port_id', 'ports.port_id');
 
                     $query->orWhere('ipv4_addresses.ipv4_address', '=', $search)
                         ->orWhere('overwrite_ip', '=', $search)
                         ->orWhere('ip', '=', inet_pton($search));
-                } elseif (\LibreNMS\Util\IPv6::isValid($search, false)) {
+                } elseif (\twentyfouronline\Util\IPv6::isValid($search, false)) {
                     $baseQuery->leftJoin('ports', 'ports.device_id', '=', 'devices.device_id')
                         ->leftJoin('ipv6_addresses', 'ipv6_addresses.port_id', 'ports.port_id');
 
@@ -92,14 +92,18 @@ class DeviceSearchController extends SearchController
         return [
             'name' => $name,
             'device_id' => $device->device_id,
-            'url' => \LibreNMS\Util\Url::deviceUrl($device),
+            'url' => \twentyfouronline\Util\Url::deviceUrl($device),
             'colours' => Color::forDeviceStatus($device),
             'device_ports' => $device->ports()->count(),
             'device_image' => $device->icon,
             'device_hardware' => $device->hardware,
-            'device_os' => LibrenmsConfig::getOsSetting($device->os, 'text'),
+            'device_os' => twentyfouronlineConfig::getOsSetting($device->os, 'text'),
             'version' => $device->version,
             'location' => $device->location,
         ];
     }
 }
+
+
+
+

@@ -262,3 +262,7 @@ AT-CAPABILITIES-MIB DEFINITIONS ::= BEGIN
 
         ::= { atAgents 1 }
 END
+
+
+
+

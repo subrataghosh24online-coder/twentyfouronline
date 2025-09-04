@@ -186,3 +186,7 @@ foreach ($graphs as $key => $text) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

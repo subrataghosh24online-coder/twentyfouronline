@@ -192,3 +192,6 @@ modules:
                         - { value: 6, generic: 3, graph: 1, descr: 'PWM' }
                         - { value: 7, generic: 3, graph: 1, descr: 'Float' }
                         - { value: 8, generic: 3, graph: 1, descr: 'Equalize' }
+
+
+

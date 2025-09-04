@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -54,3 +54,7 @@ $locations = dbFetchRows($sql, $params);
 $more = ($offset + count($locations)) < $total;
 
 return [$locations, $more];
+
+
+
+

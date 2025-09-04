@@ -9,8 +9,8 @@ use App\Models\Service;
 use App\Models\ServiceTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use LibreNMS\Alerting\QueryBuilderFilter;
-use LibreNMS\Services;
+use twentyfouronline\Alerting\QueryBuilderFilter;
+use twentyfouronline\Services;
 
 class ServiceTemplateController extends Controller
 {
@@ -438,3 +438,7 @@ class ServiceTemplateController extends Controller
         return response($msg, 200);
     }
 }
+
+
+
+

@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use App\Models\Device;
 use App\Models\Ipv4Address;
 use App\Models\Port;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Tests\DBTestCase;
+use twentyfouronline\Tests\DBTestCase;
 
 class DeviceTest extends DBTestCase
 {
@@ -102,3 +102,7 @@ class DeviceTest extends DBTestCase
         $this->assertEquals($device->device_id, $found->device_id, 'Did not find the correct device');
     }
 }
+
+
+
+

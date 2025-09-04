@@ -1,0 +1,19 @@
+33   */6  * * *   twentyfouronline    /opt/twentyfouronline/cronic /opt/twentyfouronline/discovery-wrapper.py 1
+*/5  *    * * *   twentyfouronline    /opt/twentyfouronline/discovery.php -h new >> /dev/null 2>&1
+
+*/5  *    * * *   twentyfouronline    /opt/twentyfouronline/cronic /opt/twentyfouronline/poller-wrapper.py 16
+*    *    * * *   twentyfouronline    /opt/twentyfouronline/alerts.php >> /dev/null 2>&1
+
+*/5  *    * * *   twentyfouronline    /opt/twentyfouronline/poll-billing.php >> /dev/null 2>&1
+01   *    * * *   twentyfouronline    /opt/twentyfouronline/billing-calculate.php >> /dev/null 2>&1
+*/5  *    * * *   twentyfouronline    /opt/twentyfouronline/check-services.php >> /dev/null 2>&1
+
+# Daily maintenance script. DO NOT DISABLE!
+# If you want to modify updates:
+#  Switch to monthly stable release: https://docs.twentyfouronline.org/General/Releases/
+#  Disable updates: https://docs.twentyfouronline.org/General/Updating/
+19   0    * * *   twentyfouronline    /opt/twentyfouronline/daily.sh >> /dev/null 2>&1
+
+
+
+

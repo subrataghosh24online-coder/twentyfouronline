@@ -436,3 +436,7 @@ MOXA-PORT-MIB DEFINITIONS ::= BEGIN
 
       ::= { portStatLinkUpDelayEntry 2 }
 END
+
+
+
+

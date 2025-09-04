@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,7 +27,7 @@
 namespace App\Http\Controllers;
 
 use App;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Application;
 use App\Models\Callback;
 use App\Models\Device;
@@ -55,9 +55,9 @@ use App\Models\Vrf;
 use App\Models\WirelessSensor;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use LibreNMS\Data\Store\Rrd;
-use LibreNMS\Util\Http;
-use LibreNMS\Util\Version;
+use twentyfouronline\Data\Store\Rrd;
+use twentyfouronline\Util\Http;
+use twentyfouronline\Util\Version;
 
 class AboutController extends Controller
 {
@@ -66,14 +66,14 @@ class AboutController extends Controller
         $version = Version::get();
 
         return view('about.index', [
-            'usage_reporting_status' => LibrenmsConfig::get('reporting.usage'),
-            'error_reporting_status' => LibrenmsConfig::get('reporting.error'),
+            'usage_reporting_status' => twentyfouronlineConfig::get('reporting.usage'),
+            'error_reporting_status' => twentyfouronlineConfig::get('reporting.error'),
             'reporting_clearable' => Callback::whereIn('name', ['uuid', 'error_reporting_uuid'])->exists(),
 
             'db_schema' => $version->database(),
             'git_log' => $version->git->log(),
             'git_date' => $version->date(),
-            'project_name' => LibrenmsConfig::get('project_name'),
+            'project_name' => twentyfouronlineConfig::get('project_name'),
 
             'version_local' => $version->name(),
             'version_database' => $version->databaseServer(),
@@ -82,7 +82,7 @@ class AboutController extends Controller
             'version_python' => $version->python(),
             'version_webserver' => $request->server('SERVER_SOFTWARE'),
             'version_rrdtool' => Rrd::version(),
-            'version_netsnmp' => str_replace('version: ', '', rtrim(shell_exec(LibrenmsConfig::get('snmpget', 'snmpget') . ' -V 2>&1'))),
+            'version_netsnmp' => str_replace('version: ', '', rtrim(shell_exec(twentyfouronlineConfig::get('snmpget', 'snmpget') . ' -V 2>&1'))),
 
             'stat_apps' => Application::count(),
             'stat_devices' => Device::count(),
@@ -117,7 +117,7 @@ class AboutController extends Controller
 
         // try to clear usage data if we have a uuid
         if ($usage_uuid) {
-            if (! Http::client()->post(LibrenmsConfig::get('callback_clear'), ['uuid' => $usage_uuid])->successful()) {
+            if (! Http::client()->post(twentyfouronlineConfig::get('callback_clear'), ['uuid' => $usage_uuid])->successful()) {
                 return response()->json([], 500); // don't clear if this fails to delete upstream data
             }
         }
@@ -128,3 +128,7 @@ class AboutController extends Controller
         return response()->json();
     }
 }
+
+
+
+

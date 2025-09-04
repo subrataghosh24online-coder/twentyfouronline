@@ -540,3 +540,7 @@ hh3cPosB3TCAlarm NOTIFICATION-TYPE
     ::={ hh3cPosMIBNotifications 17 }
 
 END
+
+
+
+

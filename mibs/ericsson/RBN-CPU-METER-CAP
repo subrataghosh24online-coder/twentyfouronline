@@ -172,3 +172,7 @@ rbnCpuMeterCap6 AGENT-CAPABILITIES
 
         ::= { rbnCpuMeterCap 6 }
 END
+
+
+
+

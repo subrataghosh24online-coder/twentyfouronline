@@ -5,8 +5,8 @@ namespace App\View\Components;
 use App\Models\Port;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Url;
 
 class PortLink extends Component
 {
@@ -93,3 +93,7 @@ class PortLink extends Component
         }, $vars);
     }
 }
+
+
+
+

@@ -171,3 +171,6 @@ raisecomPowerMonitorMibObjects    OBJECT IDENTIFIER ::= { raisecomPowerMonitor 2
         ::= {raisecomPowerMonitorStateEntry 6 }    
         
 END
+
+
+

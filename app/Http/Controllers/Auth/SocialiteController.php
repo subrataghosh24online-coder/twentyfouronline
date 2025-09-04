@@ -18,12 +18,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link https://www.librenms.org
+ * @link https://www.twentyfouronline.org
  */
 
 namespace App\Http\Controllers\Auth;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Config;
@@ -33,7 +33,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
-use LibreNMS\Exceptions\AuthenticationException;
+use twentyfouronline\Exceptions\AuthenticationException;
 
 class SocialiteController extends Controller
 {
@@ -58,7 +58,7 @@ class SocialiteController extends Controller
 
         // https://laravel.com/docs/10.x/socialite#access-scopes
         if ($driver instanceof \Laravel\Socialite\Two\AbstractProvider) {
-            $scopes = LibrenmsConfig::get('auth.socialite.scopes');
+            $scopes = twentyfouronlineConfig::get('auth.socialite.scopes');
             if (! empty($scopes) && is_array($scopes)) {
                 return $driver
                     ->scopes($scopes)
@@ -130,7 +130,7 @@ class SocialiteController extends Controller
 
     private function register(string $provider): void
     {
-        if (! LibrenmsConfig::get('auth.socialite.register', false)) {
+        if (! twentyfouronlineConfig::get('auth.socialite.register', false)) {
             return;
         }
 
@@ -149,7 +149,7 @@ class SocialiteController extends Controller
 
         $user->save();
 
-        $default_role = LibrenmsConfig::get('auth.socialite.default_role');
+        $default_role = twentyfouronlineConfig::get('auth.socialite.default_role');
         if ($default_role !== null && $default_role != 'none') {
             $user->syncRoles([$default_role]);
         }
@@ -157,8 +157,8 @@ class SocialiteController extends Controller
 
     private function setRolesFromClaim(string $provider, $user): bool
     {
-        $scopes = LibrenmsConfig::get('auth.socialite.scopes');
-        $claims = LibrenmsConfig::get('auth.socialite.claims');
+        $scopes = twentyfouronlineConfig::get('auth.socialite.scopes');
+        $claims = twentyfouronlineConfig::get('auth.socialite.claims');
 
         if (is_array($scopes) &&
             $this->socialite_user instanceof \Laravel\Socialite\AbstractUser &&
@@ -236,11 +236,11 @@ class SocialiteController extends Controller
     }
 
     /**
-     * Take the config from Librenms Config, and insert it into Laravel Config
+     * Take the config from twentyfouronline Config, and insert it into Laravel Config
      */
     private function injectConfig(): void
     {
-        foreach (LibrenmsConfig::get('auth.socialite.configs', []) as $provider => $config) {
+        foreach (twentyfouronlineConfig::get('auth.socialite.configs', []) as $provider => $config) {
             Config::set("services.$provider", $config);
 
             // Inject redirect URL automatically if not set
@@ -274,3 +274,7 @@ class SocialiteController extends Controller
         }
     }
 }
+
+
+
+

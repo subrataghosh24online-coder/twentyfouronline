@@ -8,7 +8,7 @@ A small shell script that exports apcacess ups status.
 1. Copy the shell script, unbound, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/ups-apcups -O /etc/snmp/ups-apcups
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/ups-apcups -O /etc/snmp/ups-apcups
     ```
 
 2. Make the script executable
@@ -34,3 +34,7 @@ A small shell script that exports apcacess ups status.
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

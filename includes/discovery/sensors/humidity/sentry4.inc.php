@@ -3,7 +3,7 @@
 /**
  * sentry4.inc.php
  *
- * LibreNMS humidity discovery module for Sentry4
+ * twentyfouronline humidity discovery module for Sentry4
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -35,3 +35,7 @@ foreach ($pre_cache['sentry4_humid'] as $index => $data) {
         discover_sensor(null, 'humidity', $device, $oid, "st4HumidSensorValue.$index", 'sentry4', $descr, 1, 1, $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $current);
     }
 }
+
+
+
+

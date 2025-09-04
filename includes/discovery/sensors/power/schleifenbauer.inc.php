@@ -31,3 +31,7 @@ if (isset($pre_cache['sdbDevOutMtPowerVoltAmpere']) && is_array($pre_cache['sdbD
         discover_sensor(null, 'power', $device, $power_oid, $serial_input, 'schleifenbauer', $descr, '1', '1', null, null, null, null, $sdbDevOutMtPowerVoltAmpere, 'snmp', $entPhysicalIndex);
     }
 }
+
+
+
+

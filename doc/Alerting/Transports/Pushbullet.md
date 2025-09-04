@@ -7,3 +7,7 @@ Get your Access Token from your Pushbullet's settings page and set it in your tr
 | Config | Example |
 | ------ | ------- |
 | Access Token | MYFANCYACCESSTOKEN |
+
+
+
+

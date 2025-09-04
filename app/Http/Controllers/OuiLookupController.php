@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 class OuiLookupController extends Controller
 {
@@ -35,3 +35,7 @@ class OuiLookupController extends Controller
         ]);
     }
 }
+
+
+
+

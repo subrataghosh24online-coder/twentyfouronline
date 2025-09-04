@@ -2,11 +2,11 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage cli
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
@@ -42,3 +42,7 @@ if ($argv[1] && $argv[2]) {
     echo "Host Rename Tool\nUsage: ./renamehost.php <old hostname> <new hostname>\n";
     exit(1);
 }
+
+
+
+

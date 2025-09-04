@@ -1,8 +1,8 @@
 ## Kayako Classic
 
-LibreNMS can send alerts to Kayako Classic API which are then
+twentyfouronline can send alerts to Kayako Classic API which are then
 converted to tickets. To use this module, you need REST API feature
-enabled in Kayako Classic and configured email account at LibreNMS. To
+enabled in Kayako Classic and configured email account at twentyfouronline. To
 enable this, do this:
 
 AdminCP -> REST API -> Settings -> Enable API (Yes)
@@ -28,3 +28,7 @@ connect to servicedesk
 | Kayako API Key | 8cc02f38-7465-4a0c-8730-bb3af122167b |
 | Kayako API Secret | Y2NhZDIxNDMtNjVkMi0wYzE0LWExYTUtZGUwMjJiZDI0ZWEzMmRhOGNiYWMtNTU2YS0yODk0LTA1MTEtN2VhN2YzYzgzZjk5 |
 | Kayako Department | 1 |
+
+
+
+

@@ -10,3 +10,7 @@ $category = 'cltos';
 $rrdVar = 'platform';
 
 require 'seafile-common.inc.php';
+
+
+
+

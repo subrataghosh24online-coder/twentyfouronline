@@ -3,7 +3,7 @@
 /**
  * firebrick.inc.php
  *
- * LibreNMS bgp_peers for Firebrick 2700/2900/6000
+ * twentyfouronline bgp_peers for Firebrick 2700/2900/6000
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Chris Malton (@cjsoftuk)
  * @author     Chris Malton (@cjsoftuk)
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\IP;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\IP;
 
 $bgpPeersCache = snmpwalk_cache_multi_oid($device, 'fbBgpPeerTable', [], 'FIREBRICK-BGP-MIB', 'firebrick');
 foreach ($bgpPeersCache as $key => $value) {
@@ -68,7 +68,7 @@ foreach ($bgpPeers ?? [] as $vrfId => $vrf) {
     }
     foreach ($vrf as $address => $value) {
         $bgpLocalAs = $value['fbBgpPeerLocalAS'] ?? $bgpLocalAs;
-        $astext = \LibreNMS\Util\AutonomousSystem::get($value['fbBgpPeerRemoteAS'])->name();
+        $astext = \twentyfouronline\Util\AutonomousSystem::get($value['fbBgpPeerRemoteAS'])->name();
         if (! DeviceCache::getPrimary()->bgppeers()->where('bgpPeerIdentifier', $address)->where('vrf_id', $vrfId)->exists()) {
             $peers = [
                 'vrf_id' => $vrfId,
@@ -89,7 +89,7 @@ foreach ($bgpPeers ?? [] as $vrfId => $vrf) {
 
             DeviceCache::getPrimary()->bgppeers()->create($peers);
 
-            if (LibrenmsConfig::get('autodiscovery.bgp')) {
+            if (twentyfouronlineConfig::get('autodiscovery.bgp')) {
                 $name = gethostbyaddr($address);
                 discover_new_device($name, $device, 'BGP');
             }
@@ -129,3 +129,7 @@ foreach ($peers as $value) {
         echo str_repeat('-', $deleted);
     }
 }
+
+
+
+

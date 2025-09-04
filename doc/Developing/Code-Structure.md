@@ -1,9 +1,9 @@
 # Code structure
 
 This document will try and provide a good overview of how the code is
-structured within LibreNMS. We will go through the main directories
+structured within twentyfouronline. We will go through the main directories
 and provide information on how and when they are used.
-LibreNMS now uses [Laravel](https://laravel.com/docs/) for much of
+twentyfouronline now uses [Laravel](https://laravel.com/docs/) for much of
 it's frontend (webui) and database code. Much of the Laravel
 documentation applies: <https://laravel.com/docs/structure>
 
@@ -29,7 +29,7 @@ directories that will be most interesting during development:
 │  │  ├─ pages
 │  │  └─ reports
 │  └─ polling
-├─ LibreNMS
+├─ twentyfouronline
 ├─ logs
 ├─ mibs
 └─ rrd
@@ -37,14 +37,14 @@ directories that will be most interesting during development:
 
 ### doc/
 
-This is the location of all the documentation for LibreNMS, this is in
+This is the location of all the documentation for twentyfouronline, this is in
 GitHub markdown format and can be viewed [online](@= config.site_url =@)
 
 ### app/
 
 Most Laravel and Eloquent classes should be under this directory.
 
-### LibreNMS/
+### twentyfouronline/
 
 Classes that don't belong to the Laravel application belong in this
 directory, with a directory structure that matches the namespace.  One
@@ -62,7 +62,7 @@ function based on the API endpoint call.
 
 ### html/index.php
 
-This is the main file which all links within LibreNMS are parsed
+This is the main file which all links within twentyfouronline are parsed
 through. It loads the majority of the relevant includes needed for the
 control panel to function. CSS and JS files are also loaded here.
 
@@ -142,7 +142,7 @@ for example `/devices/` is actually a call to
 
 ### logs/
 
-Contains the main librenms.log file by default, but can also contain
+Contains the main twentyfouronline.log file by default, but can also contain
 your web server's logs, poller logs, and other items.
 
 ### mibs/
@@ -166,3 +166,7 @@ In general to create a new table you should run:
 ```bash
 php artisan make:model ModelName -m -c -r
 ```
+
+
+
+

@@ -59,7 +59,7 @@ return [
         'active_directory' => [
             'users_purge' => [
                 'description' => 'Behalte inaktive Nutzer',
-                'help' => 'Benutzer werden von LibreNMS gelöscht nach diesen Tagen Inaktivität. 0 bedeutet nie und der Benutzer wird neu erstellt wenn er sich erneut anmeldet',
+                'help' => 'Benutzer werden von twentyfouronline gelöscht nach diesen Tagen Inaktivität. 0 bedeutet nie und der Benutzer wird neu erstellt wenn er sich erneut anmeldet',
             ],
         ],
         'addhost_alwayscheckip' => [
@@ -323,7 +323,7 @@ return [
         ],
         'distributed_poller' => [
             'description' => 'aktiviere Distributed Polling (benötigt zusätzliche Konfiguration)',
-            'help' => 'Aktiviere systemweites Distributed Polling. Dies wird genutzt für Lastverteilung und nicht remote Polling. Lesen Sie hierzu folgende Dokumentation: https://docs.librenms.org/Extensions/Distributed-Poller/',
+            'help' => 'Aktiviere systemweites Distributed Polling. Dies wird genutzt für Lastverteilung und nicht remote Polling. Lesen Sie hierzu folgende Dokumentation: https://docs.twentyfouronline.org/Extensions/Distributed-Poller/',
         ],
         'distributed_poller_group' => [
             'description' => 'Standard Poller Gruppe',
@@ -496,7 +496,7 @@ return [
         ],
         'mydomain' => [
             'description' => 'Primäre Domain',
-            'help' => 'Diese Domain wird genutzt für Netzwerkautoerkennung und andere Prozesse. LibreNMS wird versuchen diese Hostnamen hinzuzufügen.',
+            'help' => 'Diese Domain wird genutzt für Netzwerkautoerkennung und andere Prozesse. twentyfouronline wird versuchen diese Hostnamen hinzuzufügen.',
         ],
         'nfsen_enable' => [
             'description' => 'Aktiviere NfSen',
@@ -547,8 +547,8 @@ return [
             'description' => 'Pfad zu nmap',
         ],
         'own_hostname' => [
-            'description' => 'LibreNMS hostname',
-            'help' => 'Sollte auf den hostname/ip des LibreNMS Servers gesetzt werden',
+            'description' => 'twentyfouronline hostname',
+            'help' => 'Sollte auf den hostname/ip des twentyfouronline Servers gesetzt werden',
         ],
         'oxidized' => [
             'default_group' => [
@@ -605,7 +605,7 @@ return [
         ],
         'rrd_dir' => [
             'description' => 'RRD Verzeichnis',
-            'help' => 'Verzeichnis für RRD Dateien. Standardmässig ist RRD innerhalb des LibreNMS Verzeichnisses. Eine Änderung verschiebt nicht die vorhandenen RRD Dateien.',
+            'help' => 'Verzeichnis für RRD Dateien. Standardmässig ist RRD innerhalb des twentyfouronline Verzeichnisses. Eine Änderung verschiebt nicht die vorhandenen RRD Dateien.',
         ],
         'rrd_purge' => [
             'description' => 'RRD Dateien älter als',
@@ -807,3 +807,7 @@ return [
         'array' => 'Ungültiges Format',
     ],
 ];
+
+
+
+

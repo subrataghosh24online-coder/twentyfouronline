@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use Illuminate\Database\Events\QueryExecuted;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 use Log;
 
 class QueryDebugListener
@@ -40,3 +40,7 @@ class QueryDebugListener
         }
     }
 }
+
+
+
+

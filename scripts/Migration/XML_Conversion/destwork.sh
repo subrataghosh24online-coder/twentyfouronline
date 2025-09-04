@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Observium to LibreNMS conversion
+# Observium to twentyfouronline conversion
 
 ####################### SCRIPT DESCRIPTION ########################
 # This script converts the XML files from Observium back to RRD   #
-# files for use with LibreNMS. It then adds the device using the  #
-# Addhost function of LibreNMS                                    #
+# files for use with twentyfouronline. It then adds the device using the  #
+# Addhost function of twentyfouronline                                    #
 ###################################################################
 
 ########################### DIRECTIONS ############################
@@ -13,20 +13,20 @@
 ###################################################################
 
 ############################# CREDITS #############################
-# LibreNMS work is done by a great group - https://www.librenms.org    #
+# twentyfouronline work is done by a great group - https://www.twentyfouronline.org    #
 # Script Written by - Dan Brown - http://vlan50.com               #
 ###################################################################
 
-# Enter path to LibreNMS RRD directories
-L_RRDPATH=/opt/librenms/rrd/
+# Enter path to twentyfouronline RRD directories
+L_RRDPATH=/opt/twentyfouronline/rrd/
 # Enter your unique SNMP String
 SNMPSTRING=cisconetwork
 # Enter SNMP version of all clients in nodelist text file
 SNMPVERSION=v2c
 # Enter path to nodelist text file
 NODELIST=/tmp/nodelist.txt
-# Enter user and group of LibreNMS installation
-L_USRGRP=librenms
+# Enter user and group of twentyfouronline installation
+L_USRGRP=twentyfouronline
 
 # Loop enters RRD directory and then each folder based on contents of node list text file
 while read -r line
@@ -36,10 +36,14 @@ while read -r line
 		for f in *.xml; do rrdtool restore "${f}" "$(echo "${f}" | cut -f1 -d .)".rrd; done;
 		# Remove leftover XML files
 		rm ./*.xml;
-		# Change ownership to LibreNMS user and group
+		# Change ownership to twentyfouronline user and group
 		chown -R $L_USRGRP:$L_USRGRP .;
-		# Add the host to LibreNMS
+		# Add the host to twentyfouronline
 		lnms device:add --$SNMPVERSION -c$SNMPSTRING "${line%/*}"
 		# Change back to parent directory
 		cd ..;
 	done < $NODELIST
+
+
+
+

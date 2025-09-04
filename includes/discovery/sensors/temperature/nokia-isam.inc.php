@@ -17,3 +17,7 @@ foreach ($snmp_data['nokiaIsamSlotTemperature'] as $slotId => $slot) {
         }
     }
 }
+
+
+
+

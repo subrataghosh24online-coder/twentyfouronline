@@ -312,3 +312,7 @@
 					"System temperature in mF."
 				::= { deviceInfoTemperature 2 }
 END
+
+
+
+

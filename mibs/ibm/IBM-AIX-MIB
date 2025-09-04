@@ -3753,3 +3753,7 @@ aixAdapterGroup OBJECT-GROUP
 		information about the adapters."
 	::= {aixCfmGroup 25}
 END
+
+
+
+

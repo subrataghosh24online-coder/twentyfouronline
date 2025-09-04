@@ -1794,3 +1794,7 @@ JNX-L2TP-MIB DEFINITIONS ::= BEGIN
            ::= { jnxL2tpMlpppBundleStatsEntry 5 }
 
 END
+
+
+
+

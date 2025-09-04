@@ -66,9 +66,9 @@ if (is_file("includes/html/pages/device/routing/$protocol.inc.php")) {
             if (is_file("includes/html/pages/device/routing/overview/$type.inc.php")) {
                 $g_i++;
                 if (! is_integer($g_i / 2)) {
-                    $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+                    $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
                 } else {
-                    $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+                    $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
                 }
 
                 echo '<div style="background-color: ' . $row_colour . ';">';
@@ -87,3 +87,7 @@ if (is_file("includes/html/pages/device/routing/$protocol.inc.php")) {
         }//end if
     }//end foreach
 }//end if
+
+
+
+

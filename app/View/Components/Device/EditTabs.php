@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\View\Components\Device;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
@@ -67,7 +67,7 @@ class EditTabs extends Component
             ];
         }
 
-        if (count(LibrenmsConfig::get("os.{$device->os}.icons", []))) {
+        if (count(twentyfouronlineConfig::get("os.{$device->os}.icons", []))) {
             $this->tabs['icon'] = [
                 'text' => __('Icon'),
                 'link' => url('/device/device=' . $this->device->device_id . '/tab=edit/section=icon/'),
@@ -93,7 +93,7 @@ class EditTabs extends Component
             ];
         }
 
-        if (LibrenmsConfig::get('show_services')) {
+        if (twentyfouronlineConfig::get('show_services')) {
             $this->tabs['services'] = [
                 'text' => __('Services'),
                 'link' => url('/device/device=' . $this->device->device_id . '/tab=edit/section=services/'),
@@ -158,3 +158,7 @@ class EditTabs extends Component
         return view('components.device.edit-tabs');
     }
 }
+
+
+
+

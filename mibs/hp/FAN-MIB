@@ -234,3 +234,7 @@ hpicfFanAirflowDirection OBJECT-TYPE
       DESCRIPTION "FAN MIB parameters "
       ::= { hpicfFanGroups 2 }
 END
+
+
+
+

@@ -10,3 +10,7 @@ $category = 'cltver';
 $rrdVar = 'version';
 
 require 'seafile-common.inc.php';
+
+
+
+

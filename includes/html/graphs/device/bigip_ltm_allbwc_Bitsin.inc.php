@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 LTM Bandwidth Controller Details
+ * twentyfouronline module to display F5 LTM Bandwidth Controller Details
  *
  * Copyright (c) 2019 Yacine BENAMSILI <https://github.com/yac01/ yacine.benamsili@homail.com>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', 'f5-ltm-bwc'];
 $components = $component->getComponents($device['device_id'], $options);
@@ -23,7 +23,7 @@ $components = $components[$device['device_id']];
 include 'includes/html/graphs/common.inc.php';
 $rrd_options .= ' -l 0 -E ';
 $rrd_options .= " COMMENT:'LTM Bandwidth Controller       Now      Avg      Max\\n'";
-$colours = array_merge(\App\Facades\LibrenmsConfig::get('graph_colours.mixed'), \App\Facades\LibrenmsConfig::get('graph_colours.manycolours'));
+$colours = array_merge(\App\Facades\twentyfouronlineConfig::get('graph_colours.mixed'), \App\Facades\twentyfouronlineConfig::get('graph_colours.manycolours'));
 $colcount = 0;
 $count = 0;
 
@@ -51,3 +51,7 @@ foreach ($components as $compid => $comp) {
         $colcount++;
     }
 }
+
+
+
+

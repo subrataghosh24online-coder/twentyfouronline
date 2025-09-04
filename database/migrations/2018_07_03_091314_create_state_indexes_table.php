@@ -28,3 +28,7 @@ return new class extends Migration
         Schema::drop('state_indexes');
     }
 };
+
+
+
+

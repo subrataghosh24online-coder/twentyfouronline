@@ -7,7 +7,7 @@ Superseded by the [generalized NFS support](NFS.md).
 1. Copy the shell script, fbsdnfsserver, to the desired host
 
 ```bash
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsclient -O /etc/snmp/fbsdnfsclient
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/fbsdnfsclient -O /etc/snmp/fbsdnfsclient
 ```
 
 2. Make the script executable
@@ -27,3 +27,7 @@ extend fbsdnfsclient /etc/snmp/fbsdnfsclient
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

@@ -10,7 +10,7 @@ This might come in handy when trying to clean up old ports after large changes
 within the network or when hacking on the poller/discovery functions.
 
 ```
-LibreNMS Port purge tool
+twentyfouronline Port purge tool
 -p port_id  Purge single port by it's port-id
 -f file     Purge a list of ports, read port-ids from _file_, one on each line
             A filename of - means reading from STDIN.
@@ -35,3 +35,7 @@ purge-ports.php with that file as input:
 echo 'SELECT port_id FROM ports, devices WHERE devices.device_id = ports.device_id AND deleted = 1' | mysql -h your_DB_server -u your_DB_user -p --skip-column-names your_DB_name > ports_to_delete
 ./purge-port.php -f ports_to_delete
 ```
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Jozef Rebjak
  * @author     Jozef Rebjak <jozefrebjak@icloud.com>
@@ -69,3 +69,7 @@ if (is_numeric($fan)) {
     $descr = 'Fan State';
     discover_sensor(null, 'state', $device, $oid_fan, $index, $state_name, $descr, 1, 1, null, null, null, null, $fan, 'snmp', $index);
 }
+
+
+
+

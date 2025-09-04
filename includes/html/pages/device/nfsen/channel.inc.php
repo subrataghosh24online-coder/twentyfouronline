@@ -20,3 +20,7 @@ foreach ($datas as $name => $type) {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

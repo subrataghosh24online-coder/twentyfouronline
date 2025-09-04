@@ -10,7 +10,7 @@ Different applications support a variety of ways to collect data:
 3. [The agent](Agent-Setup.md).
 
 The monitoring of applications could be added
-before or after the hosts have been added to LibreNMS.
+before or after the hosts have been added to twentyfouronline.
 
 If multiple methods of collection are listed you only need to enable one.
 
@@ -18,7 +18,7 @@ If multiple methods of collection are listed you only need to enable one.
 
 When using the `snmp extend` method, the application discovery module
 will pick up which applications you have set up for monitoring
-automatically, even if the device is already in LibreNMS. The
+automatically, even if the device is already in twentyfouronline. The
 application discovery module is enabled by default for most \*nix
 operating systems, but in some cases you will need to manually enable
 the application discovery module.
@@ -66,14 +66,14 @@ Then test if you can run the extend script as that user without issue.
     ```
 
 
-### JSON Return Optimization Using librenms_return_optimizer
+### JSON Return Optimization Using twentyfouronline_return_optimizer
 
 While the `json_app_get` does allow for more complex and larger data
 to be easily returned by a extend and the data to then be worked
 with, this can also sometimes result in large returns that
 occasionally don't play nice with SNMP on some networks.
 
-`librenms_return_optimizer` fixes this via taking the extend output
+`twentyfouronline_return_optimizer` fixes this via taking the extend output
 piped to it, gzipping it, and then converting it to base64. The
 later is needed as net-snmp does not play that nice with binary data,
 converting most of the non-printable characters to `.`. This does add
@@ -98,8 +98,8 @@ The requirements for this are `Perl`, `MIME::Base64`, and `Gzip::Faster`.
 === "FreeBSD"
 ```bash
 pkg install p5-MIME-Base64 p5-Gzip-Faster wget
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/utils/librenms_return_optimizer -O /usr/local/bin/librenms_return_optimizer
-chmod +x /usr/local/bin/librenms_return_optimizer
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/utils/twentyfouronline_return_optimizer -O /usr/local/bin/twentyfouronline_return_optimizer
+chmod +x /usr/local/bin/twentyfouronline_return_optimizer
 ```
 
 === "Debian/Ubuntu"
@@ -107,8 +107,8 @@ chmod +x /usr/local/bin/librenms_return_optimizer
 apt-get install zlib1g-dev cpanminus wget
 cpanm Gzip::Faster
 cpanm MIME::Base64
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/utils/librenms_return_optimizer -O /usr/local/bin/librenms_return_optimizer
-chmod +x /usr/local/bin/librenms_return_optimizer
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/utils/twentyfouronline_return_optimizer -O /usr/local/bin/twentyfouronline_return_optimizer
+chmod +x /usr/local/bin/twentyfouronline_return_optimizer
 ```
 
 === "CentOS/RedHat"
@@ -116,8 +116,8 @@ chmod +x /usr/local/bin/librenms_return_optimizer
 yum install zlib-devel perl-CPAN wget
 cpan Gzip::Faster
 cpan MIME::Base64
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/utils/librenms_return_optimizer -O /usr/local/bin/librenms_return_optimizer
-chmod +x /usr/local/bin/librenms_return_optimizer
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/utils/twentyfouronline_return_optimizer -O /usr/local/bin/twentyfouronline_return_optimizer
+chmod +x /usr/local/bin/twentyfouronline_return_optimizer
 ```
 
 Currently supported applications as are below.
@@ -162,10 +162,10 @@ if congiured to do so.
 
 After you have enabled the application module, it would be wise to
 then also enable which applications you want to monitor, in the rare
-case where LibreNMS does not automatically detect it.
+case where twentyfouronline does not automatically detect it.
 
 **Note**: Only do this if an application was not auto-discovered by
-LibreNMS during discovery and polling.
+twentyfouronline during discovery and polling.
 
 ## Enable the application(s) to be discovered
 
@@ -186,3 +186,7 @@ be manually enabled if using the agent. Some applications will be
 automatically enabled by the unix-agent poller module. It is better to
 ensure that your application is enabled for monitoring. You can check
 by following the steps under the `SNMP Extend` heading.
+
+
+
+

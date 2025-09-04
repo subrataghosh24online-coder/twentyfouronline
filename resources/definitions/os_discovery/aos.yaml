@@ -49,3 +49,7 @@ modules:
                 oid: rlCpuUtilDuringLastMinute
                 num_oid: '.1.3.6.1.4.1.89.1.8.{{ $index }}'
                 index: 0
+
+
+
+

@@ -33,3 +33,7 @@ if (isset($pre_cache['sdbDevOutMtActualVoltage']) && is_array($pre_cache['sdbDev
         discover_sensor(null, 'voltage', $device, $voltage_oid, $serial_input, 'schleifenbauer', $descr, $divisor, '1', null, null, null, null, $voltage, 'snmp', $entPhysicalIndex);
     }
 }
+
+
+
+

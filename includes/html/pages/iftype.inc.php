@@ -7,7 +7,7 @@ $ports = get_ports_from_type($types_array);
 $if_list = implode(',', array_map(fn ($port) => $port['port_id'], $ports));
 
 // show title from config file (but ucwords it)
-$ctypes = collect(\App\Facades\LibrenmsConfig::get('custom_descr', []))->keyBy(function ($descr) {
+$ctypes = collect(\App\Facades\twentyfouronlineConfig::get('custom_descr', []))->keyBy(function ($descr) {
     if (is_array($descr)) {
         return strtolower($descr[0]);
     }
@@ -51,7 +51,7 @@ if ($if_list) {
             <td colspan='5'";
 
         if (dbFetchCell('SELECT count(*) FROM mac_accounting WHERE port_id = ?', [$port['port_id']])) {
-            echo "<span style='float: right;'><a href='" . \LibreNMS\Util\Url::generate(['page' => 'device', 'device' => $port['device_id'], 'tab' => 'port', 'port' => $port['port_id'], 'view' => 'macaccounting']) . "'><i class='fa fa-pie-chart fa-lg icon-theme' aria-hidden='true'></i> MAC Accounting</a></span>";
+            echo "<span style='float: right;'><a href='" . \twentyfouronline\Util\Url::generate(['page' => 'device', 'device' => $port['device_id'], 'tab' => 'port', 'port' => $port['port_id'], 'view' => 'macaccounting']) . "'><i class='fa fa-pie-chart fa-lg icon-theme' aria-hidden='true'></i> MAC Accounting</a></span>";
         }
 
         echo '<br />';
@@ -70,3 +70,7 @@ if ($if_list) {
 
 ?>
 </table>
+
+
+
+

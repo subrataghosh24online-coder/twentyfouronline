@@ -26,7 +26,7 @@
 2: Fetch the script in question and make it executable.
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs -O /etc/snmp/zfs
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/zfs -O /etc/snmp/zfs
     chmod +x /etc/snmp/zfs
     ```
 
@@ -35,3 +35,7 @@
     ```bash
     extend zfs /etc/snmp/zfs -b
     ```
+
+
+
+

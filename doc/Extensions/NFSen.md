@@ -1,6 +1,6 @@
 # NFSen
 
-> The installation of NFSen is out of scope for this document / LibreNMS
+> The installation of NFSen is out of scope for this document / twentyfouronline
 
 ## Configuration
 
@@ -46,15 +46,15 @@ for most systems will be as below.
     ```
 
 When adding sources to nfsen.conf, it is important to use the hostname
-that matches what is configured in LibreNMS, because the rrd files
+that matches what is configured in twentyfouronline, because the rrd files
 NfSen creates is named after the source name (ident), and it doesn't
-allow you to use an IP address instead. However, in LibreNMS, if your
+allow you to use an IP address instead. However, in twentyfouronline, if your
 device is added by an IP address, add your source with any name of
 your choice, and create a symbolic link to the rrd file.
 
 ```bash
 cd /var/nfsen/profiles-stat/sitea/
-ln -s mychannel.rrd librenmsdeviceIP.rrd
+ln -s mychannel.rrd twentyfouronlinedeviceIP.rrd
 ```
 
 !!! setting "external/nfsen"
@@ -191,4 +191,8 @@ The above is the last default to use from the drop down.
 The above associative array contains time intervals for how
 far back to go. The keys are the length in seconds and the
 value is just a description to display.
+
+
+
+
 

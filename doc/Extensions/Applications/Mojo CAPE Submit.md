@@ -17,3 +17,7 @@ This assumes you've already configured `mojo_cape_submit` from `CAPE::Utils`.
     ```
 
 Then just wait for the machine in question to be rediscovered or enabled it in the device settings app page.
+
+
+
+

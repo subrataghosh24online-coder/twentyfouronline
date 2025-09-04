@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Sensor;
-use LibreNMS\Exceptions\RrdGraphException;
+use twentyfouronline\Exceptions\RrdGraphException;
 
 require 'includes/html/graphs/common.inc.php';
 
@@ -29,7 +29,7 @@ foreach ($sensors as $index => $sensor) {
         default => 'FF0084',
     };
 
-    $sensor_descr_fixed = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($sensor->sensor_descr, 12);
+    $sensor_descr_fixed = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($sensor->sensor_descr, 12);
     $rrd_filename = get_sensor_rrd($device, $sensor);
     $field = 'sensor' . $sensor->sensor_id;
     $rrd_options .= " DEF:$field=$rrd_filename:sensor:AVERAGE";
@@ -45,3 +45,7 @@ foreach ($sensors as $index => $sensor) {
     $rrd_options .= " GPRINT:$field:MAX:%5.1lf$unit_short";
     $rrd_options .= " GPRINT:$field:AVERAGE:%5.2lf$unit_short\\l ";
 }//end foreach
+
+
+
+

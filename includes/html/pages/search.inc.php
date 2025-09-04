@@ -46,3 +46,7 @@ if (file_exists("includes/html/pages/search/$search_type.inc.php")) {
 } else {
     echo 'Unknown search type';
 }
+
+
+
+

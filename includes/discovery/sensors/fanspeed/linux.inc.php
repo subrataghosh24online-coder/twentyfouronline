@@ -1,5 +1,9 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
-include LibrenmsConfig::get('install_dir') . '/includes/discovery/sensors/fanspeed/supermicro.inc.php';
+include twentyfouronlineConfig::get('install_dir') . '/includes/discovery/sensors/fanspeed/supermicro.inc.php';
+
+
+
+

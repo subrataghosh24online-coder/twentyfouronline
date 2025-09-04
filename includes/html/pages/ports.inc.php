@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use App\Models\Port;
@@ -35,7 +35,7 @@ foreach ($menu_options as $option => $text) {
     if ($vars['format'] == 'list_' . $option) {
         $displayLists .= '<span class="pagemenu-selected">';
     }
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['format' => 'list_' . $option]) . '">' . $text . '</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['format' => 'list_' . $option]) . '">' . $text . '</a>';
     if ($vars['format'] == 'list_' . $option) {
         $displayLists .= '</span>';
     }
@@ -54,7 +54,7 @@ foreach ($menu_options as $option => $text) {
     if ($vars['format'] == 'graph_' . $option) {
         $displayLists .= '<span class="pagemenu-selected">';
     }
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['format' => 'graph_' . $option]) . '">' . $text . '</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['format' => 'graph_' . $option]) . '">' . $text . '</a>';
     if ($vars['format'] == 'graph_' . $option) {
         $displayLists .= '</span>';
     }
@@ -62,20 +62,20 @@ foreach ($menu_options as $option => $text) {
 }
 
 $displayLists .= '<div style="float: right;">';
-$displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars) . '" title="Update the browser URL to reflect the search criteria.">Update URL</a> | ';
+$displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars) . '" title="Update the browser URL to reflect the search criteria.">Update URL</a> | ';
 
 if (isset($vars['searchbar']) && $vars['searchbar'] == 'hide') {
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['searchbar' => '']) . '">Search</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['searchbar' => '']) . '">Search</a>';
 } else {
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['searchbar' => 'hide']) . '">Search</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['searchbar' => 'hide']) . '">Search</a>';
 }
 
 $displayLists .= ' | ';
 
 if (isset($vars['bare']) && $vars['bare'] == 'yes') {
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['bare' => '']) . '">Header</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['bare' => '']) . '">Header</a>';
 } else {
-    $displayLists .= '<a href="' . \LibreNMS\Util\Url::generate($vars, ['bare' => 'yes']) . '">Header</a>';
+    $displayLists .= '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['bare' => 'yes']) . '">Header</a>';
 }
 
 $displayLists .= ' | ';
@@ -140,7 +140,7 @@ if ((isset($vars['searchbar']) && $vars['searchbar'] != 'hide') || ! isset($vars
     foreach ($ifSpeed as $data) {
         if ($data['ifSpeed']) {
             $speedselected = isset($vars['ifSpeed']) && $data['ifSpeed'] == $vars['ifSpeed'] ? 'selected' : '';
-            $output .= "<option value='" . $data['ifSpeed'] . "'" . $speedselected . '>' . \LibreNMS\Util\Number::formatSi($data['ifSpeed'], 2, 0, 'bps') . '</option>';
+            $output .= "<option value='" . $data['ifSpeed'] . "'" . $speedselected . '>' . \twentyfouronline\Util\Number::formatSi($data['ifSpeed'], 2, 0, 'bps') . '</option>';
         }
     }
 
@@ -216,7 +216,7 @@ if ((isset($vars['searchbar']) && $vars['searchbar'] != 'hide') || ! isset($vars
     $output .= "<input type='checkbox' id='deleted' name='deleted' value='1' " . $deletedcheck . '>&nbsp;';
 
     $output .= "<button type='submit' class='btn btn-default btn-sm'>Search</button>&nbsp;";
-    $output .= "<a class='btn btn-default btn-sm' href='" . \LibreNMS\Util\Url::generate(['page' => 'ports', 'section' => $vars['section'] ?? '', 'bare' => $vars['bare'] ?? '']) . "' title='Reset critera to default.'>Reset</a>";
+    $output .= "<a class='btn btn-default btn-sm' href='" . \twentyfouronline\Util\Url::generate(['page' => 'ports', 'section' => $vars['section'] ?? '', 'bare' => $vars['bare'] ?? '']) . "' title='Reset critera to default.'>Reset</a>";
 
     $output .= '</div>';
 
@@ -256,3 +256,7 @@ if (isset($vars['purge'])) {
 if (file_exists('includes/html/pages/ports/' . $format . '.inc.php')) {
     require 'includes/html/pages/ports/' . $format . '.inc.php';
 }
+
+
+
+

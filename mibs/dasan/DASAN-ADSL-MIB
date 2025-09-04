@@ -3541,3 +3541,6 @@ dsAdslAturTraps OBJECT IDENTIFIER ::= {dsAdslTrap 2}
 			"Forward error correction  Seconds 1-day interval threshold is reached"
 		::= { dsAdslAturTraps  10 }
 END 
+
+
+

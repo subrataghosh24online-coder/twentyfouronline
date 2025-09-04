@@ -26,3 +26,7 @@ $divider = 1000;
 $scale_min = 0;
 
 require 'includes/html/graphs/generic_v3_multiline_float.inc.php';
+
+
+
+

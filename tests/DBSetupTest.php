@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
- * @author     Neil Lathwood <librenms+n@laf.io>
+ * @author     Neil Lathwood <twentyfouronline+n@laf.io>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
 use Artisan;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\DB\Schema;
+use twentyfouronline\DB\Schema;
 
 class DBSetupTest extends DBTestCase
 {
@@ -131,3 +131,7 @@ class DBSetupTest extends DBTestCase
         }
     }
 }
+
+
+
+

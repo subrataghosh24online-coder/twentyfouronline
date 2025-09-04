@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to capture statistics from the CISCO-NTP-MIB
+ * twentyfouronline module to capture statistics from the CISCO-NTP-MIB
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -11,7 +11,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['ignore'] = ['=', 0];
 $options['type'] = 'ntp';
@@ -60,7 +60,7 @@ foreach ($components as $peer) {
         $graph_array['device'] = $device['device_id'];
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_ntp_stratum';
         require 'includes/html/print-graphrow.inc.php';
 
@@ -79,7 +79,7 @@ foreach ($components as $peer) {
         $graph_array['device'] = $device['device_id'];
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_ntp_offset';
         require 'includes/html/print-graphrow.inc.php';
 
@@ -98,7 +98,7 @@ foreach ($components as $peer) {
         $graph_array['device'] = $device['device_id'];
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_ntp_delay';
         require 'includes/html/print-graphrow.inc.php';
 
@@ -117,10 +117,14 @@ foreach ($components as $peer) {
         $graph_array['device'] = $device['device_id'];
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_ntp_dispersion';
         require 'includes/html/print-graphrow.inc.php';
 
         ?>
     </div>
 </div>
+
+
+
+

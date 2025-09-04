@@ -4,3 +4,7 @@ modules:
     version_regex: '/(Cisco ADE-OS )?(?<version>.*)/'
     serial: ENTITY-MIB::entPhysicalSerialNum.1
     hardware: ENTITY-MIB::entPhysicalModelName.1
+
+
+
+

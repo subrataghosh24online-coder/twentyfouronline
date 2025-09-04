@@ -15,13 +15,13 @@
   "See the <a href=\":url\">list of contributors</a> on GitHub.": "Смотрите <a href=\":url\">список авторов</a> на GitHub.",
   "Docs": "Документация",
   "Close": "Закрыть",
-  "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS — это система мониторинга сети с автоматическим обнаружением на базе PHP/MySQL.",
+  "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline — это система мониторинга сети с автоматическим обнаружением на базе PHP/MySQL.",
   "Packages": "Пакеты",
   "Disabled": "Отключено",
   "Version": "Версия",
   "Database Schema": "Схема базы данных",
   "Web Server": "Веб-сервер",
-  "LibreNMS is a community-based project": "LibreNMS — это проект, основанный на сообществе",
+  "twentyfouronline is a community-based project": "twentyfouronline — это проект, основанный на сообществе",
   "Please feel free to join us and contribute code, documentation, and bug reports:": "Пожалуйста, присоединяйтесь к нам и вносите свой вклад в код, документацию и отчеты об ошибках:",
   "Web site": "Веб-сайт",
   "Bug tracker": "Трекер ошибок",
@@ -30,7 +30,7 @@
   "Local git log": "Локальный git лог",
   "Contributors": "Авторы",
   "Acknowledgements": "Благодарности",
-  "Opt in to send anonymous usage statistics to LibreNMS?": "Хотите отправить анонимные статистические данные об использовании LibreNMS?",
+  "Opt in to send anonymous usage statistics to twentyfouronline?": "Хотите отправить анонимные статистические данные об использовании twentyfouronline?",
   "Online stats:": "Онлайн статистика:",
   "Clear remote stats": "Очистить удаленную статистику",
   "IPv4 Addresses": "IPv4 адреса",
@@ -212,7 +212,7 @@
   "The user could not be deleted": "Пользователь не может быть удален",
   "Whoops, the web server could not write required files to the filesystem.": "Упс, веб-сервер не может записать необходимые файлы в файловую систему.",
   "Running the following commands will fix the issue most of the time:": "В большинстве случаев выполнение следующих команд решит проблему:",
-  "Whoops, looks like something went wrong. Check your librenms.log.": "Упс, похоже, что что-то пошло не так. Проверьте ваш librenms.log для подробностей.",
+  "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "Упс, похоже, что что-то пошло не так. Проверьте ваш twentyfouronline.log для подробностей.",
   "Public Devices": "Публичные устройства",
   "System Status": "Статус системы",
   "Logon": "Вход",
@@ -400,4 +400,8 @@
   "History": "История",
   "Filter Settings": "Настройки фильтра"
 }
+
+
+
+
 

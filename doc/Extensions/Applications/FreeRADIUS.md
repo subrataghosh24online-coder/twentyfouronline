@@ -5,7 +5,7 @@ enabled in your FreeRADIUS config.  For more information see:
 <https://wiki.freeradius.org/config/Status>
 
 You should note that status requests increment the FreeRADIUS request
-stats.  So LibreNMS polls will ultimately be reflected in your
+stats.  So twentyfouronline polls will ultimately be reflected in your
 stats/charts.
 
 1. Go to your FreeRADIUS configuration directory (usually /etc/raddb
@@ -32,7 +32,7 @@ Change if you've modified this.
     1. Copy the freeradius shell script, to the desired host.
 
         ```bash
-        wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/freeradius.sh -O /etc/snmp/freeradius.sh
+        wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/freeradius.sh -O /etc/snmp/freeradius.sh
         ```
 
     2. Make the script executable
@@ -62,7 +62,7 @@ Change if you've modified this.
     1. Install the script to your agent
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/freeradius.sh -O /usr/lib/check_mk_agent/local/freeradius.sh`
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/freeradius.sh -O /usr/lib/check_mk_agent/local/freeradius.sh`
     ```
 
     2. Make the script executable
@@ -77,3 +77,7 @@ Change if you've modified this.
 
     4. Edit the freeradius.sh script and set the variable 'AGENT' to '1'
     in the config.
+
+
+
+

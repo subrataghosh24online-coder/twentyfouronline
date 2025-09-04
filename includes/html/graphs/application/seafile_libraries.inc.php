@@ -10,3 +10,7 @@ $category = 'acc';
 $rrdVar = 'libraries';
 
 require 'seafile-common.inc.php';
+
+
+
+

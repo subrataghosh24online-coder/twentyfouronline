@@ -20,19 +20,19 @@
  *
  * Tests CiscoLdpSesDown and CiscoLdpSesUp traps from Cisco devices.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 Olivier M.
  * @author     Olivier MORFIN <morfin.olivier@gmail.com>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\Device;
 use App\Models\Port;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 class CiscoLdpSesTest extends SnmpTrapTestCase
 {
@@ -75,3 +75,7 @@ IF-MIB::ifIndex $port->ifIndex",
         );
     }
 }
+
+
+
+

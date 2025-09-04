@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 LTM Details
+ * twentyfouronline module to display F5 LTM Details
  *
  * Copyright (c) 2021 Martin Bergström <martin@bergstr0m.se>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 // Define some error messages
 $error_poolaction = [];
@@ -24,7 +24,7 @@ $error_poolaction[4] = 'Failover and Restart';
 $error_poolaction[5] = 'Go Active';
 $error_poolaction[6] = 'None';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options['filter']['disabled'] = ['=', 0];
 $components = $component->getComponents($device['device_id'], $options);
 
@@ -139,3 +139,7 @@ unset(
     $error_poolaction,
     $keep
 );
+
+
+
+

@@ -1,21 +1,21 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Eventlog;
 use App\Models\StateTranslation;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Time;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Time;
 
 /**
  * Parse cli discovery or poller modules and set config for this run
@@ -30,15 +30,15 @@ function parse_modules($type, $options)
 
     if (! empty($options['m'])) {
         // get all modules in the correct order and disable all
-        $modules = array_map(fn ($v) => false, LibrenmsConfig::get("{$type}_modules", []));
+        $modules = array_map(fn ($v) => false, twentyfouronlineConfig::get("{$type}_modules", []));
 
         foreach (explode(',', $options['m']) as $module) {
             // parse submodules (only supported by some modules)
             if (Str::contains($module, '/')) {
                 [$module, $submodule] = explode('/', $module, 2);
-                $existing_submodules = LibrenmsConfig::get("{$type}_submodules.$module", []);
+                $existing_submodules = twentyfouronlineConfig::get("{$type}_submodules.$module", []);
                 $existing_submodules[] = $submodule;
-                LibrenmsConfig::set("{$type}_submodules.$module", $existing_submodules);
+                twentyfouronlineConfig::set("{$type}_submodules.$module", $existing_submodules);
             }
 
             $dir = $type == 'poller' ? 'polling' : $type;
@@ -49,14 +49,14 @@ function parse_modules($type, $options)
         }
 
         // filter disabled modules and set in global config
-        LibrenmsConfig::set("{$type}_modules", array_filter($modules));
+        twentyfouronlineConfig::set("{$type}_modules", array_filter($modules));
 
         // display selected modules
         $modules = array_map(function ($module) use ($type) {
-            $submodules = LibrenmsConfig::get("{$type}_submodules.$module");
+            $submodules = twentyfouronlineConfig::get("{$type}_submodules.$module");
 
             return $module . ($submodules ? '(' . implode(',', $submodules) . ')' : '');
-        }, array_keys(LibrenmsConfig::get("{$type}_modules", [])));
+        }, array_keys(twentyfouronlineConfig::get("{$type}_modules", [])));
 
         Log::debug('Override ' . $type . ' modules: ' . implode(', ', $modules));
     }
@@ -66,7 +66,7 @@ function parse_modules($type, $options)
 
 function logfile($string)
 {
-    $file = LibrenmsConfig::get('log_file');
+    $file = twentyfouronlineConfig::get('log_file');
     $fd = fopen($file, 'a');
 
     if ($fd === false) {
@@ -175,7 +175,7 @@ function match_network($nets, $ip, $first = false)
     return $return;
 }
 
-// FIXME port to LibreNMS\Util\IPv6 class
+// FIXME port to twentyfouronline\Util\IPv6 class
 function snmp2ipv6($ipv6_snmp)
 {
     // Workaround stupid Microsoft bug in Windows 2008 -- this is fixed length!
@@ -230,7 +230,7 @@ function is_port_valid($port, $device)
         }
 
         // ifDescr should not be empty unless it is explicitly allowed
-        if (! LibrenmsConfig::getOsSetting($device['os'], 'empty_ifdescr', LibrenmsConfig::get('empty_ifdescr', false))) {
+        if (! twentyfouronlineConfig::getOsSetting($device['os'], 'empty_ifdescr', twentyfouronlineConfig::get('empty_ifdescr', false))) {
             Log::debug('ignored: empty ifDescr');
 
             return false;
@@ -243,11 +243,11 @@ function is_port_valid($port, $device)
     $ifType = $port['ifType'] ?? '';
     $ifOperStatus = $port['ifOperStatus'] ?? '';
 
-    if (Str::contains($ifDescr, LibrenmsConfig::getOsSetting($device['os'], 'good_if', LibrenmsConfig::get('good_if')), ignoreCase: true)) {
+    if (Str::contains($ifDescr, twentyfouronlineConfig::getOsSetting($device['os'], 'good_if', twentyfouronlineConfig::get('good_if')), ignoreCase: true)) {
         return true;
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_if') as $bi) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_if') as $bi) {
         if (Str::contains($ifDescr, $bi, ignoreCase: true)) {
             Log::debug("ignored by ifDescr: $ifDescr (matched: $bi)");
 
@@ -255,7 +255,7 @@ function is_port_valid($port, $device)
         }
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_if_regexp') as $bir) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_if_regexp') as $bir) {
         if (preg_match($bir . 'i', $ifDescr)) {
             Log::debug("ignored by ifDescr: $ifDescr (matched: $bir)");
 
@@ -263,7 +263,7 @@ function is_port_valid($port, $device)
         }
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_ifname_regexp') as $bnr) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_ifname_regexp') as $bnr) {
         if (preg_match($bnr . 'i', $ifName)) {
             Log::debug("ignored by ifName: $ifName (matched: $bnr)");
 
@@ -271,7 +271,7 @@ function is_port_valid($port, $device)
         }
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_ifalias_regexp') as $bar) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_ifalias_regexp') as $bar) {
         if (preg_match($bar . 'i', $ifAlias)) {
             Log::debug("ignored by ifAlias: $ifAlias (matched: $bar)");
 
@@ -279,7 +279,7 @@ function is_port_valid($port, $device)
         }
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_iftype') as $bt) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_iftype') as $bt) {
         if (Str::contains($ifType, $bt)) {
             Log::debug("ignored by ifType: $ifType (matched: $bt )");
 
@@ -287,7 +287,7 @@ function is_port_valid($port, $device)
         }
     }
 
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_ifoperstatus') as $bos) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_ifoperstatus') as $bos) {
         if (Str::contains($ifOperStatus, $bos)) {
             Log::debug("ignored by ifOperStatus: $ifOperStatus (matched: $bos)");
 
@@ -364,8 +364,8 @@ function host_exists(string $hostname, ?string $sysName = null): bool
 {
     return Device::where('hostname', $hostname)
         ->when(! empty($sysName), function ($query) use ($sysName) {
-            $query->when(! LibrenmsConfig::get('allow_duplicate_sysName'), fn ($q) => $q->orWhere('sysName', $sysName))
-                  ->when(! empty(LibrenmsConfig::get('mydomain')), fn ($q) => $q->orWhere('sysName', rtrim($sysName, '.') . '.' . LibrenmsConfig::get('mydomain')));
+            $query->when(! twentyfouronlineConfig::get('allow_duplicate_sysName'), fn ($q) => $q->orWhere('sysName', $sysName))
+                  ->when(! empty(twentyfouronlineConfig::get('mydomain')), fn ($q) => $q->orWhere('sysName', rtrim($sysName, '.') . '.' . twentyfouronlineConfig::get('mydomain')));
         })->exists();
 }
 
@@ -430,7 +430,7 @@ function delta_to_bits($delta, $period)
 function hytera_h2f($number, $nd)
 {
     if (strlen(str_replace(' ', '', $number)) == 4) {
-        $number = \LibreNMS\Util\StringHelpers::asciiToHex($number, ' ');
+        $number = \twentyfouronline\Util\StringHelpers::asciiToHex($number, ' ');
     }
     $r = '';
     $y = explode(' ', $number);
@@ -494,7 +494,7 @@ function hytera_h2f($number, $nd)
  */
 function cache_peeringdb()
 {
-    if (LibrenmsConfig::get('peeringdb.enabled') === true) {
+    if (twentyfouronlineConfig::get('peeringdb.enabled') === true) {
         $peeringdb_url = 'https://peeringdb.com/api';
         // We cache for 71 hours
         $cached = dbFetchCell('SELECT count(*) FROM `pdb_ix` WHERE (UNIX_TIMESTAMP() - timestamp) < 255600');
@@ -511,7 +511,7 @@ function cache_peeringdb()
             // 4294967295 (Reserved)
             foreach (dbFetchRows('SELECT `bgpLocalAs` FROM `devices` WHERE `disabled` = 0 AND `ignore` = 0 AND `bgpLocalAs` > 0 AND (`bgpLocalAs` < 64512 OR `bgpLocalAs` > 65535) AND `bgpLocalAs` < 4200000000 GROUP BY `bgpLocalAs`') as $as) {
                 $asn = $as['bgpLocalAs'];
-                $get = \LibreNMS\Util\Http::client()->get($peeringdb_url . '/net?depth=2&asn=' . $asn);
+                $get = \twentyfouronline\Util\Http::client()->get($peeringdb_url . '/net?depth=2&asn=' . $asn);
                 $json_data = $get->body();
                 $data = json_decode($json_data);
                 $ixs = $data->{'data'}[0]->{'netixlan_set'};
@@ -532,12 +532,12 @@ function cache_peeringdb()
                         $pdb_ix_id = dbInsert($insert, 'pdb_ix');
                     }
                     $ix_keep[] = $pdb_ix_id;
-                    $get_ix = \LibreNMS\Util\Http::client()->get("$peeringdb_url/netixlan?ix_id=$ixid");
+                    $get_ix = \twentyfouronline\Util\Http::client()->get("$peeringdb_url/netixlan?ix_id=$ixid");
                     $ix_json = $get_ix->body();
                     $ix_data = json_decode($ix_json);
                     $peers = $ix_data->{'data'};
                     foreach ($peers ?? [] as $index => $peer) {
-                        $peer_name = \LibreNMS\Util\AutonomousSystem::get($peer->{'asn'})->name();
+                        $peer_name = \twentyfouronline\Util\AutonomousSystem::get($peer->{'asn'})->name();
                         $tmp_peer = dbFetchRow('SELECT * FROM `pdb_ix_peers` WHERE `peer_id` = ? AND `ix_id` = ?', [$peer->{'id'}, $ixid]);
                         if ($tmp_peer) {
                             $peer_keep[] = $tmp_peer['pdb_ix_peers_id'];
@@ -596,13 +596,13 @@ function get_device_oid_limit($device)
     }
 
     // then os
-    $os_max = LibrenmsConfig::getOsSetting($device['os'], 'snmp_max_oid', 0);
+    $os_max = twentyfouronlineConfig::getOsSetting($device['os'], 'snmp_max_oid', 0);
     if ($os_max > 0) {
         return $os_max;
     }
 
     // then global
-    $global_max = LibrenmsConfig::get('snmp.max_oid', 10);
+    $global_max = twentyfouronlineConfig::get('snmp.max_oid', 10);
 
     return $global_max > 0 ? $global_max : 10;
 }
@@ -619,7 +619,7 @@ function lock_and_purge($table, $sql)
     $purge_name = $table . '_purge';
     $lock = Cache::lock($purge_name, 86000);
     if ($lock->get()) {
-        $purge_days = LibrenmsConfig::get($purge_name);
+        $purge_days = twentyfouronlineConfig::get($purge_name);
 
         $name = str_replace('_', ' ', ucfirst($table));
         if (is_numeric($purge_days)) {
@@ -647,7 +647,7 @@ function lock_and_purge_query($table, $sql, $msg)
 {
     $purge_name = $table . '_purge';
 
-    $purge_duration = LibrenmsConfig::get($purge_name);
+    $purge_duration = twentyfouronlineConfig::get($purge_name);
     if (! (is_numeric($purge_duration) && $purge_duration > 0)) {
         return -2;
     }
@@ -674,7 +674,7 @@ function lock_and_purge_query($table, $sql, $msg)
  */
 function is_disk_valid($disk, $device)
 {
-    foreach (LibrenmsConfig::getCombined($device['os'], 'bad_disk_regexp') as $bir) {
+    foreach (twentyfouronlineConfig::getCombined($device['os'], 'bad_disk_regexp') as $bir) {
         if (preg_match($bir . 'i', $disk['diskIODevice'])) {
             Log::debug('Ignored Disk: ' . $disk['diskIODevice'] . ' (matched: ' . $bir . ')');
 
@@ -713,3 +713,7 @@ function describe_bgp_error_code($code, $subcode)
 
     return $message;
 }
+
+
+
+

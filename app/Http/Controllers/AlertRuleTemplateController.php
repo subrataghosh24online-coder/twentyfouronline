@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\AlertRule;
 
 class AlertRuleTemplateController extends Controller
@@ -23,8 +23,8 @@ class AlertRuleTemplateController extends Controller
             'notes' => $rule['notes'] ?? null,
             'builder' => $rule['builder'] ?? [],
             'extra' => $this->extraWithDefaults((array) ($rule['extra'] ?? [])),
-            'severity' => $rule['severity'] ?? LibrenmsConfig::get('alert_rule.severity'),
-            'invert_map' => LibrenmsConfig::get('alert_rule.invert_map'),
+            'severity' => $rule['severity'] ?? twentyfouronlineConfig::get('alert_rule.severity'),
+            'invert_map' => twentyfouronlineConfig::get('alert_rule.invert_map'),
         ]);
     }
 
@@ -35,7 +35,7 @@ class AlertRuleTemplateController extends Controller
             'name' => $alertRule->name . ' - Copy',
             'builder' => $alertRule->builder,
             'extra' => $this->extraWithDefaults((array) $alertRule->extra),
-            'severity' => $alertRule->severity ?: LibrenmsConfig::get('alert_rule.severity'),
+            'severity' => $alertRule->severity ?: twentyfouronlineConfig::get('alert_rule.severity'),
             'invert_map' => $alertRule->invert_map,
         ]);
     }
@@ -43,13 +43,13 @@ class AlertRuleTemplateController extends Controller
     private function extraWithDefaults(array $extra): array
     {
         $default_extra = [
-            'mute' => LibrenmsConfig::get('alert_rule.mute_alerts'),
-            'count' => LibrenmsConfig::get('alert_rule.max_alerts'),
-            'delay' => 60 * LibrenmsConfig::get('alert_rule.delay'),
-            'invert' => LibrenmsConfig::get('alert_rule.invert_rule_match'),
-            'interval' => 60 * LibrenmsConfig::get('alert_rule.interval'),
-            'recovery' => LibrenmsConfig::get('alert_rule.recovery_alerts'),
-            'acknowledgement' => LibrenmsConfig::get('alert_rule.acknowledgement_alerts'),
+            'mute' => twentyfouronlineConfig::get('alert_rule.mute_alerts'),
+            'count' => twentyfouronlineConfig::get('alert_rule.max_alerts'),
+            'delay' => 60 * twentyfouronlineConfig::get('alert_rule.delay'),
+            'invert' => twentyfouronlineConfig::get('alert_rule.invert_rule_match'),
+            'interval' => 60 * twentyfouronlineConfig::get('alert_rule.interval'),
+            'recovery' => twentyfouronlineConfig::get('alert_rule.recovery_alerts'),
+            'acknowledgement' => twentyfouronlineConfig::get('alert_rule.acknowledgement_alerts'),
         ];
 
         return array_replace($default_extra, $extra);
@@ -60,3 +60,7 @@ class AlertRuleTemplateController extends Controller
         return json_decode(file_get_contents(resource_path('definitions/alert_rules.json')), true);
     }
 }
+
+
+
+

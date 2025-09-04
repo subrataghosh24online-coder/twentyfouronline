@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Lantronix SLC Temperature Sensor Discovery module
+ * twentyfouronline Lantronix SLC Temperature Sensor Discovery module
  *
  * Copyright (c) 2016 Chris A. Evans <thecityofguanyu@outlook.com>
  *
@@ -29,3 +29,7 @@ $value = trim($value, ' ');
 if (is_numeric($value)) {
     discover_sensor(null, 'temperature', $device, $valueoid, 1, 'lantronix-slc', $descr, '1', '1', $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $value);
 }
+
+
+
+

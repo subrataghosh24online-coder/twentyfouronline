@@ -18,24 +18,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use DeviceCache;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Arr;
-use LibreNMS\Data\Source\Fping;
-use LibreNMS\Data\Source\FpingResponse;
-use LibreNMS\Exceptions\FileNotFoundException;
-use LibreNMS\Exceptions\InvalidModuleException;
-use LibreNMS\Util\ModuleTestHelper;
-use LibreNMS\Util\Number;
+use twentyfouronline\Data\Source\Fping;
+use twentyfouronline\Data\Source\FpingResponse;
+use twentyfouronline\Exceptions\FileNotFoundException;
+use twentyfouronline\Exceptions\InvalidModuleException;
+use twentyfouronline\Util\ModuleTestHelper;
+use twentyfouronline\Util\Number;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Util\Color;
@@ -52,15 +52,15 @@ class OSModulesTest extends DBTestCase
         parent::setUp();
 
         // backup modules
-        $this->discoveryModules = LibrenmsConfig::get('discovery_modules');
-        $this->pollerModules = LibrenmsConfig::get('poller_modules');
+        $this->discoveryModules = twentyfouronlineConfig::get('discovery_modules');
+        $this->pollerModules = twentyfouronlineConfig::get('poller_modules');
     }
 
     protected function tearDown(): void
     {
         // restore modules
-        LibrenmsConfig::set('discovery_modules', $this->discoveryModules);
-        LibrenmsConfig::set('poller_modules', $this->pollerModules);
+        twentyfouronlineConfig::set('discovery_modules', $this->discoveryModules);
+        twentyfouronlineConfig::set('poller_modules', $this->pollerModules);
 
         parent::tearDown();
     }
@@ -206,3 +206,7 @@ class OSModulesTest extends DBTestCase
         }
     }
 }
+
+
+
+

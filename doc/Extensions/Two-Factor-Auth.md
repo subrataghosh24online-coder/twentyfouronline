@@ -7,7 +7,7 @@ Factor Authentication adds a variable part in authentication
 procedures. A user is now required to supply a changing 6-digit
 passcode in addition to their password to obtain access to the account.
 
-LibreNMS has a RFC4226 conformant implementation of both Time and Counter
+twentyfouronline has a RFC4226 conformant implementation of both Time and Counter
 based One-Time-Passwords. It also allows the administrator to
 configure a throttle time to enforce after 3 failures exceeded. Unlike
 RFC4226 suggestions, this throttle time will not stack on the amount of
@@ -113,3 +113,7 @@ Usage:
 - Create a Timerbased key as described above
 - Click Add (+) and scan provided QR or click on 'NO QR CODE?' and enter naming details and the Secret
 - On next login, enter the passcode that the App provides
+
+
+
+

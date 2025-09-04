@@ -18,24 +18,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Mocks;
+namespace twentyfouronline\Tests\Mocks;
 
 use App\Models\Device;
 use DeviceCache;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use LibreNMS\Data\Source\NetSnmpQuery;
-use LibreNMS\Data\Source\SnmpQueryInterface;
-use LibreNMS\Data\Source\SnmpResponse;
-use LibreNMS\Util\Mac;
-use LibreNMS\Util\Oid;
+use twentyfouronline\Data\Source\NetSnmpQuery;
+use twentyfouronline\Data\Source\SnmpQueryInterface;
+use twentyfouronline\Data\Source\SnmpResponse;
+use twentyfouronline\Util\Mac;
+use twentyfouronline\Util\Oid;
 use Log;
 
 class SnmpQueryMock implements SnmpQueryInterface
@@ -367,3 +367,7 @@ class SnmpQueryMock implements SnmpQueryInterface
         return $community;
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 # Sneck
 
-This is for replacing Nagios/Icinga or the LibreNMS service
-integration in regards to NRPE. This allows LibreNMS to query what
+This is for replacing Nagios/Icinga or the twentyfouronline service
+integration in regards to NRPE. This allows twentyfouronline to query what
 checks were ran on the server and keep track of totals of OK, WARNING,
 CRITICAL, and UNKNOWN statuses.
 
@@ -101,4 +101,8 @@ at [MetaCPAN](https://metacpan.org/dist/Monitoring-Sneck-Boop_Snoot) and
     extend sneck /bin/cat /var/cache/sneck.cache.snmp
     ```
 
-5. In LibreNMS, enable the application for the server in question or wait for auto discovery to find it.
+5. In twentyfouronline, enable the application for the server in question or wait for auto discovery to find it.
+
+
+
+

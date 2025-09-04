@@ -11,3 +11,7 @@ modules:
             - LCOS-LX-MIB::lcosLXStatusHardwareInfoSWVersion.0
         serial:
             - LCOS-LX-MIB::lcosLXStatusHardwareInfoSerialNumber.0
+
+
+
+

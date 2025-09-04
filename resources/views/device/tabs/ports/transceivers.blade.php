@@ -6,3 +6,7 @@
         <x-transceiver-sensors :transceiver="$transceiver"></x-transceiver-sensors>
     </x-panel>
 @endforeach
+
+
+
+

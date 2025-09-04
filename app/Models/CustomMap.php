@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2023 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -74,9 +74,9 @@ class CustomMap extends BaseModel
     public function getBackgroundConfig(): array
     {
         $config = $this->background_data ?? [];
-        $config['engine'] = \App\Facades\LibrenmsConfig::get('geoloc.engine');
-        $config['api_key'] = \App\Facades\LibrenmsConfig::get('geoloc.api_key');
-        $config['tile_url'] = \App\Facades\LibrenmsConfig::get('leaflet.tile_url');
+        $config['engine'] = \App\Facades\twentyfouronlineConfig::get('geoloc.engine');
+        $config['api_key'] = \App\Facades\twentyfouronlineConfig::get('geoloc.api_key');
+        $config['tile_url'] = \App\Facades\twentyfouronlineConfig::get('leaflet.tile_url');
         $config['image_url'] = route('maps.custom.background', ['map' => $this->custom_map_id]) . '?version=' . ($config['version'] ?? 0);
 
         return $config;
@@ -144,3 +144,7 @@ class CustomMap extends BaseModel
         return $this->hasOne(CustomMapBackground::class, 'custom_map_id');
     }
 }
+
+
+
+

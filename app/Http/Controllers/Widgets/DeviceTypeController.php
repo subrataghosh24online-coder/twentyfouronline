@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Http\Controllers\Widgets;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use LibreNMS\DB\Eloquent;
+use twentyfouronline\DB\Eloquent;
 
 class DeviceTypeController extends WidgetController
 {
@@ -63,7 +63,7 @@ class DeviceTypeController extends WidgetController
 
         $count = 0;
         $device_types = [];
-        foreach (\App\Facades\LibrenmsConfig::get('device_types') as $device_type) {
+        foreach (\App\Facades\twentyfouronlineConfig::get('device_types') as $device_type) {
             $count++;
             $device_types[] = [
                 'type' => $device_type['type'],
@@ -87,3 +87,7 @@ class DeviceTypeController extends WidgetController
         return $data;
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture statistics from the AT-NTP-MIB
+ * twentyfouronline module to capture statistics from the AT-NTP-MIB
  *
  * Copyright (c) 2018 Matt Read <matt.read@alliedtelesis.co.nz>
  *
@@ -12,11 +12,11 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $type = 'ntp';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', $type];
 $options['filter']['disabled'] = ['=', 0];
@@ -83,3 +83,7 @@ if ($components) {
 
 // Clean-up after yourself!
 unset($type, $components, $component, $options, $type);
+
+
+
+

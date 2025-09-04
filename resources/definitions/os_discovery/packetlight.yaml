@@ -47,7 +47,7 @@ modules:
                     group: 'Optic {{ $sfpConfigVendorPN }}, {{ $sfpConfigVendorSN }}'
                     entPhysicalIndex: '{{ $index }}'
                     entPhysicalIndex_measured: ports
-                    user_func: '\LibreNMS\OS\Packetlight::offsetSfpTemperature'
+                    user_func: '\twentyfouronline\OS\Packetlight::offsetSfpTemperature'
                     divisor: 256
                     skip_values:
                         -
@@ -114,7 +114,7 @@ modules:
                     group: 'Optic {{ $sfpConfigVendorPN }}, {{ $sfpConfigVendorSN }}'
                     high_limit: sfpDiagHighTxPowerAlmThreshold
                     low_limit: sfpDiagLowTxPowerAlmThreshold
-                    user_func: '\LibreNMS\OS\Packetlight::convertWattToDbm'
+                    user_func: '\twentyfouronline\OS\Packetlight::convertWattToDbm'
                     skip_values:
                         -
                             oid: ifAdminStatus
@@ -135,7 +135,7 @@ modules:
                     group: 'Optic {{ $sfpConfigVendorPN }}, {{ $sfpConfigVendorSN }}'
                     high_limit: sfpDiagHighRxPowerAlmThreshold
                     low_limit: sfpDiagLowRxPowerAlmThreshold
-                    user_func: '\LibreNMS\OS\Packetlight::convertWattToDbm'
+                    user_func: '\twentyfouronline\OS\Packetlight::convertWattToDbm'
                     skip_values:
                         -
                             oid: ifAdminStatus
@@ -194,4 +194,8 @@ modules:
                         - { descr: inline, graph: 1, value: 4, generic: 0 }
                         - { descr: raman, graph: 1, value: 5, generic: 0 }
                         - { descr: other, graph: 1, value: 6, generic: 0 }
+
+
+
+
 

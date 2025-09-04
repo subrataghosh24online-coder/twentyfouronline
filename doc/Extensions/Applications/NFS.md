@@ -38,7 +38,7 @@ Currently supported OSes are as below.
 1. Download the extend.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nfs -O /etc/snmp/nfs
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/nfs -O /etc/snmp/nfs
     ```
 
 2. Make it executable.
@@ -99,3 +99,7 @@ allow snmpd_t device_t:chr_file { open ioctl read write };
 # zfs extension (fixes root needs to run this)
 # nfs extension (fixes file not found error)
 ```
+
+
+
+

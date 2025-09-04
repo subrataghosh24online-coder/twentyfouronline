@@ -6,7 +6,7 @@ if ($service['service_param']) {
 } else {
     $dbname = 'mysql';
 }
-$check_cmd = \App\Facades\LibrenmsConfig::get('nagios_plugins') . '/check_mysql -H ' . $service['hostname'] . ' ' . $dbname . ' ' . $service['service_param'];
+$check_cmd = \App\Facades\twentyfouronlineConfig::get('nagios_plugins') . '/check_mysql -H ' . $service['hostname'] . ' ' . $dbname . ' ' . $service['service_param'];
 
 if (isset($rrd_filename)) {
     // Check DS is a json array of the graphs that are available
@@ -14,7 +14,7 @@ if (isset($rrd_filename)) {
 
     // Build the graph data
     $check_graph = [];
-    $mixed_colours = \App\Facades\LibrenmsConfig::get('graph_colours.mixed');
+    $mixed_colours = \App\Facades\twentyfouronlineConfig::get('graph_colours.mixed');
 
     $check_graph['mysqlqueries'] = ' DEF:DS0=' . $rrd_filename . ':Queries:AVERAGE ';
     $check_graph['mysqlqueries'] .= ' LINE1.25:DS0#' . $mixed_colours[1] . ":'" . str_pad(substr('Queries', 0, 19), 19) . "' ";
@@ -97,3 +97,7 @@ if (isset($rrd_filename)) {
     $check_graph['mysqlQcache'] .= ' GPRINT:DS5:AVERAGE:%9.2lf ';
     $check_graph['mysqlQcache'] .= ' GPRINT:DS5:MAX:%9.2lf\\l ';
 }
+
+
+
+

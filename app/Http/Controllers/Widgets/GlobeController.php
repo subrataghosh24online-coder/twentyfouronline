@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,12 +26,12 @@
 
 namespace App\Http\Controllers\Widgets;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 class GlobeController extends WidgetController
 {
@@ -42,9 +42,9 @@ class GlobeController extends WidgetController
         // init defaults we need to check config, so do it in construct
         $this->defaults = [
             'title' => null,
-            'markers' => LibrenmsConfig::get('frontpage_globe.markers', 'devices'),
-            'region' => LibrenmsConfig::get('frontpage_globe.region', 'world'),
-            'resolution' => LibrenmsConfig::get('frontpage_globe.resolution', 'countries'),
+            'markers' => twentyfouronlineConfig::get('frontpage_globe.markers', 'devices'),
+            'region' => twentyfouronlineConfig::get('frontpage_globe.region', 'world'),
+            'resolution' => twentyfouronlineConfig::get('frontpage_globe.resolution', 'countries'),
             'device_group' => null,
         ];
     }
@@ -113,3 +113,7 @@ class GlobeController extends WidgetController
         return view('widgets.globe', $data);
     }
 }
+
+
+
+

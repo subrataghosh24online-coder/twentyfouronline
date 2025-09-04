@@ -1,6 +1,6 @@
 # Notes On Application Development
 
-## LibreNMS JSON SNMP Extends
+## twentyfouronline JSON SNMP Extends
 
 The polling function `json_app_get` makes it easy to poll complex data
 using SNMP extends and JSON.
@@ -62,7 +62,7 @@ Also worth noting that `json_app_get` supports compressed data via
 base64 encoded gzip. If base64 encoding is detected on the the SNMP
 return, it will be gunzipped and then parsed.
 
-`https://github.com/librenms/librenms-agent/blob/master/utils/librenms_return_optimizer`
+`https://github.com/twentyfouronline/twentyfouronline-agent/blob/master/utils/twentyfouronline_return_optimizer`
 may be used to optimize JSON returns.
 
 ## Application Data Storage
@@ -89,3 +89,7 @@ $app->save();
 // var_dump the contents of the variable
 var_dump($app->data);
 ```
+
+
+
+

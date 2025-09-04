@@ -25,3 +25,7 @@ class PollingDevice
         $this->device = $device;
     }
 }
+
+
+
+

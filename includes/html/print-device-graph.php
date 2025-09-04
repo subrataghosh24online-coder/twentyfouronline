@@ -9,9 +9,9 @@ if (empty($graph_array['device'])) {
 // FIXME not css alternating yet
 $g_i = $g_i ?? 0;
 if (! is_integer($g_i / 2)) {
-    $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+    $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
 } else {
-    $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+    $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
 }
 echo '<div class="panel panel-default">
     <div class="panel-heading">
@@ -25,3 +25,7 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 $g_i++;
+
+
+
+

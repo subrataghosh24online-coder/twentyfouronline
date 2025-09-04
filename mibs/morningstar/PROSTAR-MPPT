@@ -1025,3 +1025,6 @@ arrayVocFixed OBJECT-TYPE
 	::={ prostarMppt 75 }
 
 END
+
+
+

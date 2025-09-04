@@ -3,7 +3,7 @@ basic detection for a new OS.
 
 ### Discovery
 
-OS discovery is how LibreNMS detects which OS should be used for a device.
+OS discovery is how twentyfouronline detects which OS should be used for a device.
 Generally detection should use sysObjectID or sysDescr, but you can also
 snmpget an oid and check for a value.  snmpget is discouraged because it slows
 down all os detections, not just the added os.
@@ -64,7 +64,7 @@ discovery:
 `group`: You can group certain OS' together by using group, for
 instance ios, nx-os, iosxr are all within a group called cisco.
 
-`bad_ifXEntry`: This is a list of models for which to tell LibreNMS
+`bad_ifXEntry`: This is a list of models for which to tell twentyfouronline
 that the device doesn't support ifXEntry and to ignore it:
 
 ```yaml
@@ -148,7 +148,7 @@ So, considering the example:
 #### OS discovery
 
 OS discovery collects additional standardized data about the OS.  These are specified in
-the discovery yaml `resources/definitions/os_discovery/<os>.yaml` or `LibreNMS/OS/<os>.php` if
+the discovery yaml `resources/definitions/os_discovery/<os>.yaml` or `twentyfouronline/OS/<os>.php` if
 more complex collection is required.
 
 - `version` The version of the OS running on the device.
@@ -251,7 +251,7 @@ Polling
 lnms device:poll HOSTNAME
 ```
 
-At this step we should see all the values retrieved in LibreNMS.
+At this step we should see all the values retrieved in twentyfouronline.
 
 Note: If you have made a number of changes to either the OS's
 Discovery files, it's possible earlier edits have been cached. As
@@ -261,3 +261,7 @@ check above, try removing the cache file first:
 ```bash
 rm -f cache/os_defs.cache
 ```
+
+
+
+

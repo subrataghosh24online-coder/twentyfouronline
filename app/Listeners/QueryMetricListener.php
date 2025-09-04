@@ -30,3 +30,7 @@ class QueryMetricListener
         app(MeasurementManager::class)->recordDb(Measurement::make($type, $event->time ? $event->time / 100 : 0));
     }
 }
+
+
+
+

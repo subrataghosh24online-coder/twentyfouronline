@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use LibreNMS\Alert\RunAlerts;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Alert\RunAlerts;
+use twentyfouronline\Util\Debug;
 
 $init_modules = ['alerts', 'laravel'];
 require __DIR__ . '/../includes/init.php';
@@ -41,3 +41,7 @@ Example:
 ');
     exit(1);
 }
+
+
+
+

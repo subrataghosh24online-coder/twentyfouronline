@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $powerTables = SnmpQuery::walk('FS-SWITCH-V2-MIB::transReceivePowerTable')->table(1);
 
@@ -65,3 +65,7 @@ foreach ($powerTables as $ifIndex => $current) {
 }
 
 unset($powerTables, $current);
+
+
+
+

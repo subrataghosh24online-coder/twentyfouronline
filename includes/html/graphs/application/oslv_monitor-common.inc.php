@@ -28,3 +28,7 @@ foreach ($stats_list as $stat_to_add) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

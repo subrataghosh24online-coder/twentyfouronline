@@ -40,3 +40,7 @@ modules:
                         - { descr: fail, graph: 0, value: 3, generic: 2 }
                         - { descr: fail or nopower, graph: 0, value: 4, generic: 2 }
                         - { descr: unsupport, graph: 0, value: 5, generic: 3 }
+
+
+
+

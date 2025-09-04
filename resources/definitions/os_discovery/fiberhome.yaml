@@ -59,3 +59,7 @@ modules:
                         - { descr: Normal, graph: 0, value: 1, generic: 0 }
                         - { descr: Logw Voltage, graph: 0, value: 2, generic: 1 }
                         - { descr: PowerFault, graph: 0, value: 3, generic: 2 }
+
+
+
+

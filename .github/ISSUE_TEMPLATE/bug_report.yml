@@ -1,15 +1,15 @@
-name: Report an issue with LibreNMS
+name: Report an issue with twentyfouronline
 description: Bugs/issues only, no requests!
 body:
   - type: markdown
     attributes:
       value: |
         This issue form is for reporting generic bugs/issues only!
-  
-        * [Report a device issue here](https://github.com/librenms/librenms/issues/new?template=device_bug.yml)
-        * [Add Device request here](https://community.librenms.org/c/device-requests/12)
-        * [I have a question or need support](https://www.librenms.org/#support)
-        
+
+        * [Report a device issue here](https://github.com/twentyfouronline/twentyfouronline/issues/new?template=device_bug.yml)
+        * [Add Device request here](https://community.twentyfouronline.org/c/device-requests/12)
+        * [I have a question or need support](https://www.twentyfouronline.org/#support)
+
   - type: textarea
     validations:
       required: true
@@ -27,18 +27,18 @@ body:
         ## Environment
   - type: textarea
     validations:
-      required: true  
+      required: true
     attributes:
       label: Output of ./validate.php
       description: |
-        Please post the output of running: /opt/librenms/validate.php
+        Please post the output of running: /opt/twentyfouronline/validate.php
       render: txt
   - type: input
     attributes:
-      label: What was the last working version of LibreNMS?
+      label: What was the last working version of twentyfouronline?
       placeholder: 21.7.0
       description: If known, otherwise leave blank.
- 
+
   - type: markdown
     attributes:
       value: |
@@ -48,5 +48,5 @@ body:
       label: Anything in the logs that might be useful for us?
       description: |
         For example, error messages, or stack traces.
-        *Hint: /opt/librenms/logs/*
+        *Hint: /opt/twentyfouronline/logs/*
       render: txt

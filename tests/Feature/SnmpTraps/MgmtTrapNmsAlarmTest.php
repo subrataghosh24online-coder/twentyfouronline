@@ -23,15 +23,15 @@
  *
  * Tests JnxVpnPwDown and JnxVpnPwUp traps from Juniper devices.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class MgmtTrapNmsAlarmTest extends SnmpTrapTestCase
 {
@@ -134,3 +134,7 @@ EKINOPS-MGNT2-NMS-MIB::mgnt2AlmLogChassisId {{ ip }}",
         ];
     }
 }
+
+
+
+

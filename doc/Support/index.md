@@ -8,10 +8,14 @@
 
 We have a few methods for you to get in touch to ask for help.
 
-- [Community Forum](https://community.librenms.org)
-  - [Ask for Help](https://community.librenms.org/c/help)
-  - [Feature Requests](https://community.librenms.org/c/feature-requests?order=op_likes&status=open)
+- [Community Forum](https://community.twentyfouronline.org)
+  - [Ask for Help](https://community.twentyfouronline.org/c/help)
+  - [Feature Requests](https://community.twentyfouronline.org/c/feature-requests?order=op_likes&status=open)
 
 - [Discord](https://t.libren.ms/discord) Active chat and discussion
 
-- [Bug Reports](https://github.com/librenms/librenms/issues/new?template=bug_report.yml)
+- [Bug Reports](https://github.com/twentyfouronline/twentyfouronline/issues/new?template=bug_report.yml)
+
+
+
+

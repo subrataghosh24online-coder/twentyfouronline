@@ -22,11 +22,11 @@ please verify those are installed.
 
 ### Create the cache directory
 
-Create the cache directory, '/var/cache/librenms/' and make sure
+Create the cache directory, '/var/cache/twentyfouronline/' and make sure
 that it is owned by the user running the SNMP daemon.
 
 ```bash
-mkdir -p /var/cache/librenms/
+mkdir -p /var/cache/twentyfouronline/
 ```
 
 ### MySQL User
@@ -67,7 +67,7 @@ so you need to also include the line `$chk_options['slave'] = false;` into `mysq
     1. Copy the mysql script to the desired host.
 
         ```bash
-        wget https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql
+        wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/mysql -O /etc/snmp/mysql
         ```
 
     2. Make the file executable
@@ -89,3 +89,7 @@ so you need to also include the line `$chk_options['slave'] = false;` into `mysq
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

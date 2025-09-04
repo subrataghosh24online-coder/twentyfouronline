@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Html;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Html;
 
 $sensors = \App\Models\Sensor::where('device_id', $device['device_id'])
     ->where('entPhysicalIndex', $port['ifIndex'])
@@ -48,3 +48,7 @@ foreach ($sensors as $sensor) {
     echo "    </div>\n" .
          "</div>\n";
 }
+
+
+
+

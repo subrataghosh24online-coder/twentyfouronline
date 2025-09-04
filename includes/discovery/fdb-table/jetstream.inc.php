@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Peca Nesovanovic
  * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 $oids = SnmpQuery::allowUnordered()->hideMib()->walk('Q-BRIDGE-MIB::dot1qTpFdbPort')->table(2);
 if (! empty($oids)) {
@@ -49,3 +49,7 @@ if (! empty($oids)) {
 }
 
 echo PHP_EOL;
+
+
+
+

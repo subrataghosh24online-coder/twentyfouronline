@@ -1,14 +1,14 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\Mac;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\Mac;
 
 // FIXME - REWRITE!
 $hostname = $device['hostname'];
 $hostid = $device['port_id'];
 $ifname = $port['ifDescr'];
 $ifIndex = $port['ifIndex'];
-$speed = \LibreNMS\Util\Number::formatSi($port['ifSpeed'], 2, 0, 'bps');
+$speed = \twentyfouronline\Util\Number::formatSi($port['ifSpeed'], 2, 0, 'bps');
 
 $ifalias = $port['name'];
 
@@ -30,7 +30,7 @@ if ($port['ifAdminStatus'] == 'up' && $port['ifOperStatus'] == 'up') {
 }
 
 $i = 1;
-$inf = \LibreNMS\Util\Rewrite::normalizeIfName($ifname);
+$inf = \twentyfouronline\Util\Rewrite::normalizeIfName($ifname);
 
 echo "<div style='clear: both;'>";
 
@@ -50,68 +50,68 @@ if ($vars['subview'] == 'top10') {
            <div style='margin: 0px 10px 5px 0px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Day</span><br />
 
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1d']) . "'>
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1d']) . "'>
 
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;from=' . LibrenmsConfig::get('time.day') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;from=' . twentyfouronlineConfig::get('time.day') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 10px 5px 0px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Two Day</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '2d']) . "/'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;from=' . LibrenmsConfig::get('time.twoday') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '2d']) . "/'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;from=' . twentyfouronlineConfig::get('time.twoday') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 10px 5px 0px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Week</span><br />
-            <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1w']) . "/'>
-            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . LibrenmsConfig::get('time.week') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+            <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1w']) . "/'>
+            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . twentyfouronlineConfig::get('time.week') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
             </a>
             </div>
             <div style='margin: 0px 10px 5px 0px; padding:5px; background: #e5e5e5;'>
             <span class=device-head>Month</span><br />
-            <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1m']) . "/'>
-            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . LibrenmsConfig::get('time.month') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+            <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1m']) . "/'>
+            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . twentyfouronlineConfig::get('time.month') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
             </a>
             </div>
             <div style='margin: 0px 10px 5px 0px; padding:5px; background: #e5e5e5;'>
             <span class=device-head>Year</span><br />
-            <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1y']) . "/'>
-            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . LibrenmsConfig::get('time.year') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+            <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => $vars['sort'], 'period' => '1y']) . "/'>
+            <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . '&amp;from=' . twentyfouronlineConfig::get('time.year') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
             </a>
             </div>
        </div>
        <div style='float: left;'>
-         <img src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . "&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=745&amp;height=300' />
+         <img src='graph.php?id=" . $port['port_id'] . '&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . '&amp;stat=' . $vars['graph'] . "&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=745&amp;height=300' />
        </div>
        <div style=' margin:0px; float: left;';>
             <div style='margin: 0px 0px 5px 10px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Traffic</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => 'bits', 'sort' => $vars['sort'], 'period' => $vars['period']]) . "'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=bits&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . "&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => 'bits', 'sort' => $vars['sort'], 'period' => $vars['period']]) . "'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=bits&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . "&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 0px 5px 10px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Packets</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => 'pkts', 'sort' => $vars['sort'], 'period' => $vars['period']]) . "/'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=pkts&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . "&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => 'pkts', 'sort' => $vars['sort'], 'period' => $vars['period']]) . "/'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=pkts&amp;type=port_mac_acc_total&amp;sort=' . $vars['sort'] . "&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 0px 5px 10px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Top Input</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'in', 'period' => $vars['period']]) . "'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=in&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'in', 'period' => $vars['period']]) . "'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=in&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 0px 5px 10px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Top Output</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'out', 'period' => $vars['period']]) . "'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=out&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'out', 'period' => $vars['period']]) . "'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=out&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
            <div style='margin: 0px 0px 5px 10px; padding:5px; background: #e5e5e5;'>
            <span class=device-head>Top Aggregate</span><br />
-           <a href='" . \LibreNMS\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'both', 'period' => $vars['period']]) . "'>
-             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=both&amp;from=$from&amp;to=" . LibrenmsConfig::get('time.now') . "&amp;width=150&amp;height=50' />
+           <a href='" . \twentyfouronline\Util\Url::generate($link_array, ['view' => 'macaccounting', 'subview' => 'top10', 'graph' => $vars['graph'], 'sort' => 'both', 'period' => $vars['period']]) . "'>
+             <img style='border: #5e5e5e 2px;' valign=middle src='graph.php?id=" . $port['port_id'] . '&amp;stat=' . $vars['graph'] . "&amp;type=port_mac_acc_total&amp;sort=both&amp;from=$from&amp;to=" . twentyfouronlineConfig::get('time.now') . "&amp;width=150&amp;height=50' />
            </a>
            </div>
        </div>
@@ -125,9 +125,9 @@ if ($vars['subview'] == 'top10') {
 
     foreach (dbFetchRows($query, $param) as $acc) {
         if (! is_integer($i / 2)) {
-            $row_colour = LibrenmsConfig::get('list_colour.even');
+            $row_colour = twentyfouronlineConfig::get('list_colour.even');
         } else {
-            $row_colour = LibrenmsConfig::get('list_colour.odd');
+            $row_colour = twentyfouronlineConfig::get('list_colour.odd');
         }
 
         $addy = dbFetchRow('SELECT * FROM ipv4_mac where mac_address = ?', [$acc['mac']]);
@@ -175,9 +175,9 @@ if ($vars['subview'] == 'top10') {
       " . $addy['ipv4_address'] . ' - ' . $asn . "
           <a href='#' onmouseover=\"return overlib('\
      <div style=\'font-size: 16px; padding:5px; font-weight: bold; color: #555555;\'>" . $name . ' - ' . $addy['ipv4_address'] . ' - ' . $asn . "</div>\
-     <img src=\'graph.php?id=" . $acc['ma_id'] . "&amp;type=$graph_type&amp;from=" . LibrenmsConfig::get('time.twoday') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=450&amp;height=150\'>\
+     <img src=\'graph.php?id=" . $acc['ma_id'] . "&amp;type=$graph_type&amp;from=" . twentyfouronlineConfig::get('time.twoday') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=450&amp;height=150\'>\
      ', CENTER, LEFT, FGCOLOR, '#e5e5e5', BGCOLOR, '#e5e5e5', WIDTH, 400, HEIGHT, 150);\" onmouseout=\"return nd();\" >
-          <img src='graph.php?id=" . $acc['ma_id'] . "&amp;type=$graph_type&amp;from=" . LibrenmsConfig::get('time.twoday') . '&amp;to=' . LibrenmsConfig::get('time.now') . "&amp;width=213&amp;height=45'></a>
+          <img src='graph.php?id=" . $acc['ma_id'] . "&amp;type=$graph_type&amp;from=" . twentyfouronlineConfig::get('time.twoday') . '&amp;to=' . twentyfouronlineConfig::get('time.now') . "&amp;width=213&amp;height=45'></a>
 
           <span style='font-size: 10px;'>" . $name . '</span>
          </div>';
@@ -190,8 +190,8 @@ if ($vars['subview'] == 'top10') {
           <td class=list-large width=200>' . Mac::parse($acc['mac'])->readable() . '</td>
           <td class=list-large width=200>' . $addy['ipv4_address'] . '</td>
           <td class=list-large width=500>' . $name . ' ' . $arp_name . '</td>
-          <td class=list-large width=100>' . \LibreNMS\Util\Number::formatSi($acc['cipMacHCSwitchedBytes_input_rate'] / 8, 2, 3, 'bps') . '</td>
-          <td class=list-large width=100>' . \LibreNMS\Util\Number::formatSi($acc['cipMacHCSwitchedBytes_output_rate'] / 8, 2, 3, 'bps') . '</td>
+          <td class=list-large width=100>' . \twentyfouronline\Util\Number::formatSi($acc['cipMacHCSwitchedBytes_input_rate'] / 8, 2, 3, 'bps') . '</td>
+          <td class=list-large width=100>' . \twentyfouronline\Util\Number::formatSi($acc['cipMacHCSwitchedBytes_output_rate'] / 8, 2, 3, 'bps') . '</td>
         </tr>
       </table>
     ';
@@ -202,7 +202,7 @@ if ($vars['subview'] == 'top10') {
             $graph_array['id'] = $acc['ma_id'];
             $graph_array['height'] = '100';
             $graph_array['width'] = '216';
-            $graph_array['to'] = LibrenmsConfig::get('time.now');
+            $graph_array['to'] = twentyfouronlineConfig::get('time.now');
             echo '<tr bgcolor="' . $bg_colour . '"><td colspan="7">';
 
             include 'includes/html/print-graphrow.inc.php';
@@ -213,3 +213,7 @@ if ($vars['subview'] == 'top10') {
         }//end if
     }//end foreach
 }//end if
+
+
+
+

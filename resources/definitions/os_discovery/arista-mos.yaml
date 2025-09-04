@@ -2,3 +2,7 @@ modules:
     os:
         serial: SNMPv2-MIB::snmpSetSerialNo.0
         sysDescr_regex: '/release (?<version>[\d\.]+).*?running\son\sa\s(?<hardware>.*)$/'
+
+
+
+

@@ -82,3 +82,7 @@ PAN-GLOBAL-REG DEFINITIONS ::= BEGIN
 		::= { panMibs 3 }
 
 END
+
+
+
+

@@ -17,3 +17,7 @@ class ComponentStatusLog extends Model
         $this->attributes['status'] = (int) $status;
     }
 }
+
+
+
+

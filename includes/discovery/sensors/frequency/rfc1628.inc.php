@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 echo 'RFC1628 ';
 
@@ -83,3 +83,7 @@ if (is_numeric($bypass_freq)) {
 }
 
 unset($input_freq, $output_freq, $bypass_freq);
+
+
+
+

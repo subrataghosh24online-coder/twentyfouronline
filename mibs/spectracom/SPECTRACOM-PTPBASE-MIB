@@ -2492,3 +2492,7 @@ ptpbaseMIBClockPortAssociateGroup OBJECT-GROUP
     ::= { ptpbaseMIBGroups 12 }
 
 END
+
+
+
+

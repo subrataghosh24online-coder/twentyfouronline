@@ -3,7 +3,7 @@
 /**
  * geist-watchdog.inc.php
  *
- * LibreNMS airflow discovery module for Geist Watchdog
+ * twentyfouronline airflow discovery module for Geist Watchdog
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -29,3 +29,7 @@ $descr = 'Airflow';
 if (is_numeric($value)) {
     discover_sensor(null, 'airflow', $device, $current_oid, 'climateAirflow', 'geist-watchdog', $descr, 1, 1, null, null, null, null, $value);
 }
+
+
+
+

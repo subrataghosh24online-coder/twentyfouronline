@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Peter TKATCHENKO https://github.com/Peter2121/
  *
@@ -13,7 +13,7 @@
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $oids = snmp_walk($device, 'eqlMemberHealthStatus', '-OQne', 'EQLMEMBER-MIB', 'equallogic');
 
@@ -32,7 +32,7 @@ eqlMemberHealthStatus
                     health condition state variables. The most severe state will
                     be reflected.
 
-The LibreNMS generic states is derived from Nagios:
+The twentyfouronline generic states is derived from Nagios:
     0 = OK
     1 = Warning
     2 = Critical
@@ -188,3 +188,7 @@ unset(
     $disk_states,
     $insert
 );
+
+
+
+

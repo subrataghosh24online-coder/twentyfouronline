@@ -2,7 +2,7 @@
 
 use App\Models\Sensor;
 use Illuminate\Database\Migrations\Migration;
-use LibreNMS\Enum\Sensor as SensorEnum;
+use twentyfouronline\Enum\Sensor as SensorEnum;
 
 return new class extends Migration
 {
@@ -22,3 +22,7 @@ return new class extends Migration
         //
     }
 };
+
+
+
+

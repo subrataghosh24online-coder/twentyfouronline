@@ -510,3 +510,7 @@ $suricata_stat_gauges = [
     'drop_percent' => 1,
     'tcp__active_sessions' => 1,
 ];
+
+
+
+

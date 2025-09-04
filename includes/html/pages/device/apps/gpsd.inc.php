@@ -14,9 +14,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
-* @copyright  2016 Karl Shea, LibreNMS
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
+* @copyright  2016 Karl Shea, twentyfouronline
 * @author     Karl Shea <karl@karlshea.com>
 *
 */
@@ -31,7 +31,7 @@ foreach ($graphs as $key => $text) {
     $graph_type = $key;
     $graph_array['height'] = '100';
     $graph_array['width'] = '215';
-    $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+    $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
     $graph_array['id'] = $app['app_id'];
     $graph_array['type'] = 'application_' . $key;
 
@@ -46,3 +46,7 @@ foreach ($graphs as $key => $text) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

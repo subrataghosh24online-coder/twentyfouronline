@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Select;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 
 class DeviceFieldController extends SelectController
@@ -83,7 +83,7 @@ class DeviceFieldController extends SelectController
 
         $text = $device[$field];
         if ($field == 'os') {
-            $text = LibrenmsConfig::getOsSetting($text, 'text');
+            $text = twentyfouronlineConfig::getOsSetting($text, 'text');
         } elseif ($field == 'type') {
             $text = ucfirst($text);
         }
@@ -94,3 +94,7 @@ class DeviceFieldController extends SelectController
         ];
     }
 }
+
+
+
+

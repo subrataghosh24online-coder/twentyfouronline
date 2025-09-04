@@ -1,7 +1,7 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\RRD\RrdDefinition;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\RRD\RrdDefinition;
 
 $ipmi_rows = dbFetchRows("SELECT * FROM sensors WHERE device_id = ? AND poller_type='ipmi'", [$device['device_id']]);
 
@@ -22,8 +22,8 @@ if (is_array($ipmi_rows)) {
 
         echo 'Fetching IPMI sensor data...';
 
-        $cmd = [LibrenmsConfig::get('ipmitool', 'ipmitool')];
-        if (LibrenmsConfig::get('own_hostname') != $device['hostname'] || $ipmi['host'] != 'localhost') {
+        $cmd = [twentyfouronlineConfig::get('ipmitool', 'ipmitool')];
+        if (twentyfouronlineConfig::get('own_hostname') != $device['hostname'] || $ipmi['host'] != 'localhost') {
             if (empty($ipmi['kg_key']) || is_null($ipmi['kg_key'])) {
                 array_push($cmd, '-H', $ipmi['host'], '-U', $ipmi['user'], '-P', $ipmi['password'], '-L', 'USER', '-p', $ipmi['port']);
             } else {
@@ -51,7 +51,7 @@ if (is_array($ipmi_rows)) {
         foreach (explode("\n", $results) as $row) {
             [$desc, $value, $type, $status] = explode(',', $row);
             $desc = trim($desc, ' ');
-            $ipmi_unit_type = LibrenmsConfig::get("ipmi_unit.$type");
+            $ipmi_unit_type = twentyfouronlineConfig::get("ipmi_unit.$type");
 
             // SDR records can include hexadecimal values, identified by an h
             // suffix (like "93h" for 0x93). Convert them to decimal.
@@ -101,3 +101,7 @@ if (is_array($ipmi_rows)) {
         unset($ipmi_sensor);
     }
 }
+
+
+
+

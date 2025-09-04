@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Http\Controllers\Table;
 
 use App\Models\Syslog;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Enum\SyslogSeverity;
+use twentyfouronline\Enum\SyslogSeverity;
 
 class SyslogController extends TableController
 {
@@ -149,3 +149,7 @@ class SyslogController extends TableController
 
     // end syslog_priority
 }
+
+
+
+

@@ -15,7 +15,7 @@ echo '<table cellspacing="0" cellpadding="5" width="100%">';
 
 foreach (dbFetchRows("SELECT * FROM `packages` WHERE 1 $where GROUP BY `name`", $param) as $entry) {
     echo '<tr class="list">';
-    echo '<td width=200><a href="' . \LibreNMS\Util\Url::generate($vars, ['name' => $entry['name']]) . '">' . $entry['name'] . '</a></td>';
+    echo '<td width=200><a href="' . \twentyfouronline\Util\Url::generate($vars, ['name' => $entry['name']]) . '">' . $entry['name'] . '</a></td>';
 
     echo '<td>';
     foreach (dbFetchRows('SELECT * FROM `packages` WHERE `name` = ? ORDER BY version, build', [$entry['name']]) as $entry_v) {
@@ -43,7 +43,7 @@ foreach (dbFetchRows("SELECT * FROM `packages` WHERE 1 $where GROUP BY `name`", 
 
         $content .= '</div>';
         if (empty($vars['name'])) {
-            echo "<span style='margin:5px;'>" . \LibreNMS\Util\Url::overlibLink('', $version, $content) . '</span>';
+            echo "<span style='margin:5px;'>" . \twentyfouronline\Util\Url::overlibLink('', $version, $content) . '</span>';
         } else {
             echo "$version $content";
         }
@@ -54,3 +54,7 @@ foreach (dbFetchRows("SELECT * FROM `packages` WHERE 1 $where GROUP BY `name`", 
 }//end foreach
 
 echo '</table>';
+
+
+
+

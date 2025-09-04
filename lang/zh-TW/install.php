@@ -38,7 +38,7 @@ return [
         'retry' => '重試',
         'settings' => '附加設定',
         'success' => '安裝完成',
-        'thanks' => '感謝您安裝 LibreNMS。',
+        'thanks' => '感謝您安裝 twentyfouronline。',
         'title' => '完成安裝',
         'validate_button' => '驗證安裝',
     ],
@@ -58,7 +58,7 @@ return [
         'migrate' => '建立資料庫',
         'user' => '建立使用者',
     ],
-    'title' => 'LibreNMS 安裝',
+    'title' => 'twentyfouronline 安裝',
     'user' => [
         'button' => '新增使用者',
         'created' => '使用者已建立',
@@ -70,3 +70,7 @@ return [
         'username' => '使用者名稱',
     ],
 ];
+
+
+
+

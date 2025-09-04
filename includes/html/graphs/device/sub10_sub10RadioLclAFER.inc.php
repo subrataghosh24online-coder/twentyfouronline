@@ -14,3 +14,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:sub10RadioLclAFER:MIN:%3.2lf ';
     $rrd_options .= ' GPRINT:sub10RadioLclAFER:MAX:%3.2lf\\\l ';
 }
+
+
+
+

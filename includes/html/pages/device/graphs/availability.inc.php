@@ -5,16 +5,16 @@ $graph_type = 'availability';
 $deviceModel = DeviceCache::getPrimary();
 foreach ($deviceModel->availability as $index => $duration) {
     if (is_integer($index / 2)) {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
     } else {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
     }
 
     $graph_array['device'] = $duration->device_id;
     $graph_array['type'] = 'device_' . $graph_type;
     $graph_array['duration'] = $duration->duration;
 
-    $human_duration = \LibreNMS\Util\Time::formatInterval($duration->duration, parts: 1);
+    $human_duration = \twentyfouronline\Util\Time::formatInterval($duration->duration, parts: 1);
     $graph_title = $deviceModel->displayName() . ' - ' . $human_duration;
 
     echo "<div class='panel panel-default'>
@@ -25,3 +25,7 @@ foreach ($deviceModel->availability as $index => $duration) {
     include 'includes/html/print-graphrow.inc.php';
     echo '</div></div>';
 }
+
+
+
+

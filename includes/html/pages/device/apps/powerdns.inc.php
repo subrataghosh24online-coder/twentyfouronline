@@ -14,7 +14,7 @@ foreach ($graphs as $key => $text) {
     $graph_type = $key;
     $graph_array['height'] = '100';
     $graph_array['width'] = '215';
-    $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+    $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
     $graph_array['id'] = $app['app_id'];
     $graph_array['type'] = 'application_' . $key;
 
@@ -29,3 +29,7 @@ foreach ($graphs as $key => $text) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

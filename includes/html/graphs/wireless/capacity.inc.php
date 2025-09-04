@@ -7,3 +7,7 @@ $unit_long = 'Capacity (%)';
 $unit = '%';
 
 include 'wireless-sensor.inc.php';
+
+
+
+

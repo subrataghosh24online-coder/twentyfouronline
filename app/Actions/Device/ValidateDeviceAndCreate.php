@@ -18,25 +18,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2022 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\Actions\Device;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Support\Arr;
-use LibreNMS\Enum\PortAssociationMode;
-use LibreNMS\Exceptions\HostIpExistsException;
-use LibreNMS\Exceptions\HostnameExistsException;
-use LibreNMS\Exceptions\HostSysnameExistsException;
-use LibreNMS\Exceptions\HostUnreachablePingException;
-use LibreNMS\Exceptions\HostUnreachableSnmpException;
-use LibreNMS\Exceptions\SnmpVersionUnsupportedException;
-use LibreNMS\Modules\Core;
+use twentyfouronline\Enum\PortAssociationMode;
+use twentyfouronline\Exceptions\HostIpExistsException;
+use twentyfouronline\Exceptions\HostnameExistsException;
+use twentyfouronline\Exceptions\HostSysnameExistsException;
+use twentyfouronline\Exceptions\HostUnreachablePingException;
+use twentyfouronline\Exceptions\HostUnreachableSnmpException;
+use twentyfouronline\Exceptions\SnmpVersionUnsupportedException;
+use twentyfouronline\Modules\Core;
 use SnmpQuery;
 
 class ValidateDeviceAndCreate
@@ -54,7 +54,7 @@ class ValidateDeviceAndCreate
      */
     private $ping_fallback;
     /**
-     * @var \LibreNMS\Polling\ConnectivityHelper
+     * @var \twentyfouronline\Polling\ConnectivityHelper
      */
     private $connectivity;
 
@@ -63,15 +63,15 @@ class ValidateDeviceAndCreate
         $this->device = $device;
         $this->force = $force;
         $this->ping_fallback = $ping_fallback;
-        $this->connectivity = new \LibreNMS\Polling\ConnectivityHelper($this->device);
+        $this->connectivity = new \twentyfouronline\Polling\ConnectivityHelper($this->device);
     }
 
     /**
      * @return bool
      *
-     * @throws \LibreNMS\Exceptions\HostExistsException
+     * @throws \twentyfouronline\Exceptions\HostExistsException
      * @throws HostUnreachablePingException
-     * @throws \LibreNMS\Exceptions\HostUnreachableException
+     * @throws \twentyfouronline\Exceptions\HostUnreachableException
      * @throws SnmpVersionUnsupportedException
      */
     public function execute(): bool
@@ -105,7 +105,7 @@ class ValidateDeviceAndCreate
     }
 
     /**
-     * @throws \LibreNMS\Exceptions\HostUnreachableException
+     * @throws \twentyfouronline\Exceptions\HostUnreachableException
      * @throws SnmpVersionUnsupportedException
      */
     private function detectCredentials(): void
@@ -117,9 +117,9 @@ class ValidateDeviceAndCreate
         $host_unreachable_exception = new HostUnreachableSnmpException($this->device->hostname);
 
         // which snmp version should we try (and in what order)
-        $snmp_versions = $this->device->snmpver ? [$this->device->snmpver] : LibrenmsConfig::get('snmp.version');
+        $snmp_versions = $this->device->snmpver ? [$this->device->snmpver] : twentyfouronlineConfig::get('snmp.version');
 
-        $communities = Arr::where(Arr::wrap(LibrenmsConfig::get('snmp.community')), function ($community) {
+        $communities = Arr::where(Arr::wrap(twentyfouronlineConfig::get('snmp.community')), function ($community) {
             return $community && is_string($community);
         });
         if ($this->device->community) {
@@ -127,7 +127,7 @@ class ValidateDeviceAndCreate
         }
         $communities = array_unique($communities);
 
-        $v3_credentials = LibrenmsConfig::get('snmp.v3');
+        $v3_credentials = twentyfouronlineConfig::get('snmp.v3');
         array_unshift($v3_credentials, $this->device->only(['authlevel', 'authname', 'authpass', 'authalgo', 'cryptopass', 'cryptoalgo']));
         $v3_credentials = array_unique($v3_credentials, SORT_REGULAR);
 
@@ -185,20 +185,20 @@ class ValidateDeviceAndCreate
 
     private function fillDefaults(): void
     {
-        $this->device->port = $this->device->port ?: LibrenmsConfig::get('snmp.port', 161);
-        $this->device->transport = $this->device->transport ?: LibrenmsConfig::get('snmp.transports.0', 'udp');
-        $this->device->poller_group = $this->device->poller_group ?: LibrenmsConfig::get('default_poller_group', 0);
+        $this->device->port = $this->device->port ?: twentyfouronlineConfig::get('snmp.port', 161);
+        $this->device->transport = $this->device->transport ?: twentyfouronlineConfig::get('snmp.transports.0', 'udp');
+        $this->device->poller_group = $this->device->poller_group ?: twentyfouronlineConfig::get('default_poller_group', 0);
         $this->device->os = $this->device->os ?: 'generic';
         $this->device->status_reason = '';
         $this->device->sysName = $this->device->sysName ?: $this->device->hostname;
-        $this->device->port_association_mode = $this->device->port_association_mode ?: LibrenmsConfig::get('default_port_association_mode', 'ifIndex');
+        $this->device->port_association_mode = $this->device->port_association_mode ?: twentyfouronlineConfig::get('default_port_association_mode', 'ifIndex');
         if (! is_int($this->device->port_association_mode)) {
             $this->device->port_association_mode = PortAssociationMode::getId($this->device->port_association_mode) ?? 1;
         }
     }
 
     /**
-     * @throws \LibreNMS\Exceptions\HostExistsException
+     * @throws \twentyfouronline\Exceptions\HostExistsException
      */
     private function exceptIfHostnameExists(): void
     {
@@ -208,13 +208,13 @@ class ValidateDeviceAndCreate
     }
 
     /**
-     * @throws \LibreNMS\Exceptions\HostExistsException
+     * @throws \twentyfouronline\Exceptions\HostExistsException
      */
     private function exceptIfIpExists(): void
     {
         if ($this->device->overwrite_ip) {
             $ip = $this->device->overwrite_ip;
-        } elseif (LibrenmsConfig::get('addhost_alwayscheckip')) {
+        } elseif (twentyfouronlineConfig::get('addhost_alwayscheckip')) {
             $ip = gethostbyname($this->device->hostname);
         } else {
             $ip = $this->device->hostname;
@@ -233,19 +233,23 @@ class ValidateDeviceAndCreate
      *
      * @return void
      *
-     * @throws \LibreNMS\Exceptions\HostExistsException
+     * @throws \twentyfouronline\Exceptions\HostExistsException
      */
     private function exceptIfSysNameExists(): void
     {
-        if (LibrenmsConfig::get('allow_duplicate_sysName')) {
+        if (twentyfouronlineConfig::get('allow_duplicate_sysName')) {
             return;
         }
 
         if (Device::where('sysName', $this->device->sysName)
-            ->when(LibrenmsConfig::get('mydomain'), function ($query, $domain) {
+            ->when(twentyfouronlineConfig::get('mydomain'), function ($query, $domain) {
                 $query->orWhere('sysName', rtrim($this->device->sysName, '.') . '.' . $domain);
             })->exists()) {
             throw new HostSysnameExistsException($this->device->hostname, $this->device->sysName);
         }
     }
 }
+
+
+
+

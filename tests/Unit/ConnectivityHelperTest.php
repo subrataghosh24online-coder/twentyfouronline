@@ -1,14 +1,14 @@
 <?php
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
-use LibreNMS\Data\Source\Fping;
-use LibreNMS\Data\Source\FpingResponse;
-use LibreNMS\Data\Source\SnmpResponse;
-use LibreNMS\Polling\ConnectivityHelper;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Data\Source\Fping;
+use twentyfouronline\Data\Source\FpingResponse;
+use twentyfouronline\Data\Source\SnmpResponse;
+use twentyfouronline\Polling\ConnectivityHelper;
+use twentyfouronline\Tests\TestCase;
 use Mockery;
 use SnmpQuery;
 
@@ -54,7 +54,7 @@ class ConnectivityHelperTest extends TestCase
         $device = new Device();
 
         /** ping and snmp enabled */
-        LibrenmsConfig::set('icmp_check', true);
+        twentyfouronlineConfig::set('icmp_check', true);
         $device->snmp_disable = false;
 
         // ping up, snmp up
@@ -79,7 +79,7 @@ class ConnectivityHelperTest extends TestCase
         $this->assertEquals('icmp', $device->status_reason);
 
         /** ping disabled and snmp enabled */
-        LibrenmsConfig::set('icmp_check', false);
+        twentyfouronlineConfig::set('icmp_check', false);
         $device->snmp_disable = false;
 
         // ping up, snmp up
@@ -103,7 +103,7 @@ class ConnectivityHelperTest extends TestCase
         $this->assertEquals('snmp', $device->status_reason);
 
         /** ping enabled and snmp disabled */
-        LibrenmsConfig::set('icmp_check', true);
+        twentyfouronlineConfig::set('icmp_check', true);
         $device->snmp_disable = true;
 
         // ping up, snmp up
@@ -127,7 +127,7 @@ class ConnectivityHelperTest extends TestCase
         $this->assertEquals('icmp', $device->status_reason);
 
         /** ping and snmp disabled */
-        LibrenmsConfig::set('icmp_check', false);
+        twentyfouronlineConfig::set('icmp_check', false);
         $device->snmp_disable = true;
 
         // ping up, snmp up
@@ -170,3 +170,7 @@ class ConnectivityHelperTest extends TestCase
         $this->assertFalse($ch->isSNMPable());
     }
 }
+
+
+
+

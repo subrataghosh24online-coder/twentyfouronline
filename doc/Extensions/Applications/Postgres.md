@@ -5,7 +5,7 @@
 1. Copy the shell script, postgres, to the desired host
 
     ```
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/postgres -O /etc/snmp/postgres
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/postgres -O /etc/snmp/postgres
     ```
 
 2. Make the script executable
@@ -45,3 +45,7 @@ moderate usage.
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

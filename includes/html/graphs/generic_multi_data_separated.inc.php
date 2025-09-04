@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 require 'includes/html/graphs/common.inc.php';
@@ -44,20 +44,20 @@ if (! isset($multiplier)) {
 }
 
 foreach ($rrd_list as $rrd) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours_in.$iter") || ! \App\Facades\LibrenmsConfig::get("graph_colours.$colours_out.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_in.$iter") || ! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_out.$iter")) {
         $iter = 0;
     }
 
-    $colour_in = \App\Facades\LibrenmsConfig::get("graph_colours.$colours_in.$iter");
-    $colour_out = \App\Facades\LibrenmsConfig::get("graph_colours.$colours_out.$iter");
+    $colour_in = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_in.$iter");
+    $colour_out = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_out.$iter");
 
     if (isset($rrd['descr_in'])) {
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr_in'], $descr_len) . '  In';
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr_in'], $descr_len) . '  In';
     } else {
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len) . '  In';
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len) . '  In';
     }
 
-    $descr_out = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr_out'], $descr_len) . ' Out';
+    $descr_out = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr_out'], $descr_len) . ' Out';
 
     $rrd_options .= ' DEF:' . $in . $i . '=' . $rrd['filename'] . ':' . $ds_in . ':AVERAGE ';
     $rrd_options .= ' DEF:' . $out . $i . '=' . $rrd['filename'] . ':' . $ds_out . ':AVERAGE ';
@@ -118,9 +118,9 @@ if (! $nototal) {
     $rrd_options .= ' CDEF:inbits=inoctets,8,*';
     $rrd_options .= ' CDEF:outbits=outoctets,8,*';
     $rrd_options .= ' CDEF:doutbits=doutoctets,8,*';
-    $rrd_options .= ' VDEF:percentile_in=inbits,' . \App\Facades\LibrenmsConfig::get('percentile_value') . ',PERCENT';
-    $rrd_options .= ' VDEF:percentile_out=outbits,' . \App\Facades\LibrenmsConfig::get('percentile_value') . ',PERCENT';
-    $rrd_options .= ' CDEF:dpercentile_outn=doutbits,' . $stacked['stacked'] . ',* VDEF:dpercentile_outnp=dpercentile_outn,' . \App\Facades\LibrenmsConfig::get('percentile_value') . ',PERCENT CDEF:dpercentile_outnpn=doutbits,doutbits,-,dpercentile_outnp,' . $stacked['stacked'] . ',*,+ VDEF:dpercentile_out=dpercentile_outnpn,FIRST';
+    $rrd_options .= ' VDEF:percentile_in=inbits,' . \App\Facades\twentyfouronlineConfig::get('percentile_value') . ',PERCENT';
+    $rrd_options .= ' VDEF:percentile_out=outbits,' . \App\Facades\twentyfouronlineConfig::get('percentile_value') . ',PERCENT';
+    $rrd_options .= ' CDEF:dpercentile_outn=doutbits,' . $stacked['stacked'] . ',* VDEF:dpercentile_outnp=dpercentile_outn,' . \App\Facades\twentyfouronlineConfig::get('percentile_value') . ',PERCENT CDEF:dpercentile_outnpn=doutbits,doutbits,-,dpercentile_outnp,' . $stacked['stacked'] . ',*,+ VDEF:dpercentile_out=dpercentile_outnpn,FIRST';
     $rrd_options .= ' VDEF:totin=inoctets,TOTAL';
     $rrd_options .= ' VDEF:totout=outoctets,TOTAL';
     $rrd_options .= ' VDEF:tot=octets,TOTAL';
@@ -130,3 +130,7 @@ $rrd_options .= $rrd_optionsb;
 $rrd_options .= ' HRULE:0#999999';
 
 unset($stacked);
+
+
+
+

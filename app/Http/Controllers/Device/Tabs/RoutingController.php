@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -30,7 +30,7 @@ use App\Facades\DeviceCache;
 use App\Models\Component;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class RoutingController implements DeviceTab
 {
@@ -82,3 +82,7 @@ class RoutingController implements DeviceTab
         ];
     }
 }
+
+
+
+

@@ -18,3 +18,7 @@ return [
         'wrong-auth' => "Attention !  Vous ne pourrez pas vous connecter avec cet utilisateur car vous n'utilisez pas les auth MySQL.",
     ],
 ];
+
+
+
+

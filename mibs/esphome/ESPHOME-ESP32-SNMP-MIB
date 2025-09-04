@@ -191,3 +191,7 @@ maximumAllocatedHeap OBJECT-TYPE
 groups OBJECT IDENTIFIER 	::= { esphome 9999 }
 
 END
+
+
+
+

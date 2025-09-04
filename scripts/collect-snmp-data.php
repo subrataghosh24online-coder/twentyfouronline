@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Str;
-use LibreNMS\Exceptions\InvalidModuleException;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\ModuleTestHelper;
+use twentyfouronline\Exceptions\InvalidModuleException;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\ModuleTestHelper;
 
 $install_dir = realpath(__DIR__ . '/..');
 chdir($install_dir);
@@ -127,9 +127,13 @@ try {
     $full = isset($options['full']);
 
     echo 'Capturing Data: ';
-    LibrenmsConfig::invalidateAndReload();
+    twentyfouronlineConfig::invalidateAndReload();
     $capture->captureFromDevice($device['device_id'], $prefer_new_snmprec, $full);
     echo "\nVerify these file(s) do not contain any private data before sharing!\n";
 } catch (InvalidModuleException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+
+
+
+

@@ -2659,3 +2659,7 @@ HH3C-QOS-CAPABILITY-MIB DEFINITIONS ::= BEGIN
             ::= { hh3cQoSIfCapabilityEntry 4 }
 
 END
+
+
+
+

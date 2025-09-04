@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\Ipv4Mac;
-use LibreNMS\Util\Mac;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Mac;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Url;
 
 $param = [];
 
@@ -98,3 +98,7 @@ $output = [
     'total' => $pag->total(),
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

@@ -8,3 +8,7 @@ $smalldescrlen = 25;
 $rrdVar = 'age';
 
 require 'certificate-common.inc.php';
+
+
+
+

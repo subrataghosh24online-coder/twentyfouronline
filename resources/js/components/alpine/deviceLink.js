@@ -41,3 +41,7 @@ export default function deviceLink(options = {}) {
     // Return the popup component with the transformed URL
     return popup.call(this, transformedUrl, options);
 }
+
+
+
+

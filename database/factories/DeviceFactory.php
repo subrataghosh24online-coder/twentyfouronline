@@ -41,3 +41,7 @@ class DeviceFactory extends Factory
         ];
     }
 }
+
+
+
+

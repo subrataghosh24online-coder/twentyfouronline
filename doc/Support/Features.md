@@ -848,3 +848,7 @@ rg --pcre2 "^text: *([\"']?)(.+)\1" --replace '$2' --no-filename resources/defin
 * ZyXEL USG
 * ZyXEL ZyWALL
 * Zyxel Zyxelwlc
+
+
+
+

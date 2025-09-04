@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Steve Calvário <https://github.com/Calvario/>
  *
@@ -27,3 +27,7 @@ $ups_real_power_nominal = snmp_get($device, $ups_real_power_nominal_oid, '-Oqv')
 if (is_numeric($ups_real_power_nominal)) {
     discover_sensor(null, 'power', $device, $ups_real_power_nominal_oid, 'UPSRealPowerNominal', $ups_device_manufacturer . ' ' . $ups_device_model, 'UPS Real Power Nominal', '1', '1', null, null, null, null, $ups_real_power_nominal);
 }
+
+
+
+

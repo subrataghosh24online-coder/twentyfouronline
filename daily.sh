@@ -20,20 +20,20 @@
 #######################################
 # CONSTANTS
 #######################################
-# define DAILY_SCRIPT as the full path to this script and LIBRENMS_DIR as the directory this script is in
+# define DAILY_SCRIPT as the full path to this script and twentyfouronline_DIR as the directory this script is in
 DAILY_SCRIPT=$(readlink -f "$0")
-LIBRENMS_DIR=$(dirname "$DAILY_SCRIPT")
-COMPOSER="php ${LIBRENMS_DIR}/scripts/composer_wrapper.php --no-interaction"
+twentyfouronline_DIR=$(dirname "$DAILY_SCRIPT")
+COMPOSER="php ${twentyfouronline_DIR}/scripts/composer_wrapper.php --no-interaction"
 
-# set log_file, using librenms 'log_dir' config setting, if set
-# otherwise we default to <LibreNMS Install Directory>/logs
-LOG_DIR=$(php -r "@include '${LIBRENMS_DIR}/config.php'; echo isset(\$config['log_dir']) ? \$config['log_dir'] : '${LIBRENMS_DIR}/logs';")
+# set log_file, using twentyfouronline 'log_dir' config setting, if set
+# otherwise we default to <twentyfouronline Install Directory>/logs
+LOG_DIR=$(php -r "@include '${twentyfouronline_DIR}/config.php'; echo isset(\$config['log_dir']) ? \$config['log_dir'] : '${twentyfouronline_DIR}/logs';")
 
-# get the librenms user
+# get the twentyfouronline user
 # shellcheck source=.env.example
-source "${LIBRENMS_DIR}/.env"
-LIBRENMS_USER="${LIBRENMS_USER:-librenms}"
-LIBRENMS_USER_ID=$(id -u "$LIBRENMS_USER")
+source "${twentyfouronline_DIR}/.env"
+twentyfouronline_USER="${twentyfouronline_USER:-twentyfouronline}"
+twentyfouronline_USER_ID=$(id -u "$twentyfouronline_USER")
 
 #######################################
 # Fancy-Print and run commands
@@ -55,7 +55,7 @@ status_run() {
     arg_option=$3
     log_file=${LOG_DIR}/daily.log
 
-    # set log_file, using librenms $config['log_dir'], if set
+    # set log_file, using twentyfouronline $config['log_dir'], if set
     # otherwise we default to ./logs/daily.log
 
     printf "%-50s" "${arg_text}"
@@ -72,7 +72,7 @@ status_run() {
     else
         printf " \\033[0;31mFAIL\\033[0m\\n"
         if [[ "${arg_option}" == "update" ]]; then
-            php "${LIBRENMS_DIR}/daily.php" -f notify -o "${tmp}"
+            php "${twentyfouronline_DIR}/daily.php" -f notify -o "${tmp}"
         fi
         if [[ -n "${tmp}" ]]; then
             # print output in case of failure
@@ -85,7 +85,7 @@ status_run() {
 #######################################
 # Call daily.php
 # Globals:
-#   LIBRENMS_DIR
+#   twentyfouronline_DIR
 # Arguments:
 #   args:
 #        Array of arguments to pass to
@@ -99,14 +99,14 @@ call_daily_php() {
     args=("$@")
 
     for arg in "${args[@]}"; do
-        php "${LIBRENMS_DIR}/daily.php" -f "${arg}"
+        php "${twentyfouronline_DIR}/daily.php" -f "${arg}"
     done
 }
 
 #######################################
 # Send result of a notifiable process to php code for processing
 # Globals:
-#   LIBRENMS_DIR
+#   twentyfouronline_DIR
 # Arguments:
 #   args:
 #        Type: update
@@ -121,7 +121,7 @@ set_notifiable_result() {
     arg_type=$1
     arg_result=$2
 
-    php "${LIBRENMS_DIR}/daily.php" -f handle_notifiable -t "${arg_type}" -r "${arg_result}"
+    php "${twentyfouronline_DIR}/daily.php" -f handle_notifiable -t "${arg_type}" -r "${arg_result}"
 }
 
 #######################################
@@ -141,7 +141,7 @@ check_dependencies() {
     ver_81=$(php -r "echo (int)version_compare(PHP_VERSION, '8.1', '<');")
     ver_82=$(php -r "echo (int)version_compare(PHP_VERSION, '8.2', '<');")
     python3=$(python3 -c "import sys;print(int(sys.version_info < (3, 4)))" 2> /dev/null)
-    python_deps=$("${LIBRENMS_DIR}/scripts/check_requirements.py" > /dev/null 2>&1; echo $?)
+    python_deps=$("${twentyfouronline_DIR}/scripts/check_requirements.py" > /dev/null 2>&1; echo $?)
     phpver="master"
     pythonver="master"
 
@@ -246,7 +246,7 @@ version_compare () {
 #######################################
 # Entry into program
 # Globals:
-#   LIBRENMS_DIR
+#   twentyfouronline_DIR
 # Arguments:
 #
 # Returns:
@@ -260,18 +260,18 @@ main () {
     new_version="$3"
     old_version="${old_version:=unset}"  # if $1 is unset, make it mismatch for pre-update daily.sh
 
-    cd "${LIBRENMS_DIR}" || exit 1
+    cd "${twentyfouronline_DIR}" || exit 1
 
-    # if not running as $LIBRENMS_USER (unless $LIBRENMS_USER = root), relaunch
-    if [[ "$LIBRENMS_USER" != "root" ]]; then
-        if [[ "$EUID" -ne "$LIBRENMS_USER_ID" ]]; then
-            printf "\\033[0;91mERROR\\033[0m: You must run this script as %s\\n" "${LIBRENMS_USER}"
+    # if not running as $twentyfouronline_USER (unless $twentyfouronline_USER = root), relaunch
+    if [[ "$twentyfouronline_USER" != "root" ]]; then
+        if [[ "$EUID" -ne "$twentyfouronline_USER_ID" ]]; then
+            printf "\\033[0;91mERROR\\033[0m: You must run this script as %s\\n" "${twentyfouronline_USER}"
             exit 1
         fi
     fi
 
     # make sure autoload.php exists before trying to run any php that may require it
-    if [ ! -f "${LIBRENMS_DIR}/vendor/autoload.php" ]; then
+    if [ ! -f "${twentyfouronline_DIR}/vendor/autoload.php" ]; then
         ${COMPOSER} install --no-dev
     fi
 
@@ -412,3 +412,7 @@ main () {
 }
 
 main "$@"
+
+
+
+

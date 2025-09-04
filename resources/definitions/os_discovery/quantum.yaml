@@ -136,3 +136,7 @@ modules:
                             oid: powerSupplyStatus
                             op: '=='
                             value: '2'
+
+
+
+

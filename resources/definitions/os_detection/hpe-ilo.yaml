@@ -14,3 +14,7 @@ discovery:
 mib_dir: hp
 ignore_mount_regexp:
     - '#^[^/]+ on /#' # Ignore linux synthetic mounts via CPQHOST-MIB
+
+
+
+

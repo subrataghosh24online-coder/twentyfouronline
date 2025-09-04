@@ -1895,3 +1895,7 @@ tnMgmtMibCPUTmpNotif    NOTIFICATION-TYPE
     ::= { tnMgmtNotifications 10 }
 END
 
+
+
+
+

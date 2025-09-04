@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('tools.oui.lookup'))
 
@@ -33,3 +33,7 @@
         </x-panel>
     </div>
 @endsection
+
+
+
+

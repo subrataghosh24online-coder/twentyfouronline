@@ -4,16 +4,16 @@ namespace App\Console\Commands;
 
 use App\Console\LnmsCommand;
 use App\Events\DevicePolled;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Jobs\PollDevice;
 use App\Models\Device;
 use App\Polling\Measure\MeasurementManager;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Polling\Result;
-use LibreNMS\Util\Module;
-use LibreNMS\Util\Version;
+use twentyfouronline\Polling\Result;
+use twentyfouronline\Util\Module;
+use twentyfouronline\Util\Version;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -45,18 +45,18 @@ class DevicePoll extends LnmsCommand
         $this->configureOutputOptions();
 
         if ($this->option('no-data')) {
-            LibrenmsConfig::set('rrd.enable', false);
-            LibrenmsConfig::set('influxdb.enable', false);
-            LibrenmsConfig::set('influxdbv2.enable', false);
-            LibrenmsConfig::set('prometheus.enable', false);
-            LibrenmsConfig::set('graphite.enable', false);
-            LibrenmsConfig::set('kafka.enable', false);
+            twentyfouronlineConfig::set('rrd.enable', false);
+            twentyfouronlineConfig::set('influxdb.enable', false);
+            twentyfouronlineConfig::set('influxdbv2.enable', false);
+            twentyfouronlineConfig::set('prometheus.enable', false);
+            twentyfouronlineConfig::set('graphite.enable', false);
+            twentyfouronlineConfig::set('kafka.enable', false);
         }
 
         try {
             if ($this->getOutput()->isVerbose()) {
                 Log::debug(Version::get()->header());
-                LibrenmsConfig::invalidateAndReload();
+                twentyfouronlineConfig::invalidateAndReload();
             }
 
             $module_overrides = Module::parseUserOverrides(explode(',', $this->option('modules') ?? ''));
@@ -161,3 +161,7 @@ class DevicePoll extends LnmsCommand
         }
     }
 }
+
+
+
+

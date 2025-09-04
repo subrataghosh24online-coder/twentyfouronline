@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 GTM Wide IP Details
+ * twentyfouronline module to display F5 GTM Wide IP Details
  *
  * Adapted from F5 LTM module by Darren Napper
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
@@ -13,7 +13,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', 'f5-gtm-wide'];
 $components = $component->getComponents($device['device_id'], $options);
@@ -43,3 +43,7 @@ if (isset($components[$vars['id']])) {
         require 'includes/html/graphs/generic_simplex.inc.php';
     }
 }
+
+
+
+

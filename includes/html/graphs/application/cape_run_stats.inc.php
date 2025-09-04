@@ -107,3 +107,7 @@ if (Rrd::checkRrdExists($rrd_filename_signatures_total)) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

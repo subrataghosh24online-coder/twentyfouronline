@@ -512,3 +512,7 @@ IMPORTS
         ::= { tnAlarmPanelCompliances 1 }
 
 END -- DEFINITION OF TROPIC-ALARMPANEL-MIB
+
+
+
+

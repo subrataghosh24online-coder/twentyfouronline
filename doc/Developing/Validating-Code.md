@@ -7,14 +7,14 @@ and our test suite builds successfully.
 Rather than submit a pull request and wait for the results, you can
 run these checks yourself to ensure  a more seamless merge.
 
-> All of these commands should be run from within the librenms
-> directory and can be run as the librenms user  unless otherwise noted.
+> All of these commands should be run from within the twentyfouronline
+> directory and can be run as the twentyfouronline user  unless otherwise noted.
 
 Install composer (you can skip this if composer is already installed).
 
 `curl -sS https://getcomposer.org/installer | php`
 
-Composer will now be installed into /opt/librenms/composer.phar.
+Composer will now be installed into /opt/twentyfouronline/composer.phar.
 
 Now install the dependencies we require:
 
@@ -35,5 +35,9 @@ commit process.
 
 Add `./lnms dev:check` to your `.git/hooks/pre-commit`:
 
-    echo "/opt/librenms/lnms dev:check" >> /opt/librenms/.git/hooks/pre-commit
-    chmod +x /opt/librenms/.git/hooks/pre-commit
+    echo "/opt/twentyfouronline/lnms dev:check" >> /opt/twentyfouronline/.git/hooks/pre-commit
+    chmod +x /opt/twentyfouronline/.git/hooks/pre-commit
+
+
+
+

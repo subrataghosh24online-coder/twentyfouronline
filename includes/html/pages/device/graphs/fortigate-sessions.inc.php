@@ -6,3 +6,7 @@ if ($device['os'] == 'fortigate' || $device['os_group'] == 'fortigate') {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

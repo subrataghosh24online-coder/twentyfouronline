@@ -7,17 +7,17 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2018 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2018 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $where = ' `devices`.`disabled` = 0';
 $param = [];
 $alert_states = [
-    // divined from librenms/alerts.php
+    // divined from twentyfouronline/alerts.php
     'recovered' => 0,
     'alerted' => 1,
     'acknowledged' => 2,
@@ -198,7 +198,7 @@ foreach (dbFetchRows($sql, $param) as $alert) {
 
     $response[] = [
         'id' => $rulei++,
-        'rule' => '<i title="' . htmlentities($alert['builder']) . '"><a href="' . \LibreNMS\Util\Url::generate(['page' => 'alert-rules']) . '">' . htmlentities($alert['name']) . '</a></i>',
+        'rule' => '<i title="' . htmlentities($alert['builder']) . '"><a href="' . \twentyfouronline\Util\Url::generate(['page' => 'alert-rules']) . '">' . htmlentities($alert['name']) . '</a></i>',
         'details' => '<a class="fa-solid fa-plus incident-toggle" style="display:none" data-toggle="collapse" data-target="#incident' . $alert['id'] . '" data-parent="#alerts"></a>',
         'verbose_details' => "<button type='button' class='btn btn-alert-details command-alert-details' aria-label='Details' id='alert-details' data-alert_log_id='{$alert_log_id}'><i class='fa-solid fa-circle-info'></i></button>",
         'hostname' => $hostname,
@@ -220,3 +220,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

@@ -315,12 +315,12 @@ required or supported.
 
 You will need to add code for your new sensor class in the following existing files:
 
-- `LibreNMS/Enum/Sensor.php`: add accordingly, find free icon from [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free)
+- `twentyfouronline/Enum/Sensor.php`: add accordingly, find free icon from [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free)
 - `doc/Developing/os/Health-Information.md`: documentation for every sensor class is mandatory.
 - `includes/discovery/functions.inc.php`: optional - if sensible low_limit and high_limit values
 are guessable when a SNMP-retrievable threshold is not available, add a case for the sensor class
 to the sensor_limit() and/or sensor_low_limit() functions.
-- `LibreNMS/Util/ObjectCache.php`: optional - choose menu grouping for the sensor class.
+- `twentyfouronline/Util/ObjectCache.php`: optional - choose menu grouping for the sensor class.
 - `includes/html/pages/device/overview.inc.php`: add `require 'overview/sensors/$class.inc.php'`
 in the desired order for the device overview page.
 - `lang/en/sensors.php`: add human-readable names and units for the sensor class
@@ -459,8 +459,8 @@ there is nothing next to the sensor type then the sensor was not discovered. The
 information about changes to the database and RRD files at the bottom.
 
 ```
-[librenms@nms-test ~]$ ./discovery.php -h 2 -m sensors
-LibreNMS Discovery
+[twentyfouronline@nms-test ~]$ ./discovery.php -h 2 -m sensors
+twentyfouronline Discovery
 164.113.194.250 2 adva_fsp150
 
 #### Load disco module core ####
@@ -514,3 +514,7 @@ SNMP [18/3.96s]: Get[8/0.81s] Getnext[0/0.00s] Walk[10/3.15s]
 MySQL [41/0.03s]: Cell[10/0.01s] Row[-4/-0.00s] Rows[31/0.02s] Column[0/0.00s] Update[2/0.00s] Insert[2/0.00s] Delete[0/0.00s]
 RRD [0/0.00s]: Update[0/0.00s] Create [0/0.00s] Other[0/0.00s]
 ```
+
+
+
+

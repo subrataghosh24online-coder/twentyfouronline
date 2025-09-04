@@ -17,12 +17,12 @@ if (Rrd::checkRrdExists(Rrd::name(DeviceCache::getPrimary()->hostname, 'icmp-per
     $graph = \App\Http\Controllers\Device\Tabs\OverviewController::setGraphWidth([
         'device' => DeviceCache::getPrimary()->device_id,
         'type' => 'device_icmp_perf',
-        'from' => \App\Facades\LibrenmsConfig::get('time.day'),
+        'from' => \App\Facades\twentyfouronlineConfig::get('time.day'),
         'legend' => 'yes',
         'popup_title' => DeviceCache::getPrimary()->hostname . ' - Ping Response',
     ]);
 
-    echo \LibreNMS\Util\Url::graphPopup($graph, \LibreNMS\Util\Url::lazyGraphTag($graph), $perf_url);
+    echo \twentyfouronline\Util\Url::graphPopup($graph, \twentyfouronline\Util\Url::lazyGraphTag($graph), $perf_url);
     echo '  </td>
             </tr>
         </table>
@@ -30,3 +30,7 @@ if (Rrd::checkRrdExists(Rrd::name(DeviceCache::getPrimary()->hostname, 'icmp-per
         </div>
         </div>';
 }//end if
+
+
+
+

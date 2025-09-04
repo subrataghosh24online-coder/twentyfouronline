@@ -15,13 +15,13 @@
   "See the <a href=\":url\">list of contributors</a> on GitHub.": "Consultez la <a href=\":url\"> liste des contributeurs </a> sur GitHub.",
   "Docs": "Documentations",
   "Close": "Fermer",
-  "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS est un système de surveillance réseau basé sur PHP / MySQL à découverte automatique.",
+  "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline est un système de surveillance réseau basé sur PHP / MySQL à découverte automatique.",
   "Packages": "Paquets",
   "Disabled": "Désactivé",
   "Version": "Version",
   "Database Schema": "Schéma de base de données",
   "Web Server": "Serveur Web",
-  "LibreNMS is a community-based project": "LibreNMS est un projet basé sur la communauté",
+  "twentyfouronline is a community-based project": "twentyfouronline est un projet basé sur la communauté",
   "Please feel free to join us and contribute code, documentation, and bug reports:": "N'hésitez pas à nous rejoindre et à contribuer au code, à la documentation et aux rapports de bug:",
   "Web site": "Site Web",
   "Bug tracker": "Traqueur de bug",
@@ -30,7 +30,7 @@
   "Local git log": "Local git log",
   "Contributors": "Contributeurs",
   "Acknowledgements": "Remerciements",
-  "Opt in to send anonymous usage statistics to LibreNMS?": "Activer pour envoyer des statistiques d'utilisation anonymes à LibreNMS?",
+  "Opt in to send anonymous usage statistics to twentyfouronline?": "Activer pour envoyer des statistiques d'utilisation anonymes à twentyfouronline?",
   "Online stats:": "Statistiques en ligne",
   "Clear remote stats": "Effacer les statistiques à distance",
   "IPv4 Addresses": "Adresses IPv4",
@@ -194,7 +194,7 @@
   "The user could not be deleted": "L’utilisateur ne peut être supprimé",
   "Whoops, the web server could not write required files to the filesystem.": "Oups, le serveur web ne peut pas écrire les fichiers nécessaires au système de fichiers.",
   "Running the following commands will fix the issue most of the time:": "Exécuter les commandes suivantes corrigera le problème la plupart du temps:",
-  "Whoops, looks like something went wrong. Check your librenms.log.": "Oups, on dirait que quelque chose a mal tourné. Vérifiez le fichier librenms.log.",
+  "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "Oups, on dirait que quelque chose a mal tourné. Vérifiez le fichier twentyfouronline.log.",
   "Public Devices": "Appareils publics",
   "System Status": "Status du système",
   "Logon": "Connexion",
@@ -378,3 +378,7 @@
   "History": "Historique",
   "Filter Settings": "Paramètres de filtre"
 }
+
+
+
+

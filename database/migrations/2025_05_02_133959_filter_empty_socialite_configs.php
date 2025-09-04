@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
@@ -10,7 +10,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $configs = LibrenmsConfig::get('auth.socialite.configs', []);
+        $configs = twentyfouronlineConfig::get('auth.socialite.configs', []);
         $configs = array_filter($configs, function ($key) {
             if (is_string($key) && strlen(trim($key)) == 0) {
                 return false;
@@ -19,7 +19,7 @@ return new class extends Migration
             return true;
         }, ARRAY_FILTER_USE_KEY);
 
-        LibrenmsConfig::persist('auth.socialite.configs', $configs);
+        twentyfouronlineConfig::persist('auth.socialite.configs', $configs);
     }
 
     /**
@@ -30,3 +30,7 @@ return new class extends Migration
         //
     }
 };
+
+
+
+

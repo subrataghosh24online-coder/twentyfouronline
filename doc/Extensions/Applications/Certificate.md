@@ -33,7 +33,7 @@ c. (Optional): You may define a certificate location for self-signed certificate
 1. Copy the shell script to the desired host.
 
 ```bash
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
 ```
 
 2. Make the script executable
@@ -50,3 +50,7 @@ extend certificate /etc/snmp/certificate.py
 4. Restart snmpd on your host
 
 The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under `SNMP Extend` heading top of page.
+
+
+
+

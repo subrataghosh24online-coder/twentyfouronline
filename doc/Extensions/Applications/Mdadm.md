@@ -17,7 +17,7 @@ This script require: `jq`
 1. Download the script onto the desired host.
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
+    sudo wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/mdadm -O /etc/snmp/mdadm
     ```
 
 3. Make the script executable
@@ -47,3 +47,7 @@ This script require: `jq`
     The application should be auto-discovered as described at the
     top of the page. If it is not, please follow the steps set out
     under `SNMP Extend` heading top of page.
+
+
+
+

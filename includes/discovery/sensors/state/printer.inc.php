@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Util\StringHelpers;
 
 echo 'Printer Status and Error State ';
 $state = snmp_get($device, 'hrDeviceStatus.1', '-Ovqe', 'HOST-RESOURCES-MIB');
@@ -103,3 +103,7 @@ if ($state) {
         0
     );
 }
+
+
+
+

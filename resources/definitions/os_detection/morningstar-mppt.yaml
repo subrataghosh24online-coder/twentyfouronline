@@ -38,3 +38,7 @@ discovery:
             oid: TRISTAR-MPPT-600V::subModel.0
             op: 'contains'
             value: 'MPPT'
+
+
+
+

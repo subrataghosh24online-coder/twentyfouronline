@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Overview'))
 
@@ -18,7 +18,7 @@
 
     @foreach ($devices_down as $device)
         <div class="front-box device-down">
-            {!! \LibreNMS\Util\Url::deviceLink($device, $device->shortDisplayName()) !!}
+            {!! \twentyfouronline\Util\Url::deviceLink($device, $device->shortDisplayName()) !!}
             <br />
             <span class=list-device-down>{{ __('Device Down') }}</span>
             <br />
@@ -28,11 +28,11 @@
 
     @foreach ($ports_down as $port)
         <div class="front-box alert alert-danger">
-            {!! \LibreNMS\Util\Url::deviceLink($port->device, $port->device->shortDisplayName()) !!}
+            {!! \twentyfouronline\Util\Url::deviceLink($port->device, $port->device->shortDisplayName()) !!}
             <br />
             <span class="interface-updown">{{ __('Port Down') }}</span>
             <br />
-            {!! \LibreNMS\Util\Url::PortLink($port) !!}
+            {!! \twentyfouronline\Util\Url::PortLink($port) !!}
             @if($port->ifAlias)
                 <br />
                 <span class="body-date-1">{{ \Str::limit($port->getLabel(), 20) }}</span>
@@ -42,7 +42,7 @@
 
     @foreach ($services_down as $service)
         <div class="front-box service-down">
-            {!! \LibreNMS\Util\Url::deviceLink($service->device, $service->device->shortDisplayName()) !!}
+            {!! \twentyfouronline\Util\Url::deviceLink($service->device, $service->device->shortDisplayName()) !!}
             <span class=service-down>{{ __('Service Down') }}</span>
             {{ $service->service_type }}
         </div>
@@ -50,7 +50,7 @@
 
     @foreach ($bgp_down as $bgp)
         <div class="front-box bgp-down">
-            {!! \LibreNMS\Util\Url::deviceLink($bgp->device, $bgp->device->shortDisplayName()) !!}
+            {!! \twentyfouronline\Util\Url::deviceLink($bgp->device, $bgp->device->shortDisplayName()) !!}
             <span class="bgp-down">{{ __('BGP Down') }}</span>
             <span class="{{ (strstr($bgp->bgpPeerIdentifier, ':') ? 'front-page-bgp-small' : 'front-page-bgp-normal') }}">
                 {{ $bgp->bgpPeerIdentifier }}
@@ -62,7 +62,7 @@
 
     @foreach ($devices_uptime as $device)
         <div class="front-box device-rebooted">
-            {!! \LibreNMS\Util\Url::deviceLink($device, $device->shortDisplayName()) !!}
+            {!! \twentyfouronline\Util\Url::deviceLink($device, $device->shortDisplayName()) !!}
             <span class="device-rebooted">{{ __('Device Rebooted') }}</span>
             <br />
             <span class="body-date-1">{{ $device->formatDownUptime(true) }}</span>
@@ -101,7 +101,7 @@
                     @foreach ($syslog as $entry)
                         <tr>
                             <td>{{ $entry->date }}</td>
-                            <td><strong>{!! \LibreNMS\Util\Url::deviceLink($entry->device) !!}</strong></td>
+                            <td><strong>{!! \twentyfouronline\Util\Url::deviceLink($entry->device) !!}</strong></td>
                             <td><strong>{{ $entry->program }} : </strong> {{ $entry->msg }}</td>
                         </tr>
                     @endforeach
@@ -121,3 +121,7 @@
 </div>
 
 @endsection
+
+
+
+

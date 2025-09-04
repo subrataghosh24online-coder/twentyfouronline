@@ -1,10 +1,10 @@
 #!/usr/bin/env php
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Str;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Number;
 
 $install_dir = realpath(__DIR__ . '/..');
 chdir($install_dir);
@@ -13,11 +13,11 @@ $init_modules = [];
 require $install_dir . '/includes/init.php';
 $options = getopt('dh:e:', ['help']);
 
-LibrenmsConfig::set('rrd.enable', false);
-LibrenmsConfig::set('influxdb.enable', false);
-LibrenmsConfig::set('influxdbv2.enable', false);
-LibrenmsConfig::set('nographite', true);
-LibrenmsConfig::set('kafka.enable', false);
+twentyfouronlineConfig::set('rrd.enable', false);
+twentyfouronlineConfig::set('influxdb.enable', false);
+twentyfouronlineConfig::set('influxdbv2.enable', false);
+twentyfouronlineConfig::set('nographite', true);
+twentyfouronlineConfig::set('kafka.enable', false);
 
 function print_help()
 {
@@ -62,7 +62,7 @@ if (isset($options['e'])) {
 }
 
 echo 'Full Polling: ';
-LibrenmsConfig::set('polling.selected_ports', false);
+twentyfouronlineConfig::set('polling.selected_ports', false);
 foreach ($devices as $index => $device) {
     echo $device['device_id'] . ' ';
     if (! Debug::isEnabled()) {
@@ -76,7 +76,7 @@ foreach ($devices as $index => $device) {
 }
 echo PHP_EOL;
 
-LibrenmsConfig::set('polling.selected_ports', true);
+twentyfouronlineConfig::set('polling.selected_ports', true);
 echo 'Selective Polling: ';
 foreach ($devices as $index => $device) {
     echo $device['device_id'] . ' ';
@@ -180,3 +180,7 @@ printf(
     $difference_perc,
     $set_count
 );
+
+
+
+

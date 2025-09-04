@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\Eventlog;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppMissingKeysException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppMissingKeysException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'wireguard';
 $output = 'OK';
@@ -63,7 +63,7 @@ foreach ($interface_client_map as $interface => $client_list) {
 
         continue;
     }
-    $interface = \LibreNMS\Util\Clean::fileName($interface);
+    $interface = \twentyfouronline\Util\Clean::fileName($interface);
 
     $mappings[$interface] = [];
     foreach ($client_list as $client => $client_data) {
@@ -76,7 +76,7 @@ foreach ($interface_client_map as $interface => $client_list) {
 
             continue;
         }
-        $client = \LibreNMS\Util\Clean::fileName($client);
+        $client = \twentyfouronline\Util\Clean::fileName($client);
 
         array_push($mappings[$interface], $client);
         $bytes_rcvd = is_numeric($client_data['bytes_rcvd'])
@@ -210,3 +210,7 @@ foreach ($mappings as $interface => $client_list) {
 }
 
 update_application($app, $output, $metrics);
+
+
+
+

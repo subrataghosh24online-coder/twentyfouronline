@@ -2,7 +2,7 @@
 
 /*
  * Temperature Sensors for BeagleBoard
- * Requires snmp extend agent script from librenms-agent
+ * Requires snmp extend agent script from twentyfouronline-agent
  */
 
 $type = 'beagleboardTemp';
@@ -38,3 +38,7 @@ for ($temp = 0; $temp < 5; $temp++) {
         break;
     }
 }
+
+
+
+

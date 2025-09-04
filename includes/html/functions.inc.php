@@ -1,27 +1,27 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS
+ *   This file is part of twentyfouronline
  *
- * @author     LibreNMS Contributors <librenms-project@google.groups.com>
+ * @author     twentyfouronline Contributors <twentyfouronline-project@google.groups.com>
  * @copyright  (C) 2006 - 2012 Adam Armstrong (as Observium)
- * @copyright  (C) 2013 LibreNMS Group
+ * @copyright  (C) 2013 twentyfouronline Group
  */
 
 use App\Facades\DeviceCache;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Facades\PortCache;
 use App\Models\Port;
-use LibreNMS\Enum\ImageFormat;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Url;
+use twentyfouronline\Enum\ImageFormat;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Url;
 
 function toner2colour($descr, $percent)
 {
-    $colour = \LibreNMS\Util\Color::percentage(100 - $percent, null);
+    $colour = \twentyfouronline\Util\Color::percentage(100 - $percent, null);
 
     if (substr($descr, -1) == 'C' || stripos($descr, 'cyan') !== false) {
         $colour['left'] = '55D6D3';
@@ -65,7 +65,7 @@ function generate_overlib_content($graph_array, $text)
 {
     $overlib_content = '<div class=overlib><span class=overlib-text>' . htmlspecialchars($text) . '</span><br />';
     foreach (['day', 'week', 'month', 'year'] as $period) {
-        $graph_array['from'] = LibrenmsConfig::get("time.$period");
+        $graph_array['from'] = twentyfouronlineConfig::get("time.$period");
         $overlib_content .= escape_quotes(Url::graphTag($graph_array));
     }
 
@@ -220,7 +220,7 @@ STATE;
 
 function print_percentage_bar($width, $height, $percent, $left_text, $left_colour, $left_background, $right_text, $right_colour, $right_background)
 {
-    return \LibreNMS\Util\Html::percentageBar($width, $height, $percent, $left_text, $right_text, null, null, [
+    return \twentyfouronline\Util\Html::percentageBar($width, $height, $percent, $left_text, $right_text, null, null, [
         'left' => $left_background,
         'left_text' => $left_colour,
         'right' => $right_background,
@@ -257,24 +257,24 @@ function generate_port_link($port, $text = null, $type = null, $overlib = 1, $si
         $port = cleanPort($port);
     }
 
-    $content = '<div class=list-large>' . $port['hostname'] . ' - ' . Rewrite::normalizeIfName(addslashes(\LibreNMS\Util\Clean::html($port['label'], []))) . '</div>';
-    $content .= addslashes(\LibreNMS\Util\Clean::html($port['ifAlias'], [])) . '<br />';
+    $content = '<div class=list-large>' . $port['hostname'] . ' - ' . Rewrite::normalizeIfName(addslashes(\twentyfouronline\Util\Clean::html($port['label'], []))) . '</div>';
+    $content .= addslashes(\twentyfouronline\Util\Clean::html($port['ifAlias'], [])) . '<br />';
 
     $content .= "<div style=\'width: 850px\'>";
     $graph_array['type'] = $port['graph_type'];
     $graph_array['legend'] = 'yes';
     $graph_array['height'] = '100';
     $graph_array['width'] = '340';
-    $graph_array['to'] = LibrenmsConfig::get('time.now');
-    $graph_array['from'] = LibrenmsConfig::get('time.day');
+    $graph_array['to'] = twentyfouronlineConfig::get('time.now');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.day');
     $graph_array['id'] = $port['port_id'];
     $content .= Url::graphTag($graph_array);
     if ($single_graph == 0) {
-        $graph_array['from'] = LibrenmsConfig::get('time.week');
+        $graph_array['from'] = twentyfouronlineConfig::get('time.week');
         $content .= Url::graphTag($graph_array);
-        $graph_array['from'] = LibrenmsConfig::get('time.month');
+        $graph_array['from'] = twentyfouronlineConfig::get('time.month');
         $content .= Url::graphTag($graph_array);
-        $graph_array['from'] = LibrenmsConfig::get('time.year');
+        $graph_array['from'] = twentyfouronlineConfig::get('time.year');
         $content .= Url::graphTag($graph_array);
     }
 
@@ -315,24 +315,24 @@ function generate_sensor_link($args, $text = null, $type = null)
         'legend' => 'yes',
         'height' => '100',
         'width' => '340',
-        'to' => LibrenmsConfig::get('time.now'),
-        'from' => LibrenmsConfig::get('time.day'),
+        'to' => twentyfouronlineConfig::get('time.now'),
+        'from' => twentyfouronlineConfig::get('time.day'),
         'id' => $args['sensor_id'],
     ];
     $content .= Url::graphTag($graph_array);
 
-    $graph_array['from'] = LibrenmsConfig::get('time.week');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.week');
     $content .= Url::graphTag($graph_array);
 
-    $graph_array['from'] = LibrenmsConfig::get('time.month');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.month');
     $content .= Url::graphTag($graph_array);
 
-    $graph_array['from'] = LibrenmsConfig::get('time.year');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.year');
     $content .= Url::graphTag($graph_array);
 
     $content .= '</div>';
 
-    $url = Url::generate(['page' => 'graphs', 'id' => $args['sensor_id'], 'type' => $args['graph_type'], 'from' => \App\Facades\LibrenmsConfig::get('time.day')], []);
+    $url = Url::generate(['page' => 'graphs', 'id' => $args['sensor_id'], 'type' => $args['graph_type'], 'from' => \App\Facades\twentyfouronlineConfig::get('time.day')], []);
 
     return Url::overlibLink($url, $text, $content);
 }//end generate_sensor_link()
@@ -370,7 +370,7 @@ function generate_port_image($args)
 function graph_error($text, $short = null, $color = [128, 0, 0])
 {
     header('Content-Type: ' . ImageFormat::forGraph()->contentType());
-    echo \LibreNMS\Util\Graph::error($text, $short, 300, null, $color);
+    echo \twentyfouronline\Util\Graph::error($text, $short, 300, null, $color);
 }
 
 function print_port_thumbnail($args)
@@ -440,7 +440,7 @@ function generate_ap_link($args, $text = null, $type = null)
 
     $content = '<div class=list-large>' . $args['text'] . ' - ' . Rewrite::normalizeIfName($args['label']) . '</div>';
     if ($args['ifAlias']) {
-        $content .= \LibreNMS\Util\Clean::html($args['ifAlias'], []) . '<br />';
+        $content .= \twentyfouronline\Util\Clean::html($args['ifAlias'], []) . '<br />';
     }
 
     $content .= "<div style=\'width: 850px\'>";
@@ -449,15 +449,15 @@ function generate_ap_link($args, $text = null, $type = null)
     $graph_array['legend'] = 'yes';
     $graph_array['height'] = '100';
     $graph_array['width'] = '340';
-    $graph_array['to'] = LibrenmsConfig::get('time.now');
-    $graph_array['from'] = LibrenmsConfig::get('time.day');
+    $graph_array['to'] = twentyfouronlineConfig::get('time.now');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.day');
     $graph_array['id'] = $args['accesspoint_id'];
     $content .= Url::graphTag($graph_array);
-    $graph_array['from'] = LibrenmsConfig::get('time.week');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.week');
     $content .= Url::graphTag($graph_array);
-    $graph_array['from'] = LibrenmsConfig::get('time.month');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.month');
     $content .= Url::graphTag($graph_array);
-    $graph_array['from'] = LibrenmsConfig::get('time.year');
+    $graph_array['from'] = twentyfouronlineConfig::get('time.year');
     $content .= Url::graphTag($graph_array);
     $content .= '</div>';
 
@@ -782,8 +782,8 @@ function get_ports_from_type($given_types)
     //  entry in config.
     $search_types = [];
     foreach ($given_types as $type) {
-        if (LibrenmsConfig::has($type . '_descr')) {
-            $type_descr = LibrenmsConfig::get($type . '_descr');
+        if (twentyfouronlineConfig::has($type . '_descr')) {
+            $type_descr = twentyfouronlineConfig::get($type . '_descr');
             if (is_array($type_descr)) {
                 $search_types = array_merge($search_types, $type_descr);
             } else {
@@ -846,7 +846,7 @@ function search_oxidized_config($search_in_conf_textbox)
         return false;
     }
 
-    $oxidized_search_url = LibrenmsConfig::get('oxidized.url') . '/nodes/conf_search?format=json';
+    $oxidized_search_url = twentyfouronlineConfig::get('oxidized.url') . '/nodes/conf_search?format=json';
     $postdata = http_build_query(
         [
             'search_in_conf_textbox' => $search_in_conf_textbox,
@@ -861,7 +861,7 @@ function search_oxidized_config($search_in_conf_textbox)
     $context = stream_context_create($opts);
 
     $nodes = json_decode(file_get_contents($oxidized_search_url, false, $context), true);
-    // Look up Oxidized node names to LibreNMS devices for a link
+    // Look up Oxidized node names to twentyfouronline devices for a link
     foreach ($nodes as &$n) {
         $dev = device_by_name($n['node']);
         $n['dev_id'] = $dev ? $dev['device_id'] : false;
@@ -908,7 +908,7 @@ function get_oxidized_nodes_list()
         ],
     ]);
 
-    $data = json_decode(file_get_contents(LibrenmsConfig::get('oxidized.url') . '/nodes?format=json', false, $context), true);
+    $data = json_decode(file_get_contents(twentyfouronlineConfig::get('oxidized.url') . '/nodes?format=json', false, $context), true);
 
     foreach ($data as $object) {
         $device = device_by_name($object['name']);
@@ -950,7 +950,7 @@ function get_oxidized_nodes_list()
  */
 function generate_stacked_graphs($force_stack = false, $transparency = '88')
 {
-    if (LibrenmsConfig::get('webui.graph_stacked') == true || $force_stack == true) {
+    if (twentyfouronlineConfig::get('webui.graph_stacked') == true || $force_stack == true) {
         return ['transparency' => $transparency, 'stacked' => '1'];
     } else {
         return ['transparency' => '', 'stacked' => '-1'];
@@ -1003,7 +1003,7 @@ function lowest_time($time, $seconds = 300)
 function time_to_nfsen_subpath($time)
 {
     $time = lowest_time($time);
-    $layout = LibrenmsConfig::get('nfsen_subdirlayout');
+    $layout = twentyfouronlineConfig::get('nfsen_subdirlayout');
 
     if ($layout == 0) {
         return 'nfcapd.' . date('YmdHi', $time);
@@ -1036,10 +1036,10 @@ function time_to_nfsen_subpath($time)
  */
 function nfsen_hostname($hostname)
 {
-    $nfsen_hostname = str_replace('.', LibrenmsConfig::get('nfsen_split_char'), $hostname);
+    $nfsen_hostname = str_replace('.', twentyfouronlineConfig::get('nfsen_split_char'), $hostname);
 
-    if (! is_null(LibrenmsConfig::get('nfsen_suffix'))) {
-        $nfsen_hostname = str_replace(LibrenmsConfig::get('nfsen_suffix'), '', $nfsen_hostname);
+    if (! is_null(twentyfouronlineConfig::get('nfsen_suffix'))) {
+        $nfsen_hostname = str_replace(twentyfouronlineConfig::get('nfsen_suffix'), '', $nfsen_hostname);
     }
 
     return $nfsen_hostname;
@@ -1057,9 +1057,13 @@ function nfsen_live_dir($hostname)
 {
     $hostname = nfsen_hostname($hostname);
 
-    foreach (LibrenmsConfig::get('nfsen_base') as $base_dir) {
+    foreach (twentyfouronlineConfig::get('nfsen_base') as $base_dir) {
         if (file_exists($base_dir) && is_dir($base_dir)) {
             return $base_dir . '/profiles-data/live/' . $hostname;
         }
     }
 }
+
+
+
+

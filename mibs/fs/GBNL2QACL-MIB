@@ -5673,3 +5673,7 @@ PacketFlowType ::= TEXTUAL-CONVENTION
             destination_ip(2) means acl-rules can include all 128 bits of destination ipaddressv6,but can not include mac-address."
         ::= { gbnL2QACL 32 } 
 END
+
+
+
+

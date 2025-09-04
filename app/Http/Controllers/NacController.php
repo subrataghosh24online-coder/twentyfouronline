@@ -11,3 +11,7 @@ class NacController extends Controller
         return view('nac', $data);
     }
 }
+
+
+
+

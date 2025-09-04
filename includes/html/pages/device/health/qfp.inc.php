@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 
@@ -17,16 +17,16 @@
  * Get module's components for a device
  */
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['type' => 'cisco-qfp']);
 $components = $components[$device['device_id']];
 
 foreach ($components as $component_id => $tmp_component) {
     $default_graph_array = [
-        'from' => \App\Facades\LibrenmsConfig::get('time.day'),
-        'to' => \App\Facades\LibrenmsConfig::get('time.now'),
+        'from' => \App\Facades\twentyfouronlineConfig::get('time.day'),
+        'to' => \App\Facades\twentyfouronlineConfig::get('time.now'),
         'id' => $component_id,
         'page' => 'graphs',
     ];
@@ -213,3 +213,7 @@ foreach ($components as $component_id => $tmp_component) {
     echo '</div></div>';
     echo '</div></div>';
 }
+
+
+
+

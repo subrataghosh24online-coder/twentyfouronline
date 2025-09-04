@@ -16,3 +16,7 @@ $colour_line = '0000cc';
 $colour_area_max = '9999cc';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

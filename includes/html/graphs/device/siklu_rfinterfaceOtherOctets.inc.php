@@ -27,3 +27,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:rfOutIdleOctets:MIN:%0.2lf%s ';
     $rrd_options .= ' GPRINT:rfOutIdleOctets:MAX:%0.2lf%s\\\l ';
 }//end if
+
+
+
+

@@ -1,9 +1,9 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'oslv_monitor';
 
@@ -62,7 +62,7 @@ $stat_vars = [
     'size',
 ];
 
-if (LibrenmsConfig::get('apps.oslv_monitor.linux_pg_memory_stats')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.linux_pg_memory_stats')) {
     array_push(
         $stat_vars,
         'pgactivate',
@@ -80,7 +80,7 @@ if (LibrenmsConfig::get('apps.oslv_monitor.linux_pg_memory_stats')) {
         'pgsteal_kswapd'
     );
 }
-if (LibrenmsConfig::get('apps.oslv_monitor.misc_linux_memory_stats')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.misc_linux_memory_stats')) {
     array_push(
         $stat_vars,
         'anon',
@@ -106,14 +106,14 @@ if (LibrenmsConfig::get('apps.oslv_monitor.misc_linux_memory_stats')) {
         'slab',
     );
 }
-if (LibrenmsConfig::get('apps.oslv_monitor.zswap_size')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.zswap_size')) {
     array_push(
         $stat_vars,
         'zswap',
         'zswapped',
     );
 }
-if (LibrenmsConfig::get('apps.oslv_monitor.zswap_activity')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.zswap_activity')) {
     array_push(
         $stat_vars,
         'zswpin',
@@ -121,7 +121,7 @@ if (LibrenmsConfig::get('apps.oslv_monitor.zswap_activity')) {
         'zswpwb',
     );
 }
-if (LibrenmsConfig::get('apps.oslv_monitor.workingset_stats')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.workingset_stats')) {
     array_push(
         $stat_vars,
         'workingset_refault_anon',
@@ -133,7 +133,7 @@ if (LibrenmsConfig::get('apps.oslv_monitor.workingset_stats')) {
         'workingset_nodereclaim',
     );
 }
-if (LibrenmsConfig::get('apps.oslv_monitor.thp_activity')) {
+if (twentyfouronlineConfig::get('apps.oslv_monitor.thp_activity')) {
     array_push(
         $stat_vars,
         'thp_fault_alloc',
@@ -213,7 +213,7 @@ $new_data['oslvms'] = $oslvms;
 
 // process unseen items, save info for ones that were last seen with in the specified time
 // 604800 seconds = 7 days
-$back_till = $current_time - LibrenmsConfig::get('apps.oslv_monitor.seen_age', 604800);
+$back_till = $current_time - twentyfouronlineConfig::get('apps.oslv_monitor.seen_age', 604800);
 foreach ($app->data['oslvm_data'] ?? [] as $key => $oslvm) {
     if (! isset($new_data['oslvm_data'][$key]) && isset($oslvm['seen']) &&
         $back_till <= $oslvm['seen']) {
@@ -235,3 +235,7 @@ if (count($added_oslvms) > 0 || count($removed_oslvms) > 0) {
 
 // all done so update the app metrics
 update_application($app, 'OK', $metrics);
+
+
+
+

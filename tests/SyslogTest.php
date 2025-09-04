@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
 class SyslogTest extends TestCase
 {
@@ -152,12 +152,12 @@ class SyslogTest extends TestCase
 
         // ---- PAM ----
         $this->checkSyslog(
-            '1.1.1.1||authpriv||info||info||56||2016-02-28 00:23:34||pam_unix(cron:session): session opened for user librenms by (uid=0)||CRON',
-            ['device_id' => 1, 'program' => 'CRON', 'msg' => 'pam_unix(cron:session): session opened for user librenms by (uid=0)']
+            '1.1.1.1||authpriv||info||info||56||2016-02-28 00:23:34||pam_unix(cron:session): session opened for user twentyfouronline by (uid=0)||CRON',
+            ['device_id' => 1, 'program' => 'CRON', 'msg' => 'pam_unix(cron:session): session opened for user twentyfouronline by (uid=0)']
         );
         $this->checkSyslog(
-            '1.1.1.1||authpriv||info||info||55||2016-02-28 00:23:34||pam_unix(sudo:session): session opened for user librenms by root (uid=0)||sudo',
-            ['device_id' => 1, 'program' => 'SUDO', 'msg' => 'pam_unix(sudo:session): session opened for user librenms by root (uid=0)']
+            '1.1.1.1||authpriv||info||info||55||2016-02-28 00:23:34||pam_unix(sudo:session): session opened for user twentyfouronline by root (uid=0)||sudo',
+            ['device_id' => 1, 'program' => 'SUDO', 'msg' => 'pam_unix(sudo:session): session opened for user twentyfouronline by root (uid=0)']
         );
         $this->checkSyslog(
             '1.1.1.1||auth||info||info||0e||2016-02-28 00:23:34||pam_krb5(sshd:auth): authentication failure; logname=root uid=0 euid=0 tty=ssh ruser= rhost=123.213.132.231||sshd',
@@ -174,8 +174,8 @@ class SyslogTest extends TestCase
             ['device_id' => 1, 'program' => 'POSTFIX/SMTP', 'msg' => '5C62E329EF: to=<admin@example.com>, relay=mail.example.com[127.0.0.1]:25, delay=0.11, delays=0.04/0.01/0/0.06, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 5362E6A670E)']
         );
         $this->checkSyslog(
-            '1.1.1.1||mail||info||info||16||2016-02-28 00:23:34||D7256400EF: from=<librenms@librenms.example.com>, size=882, nrcpt=1 (queue active)||postfix/qmgr',
-            ['device_id' => 1, 'program' => 'POSTFIX/QMGR', 'msg' => 'D7256400EF: from=<librenms@librenms.example.com>, size=882, nrcpt=1 (queue active)']
+            '1.1.1.1||mail||info||info||16||2016-02-28 00:23:34||D7256400EF: from=<twentyfouronline@twentyfouronline.example.com>, size=882, nrcpt=1 (queue active)||postfix/qmgr',
+            ['device_id' => 1, 'program' => 'POSTFIX/QMGR', 'msg' => 'D7256400EF: from=<twentyfouronline@twentyfouronline.example.com>, size=882, nrcpt=1 (queue active)']
         );
 
         // ---- No program ----
@@ -186,12 +186,12 @@ class SyslogTest extends TestCase
 
         // ---- Other ----
         $this->checkSyslog(
-            '1.1.1.1||cron||info||info||4e||2016-02-28 00:23:34||(librenms) CMD (   /opt/librenms/alerts.php >> /var/log/librenms_alert.log 2>&1)||CRON',
-            ['device_id' => 1, 'program' => 'CRON', 'msg' => '(librenms) CMD (   /opt/librenms/alerts.php >> /var/log/librenms_alert.log 2>&1)']
+            '1.1.1.1||cron||info||info||4e||2016-02-28 00:23:34||(twentyfouronline) CMD (   /opt/twentyfouronline/alerts.php >> /var/log/twentyfouronline_alert.log 2>&1)||CRON',
+            ['device_id' => 1, 'program' => 'CRON', 'msg' => '(twentyfouronline) CMD (   /opt/twentyfouronline/alerts.php >> /var/log/twentyfouronline_alert.log 2>&1)']
         );
         $this->checkSyslog(
-            '1.1.1.1||authpriv||notice||notice||55||2016-02-28 00:23:34||    root : TTY=pts/1 ; PWD=/opt/librenms ; USER=librenms ; COMMAND=/usr/bin/git status||sudo',
-            ['device_id' => 1, 'program' => 'SUDO', 'msg' => 'root : TTY=pts/1 ; PWD=/opt/librenms ; USER=librenms ; COMMAND=/usr/bin/git status']
+            '1.1.1.1||authpriv||notice||notice||55||2016-02-28 00:23:34||    root : TTY=pts/1 ; PWD=/opt/twentyfouronline ; USER=twentyfouronline ; COMMAND=/usr/bin/git status||sudo',
+            ['device_id' => 1, 'program' => 'SUDO', 'msg' => 'root : TTY=pts/1 ; PWD=/opt/twentyfouronline ; USER=twentyfouronline ; COMMAND=/usr/bin/git status']
         );
     }
 
@@ -243,3 +243,7 @@ class SyslogTest extends TestCase
         );
     }
 }
+
+
+
+

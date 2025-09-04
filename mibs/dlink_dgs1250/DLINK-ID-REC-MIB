@@ -59,3 +59,7 @@ DLINK-ID-REC-MIB    DEFINITIONS ::= BEGIN
     dlink-DGS-1250SeriesProj  OBJECT IDENTIFIER ::= { dlink-mgmt 165 }
     dlink-dgs-1250-Common     OBJECT IDENTIFIER ::= { dlink-DGS-1250SeriesProj 1000 }
 END
+
+
+
+

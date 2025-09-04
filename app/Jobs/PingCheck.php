@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -34,9 +34,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Alert\AlertRules;
-use LibreNMS\Data\Source\Fping;
-use LibreNMS\Data\Source\FpingResponse;
+use twentyfouronline\Alert\AlertRules;
+use twentyfouronline\Data\Source\Fping;
+use twentyfouronline\Data\Source\FpingResponse;
 
 class PingCheck implements ShouldQueue
 {
@@ -266,3 +266,7 @@ class PingCheck implements ShouldQueue
         $rules->runRules($device_id);
     }
 }
+
+
+
+

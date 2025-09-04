@@ -18,21 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\BgpPeer;
 use App\Models\Device;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Tests\Traits\RequiresDatabase;
-use LibreNMS\Util\AutonomousSystem;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Util\AutonomousSystem;
 
 class BgpTrapTest extends SnmpTrapTestCase
 {
@@ -42,7 +42,7 @@ class BgpTrapTest extends SnmpTrapTestCase
     public function testBgpUp(): void
     {
         // Cache it to avoid DNS Lookup
-        LibrenmsConfig::set('astext.1', 'PHPUnit ASTEXT');
+        twentyfouronlineConfig::set('astext.1', 'PHPUnit ASTEXT');
         $device = Device::factory()->create();
         /** @var Device $device */
         $bgppeer = BgpPeer::factory()->make(['bgpPeerState' => 'idle', 'bgpPeerRemoteAs' => 1]);
@@ -68,7 +68,7 @@ BGP4-MIB::bgpPeerState.$bgppeer->bgpPeerIdentifier established\n",
     public function testBgpDown(): void
     {
         // Cache it to avoid DNS Lookup
-        LibrenmsConfig::set('astext.1', 'PHPUnit ASTEXT');
+        twentyfouronlineConfig::set('astext.1', 'PHPUnit ASTEXT');
         $device = Device::factory()->create();
         /** @var Device $device */
         $bgppeer = BgpPeer::factory()->make(['bgpPeerState' => 'established', 'bgpPeerRemoteAs' => 1]);
@@ -91,3 +91,7 @@ BGP4-MIB::bgpPeerState.$bgppeer->bgpPeerIdentifier idle\n",
         $this->assertEquals($bgppeer->bgpPeerState, 'idle');
     }
 }
+
+
+
+

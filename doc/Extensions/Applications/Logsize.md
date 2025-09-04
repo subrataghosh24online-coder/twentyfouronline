@@ -13,7 +13,7 @@ logsize is a small shell script that reports the size of log files.
 1. Download the script and make it executable.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/logsize -O /etc/snmp/logsize
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/logsize -O /etc/snmp/logsize
     chmod +x /etc/snmp/logsize
     ```
 
@@ -94,7 +94,7 @@ logsize is a small shell script that reports the size of log files.
 script and make it executable.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/logsize -O /etc/snmp/logsize
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/logsize -O /etc/snmp/logsize
     chmod +x /etc/snmp/logsize
     ```
 
@@ -172,3 +172,7 @@ script and make it executable.
         ```bash
         extend logsize /bin/cat /var/cache/logsize_extend/extend_return
         ```
+
+
+
+

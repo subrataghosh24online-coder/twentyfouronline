@@ -1,7 +1,7 @@
 /*
  * boot.js
  *
- * Initialize javascript for LibreNMS v1
+ * Initialize javascript for twentyfouronline v1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -44,3 +44,7 @@ toastr.options = {
     progressClass: 'toast-progress tw:h-1 tw:bg-current tw:absolute tw:bottom-0 tw:left-0 tw:mr-0.5',
     containerId: 'toast-container-top-right'
 };
+
+
+
+

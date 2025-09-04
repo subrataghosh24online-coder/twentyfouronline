@@ -5,7 +5,7 @@ namespace App\Listeners;
 use App\Action;
 use App\Actions\Alerts\RunAlertRulesAction;
 use App\Events\DevicePolled;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Log;
 
 class CheckAlerts
@@ -27,7 +27,7 @@ class CheckAlerts
      */
     public function handle(DevicePolled $event): void
     {
-        if (LibrenmsConfig::get('alert.disable')) {
+        if (twentyfouronlineConfig::get('alert.disable')) {
             return;
         }
 
@@ -40,3 +40,7 @@ class CheckAlerts
         Log::info("#### End Alerts ({$end}s) ####\n");
     }
 }
+
+
+
+

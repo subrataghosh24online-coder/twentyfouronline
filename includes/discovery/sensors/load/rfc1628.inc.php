@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 echo 'RFC1628 ';
 
@@ -40,3 +40,7 @@ foreach ($load_data as $index => $data) {
         $value / $divisor
     );
 }
+
+
+
+

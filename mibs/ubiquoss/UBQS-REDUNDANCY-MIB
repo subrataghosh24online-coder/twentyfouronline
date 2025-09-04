@@ -720,3 +720,6 @@ ubiRedundancyMIBGroups  OBJECT IDENTIFIER			::= { ubiRedundancyMIBConformance 2 
     	::= { ubiRedundancyMIBGroups 3 }    
 
 END
+
+
+

@@ -39,7 +39,7 @@ $options = getopt($short_opts);
 
 // print the help
 if (isset($options['h'])) {
-    echo 'LibreNMS JSON App tool
+    echo 'twentyfouronline JSON App tool
   -j      The file containing the JSON to use for the test.
   -s      Print the SNMPrec data.
   -t      Print the JSON test data file.
@@ -217,3 +217,7 @@ if (isset($options['t'])) {
     echo json_encode($test_data, JSON_PRETTY_PRINT) . "\n";
     exit(0);
 }
+
+
+
+

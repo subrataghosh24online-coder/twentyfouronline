@@ -422,3 +422,7 @@ UI-AF60-MIB DEFINITIONS ::= BEGIN
     ::= { af60Orientation 2 }
 END
 
+
+
+
+

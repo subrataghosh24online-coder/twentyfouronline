@@ -337,3 +337,7 @@ arubaWiredInterfaceSettings OBJECT IDENTIFIER ::= { arubaWiredInterfaceMIB 1 }
         ::= { arubaWiredInterfaceCompliances 2 }
 
 END
+
+
+
+

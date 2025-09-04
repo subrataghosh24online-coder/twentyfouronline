@@ -1,14 +1,14 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\IP;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\IP;
 
 //
 // Load OS specific file
 //
-if (file_exists(LibrenmsConfig::get('install_dir') . "/includes/discovery/bgp-peers/{$device['os']}.inc.php")) {
-    include LibrenmsConfig::get('install_dir') . "/includes/discovery/bgp-peers/{$device['os']}.inc.php";
+if (file_exists(twentyfouronlineConfig::get('install_dir') . "/includes/discovery/bgp-peers/{$device['os']}.inc.php")) {
+    include twentyfouronlineConfig::get('install_dir') . "/includes/discovery/bgp-peers/{$device['os']}.inc.php";
 }
 
 if (empty($bgpLocalAs)) {
@@ -61,7 +61,7 @@ foreach (DeviceCache::getPrimary()->getVrfContexts() as $context_name) {
         $af_list = [];
 
         foreach ($peerlist as $peer) {
-            $peer['astext'] = \LibreNMS\Util\AutonomousSystem::get($peer['as'])->name();
+            $peer['astext'] = \twentyfouronline\Util\AutonomousSystem::get($peer['as'])->name();
 
             add_bgp_peer($device, $peer);
 
@@ -196,3 +196,7 @@ unset(
     $af_data,
     $contexts
 );
+
+
+
+

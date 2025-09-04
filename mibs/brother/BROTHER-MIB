@@ -12178,3 +12178,6 @@ brWlanSimpleWizardPassword  OBJECT-TYPE
 	::= { wlSimpleWizard 2 }
 
 END
+
+
+

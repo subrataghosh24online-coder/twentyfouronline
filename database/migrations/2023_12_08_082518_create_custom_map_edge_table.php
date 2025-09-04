@@ -41,3 +41,7 @@ return new class extends Migration
         Schema::dropIfExists('custom_map_edges');
     }
 };
+
+
+
+

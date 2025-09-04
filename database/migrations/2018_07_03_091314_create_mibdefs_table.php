@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('max_access')->nullable();
             $table->string('status')->nullable();
             $table->string('included_by');
-            if (LibreNMS\DB\Eloquent::getDriver() == 'mysql') {
+            if (twentyfouronline\DB\Eloquent::getDriver() == 'mysql') {
                 $table->timestamp('last_modified')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             } else {
                 $table->timestamp('last_modified')->useCurrent();
@@ -41,3 +41,7 @@ return new class extends Migration
         Schema::drop('mibdefs');
     }
 };
+
+
+
+

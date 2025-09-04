@@ -107,3 +107,7 @@ lgpCtrlBoardBatteryVoltage OBJECT-TYPE
         to provide backup power to memory and other vital circuits."
     ::= { lgpController 6 }
 END
+
+
+
+

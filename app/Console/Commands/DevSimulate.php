@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Console\LnmsCommand;
 use App\Models\Device;
 use Illuminate\Support\Str;
-use LibreNMS\Util\Snmpsim;
+use twentyfouronline\Util\Snmpsim;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Exception\ProcessSignaledException;
@@ -144,3 +144,7 @@ class DevSimulate extends LnmsCommand
         return false;
     }
 }
+
+
+
+

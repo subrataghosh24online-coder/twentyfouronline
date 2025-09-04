@@ -1652,3 +1652,6 @@ gpfsStgPoolUtilizationTrap NOTIFICATION-TYPE
 	::= { gpfsTraps 16 }
 
 END
+
+
+

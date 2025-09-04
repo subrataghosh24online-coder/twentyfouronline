@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class PortAdsl extends PortRelatedModel implements Keyable
 {
@@ -38,3 +38,7 @@ class PortAdsl extends PortRelatedModel implements Keyable
         return $this->port_id;
     }
 }
+
+
+
+

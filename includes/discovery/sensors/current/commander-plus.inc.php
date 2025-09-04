@@ -3,7 +3,7 @@
 /**
  * commander-plus.inc.php
  *
- * LibreNMS current discovery module for Commander Plus
+ * twentyfouronline current discovery module for Commander Plus
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -38,3 +38,7 @@ $multiplier = 1;
 $limit_low = 0;
 $limit = 5000;
 discover_sensor(null, 'current', $device, $oid, 'rectifierLoadCurrent', 'commander-plus', $descr, $divisor, $multiplier, $limit_low, null, null, $limit, $current);
+
+
+
+

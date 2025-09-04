@@ -29,3 +29,7 @@ if (Rrd::checkRrdExists($rrd_filename)) {
     echo "file missing: $rrd_filename";
 }
 require 'includes/html/graphs/generic_v3_multiline_float.inc.php';
+
+
+
+

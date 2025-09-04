@@ -7,3 +7,7 @@ modules:
       - JUNIPER-WX-GLOBAL-REG::jnxWxSysHwVersion.0
     hardware_regex: '/(jnx)?(?<hardware>.*)/'
     hardware_template: '/{{ JUNIPER-WX-GLOBAL-REG::jnxWxChassisType.0 }} {{ JUNIPER-WX-GLOBAL-REG::jnxWxSysHwVersion.0 }}/'
+
+
+
+

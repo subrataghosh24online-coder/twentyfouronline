@@ -20,19 +20,19 @@
  *
  * Tests vmwVmPoweredOff, vmwVmPoweredOn, and vmwVmSuspended traps from VMWare ESXi hosts.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\Device;
 use App\Models\Vminfo;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\PowerState;
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Enum\PowerState;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 class VmwPowerStateTest extends SnmpTrapTestCase
 {
@@ -111,3 +111,7 @@ SNMPv2-MIB::snmpTrapEnterprise.0 VMWARE-PRODUCTS-MIB::vmwESX",
         $this->assertEquals(PowerState::SUSPENDED, $guest->vmwVmState);
     }
 }
+
+
+
+

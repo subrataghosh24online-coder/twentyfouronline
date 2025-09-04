@@ -15,3 +15,7 @@ $descr = 'recovered';
 $ds = 'recovered';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

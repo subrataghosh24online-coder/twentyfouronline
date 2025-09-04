@@ -96,7 +96,7 @@ return [
         'active_directory' => [
             'users_purge' => [
                 'description' => 'Manter usuários inativos por',
-                'help' => 'Usuários serão deletados do LibreNMS após esse período de tempo sem fazer login. 0 significa nunca e os usuários serão recriados se o usuário fizer login novamente.',
+                'help' => 'Usuários serão deletados do twentyfouronline após esse período de tempo sem fazer login. 0 significa nunca e os usuários serão recriados se o usuário fizer login novamente.',
             ],
         ],
         'addhost_alwayscheckip' => [
@@ -733,7 +733,7 @@ return [
         ],
         'distributed_poller' => [
             'description' => 'Habilitar Coleta de Dados Distribuída (requer configuração adicional)',
-            'help' => 'Habilitar coleta de dados distribuída em todo o sistema. Isso é destinado ao compartilhamento de carga, não à coleta remota. Leia a documentação para verificar as etapas de habilitação: https://docs.librenms.org/Extensions/Distributed-Poller/',
+            'help' => 'Habilitar coleta de dados distribuída em todo o sistema. Isso é destinado ao compartilhamento de carga, não à coleta remota. Leia a documentação para verificar as etapas de habilitação: https://docs.twentyfouronline.org/Extensions/Distributed-Poller/',
         ],
         'default_poller_group' => [
             'description' => 'Grupo de Coleta de Dados Padrão',
@@ -1254,7 +1254,7 @@ return [
         ],
         'mydomain' => [
             'description' => 'Domínio Primário',
-            'help' => 'Este domínio é usado para descoberta automática de rede e outros processos. O LibreNMS tentará anexá-lo a nomes de host não qualificados.',
+            'help' => 'Este domínio é usado para descoberta automática de rede e outros processos. O twentyfouronline tentará anexá-lo a nomes de host não qualificados.',
         ],
         'network_map_show_on_worldmap' => [
             'description' => 'Exibir links de rede no mapa',
@@ -1339,8 +1339,8 @@ return [
             ],
         ],
         'own_hostname' => [
-            'description' => 'Nome de host do LibreNMS',
-            'help' => 'Deve ser definido como o nome do host/ip ao qual o servidor librenms é adicionado',
+            'description' => 'Nome de host do twentyfouronline',
+            'help' => 'Deve ser definido como o nome do host/ip ao qual o servidor twentyfouronline é adicionado',
         ],
         'oxidized' => [
             'default_group' => [
@@ -1364,7 +1364,7 @@ return [
             ],
             'ignore_os' => [
                 'description' => 'Não fazer backup desses sistemas operacionais',
-                'help' => 'Não fazer backup dos sistemas operacionais listados com o Oxidized. Deve corresponder ao nome do Sistema Operacional no LibreNMS (todos em minúsculas e sem espaços). Permite apenas sistemas operacionais existentes.',
+                'help' => 'Não fazer backup dos sistemas operacionais listados com o Oxidized. Deve corresponder ao nome do Sistema Operacional no twentyfouronline (todos em minúsculas e sem espaços). Permite apenas sistemas operacionais existentes.',
             ],
             'ignore_types' => [
                 'description' => 'Não fazer backup desses tipos de dispositivos',
@@ -1633,11 +1633,11 @@ return [
         'reporting' => [
             'error' => [
                 'description' => 'Enviar Relatórios de Erros',
-                'help' => 'Envia determinados erros para o LibreNMS para análise e correção',
+                'help' => 'Envia determinados erros para o twentyfouronline para análise e correção',
             ],
             'usage' => [
                 'description' => 'Enviar Relatórios de Uso',
-                'help' => 'Envia relatório de uso e versão para o LibreNMS. Para excluir estatísticas anônimas, visite a página Sobre. Você pode visualizar estatísticas em https://stats.librenms.org',
+                'help' => 'Envia relatório de uso e versão para o twentyfouronline. Para excluir estatísticas anônimas, visite a página Sobre. Você pode visualizar estatísticas em https://stats.twentyfouronline.org',
             ],
             'dump_errors' => [
                 'description' => 'Despejar erros de depuração (Poderá corromper sua instalação)',
@@ -1662,7 +1662,7 @@ return [
         ],
         'rrd_dir' => [
             'description' => 'Localização do RRD',
-            'help' => 'Localização dos arquivos rrd. O padrão é rrd dentro do diretório LibreNMS. Alterar essa configuração não move os arquivos rrd.',
+            'help' => 'Localização dos arquivos rrd. O padrão é rrd dentro do diretório twentyfouronline. Alterar essa configuração não move os arquivos rrd.',
         ],
         'rrd_purge' => [
             'description' => 'Arquivos RRD mais antigos que',
@@ -1685,7 +1685,7 @@ return [
         ],
         'rrdtool_version' => [
             'description' => 'Define a versão do rrdtool no seu servidor',
-            'help' => 'Qualquer coisa acima de 1.5.5 suporta todos os recursos que o LibreNMS usa, não defina um valor maior do que a versão instalada',
+            'help' => 'Qualquer coisa acima de 1.5.5 suporta todos os recursos que o twentyfouronline usa, não defina um valor maior do que a versão instalada',
         ],
         'schedule_type' => [
             'alerting' => [
@@ -1806,7 +1806,7 @@ return [
         ],
         'service_watchdog_log' => [
             'description' => 'Arquivo de Log a ser Monitorado',
-            'help' => 'O padrão é o arquivo de log do LibreNMS. Valor padrão para todos os nós.',
+            'help' => 'O padrão é o arquivo de log do twentyfouronline. Valor padrão para todos os nós.',
         ],
         'sfdp' => [
             'description' => 'Caminho para sfdp',
@@ -2081,3 +2081,7 @@ return [
         'description' => 'Caminho para nfdump',
     ],
 ];
+
+
+
+

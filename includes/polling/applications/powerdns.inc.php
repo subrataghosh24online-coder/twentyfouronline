@@ -2,9 +2,9 @@
 
 // Polls powerdns statistics from script via SNMP
 
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppParsingFailedException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppParsingFailedException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'powerdns';
 $powerdns = [];
@@ -100,3 +100,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, json_encode($powerdns), $fields);
+
+
+
+

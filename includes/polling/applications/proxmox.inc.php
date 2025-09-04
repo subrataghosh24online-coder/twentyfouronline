@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'proxmox';
 
@@ -47,9 +47,9 @@ if (! function_exists('proxmox_vm_exists')) {
     }
 }
 
-if (\App\Facades\LibrenmsConfig::get('enable_proxmox') && ! empty($agent_data['app'][$name])) {
+if (\App\Facades\twentyfouronlineConfig::get('enable_proxmox') && ! empty($agent_data['app'][$name])) {
     $proxmox = $agent_data['app'][$name];
-} elseif (\App\Facades\LibrenmsConfig::get('enable_proxmox')) {
+} elseif (\App\Facades\twentyfouronlineConfig::get('enable_proxmox')) {
     $options = '-Oqv';
     $oid = '.1.3.6.1.4.1.8072.1.3.2.3.1.2.7.112.114.111.120.109.111.120';
     $proxmox = snmp_get($device, $oid, $options);
@@ -133,3 +133,7 @@ if (! empty($proxmox)) {
 }
 
 unset($pmxlines, $pmxcluster, $pmxcdir, $proxmox, $pmxcache);
+
+
+
+

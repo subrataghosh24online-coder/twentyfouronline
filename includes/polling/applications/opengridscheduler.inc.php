@@ -7,14 +7,14 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage opengridscheduler
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
  * @author     SvennD <svennd@svennd.be>
 */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'ogs';
 $oid = '.1.3.6.1.4.1.8072.1.3.2.3.1.2.3.111.103.115';
@@ -52,3 +52,7 @@ update_application($app, $ogs_data, $fields);
 
 // cleanup
 unset($ogs_data, $rrd_def, $data, $fields, $tags);
+
+
+
+

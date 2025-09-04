@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (LibreNMS\DB\Eloquent::getDriver() !== 'sqlite') {
+        if (twentyfouronline\DB\Eloquent::getDriver() !== 'sqlite') {
             Schema::table('ipv4_mac', function (Blueprint $table) {
                 $table->string('context_name', 128)->nullable()->change();
             });
         }
     }
 };
+
+
+
+

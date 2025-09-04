@@ -2,7 +2,7 @@
 
 // Polls MailScanner statistics from script via SNMP
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'mailscannerV2';
 $options = '-Oqv';
@@ -39,3 +39,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, $mailscanner, $fields);
+
+
+
+

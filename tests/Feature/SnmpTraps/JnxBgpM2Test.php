@@ -20,19 +20,19 @@
  * Tests Junipers BGPv4 traps, specificaly jnxBgpM2Established and
  * jnxBgpM2BackwardTransition
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\BgpPeer;
 use App\Models\Device;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 class JnxBgpM2Test extends SnmpTrapTestCase
 {
@@ -124,3 +124,7 @@ SNMPv2-MIB::snmpTrapEnterprise.0 JUNIPER-CHASSIS-DEFINES-MIB::jnxProductNameSRX2
         );
     }
 }
+
+
+
+

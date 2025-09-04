@@ -17,3 +17,7 @@ $rrd_options .= " LINE1.5:connections#cc0000:'Current connections'";
 $rrd_options .= ' GPRINT:connections_min:MIN:%4.0lf';
 $rrd_options .= ' GPRINT:connections:LAST:%4.0lf';
 $rrd_options .= ' GPRINT:connections_max:MAX:%4.0lf\l';
+
+
+
+

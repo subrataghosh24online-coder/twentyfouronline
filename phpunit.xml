@@ -9,7 +9,7 @@
          cacheDirectory=".phpunit.cache"
          backupStaticProperties="false">
   <testsuites>
-    <testsuite name="LibreNMS Test Suite">
+    <testsuite name="twentyfouronline Test Suite">
       <directory>tests</directory>
     </testsuite>
   </testsuites>
@@ -36,7 +36,11 @@
       <directory suffix=".php">app</directory>
       <directory suffix=".php">html</directory>
       <directory suffix=".php">includes</directory>
-      <directory suffix=".php">LibreNMS</directory>
+      <directory suffix=".php">twentyfouronline</directory>
     </include>
   </source>
 </phpunit>
+
+
+
+

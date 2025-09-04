@@ -15,13 +15,13 @@
   "See the <a href=\":url\">list of contributors</a> on GitHub.": "იხილეთ <a href=\":url\">ავტორების სია</a> GitHub-ზე.",
   "Docs": "დოკუმენტაცია",
   "Close": "დახურვა",
-  "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS — PHP/MySQL-ზე დაფუძნებული თვითაღმოჩენადი ქსელური მონიტორინგის სისტემაა",
+  "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline — PHP/MySQL-ზე დაფუძნებული თვითაღმოჩენადი ქსელური მონიტორინგის სისტემაა",
   "Packages": "პაკეტები",
   "Disabled": "გამორთულია",
   "Version": "ვერსია",
   "Database Schema": "მონაცემთა ბაზის სქემა",
   "Web Server": "ვებსერვერი",
-  "LibreNMS is a community-based project": "LibreNMS — საზოგადოებრივი პროექტია",
+  "twentyfouronline is a community-based project": "twentyfouronline — საზოგადოებრივი პროექტია",
   "Please feel free to join us and contribute code, documentation, and bug reports:": "გთხოვთ, ნუ დაიხევთ უკან, შემოგვიერთდეთ და შემოგვწიროთ კოდი, დოკუმენტაცია და ანგარიში შეცდომების შესახებ:",
   "Web site": "ვებსაიტი",
   "Bug tracker": "შეცდომების ტრეკერი",
@@ -30,7 +30,7 @@
   "Local git log": "ლოკალური git-ის ჟურნალი",
   "Contributors": "მოხალისეები",
   "Acknowledgements": "სამადლობელი",
-  "Opt in to send anonymous usage statistics to LibreNMS?": "გნებავთ გააგზავნოთ ანონიმური გამოყენების სტატისტიკა LibreNMS-სთან?",
+  "Opt in to send anonymous usage statistics to twentyfouronline?": "გნებავთ გააგზავნოთ ანონიმური გამოყენების სტატისტიკა twentyfouronline-სთან?",
   "Online stats:": "სტატისტიკა ინტერნეტით:",
   "Clear remote stats": "დაშორებული სტატისტიკის გასუფთავება",
   "IPv4 Addresses": "IPv4 მისამართები",
@@ -212,7 +212,7 @@
   "The user could not be deleted": "მომხმარებლის წაშლა შეუძლებელია",
   "Whoops, the web server could not write required files to the filesystem.": "ვაი. ვებსერვერმა აუცილებელი ფაილები ფაილურ სისტემაში ვერ ჩაწერა.",
   "Running the following commands will fix the issue most of the time:": "ეს ბრძანებები დროის უმეტეს ნაწილში გადაჭრიან პრობლემას:",
-  "Whoops, looks like something went wrong. Check your librenms.log.": "ვაი. როგორც ჩანს, რაღაც არ მუშაობს. ჩაიხედეთ ფაილში librenms.log.",
+  "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "ვაი. როგორც ჩანს, რაღაც არ მუშაობს. ჩაიხედეთ ფაილში twentyfouronline.log.",
   "Public Devices": "საჯარო მოწყობილობები",
   "System Status": "სისტემის სტატუსი",
   "Logon": "შესვლა",
@@ -400,3 +400,7 @@
   "History": "ისტორია",
   "Filter Settings": "ფილტრის მორგება"
 }
+
+
+
+

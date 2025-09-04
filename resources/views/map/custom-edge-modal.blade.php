@@ -408,3 +408,7 @@
         $("#edgedevicesearch").on("select2:select", edgeDeviceSelect).on("select2:clear", edgeDeviceSelect);
    });
 </script>
+
+
+
+

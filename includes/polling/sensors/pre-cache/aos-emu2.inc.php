@@ -3,7 +3,7 @@
 /**
  * aos-emu2.inc.php
  *
- * LibreNMS sensors pre-cache poller module for APC EMU2
+ * twentyfouronline sensors pre-cache poller module for APC EMU2
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -26,3 +26,7 @@
 if ($type == 'temperature') {
     $sensor_cache['scale'] = snmp_get($device, 'emsStatusSysTempUnits.0', '-OQv', 'PowerNet-MIB');
 }
+
+
+
+

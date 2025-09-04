@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Peca Nesovanovic
  * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
@@ -36,7 +36,7 @@ use App\Models\Storage;
 
 $qfp = 0;
 if ($device['os_group'] == 'cisco') {
-    $component = new LibreNMS\Component();
+    $component = new twentyfouronline\Component();
     $components = $component->getComponents($device['device_id'], ['type' => 'cisco-qfp']);
     $components = $components[$device['device_id']];
     $qfp = isset($components) ? count($components) : 0;
@@ -122,3 +122,7 @@ if (is_file("includes/html/pages/device/health/$metric.inc.php")) {
 }
 
 $pagetitle[] = 'Health';
+
+
+
+

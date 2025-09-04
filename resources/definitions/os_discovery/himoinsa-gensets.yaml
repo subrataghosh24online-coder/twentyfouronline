@@ -158,7 +158,7 @@ modules:
                 -
                     oid: status
                     num_oid: '.1.3.6.1.4.1.41809.1.46.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::motorStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::motorStatus
                     index: motor
                     descr: Motor
                     group: 'CEA7/CEM7'
@@ -170,7 +170,7 @@ modules:
                 -
                     oid: status
                     num_oid: '.1.3.6.1.4.1.41809.1.46.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::modeStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::modeStatus
                     index: mode
                     descr: Mode
                     group: 'CEA7/CEM7'
@@ -184,7 +184,7 @@ modules:
                 -
                     oid: status
                     num_oid: '.1.3.6.1.4.1.41809.1.46.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::transferPumpStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::transferPumpStatus
                     index: transfer_pump
                     descr: Transfer Pump
                     group: 'CEA7/CEM7'
@@ -195,7 +195,7 @@ modules:
                 -
                     oid: status
                     num_oid: '.1.3.6.1.4.1.41809.1.46.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::alarmStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::alarmStatus
                     index: alarm
                     descr: Alarm
                     group: 'CEA7/CEM7'
@@ -206,7 +206,7 @@ modules:
                 -
                     oid: status
                     num_oid: '.1.3.6.1.4.1.41809.1.46.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::commStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::commStatus
                     index: comm
                     descr: Commutator Mode
                     group: 'CEA7/CEM7'
@@ -218,7 +218,7 @@ modules:
                 -
                     oid: statusConm
                     num_oid: '.1.3.6.1.4.1.41809.1.55.1.28.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::cec7CommStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::cec7CommStatus
                     index: 'cec7_comm.{{ $index }}'
                     descr: Commutator Mode
                     group: 'CEC7'
@@ -230,7 +230,7 @@ modules:
                 -
                     oid: statusConm
                     num_oid: '.1.3.6.1.4.1.41809.1.55.1.28.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::cec7CommAlarmStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::cec7CommAlarmStatus
                     index: 'cec7_alarm.{{ $index }}'
                     descr: Alarm
                     group: 'CEC7'
@@ -241,7 +241,7 @@ modules:
                 -
                     oid: statusConm
                     num_oid: '.1.3.6.1.4.1.41809.1.55.1.28.{{ $index }}'
-                    user_func: \LibreNMS\OS\HimoinsaGensets::cec7ModeStatus
+                    user_func: \twentyfouronline\OS\HimoinsaGensets::cec7ModeStatus
                     index: 'cec7_mode.{{ $index }}'
                     descr: Mode
                     group: 'CEC7'
@@ -252,3 +252,7 @@ modules:
                         - {value: 8, generic: 1, graph: 0, descr: Test}
                         - {value: 16, generic: 2, graph: 0, descr: Blocked}
                         - {value: 0, generic: 3, graph: 0, descr: Unknown}
+
+
+
+

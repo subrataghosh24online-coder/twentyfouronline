@@ -19,8 +19,8 @@ return [
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'librenms'),
-            'username' => env('DB_USERNAME', 'librenms'),
+            'database' => env('DB_DATABASE', 'twentyfouronline'),
+            'username' => env('DB_USERNAME', 'twentyfouronline'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
@@ -70,8 +70,8 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'librenms'),
-            'username' => env('DB_USERNAME', 'librenms'),
+            'database' => env('DB_DATABASE', 'twentyfouronline'),
+            'username' => env('DB_USERNAME', 'twentyfouronline'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
@@ -89,7 +89,7 @@ return [
             'driver' => env('DB_TEST_DRIVER', 'mysql'),
             'host' => env('DB_TEST_HOST', 'localhost'),
             'port' => env('DB_TEST_PORT', '3306'),
-            'database' => env('DB_TEST_DATABASE', 'librenms_phpunit_78hunjuybybh'),
+            'database' => env('DB_TEST_DATABASE', 'twentyfouronline_phpunit_78hunjuybybh'),
             'username' => env('DB_TEST_USERNAME', 'root'),
             'password' => env('DB_TEST_PASSWORD', ''),
             'unix_socket' => env('DB_TEST_SOCKET', ''),
@@ -152,3 +152,7 @@ return [
     ],
 
 ];
+
+
+
+

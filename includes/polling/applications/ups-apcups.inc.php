@@ -14,15 +14,15 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
 * @copyright  2017 crcro
 * @author     Cercel Valentin <crc@nuamchefazi.ro>
 */
 
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppParsingFailedException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppParsingFailedException;
+use twentyfouronline\RRD\RrdDefinition;
 
 //NET-SNMP-EXTEND-MIB::nsExtendOutputFull."ups-apcups"
 $name = 'ups-apcups';
@@ -80,3 +80,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, 'OK', $fields);
+
+
+
+

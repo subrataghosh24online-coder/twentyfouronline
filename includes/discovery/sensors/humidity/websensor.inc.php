@@ -3,7 +3,7 @@
 /**
  * websensor.inc.php
  *
- * LibreNMS humidity sensor discovery module for Comet System Web Sensor
+ * twentyfouronline humidity sensor discovery module for Comet System Web Sensor
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -32,3 +32,7 @@ if (is_numeric($pre_cache['websensor_valuesInt']['humInt.0'])) {
     $low_limit = $pre_cache['websensor_settings']['humLowInt.0'] / 10;
     discover_sensor(null, 'humidity', $device, $humidity_oid, $humidity_index, 'websensor', $descr, '10', '1', $low_limit, null, null, $high_limit, $humidity);
 }
+
+
+
+

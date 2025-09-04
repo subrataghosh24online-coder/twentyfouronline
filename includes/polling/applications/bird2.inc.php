@@ -2,7 +2,7 @@
 
 use App\Models\BgpPeer;
 use Carbon\Carbon;
-use LibreNMS\Util\Oid;
+use twentyfouronline\Util\Oid;
 
 $name = 'bird2';
 
@@ -145,7 +145,7 @@ foreach ($protocolsData as $protocol) {
     ]);
 
     $bgpPeer->device_id = $device['device_id'];
-    $bgpPeer->astext = \LibreNMS\Util\AutonomousSystem::get($protocol['neighbor_as'])->name();
+    $bgpPeer->astext = \twentyfouronline\Util\AutonomousSystem::get($protocol['neighbor_as'])->name();
     $bgpPeer->bgpPeerIdentifier = $protocol['neighbor_id'] ?: '0.0.0.0';
     $bgpPeer->bgpPeerRemoteAs = $protocol['neighbor_as'];
     $bgpPeer->bgpPeerState = strtolower($protocol['bgp_state']);
@@ -186,3 +186,7 @@ echo PHP_EOL;
 
 // Clean up any bgpPeers that arent on the list for this device
 BgpPeer::where('device_id', $device['device_id'])->whereNotIn('bgpPeer_id', $bgpPeerIds)->delete();
+
+
+
+

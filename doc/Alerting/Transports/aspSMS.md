@@ -13,3 +13,7 @@ You need a token you can find on your personnal space.
 | API Method | POST |
 | API URL | https://soap.aspsms.com/aspsmsx.asmx/SimpleTextSMS |
 | Options | UserKey=USERKEY<br />Password=APIPASSWORD<br />Recipient=RECIPIENT<br/> Originator=ORIGINATOR<br />MessageText={{ $msg }} |
+
+
+
+

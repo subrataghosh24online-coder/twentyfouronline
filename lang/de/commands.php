@@ -18,3 +18,7 @@ return [
         'wrong-auth' => 'Achtung! Sie können sich nicht mit diesem Benutzernamen einloggen wenn die Authentifizierung nicht auf MySQL gesetzt ist',
     ],
 ];
+
+
+
+

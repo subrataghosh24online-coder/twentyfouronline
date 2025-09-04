@@ -18,21 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Juan Diego Iannelli
  * @author     Juan Diego Iannelli <jdibach@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Alert\Transports;
+namespace twentyfouronline\Tests\Unit\Alert\Transports;
 
 use App\Models\AlertTransport;
 use App\Models\Device;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
-use LibreNMS\Alert\AlertData;
-use LibreNMS\Alert\Transport;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Alert\AlertData;
+use twentyfouronline\Alert\Transport;
+use twentyfouronline\Tests\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
 
@@ -63,7 +63,7 @@ class DiscordTest extends TestCase
                 [
                     'embeds' => [
                         [
-                            'title' => '#000 Testing transport from LibreNMS',
+                            'title' => '#000 Testing transport from twentyfouronline',
                             'color' => 16711680,
                             'description' => 'This is a test alert',
                             'fields' => [],
@@ -105,7 +105,7 @@ class DiscordTest extends TestCase
                 [
                     'embeds' => [
                         [
-                            'title' => '#000 Testing transport from LibreNMS',
+                            'title' => '#000 Testing transport from twentyfouronline',
                             'color' => 16711680,
                             'description' => 'This is a test alert',
                             'fields' => [],
@@ -147,7 +147,7 @@ class DiscordTest extends TestCase
                 [
                     'embeds' => [
                         [
-                            'title' => '#000 Testing transport from LibreNMS',
+                            'title' => '#000 Testing transport from twentyfouronline',
                             'color' => 16711680,
                             'description' => 'This is a test alert',
                             'fields' => [
@@ -186,7 +186,7 @@ class DiscordTest extends TestCase
 
         $alert_data = AlertData::testData($mock_device);
 
-        $alert_data['msg'] = 'This test alert should not have image <img class="librenms-graph" src="google.jpeg" /> or <h2>html tags</h2></br>';
+        $alert_data['msg'] = 'This test alert should not have image <img class="twentyfouronline-graph" src="google.jpeg" /> or <h2>html tags</h2></br>';
 
         $transport->deliverAlert($alert_data);
 
@@ -200,7 +200,7 @@ class DiscordTest extends TestCase
                     'content' => 'This is a text',
                     'embeds' => [
                         [
-                            'title' => '#000 Testing transport from LibreNMS',
+                            'title' => '#000 Testing transport from twentyfouronline',
                             'color' => 16711680,
                             'description' => 'This test alert should not have image [Image 1] or html tags',
                             'fields' => [
@@ -235,3 +235,7 @@ class DiscordTest extends TestCase
         });
     }
 }
+
+
+
+

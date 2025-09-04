@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Table;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\DeviceOutage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
@@ -102,7 +102,7 @@ class OutagesController extends TableController
         if ($duration_days) {
             $output .= $duration_days . 'd ';
         }
-        $output .= (new Carbon($duration))->format(LibrenmsConfig::get('dateformat.time'));
+        $output .= (new Carbon($duration))->format(twentyfouronlineConfig::get('dateformat.time'));
 
         return $output;
     }
@@ -115,7 +115,7 @@ class OutagesController extends TableController
 
         // Convert epoch to local time
         return Carbon::createFromTimestamp($timestamp, session('preferences.timezone'))
-            ->format(LibrenmsConfig::get('dateformat.compact'));
+            ->format(twentyfouronlineConfig::get('dateformat.compact'));
     }
 
     private function statusLabel($outage)
@@ -162,3 +162,7 @@ class OutagesController extends TableController
         ];
     }
 }
+
+
+
+

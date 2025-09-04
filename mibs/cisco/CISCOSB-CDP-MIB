@@ -1289,3 +1289,7 @@ rlCdpLogMismatchNativeVlanTrap NOTIFICATION-TYPE
         "Warning trap indicating that native vlan mismatch has been detected by CDP"
     ::=  { rndNotifications 226 }
 END
+
+
+
+

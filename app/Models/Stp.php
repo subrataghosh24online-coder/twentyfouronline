@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Stp extends DeviceRelatedModel implements Keyable
 {
@@ -35,3 +35,7 @@ class Stp extends DeviceRelatedModel implements Keyable
         return $this->vlan;
     }
 }
+
+
+
+

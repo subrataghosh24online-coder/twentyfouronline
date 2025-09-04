@@ -55,3 +55,7 @@ foreach (array_keys($mge_env_data) as $index) {
         discover_sensor(null, 'humidity', $device, $oid, $index, $sensorType, $descr, '1', '1', $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $current);
     }
 }//end foreach
+
+
+
+

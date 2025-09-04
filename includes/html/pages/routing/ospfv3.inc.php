@@ -39,7 +39,7 @@ foreach ($instances as $instance) {
 
     echo '<tr>
             <td></td>
-            <td>' . \LibreNMS\Util\Url::deviceLink($instance->device, vars: ['tab' => 'routing', 'proto' => 'ospfv3']) . '</td>
+            <td>' . \twentyfouronline\Util\Url::deviceLink($instance->device, vars: ['tab' => 'routing', 'proto' => 'ospfv3']) . '</td>
             <td>' . $instance->router_id . '</td>
             <td><span class="label label-' . $status_color . '">' . $instance->ospfv3AdminStatus . '</span></td>
             <td><span class="label label-' . $abr_status_color . '">' . $instance->ospfv3AreaBdrRtrStatus . '</span></td>
@@ -54,3 +54,7 @@ echo '</tbody>
     </div>
   </div>
 </div>';
+
+
+
+

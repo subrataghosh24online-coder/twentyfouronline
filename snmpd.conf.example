@@ -20,3 +20,7 @@ extend distro /usr/bin/distro
 # (uncomment for ARM platforms)
 #extend hardware '/bin/cat /sys/firmware/devicetree/base/model'
 #extend serial '/bin/cat /sys/firmware/devicetree/base/serial-number'
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,8 +29,8 @@ namespace App\Console\Commands\Traits;
 use App\Console\Commands\InternalHttpRequest;
 use App\Models\User;
 use Illuminate\Support\Str;
-use LibreNMS\Util\DynamicConfig;
-use LibreNMS\Util\DynamicConfigItem;
+use twentyfouronline\Util\DynamicConfig;
+use twentyfouronline\Util\DynamicConfigItem;
 
 trait CompletesConfigArgument
 {
@@ -93,3 +93,7 @@ trait CompletesConfigArgument
         return [];
     }
 }
+
+
+
+

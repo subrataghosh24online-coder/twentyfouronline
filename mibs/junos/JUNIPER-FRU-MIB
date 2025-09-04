@@ -197,3 +197,7 @@ jnxFruNotifOperStatus NOTIFICATION-TYPE
         ::= { jnxFruTraps 3 }
 
 END
+
+
+
+

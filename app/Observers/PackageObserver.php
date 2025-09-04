@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\Models\Eventlog;
 use App\Models\Package;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 use Log;
 
 class PackageObserver
@@ -70,3 +70,7 @@ class PackageObserver
         //
     }
 }
+
+
+
+

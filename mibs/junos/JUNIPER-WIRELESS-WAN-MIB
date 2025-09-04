@@ -664,3 +664,7 @@ jnxWirelessWANFirmwareInfoSIM2RetriesRemaining OBJECT-TYPE
         "The LTE interface SIM2 retires remaining associated with this entry in LTE wireless firmware info table."
     ::= { jnxWirelessWANFirmwareInfoEntry 28 }
 END
+
+
+
+

@@ -179,3 +179,7 @@ IMPORTS
 						that appeared on the management console after the error occurred."
 		::= { eqlExtInetErrorEntry 5 }
 END
+
+
+
+

@@ -2,21 +2,21 @@
 
 use App\Models\Device;
 use Illuminate\Support\Facades\Cache;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 if ($device['os_group'] == 'unix' || $device['os'] == 'windows') {
-    echo \App\Facades\LibrenmsConfig::get('project_name') . ' UNIX Agent: ';
+    echo \App\Facades\twentyfouronlineConfig::get('project_name') . ' UNIX Agent: ';
 
     $agent_port = get_dev_attrib($device, 'override_Unixagent_port');
     if (empty($agent_port)) {
-        $agent_port = \App\Facades\LibrenmsConfig::get('unix-agent.port');
+        $agent_port = \App\Facades\twentyfouronlineConfig::get('unix-agent.port');
     }
 
     $agent_start = microtime(true);
     $agent = null;
     try {
-        $poller_target = \LibreNMS\Util\Rewrite::addIpv6Brackets(Device::pollerTarget($device['hostname']));
-        $agent = @fsockopen($poller_target, $agent_port, $errno, $errstr, \App\Facades\LibrenmsConfig::get('unix-agent.connection-timeout'));
+        $poller_target = \twentyfouronline\Util\Rewrite::addIpv6Brackets(Device::pollerTarget($device['hostname']));
+        $agent = @fsockopen($poller_target, $agent_port, $errno, $errstr, \App\Facades\twentyfouronlineConfig::get('unix-agent.connection-timeout'));
     } catch (ErrorException $e) {
         echo $e->getMessage() . PHP_EOL; // usually connection timed out
 
@@ -27,7 +27,7 @@ if ($device['os_group'] == 'unix' || $device['os'] == 'windows') {
         echo 'Connection to UNIX agent failed on port ' . $agent_port . '.';
     } else {
         // Set stream timeout (for timeouts during agent  fetch
-        stream_set_timeout($agent, \App\Facades\LibrenmsConfig::get('unix-agent.read-timeout'));
+        stream_set_timeout($agent, \App\Facades\twentyfouronlineConfig::get('unix-agent.read-timeout'));
         $agentinfo = stream_get_meta_data($agent);
         $agent_raw = '';
 
@@ -219,3 +219,7 @@ if ($device['os_group'] == 'unix' || $device['os'] == 'windows') {
 
     echo "\n";
 }//end if
+
+
+
+

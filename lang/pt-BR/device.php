@@ -14,3 +14,7 @@ return [
         'type' => 'Tipo de dispositivo',
     ],
 ];
+
+
+
+

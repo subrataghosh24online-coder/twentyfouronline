@@ -60,3 +60,7 @@ for ($i = 1; $i <= $numPhase; $i++) {
 
     discover_sensor(null, 'current', $device, $current_oid, $index, $type, $descr, '10', '1', $lowlimit, $lowwarnlimit, $warnlimit, $limit, $current);
 }//end for
+
+
+
+

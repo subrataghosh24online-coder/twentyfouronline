@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Qos extends Model implements Keyable
 {
@@ -54,3 +54,7 @@ class Qos extends Model implements Keyable
         return $this->hasMany(Qos::class, 'qos_id', 'parent_id');
     }
 }
+
+
+
+

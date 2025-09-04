@@ -37,3 +37,7 @@ $colours = 'psychedelic';
 $scale_min = '0';
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

@@ -31,3 +31,7 @@ if (isset($pre_cache['sdbDevOutMtKWhTotal']) && is_array($pre_cache['sdbDevOutMt
         discover_sensor(null, 'power_consumed', $device, $power_consumed_oid, $serial_input, 'schleifenbauer', $descr, '1', '1', '0', null, null, '16777215', $sdbDevOutMtKWhTotal, 'snmp', $entPhysicalIndex);
     }
 }
+
+
+
+

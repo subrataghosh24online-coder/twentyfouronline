@@ -22,7 +22,7 @@ export default function popup(url = '', options = {}) {
             this.setupEventListeners();
 
             // Listen for global popup events
-            window.addEventListener('librenms-popup-shown', (e) => {
+            window.addEventListener('twentyfouronline-popup-shown', (e) => {
                 if (e.detail !== this.$el) {
                     this.hide(0);
                 }
@@ -92,7 +92,7 @@ export default function popup(url = '', options = {}) {
                 this.positionPopup();
 
                 // Dispatch event to close other popups
-                window.dispatchEvent(new CustomEvent('librenms-popup-shown', {
+                window.dispatchEvent(new CustomEvent('twentyfouronline-popup-shown', {
                     detail: this.$el
                 }));
 
@@ -304,3 +304,7 @@ export default function popup(url = '', options = {}) {
         }
     }
 }
+
+
+
+

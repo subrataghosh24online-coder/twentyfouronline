@@ -387,3 +387,7 @@ hpicfOspfIfPassive   OBJECT-TYPE
     ::= { hpicfOspfIfEntry 1 }
 
 END
+
+
+
+

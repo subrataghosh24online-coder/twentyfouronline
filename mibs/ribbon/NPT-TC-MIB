@@ -83,3 +83,7 @@ NPT-TC-MIB	DEFINITIONS ::= BEGIN
 		SYNTAX 			INTEGER   { ingress ( 0 ) , transit ( 1 ) } 
 
 END
+
+
+
+

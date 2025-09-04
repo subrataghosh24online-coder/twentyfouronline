@@ -852,3 +852,7 @@ HUAWEI-USERLOG-MIB DEFINITIONS ::= BEGIN
         ::= { hwUserlogGroups 3 }
 
 END
+
+
+
+

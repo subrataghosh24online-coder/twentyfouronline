@@ -7,15 +7,15 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
 
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage discovery
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  * @copyright  2020 PipoCanaja <pipocanaja@gmail.com>
  * @author     PipoCanaja <pipocanaja@gmail.com>
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 if (in_array(explode('-', $device['hardware'], 2)[0], ['GS1900'])) {
     //will match anything starting with GS1900 before the 1st dash (like GS1900-8, GS1900-24E etc etc)
@@ -42,3 +42,7 @@ if (in_array(explode('-', $device['hardware'], 2)[0], ['GS1900'])) {
         $insert[$vlan_id][$mac_address]['port_id'] = $port_id;
     }
 }
+
+
+
+

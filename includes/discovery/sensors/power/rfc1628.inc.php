@@ -93,3 +93,7 @@ foreach ($bypass_power as $index => $data) {
 }
 
 unset($output_power, $input_power, $bypass_power);
+
+
+
+

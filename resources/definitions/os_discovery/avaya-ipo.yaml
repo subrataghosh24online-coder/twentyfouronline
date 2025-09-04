@@ -2,3 +2,7 @@ modules:
   os:
     hardware: ENTITY-MIB::entPhysicalDescr.1
     sysDescr_regex: '/(?<version>.*)/'
+
+
+
+

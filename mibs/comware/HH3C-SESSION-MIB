@@ -741,3 +741,7 @@ hh3cSessionCurrentStat OBJECT-TYPE
     "The value of current session statistics(Usage:piece  Rate/TryRate:piece/s)."
   ::= { hh3cSessionAbruptAlarm 5}
 END
+
+
+
+

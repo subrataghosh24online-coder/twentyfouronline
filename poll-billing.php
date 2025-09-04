@@ -2,19 +2,19 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage billing
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Billing;
-use LibreNMS\Data\Store\Datastore;
-use LibreNMS\Util\Debug;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Billing;
+use twentyfouronline\Data\Store\Datastore;
+use twentyfouronline\Util\Debug;
 
 $init_modules = [];
 require __DIR__ . '/includes/init.php';
@@ -29,7 +29,7 @@ if (isset($argv[1]) && is_numeric($argv[1])) {
 Debug::set(isset($options['d']));
 Datastore::init();
 
-$scheduler = LibrenmsConfig::get('schedule_type.billing');
+$scheduler = twentyfouronlineConfig::get('schedule_type.billing');
 if (! isset($options['f']) && $scheduler != 'legacy' && $scheduler != 'cron') {
     if (Debug::isEnabled()) {
         echo "Billing is not enabled for cron scheduling. Add the -f command argument if you want to force this command to run.\n";
@@ -40,7 +40,7 @@ if (! isset($options['f']) && $scheduler != 'legacy' && $scheduler != 'cron') {
 $poller_start = microtime(true);
 echo "Starting Polling Session ... \n\n";
 
-$query = \LibreNMS\DB\Eloquent::DB()->table('bills');
+$query = \twentyfouronline\DB\Eloquent::DB()->table('bills');
 
 if (isset($options['b'])) {
     $query->where('bill_id', $options['b']);
@@ -50,8 +50,8 @@ foreach ($query->get(['bill_id', 'bill_name']) as $bill) {
     echo 'Bill : ' . $bill->bill_name . "\n";
     $bill_id = $bill->bill_id;
 
-    if (LibrenmsConfig::get('distributed_poller') && LibrenmsConfig::get('distributed_billing')) {
-        $port_list = dbFetchRows('SELECT * FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND I.ifOperStatus="up" AND D.device_id = I.device_id AND D.status=1 AND D.poller_group IN (' . LibrenmsConfig::get('distributed_poller_group') . ')', [$bill_id]);
+    if (twentyfouronlineConfig::get('distributed_poller') && twentyfouronlineConfig::get('distributed_billing')) {
+        $port_list = dbFetchRows('SELECT * FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND I.ifOperStatus="up" AND D.device_id = I.device_id AND D.status=1 AND D.poller_group IN (' . twentyfouronlineConfig::get('distributed_poller_group') . ')', [$bill_id]);
     } else {
         $port_list = dbFetchRows('SELECT * FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND I.ifOperStatus="up" AND D.device_id = I.device_id AND D.status=1', [$bill_id]);
     }
@@ -152,8 +152,8 @@ foreach ($query->get(['bill_id', 'bill_name']) as $bill) {
         logfile("BILLING: negative period! id:$bill_id period:$period delta:$delta in_delta:$in_delta out_delta:$out_delta");
     } else {
         // NOTE: casting to string for mysqli bug (fixed by mysqlnd)
-        if (LibrenmsConfig::get('distributed_poller') && LibrenmsConfig::get('distributed_billing')) {
-            $port_count = dbFetchCell('SELECT COUNT(*) FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND D.device_id = I.device_id AND D.poller_group IN (' . LibrenmsConfig::get('distributed_poller_group') . ')', [$bill_id]);
+        if (twentyfouronlineConfig::get('distributed_poller') && twentyfouronlineConfig::get('distributed_billing')) {
+            $port_count = dbFetchCell('SELECT COUNT(*) FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND D.device_id = I.device_id AND D.poller_group IN (' . twentyfouronlineConfig::get('distributed_poller_group') . ')', [$bill_id]);
         } else {
             $port_count = dbFetchCell('SELECT COUNT(*) FROM `bill_ports` as P, `ports` as I, `devices` as D WHERE P.bill_id=? AND I.port_id = P.port_id AND D.device_id = I.device_id', [$bill_id]);
         }
@@ -174,3 +174,7 @@ if ($poller_time > 300) {
 echo "\nCompleted in $poller_time sec\n";
 
 app('Datastore')->terminate();
+
+
+
+

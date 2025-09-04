@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use LibreNMS\ComposerHelper;
+use twentyfouronline\ComposerHelper;
 
 class PluginAddCommand extends Command
 {
@@ -46,3 +46,7 @@ class PluginAddCommand extends Command
         return 1;
     }
 }
+
+
+
+

@@ -34,3 +34,7 @@ class Toast extends Component
         return view('components.toast');
     }
 }
+
+
+
+

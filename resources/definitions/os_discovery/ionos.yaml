@@ -19,3 +19,7 @@ modules:
                         - { value: 8, generic: 1, graph: 0, descr: invMajor }
                         - { value: 9, generic: 2, graph: 0, descr: invCritical }
                         - { value: 10, generic: 1, graph: 0, descr: invWarning }
+
+
+
+

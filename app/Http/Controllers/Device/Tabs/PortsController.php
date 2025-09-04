@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Device\Tabs;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Link;
 use App\Models\Port;
@@ -38,7 +38,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class PortsController implements DeviceTab
 {
@@ -345,7 +345,7 @@ class PortsController implements DeviceTab
             ],
         ];
 
-        if (LibrenmsConfig::get('enable_ports_etherlike')) {
+        if (twentyfouronlineConfig::get('enable_ports_etherlike')) {
             $graph_links[] = [
                 'name' => __('port.graphs.etherlike'),
                 'url' => 'graphs?type=etherlike',
@@ -449,3 +449,7 @@ class PortsController implements DeviceTab
         ];
     }
 }
+
+
+
+

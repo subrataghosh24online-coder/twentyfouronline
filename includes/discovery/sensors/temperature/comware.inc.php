@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -79,3 +79,7 @@ foreach ($hh3cTransceiverInfoTable as $index => $entry) {
         discover_sensor(null, 'temperature', $device, $oid, 'temp-trans-' . $index, 'comware', $descr, $divisor, $multiplier, $limit_low, $warn_limit_low, $warn_limit, $limit, $current, 'snmp', $entPhysicalIndex, $entPhysicalIndex_measured, group: 'transceiver');
     }
 }
+
+
+
+

@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 require 'includes/html/graphs/common.inc.php';
@@ -48,17 +48,17 @@ foreach ($rrd_list as $rrd) {
     if (isset($rrd['colour'])) {
         $colour = $rrd['colour'];
     } else {
-        if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+        if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
             $iter = 0;
         }
-        $colour = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+        $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
         $iter++;
     }
 
     $ds = $rrd['ds'];
     $filename = $rrd['filename'];
 
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len);
 
     $ids[] = ($id = 'ds' . $i);
 
@@ -95,7 +95,7 @@ if ($print_total) {
     }
 
     $rrd_options .= ' CDEF:tot=' . implode(',', $tot);
-    $rrd_options .= ' COMMENT:"  ' . \LibreNMS\Data\Store\Rrd::fixedSafeDescr('Total', $descr_len) . '"';
+    $rrd_options .= ' COMMENT:"  ' . \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('Total', $descr_len) . '"';
     $rrd_options .= ' GPRINT:tot:LAST:%5.1lf%s';
     $rrd_options .= ' GPRINT:tot:MIN:%5.1lf%s';
     $rrd_options .= ' GPRINT:tot:MAX:%5.1lf%s';
@@ -107,3 +107,7 @@ $rrd_options .= ' HRULE:0#555555';
 $rrd_options .= $rrd_optionsc;
 
 unset($stacked);
+
+
+
+

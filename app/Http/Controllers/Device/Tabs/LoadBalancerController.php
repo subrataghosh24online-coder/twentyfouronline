@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Http\Controllers\Device\Tabs;
 use App\Facades\DeviceCache;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class LoadBalancerController implements DeviceTab
 {
@@ -54,7 +54,7 @@ class LoadBalancerController implements DeviceTab
 
         // F5 LTM
         if ($device->os == 'f5') {
-            $component = new \LibreNMS\Component();
+            $component = new \twentyfouronline\Component();
             $component_count = $component->getComponentCount($device['device_id']);
 
             if (isset($component_count['f5-ltm-bwc'])) {
@@ -105,3 +105,7 @@ class LoadBalancerController implements DeviceTab
         ];
     }
 }
+
+
+
+

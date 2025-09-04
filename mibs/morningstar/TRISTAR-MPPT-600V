@@ -852,3 +852,6 @@ settingsSwitches OBJECT-TYPE
 	::={ tristarmppt600v 60 }
 
 END
+
+
+

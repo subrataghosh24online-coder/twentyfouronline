@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Edit User'))
 
@@ -86,4 +86,8 @@
         });
     </script>
 @endsection
+
+
+
+
 

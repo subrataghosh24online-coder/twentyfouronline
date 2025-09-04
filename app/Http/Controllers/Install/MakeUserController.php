@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -30,7 +30,7 @@ use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use LibreNMS\Interfaces\InstallerStep;
+use twentyfouronline\Interfaces\InstallerStep;
 
 class MakeUserController extends InstallationController implements InstallerStep
 {
@@ -122,3 +122,7 @@ class MakeUserController extends InstallationController implements InstallerStep
         return 'fa-solid fa-key';
     }
 }
+
+
+
+

@@ -17,3 +17,7 @@ foreach ($sfp_stats as $index => $sfpport_stats) {
 }
 
 unset($sfp_stats);
+
+
+
+

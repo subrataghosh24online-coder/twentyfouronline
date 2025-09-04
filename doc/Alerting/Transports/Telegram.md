@@ -27,7 +27,7 @@
    `"message":{"message_id":7,"from":"id":656556,"first_name":"Joo","last_name":"Doo","username":"JohnDoo"},"chat":{"id":-9787468,"title":"Telegram
    Group"},"date":1435216924,"text":"Hi"}}]}`.
 
-1. Now create a new "Telegram transport" in LibreNMS (Global Settings
+1. Now create a new "Telegram transport" in twentyfouronline (Global Settings
    -> Alerting Settings -> Telegram transport). Click on 'Add Telegram
    config' and put your chat id and token into the relevant box.
 
@@ -74,3 +74,7 @@ Outbound Utilization: {{ (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100 
 @endforeach
 
 ```
+
+
+
+

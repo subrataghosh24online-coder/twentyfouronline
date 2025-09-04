@@ -20,3 +20,6 @@ discovery:
             oid: TRISTAR::subModel.0
             op: 'contains'
             value: 'PWM'
+
+
+

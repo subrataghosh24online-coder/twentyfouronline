@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\InputOption;
@@ -38,14 +38,14 @@ class MaintenanceFetchOuis extends LnmsCommand
     {
         $force = $this->option('force');
 
-        if (LibrenmsConfig::get('mac_oui.enabled') !== true && ! $force) {
+        if (twentyfouronlineConfig::get('mac_oui.enabled') !== true && ! $force) {
             $this->line(trans('commands.maintenance:fetch-ouis.disabled', ['setting' => 'mac_oui.enabled']));
 
             if (! $this->confirm(trans('commands.maintenance:fetch-ouis.enable_question'))) {
                 return 0;
             }
 
-            LibrenmsConfig::persist('mac_oui.enabled', true);
+            twentyfouronlineConfig::persist('mac_oui.enabled', true);
         }
 
         // We want to refresh after at least 6 days
@@ -68,7 +68,7 @@ class MaintenanceFetchOuis extends LnmsCommand
 
         try {
             $this->line('  -> ' . trans('commands.maintenance:fetch-ouis.downloading') . ' ...');
-            $csv_data = \LibreNMS\Util\Http::client()->get($this->mac_oui_url)->body();
+            $csv_data = \twentyfouronline\Util\Http::client()->get($this->mac_oui_url)->body();
 
             // convert the csv into an array to be consumed by upsert
             $this->line('  -> ' . trans('commands.maintenance:fetch-ouis.processing') . ' ...');
@@ -136,3 +136,7 @@ class MaintenanceFetchOuis extends LnmsCommand
         return $ouis;
     }
 }
+
+
+
+

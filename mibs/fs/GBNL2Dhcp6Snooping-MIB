@@ -362,3 +362,7 @@ dhcp6snoopingInfomation		OBJECT IDENTIFIER ::= { gbnL2Dhcp6Snooping 20 }
             these two value commit to the system." 
         ::= { dhcp6snoopingInfomation 6 }
 END
+
+
+
+

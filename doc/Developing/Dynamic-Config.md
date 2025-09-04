@@ -89,3 +89,7 @@ basic setting code to reuse.  You should review the BaseSetting component.
 ```
 
 Using Vue.js is beyond the scope of this document. Documentation can be found at [vuejs.org](https://vuejs.org/v2/guide/).
+
+
+
+

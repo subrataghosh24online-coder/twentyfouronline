@@ -93,7 +93,7 @@ return [
             ],
             'watchdog_log' => [
                 'description' => 'Log File to Watch',
-                'help' => 'Default is the LibreNMS log file.',
+                'help' => 'Default is the twentyfouronline log file.',
             ],
         ],
         'units' => [
@@ -102,3 +102,7 @@ return [
         ],
     ],
 ];
+
+
+
+

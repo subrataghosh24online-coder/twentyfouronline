@@ -66,3 +66,7 @@ foreach ($stat_set as $stat => $descr) {
 $rrd_filename = Rrd::name($device['hostname'], ['app', $name, $app->app_id]);
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

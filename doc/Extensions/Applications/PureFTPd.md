@@ -7,7 +7,7 @@ SNMP extend script to monitor PureFTPd.
 1. Download the script onto the desired host
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/pureftpd.py -O /etc/snmp/pureftpd.py
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/pureftpd.py -O /etc/snmp/pureftpd.py
     ```
 
 2. Make the script executable
@@ -41,3 +41,7 @@ SNMP extend script to monitor PureFTPd.
     ```
 
 5. Restart snmpd on your host
+
+
+
+

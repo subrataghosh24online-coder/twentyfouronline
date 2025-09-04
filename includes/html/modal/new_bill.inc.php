@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -11,7 +11,7 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 if (Auth::user()->hasGlobalAdmin()) {
     $port_device_id = -1;
@@ -60,7 +60,7 @@ if (Auth::user()->hasGlobalAdmin()) {
         }
     </script>
     <?php
-    if (LibrenmsConfig::get('billing.95th_default_agg') == 1) {
+    if (twentyfouronlineConfig::get('billing.95th_default_agg') == 1) {
         $bill_data['dir_95th'] = 'agg';
     } else {
         $bill_data['dir_95th'] = 'in';
@@ -83,3 +83,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 
     <?php
 }
+
+
+
+

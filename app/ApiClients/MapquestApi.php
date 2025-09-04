@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,10 +26,10 @@
 
 namespace App\ApiClients;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Exception;
 use Illuminate\Http\Client\Response;
-use LibreNMS\Interfaces\Geocoder;
+use twentyfouronline\Interfaces\Geocoder;
 
 class MapquestApi extends BaseApi implements Geocoder
 {
@@ -56,7 +56,7 @@ class MapquestApi extends BaseApi implements Geocoder
      */
     protected function buildGeocodingOptions(string $address): array
     {
-        $api_key = LibrenmsConfig::get('geoloc.api_key');
+        $api_key = twentyfouronlineConfig::get('geoloc.api_key');
         if (! $api_key) {
             throw new Exception('MapQuest API key missing, set geoloc.api_key');
         }
@@ -78,3 +78,7 @@ class MapquestApi extends BaseApi implements Geocoder
         return $response->successful() && $data['info']['statuscode'] == 0;
     }
 }
+
+
+
+

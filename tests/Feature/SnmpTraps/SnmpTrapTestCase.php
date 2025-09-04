@@ -18,20 +18,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\Device;
 use App\Models\Location;
 use App\View\SimpleTemplate;
 use Illuminate\Support\Arr;
-use LibreNMS\Snmptrap\Dispatcher;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Snmptrap\Dispatcher;
+use twentyfouronline\Tests\TestCase;
 use Mockery;
 
 abstract class SnmpTrapTestCase extends TestCase
@@ -50,7 +50,7 @@ abstract class SnmpTrapTestCase extends TestCase
             'sysDescr' => $device->sysDescr,
         ];
         $rawTrap = SimpleTemplate::parse($rawTrap, $template_variables);
-        $trap = Mockery::mock('LibreNMS\Snmptrap\Trap[log,getDevice]', [$rawTrap]);
+        $trap = Mockery::mock('twentyfouronline\Snmptrap\Trap[log,getDevice]', [$rawTrap]);
         $trap->shouldReceive('getDevice')->andReturn($device); // mock getDevice to avoid saving to database
         foreach (Arr::wrap($log) as $index => $message) {
             $call_args = is_array($args[$index] ?? null) ? $args[$index] : $args;
@@ -60,7 +60,7 @@ abstract class SnmpTrapTestCase extends TestCase
 
         $log_spy = \Log::spy();
 
-        /** @var \LibreNMS\Snmptrap\Trap $trap */
+        /** @var \twentyfouronline\Snmptrap\Trap $trap */
         $this->assertTrue(Dispatcher::handle($trap), $failureMessage);
 
         // if the test set any log expectations, log_spy will be null
@@ -70,3 +70,7 @@ abstract class SnmpTrapTestCase extends TestCase
         }
     }
 }
+
+
+
+

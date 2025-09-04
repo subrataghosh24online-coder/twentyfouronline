@@ -1,8 +1,8 @@
 # Check_MK Setup
 
 The agent can be used to gather data from remote systems you can use
-LibreNMS in combination with check_mk (found
-[here](https://github.com/librenms/librenms-agent)). The agent can be
+twentyfouronline in combination with check_mk (found
+[here](https://github.com/twentyfouronline/twentyfouronline-agent)). The agent can be
 extended to include data about [applications](Applications.md) on the
 remote system.
 
@@ -13,18 +13,18 @@ remote system.
 Make sure that systemd or xinetd is installed on the host you want to
 run the agent on.
 
-The agent uses TCP-Port 6556, please allow access from the **LibreNMS
+The agent uses TCP-Port 6556, please allow access from the **twentyfouronline
 host** and **poller nodes** if you're using the [Distributed Polling](Distributed-Poller.md)
 setup.
 
 On each of the hosts you would like to use the agent on, you need to do the following:
 
-1: Clone the `librenms-agent` repository:
+1: Clone the `twentyfouronline-agent` repository:
 
 ```bash
 cd /opt/
-git clone https://github.com/librenms/librenms-agent.git
-cd librenms-agent
+git clone https://github.com/twentyfouronline/twentyfouronline-agent.git
+cd twentyfouronline-agent
 ```
 
 2: Copy the relevant check_mk_agent to `/usr/bin`:
@@ -62,7 +62,7 @@ can find detail setup instructions for specific applications above.
 | --- | --- |
 | `/etc/init.d/xinetd restart` | `systemctl enable check_mk.socket && systemctl start check_mk.socket` |
 
-8: Login to the LibreNMS web interface and edit the device you want to
+8: Login to the twentyfouronline web interface and edit the device you want to
 monitor. Under the modules section, ensure that unix-agent is enabled.
 
 9: Then under Applications, enable the apps that you plan to monitor.
@@ -83,4 +83,8 @@ If you want to restrict which network adapter the agent listens on, do the follo
 ### Windows
 1. Grab version 1.2.6b5 of the check_mk agent from the check_mk github repo (exe/msi or compile it yourself depending on your usage): <https://github.com/tribe29/checkmk/tree/v1.2.6b5/agents/windows>
 2. Run the msi / exe
-3. Make sure your LibreNMS instance can reach TCP port 6556 on your target.
+3. Make sure your twentyfouronline instance can reach TCP port 6556 on your target.
+
+
+
+

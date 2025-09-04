@@ -106,3 +106,7 @@ modules:
                     high_limit: npRelHumTempSafeRangeHigh
                     skip_values: 0
                     descr: 'Humidity Temp {{ $index }}'
+
+
+
+

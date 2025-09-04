@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Observium to LibreNMS conversion
+# Observium to twentyfouronline conversion
 
 ####################### SCRIPT DESCRIPTION ########################
-# A simple script to add each host in text file to LibreNMS       #
+# A simple script to add each host in text file to twentyfouronline       #
 ###################################################################
 
 ########################### DIRECTIONS ############################
@@ -11,7 +11,7 @@
 ###################################################################
 
 ############################# CREDITS #############################
-# LibreNMS work is done by a great group - https://www.librenms.org    #
+# twentyfouronline work is done by a great group - https://www.twentyfouronline.org    #
 # Script Written by - Dan Brown - http://vlan50.com               #
 ###################################################################
 
@@ -21,12 +21,16 @@ SNMPSTRING=cisconetwork
 SNMPVERSION=v2c
 # Enter path to nodelist text file
 NODELIST=/tmp/nodelist.txt
-# Enter user and group of LibreNMS installation
-L_USRGRP=librenms
+# Enter user and group of twentyfouronline installation
+L_USRGRP=twentyfouronline
 
 while read -r line
-	# Change ownership to LibreNMS user and group
+	# Change ownership to twentyfouronline user and group
 	chown -R $L_USRGRP:$L_USRGRP .;
-	# Add each host from the node list file to LibreNMS
+	# Add each host from the node list file to twentyfouronline
 	do lnms device:add --$SNMPVERSION -c$SNMPSTRING "${line%/*}"
 done < $NODELIST
+
+
+
+

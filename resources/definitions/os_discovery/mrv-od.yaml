@@ -297,3 +297,7 @@ modules:
                         - { value: 2, descr: bad, graph: -1, generic: 2 }
                         - { value: 3, descr: good, graph: 1, generic: 0 }
                         - { value: 4, descr: notInstalled, graph: 0, generic: 2 }
+
+
+
+

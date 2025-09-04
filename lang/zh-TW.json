@@ -307,8 +307,8 @@
     "Last Polled": "最後一次輪詢",
     "Last Run": "上次執行",
     "Level": "等級",
-    "LibreNMS is a community-based project": "LibreNMS 是建基於社群開發的專案",
-    "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS 是個以 PHP/MySQL 為基底的自動探索網路監控系統",
+    "twentyfouronline is a community-based project": "twentyfouronline 是建基於社群開發的專案",
+    "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline 是個以 PHP/MySQL 為基底的自動探索網路監控系統",
     "License": "授權",
     "Lists": "列表",
     "Load": "負載",
@@ -382,8 +382,8 @@
     "only devices": "僅裝置",
     "only services": "僅服務",
     "Operating System": "作業系統",
-    "Opt in to send anonymous reports to LibreNMS?": "是否同意傳送匿名報告給 LibreNMS？",
-    "Opt in to send anonymous usage statistics to LibreNMS?": "您要選擇以匿名方式提供使用統計資料給 LibreNMS 嗎？",
+    "Opt in to send anonymous reports to twentyfouronline?": "是否同意傳送匿名報告給 twentyfouronline？",
+    "Opt in to send anonymous usage statistics to twentyfouronline?": "您要選擇以匿名方式提供使用統計資料給 twentyfouronline 嗎？",
     "or higher": "或更高者",
     "Order By": "排序",
     "Origin": "來源",
@@ -640,7 +640,7 @@
     "Web Server": "Web 伺服器",
     "Web site": "官方網站",
     "Whois": "Whois",
-    "Whoops, looks like something went wrong. Check your librenms.log.": "噢，看起來發生了一些錯誤。請您查閱 librenms.log。",
+    "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "噢，看起來發生了一些錯誤。請您查閱 twentyfouronline.log。",
     "Whoops, the web server could not write required files to the filesystem.": "噢，Web Server 無法寫入檔案到檔案系統。",
     "Widget :title added": "已新增小工具 :title",
     "Widget :title removed": "已移除小工具 :title",
@@ -656,3 +656,7 @@
     "yes": "是",
     "You can only move & resize widgets when you're in Edit Mode.": "您只能在編輯模式下移動和調整小工具大小"
 }
+
+
+
+

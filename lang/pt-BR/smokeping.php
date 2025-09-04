@@ -4,3 +4,7 @@ return [
     'in' => 'Entrada',
     'out' => 'Saída',
 ];
+
+
+
+

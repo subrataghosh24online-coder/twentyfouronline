@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\ApiClients;
 
-use LibreNMS\Util\Http;
+use twentyfouronline\Util\Http;
 
 class BaseApi
 {
@@ -44,3 +44,7 @@ class BaseApi
         return $this->client;
     }
 }
+
+
+
+

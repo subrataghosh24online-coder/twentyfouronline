@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 #  -*- coding: utf-8 -*-
 #
-# This file is part of LibreNMS
+# This file is part of twentyfouronline
 
 __author__ = "Orsiris de Jong"
-__copyright__ = "Copyright (C) 2021 LibreNMS"
+__copyright__ = "Copyright (C) 2021 twentyfouronline"
 
 import os
 import sys
@@ -67,3 +67,7 @@ except pkg_resources.VersionConflict as req:
         print("Required version not satisfied: {}".format(req))
     sys.exit(2)
 sys.exit(0)
+
+
+
+

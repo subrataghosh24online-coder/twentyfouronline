@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display Cisco Class-Based QoS Details
+ * twentyfouronline module to display Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -17,7 +17,7 @@ $rrd_options .= ' -l 0 -E ';
 $rrd_options .= " COMMENT:'Class-Map              Now      Avg      Max\\n'";
 $rrd_additions = '';
 
-$colours = array_merge(\App\Facades\LibrenmsConfig::get('graph_colours.mixed'), \App\Facades\LibrenmsConfig::get('graph_colours.manycolours'), \App\Facades\LibrenmsConfig::get('graph_colours.manycolours'));
+$colours = array_merge(\App\Facades\twentyfouronlineConfig::get('graph_colours.mixed'), \App\Facades\twentyfouronlineConfig::get('graph_colours.manycolours'), \App\Facades\twentyfouronlineConfig::get('graph_colours.manycolours'));
 
 $qos = \App\Models\Qos::find($vars['qos_id']);
 
@@ -63,3 +63,7 @@ if ($rrd_additions == '') {
 } else {
     $rrd_options .= $rrd_additions;
 }
+
+
+
+

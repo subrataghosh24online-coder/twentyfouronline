@@ -24,3 +24,7 @@ bad_iftype:
     - tunnel
     - softwareLoopback
     - propPointToPointSerial
+
+
+
+

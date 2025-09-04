@@ -1174,3 +1174,7 @@ rcPswdChgTrapNotifyGroup OBJECT-GROUP
 	::= { ruggedcomTrapsModuleGroups 25 }    
 
 END
+
+
+
+

@@ -1,12 +1,12 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\ServiceTemplateController;
 
-if (LibrenmsConfig::get('discover_services_templates')) {
+if (twentyfouronlineConfig::get('discover_services_templates')) {
     (new ServiceTemplateController())->applyDeviceAll($device['device_id']); // FIXME applyAll() should not be on a controller
 }
-if (LibrenmsConfig::get('discover_services')) {
+if (twentyfouronlineConfig::get('discover_services')) {
     // FIXME: use /etc/services?
     $known_services = [
         22 => 'ssh',
@@ -37,3 +37,7 @@ if (LibrenmsConfig::get('discover_services')) {
 
     echo "\n";
 }
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,10 +27,10 @@
 namespace App\Http\Controllers\Device\Tabs;
 
 use App\Facades\DeviceCache;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class InventoryController implements DeviceTab
 {
@@ -38,7 +38,7 @@ class InventoryController implements DeviceTab
 
     public function __construct()
     {
-        if (LibrenmsConfig::get('enable_inventory')) {
+        if (twentyfouronlineConfig::get('enable_inventory')) {
             $device = DeviceCache::getPrimary();
 
             if ($device->entityPhysical()->exists()) {
@@ -76,3 +76,7 @@ class InventoryController implements DeviceTab
         ];
     }
 }
+
+
+
+

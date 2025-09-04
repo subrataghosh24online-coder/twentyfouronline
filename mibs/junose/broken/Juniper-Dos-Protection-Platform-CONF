@@ -75,3 +75,7 @@ juniDosProtectionPlatformAgentV2  AGENT-CAPABILITIES
     ::= { juniDosProtectionPlatformAgent 2 }
 
 END
+
+
+
+

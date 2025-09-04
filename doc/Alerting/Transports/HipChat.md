@@ -12,7 +12,7 @@ for details on acceptable values.
 | ------ | ------- |
 | API URL | <https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj> |
 | Room ID | 7654321 |
-| From Name | LibreNMS |
+| From Name | twentyfouronline |
 | Options | color=red |
 
 At present the following options are supported: `color`.
@@ -21,3 +21,7 @@ At present the following options are supported: `color`.
 > recommended that you specify the `text` message format to prevent unexpected
 > results, such as HipChat attempting to interpret angled brackets (`<` and
 > `>`).
+
+
+
+

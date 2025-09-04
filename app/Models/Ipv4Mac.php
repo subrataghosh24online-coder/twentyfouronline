@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Ipv4Mac extends PortRelatedModel implements Keyable
 {
@@ -57,3 +57,7 @@ class Ipv4Mac extends PortRelatedModel implements Keyable
         return $this->getAttribute('port_id') . '_' . $this->getAttribute('ipv4_address');
     }
 }
+
+
+
+

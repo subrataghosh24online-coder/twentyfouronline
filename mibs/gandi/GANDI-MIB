@@ -135,3 +135,7 @@ KNIdropCounter OBJECT-TYPE
 	::= { kniCounters 2 }
 
 END
+
+
+
+

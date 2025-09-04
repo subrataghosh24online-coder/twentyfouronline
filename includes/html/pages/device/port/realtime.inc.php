@@ -40,3 +40,7 @@ print_optionbar_end();
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">Your webserver has header X-Frame-Options set to DENY. Please change to SAMEORIGIN for realtime graphs.</a>
 </object>
 </div>
+
+
+
+

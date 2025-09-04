@@ -38,3 +38,7 @@ return new class extends Migration
         Schema::drop('users_widgets');
     }
 };
+
+
+
+

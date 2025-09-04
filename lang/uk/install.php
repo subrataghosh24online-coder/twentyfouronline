@@ -35,8 +35,8 @@ return [
         'not_finished' => 'Ви ще не закінчили!',
         'retry' => 'Повторити',
         'statistics' => 'Було б добре якщо ви приєдналися до наповнення нашої статистики, перейшовши до :about та поставивши прапорець під Statistics.',
-        'statistics_link' => 'Про LibreNMS',
-        'thanks' => 'Дякуємо за встановлення LibreNMS.',
+        'statistics_link' => 'Про twentyfouronline',
+        'thanks' => 'Дякуємо за встановлення twentyfouronline.',
         'title' => 'Завершити встановлення',
         'validate' => 'Спочатку необхідно :validate та виправити проблеми.',
         'validate_link' => 'валідувати вашу інсталяцію',
@@ -57,7 +57,7 @@ return [
         'migrate' => 'Створення бази даних',
         'user' => 'Створити користувача',
     ],
-    'title' => 'Інсталяція LibreNMS',
+    'title' => 'Інсталяція twentyfouronline',
     'user' => [
         'button' => 'Додати користувача',
         'created' => 'Користувача створено',
@@ -69,3 +69,7 @@ return [
         'username' => 'Ім\'я користувача',
     ],
 ];
+
+
+
+

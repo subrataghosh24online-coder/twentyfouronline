@@ -21,7 +21,7 @@ pip3 install python-dateutil
 By default, it will only show the status for containers that are running. To include all containers modify the constant in the script at the top of the file and change it to `ONLY_RUNNING_CONTAINERS = False`
 
 ```bash
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/docker-stats.py -O /etc/snmp/docker-stats.py
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/docker-stats.py -O /etc/snmp/docker-stats.py
 ```
 
 3. Make the script executable
@@ -47,3 +47,7 @@ usermod -a -G docker Debian-snmp
 ```bash
 systemctl restart snmpd
 ```
+
+
+
+

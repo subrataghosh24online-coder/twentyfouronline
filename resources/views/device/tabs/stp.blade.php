@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
     <x-device.page :device="$device">
@@ -15,10 +15,10 @@
                 <tr>
                     <td>{{ trans('stp.bridge_address') }}</td>
                     <td>
-                        {{ \LibreNMS\Util\Mac::parse($instance['bridgeAddress'])->readable() }}
-                        @if($url = \LibreNMS\Util\Url::deviceLink(\App\Facades\DeviceCache::get(\App\Models\Stp::where('bridgeAddress', $instance['bridgeAddress'])->value('device_id'))))
+                        {{ \twentyfouronline\Util\Mac::parse($instance['bridgeAddress'])->readable() }}
+                        @if($url = \twentyfouronline\Util\Url::deviceLink(\App\Facades\DeviceCache::get(\App\Models\Stp::where('bridgeAddress', $instance['bridgeAddress'])->value('device_id'))))
                             ({!! $url !!})
-                        @elseif($brVendor = \LibreNMS\Util\Mac::parse($instance['bridgeAddress'])->vendor())
+                        @elseif($brVendor = \twentyfouronline\Util\Mac::parse($instance['bridgeAddress'])->vendor())
                             ({{ $brVendor }})
                         @endif
                     </td>
@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>{{ trans('stp.last_topology_change') }}</td>
-                    <td>{{ \LibreNMS\Util\Time::formatInterval($instance['timeSinceTopologyChange']) }}</td>
+                    <td>{{ \twentyfouronline\Util\Time::formatInterval($instance['timeSinceTopologyChange']) }}</td>
                 </tr>
                 <tr>
                     <td>{{ trans('stp.topology_changes') }}</td>
@@ -42,10 +42,10 @@
                 <tr>
                     <td>{{ trans('stp.designated_root') }}</td>
                     <td>
-                        {{ \LibreNMS\Util\Mac::parse($instance['designatedRoot'])->readable() }}
-                        @if($url = \LibreNMS\Util\Url::deviceLink(\App\Facades\DeviceCache::get(\App\Models\Stp::where('bridgeAddress', $instance['designatedRoot'])->whereNot('bridgeAddress', '')->value('device_id'))))
+                        {{ \twentyfouronline\Util\Mac::parse($instance['designatedRoot'])->readable() }}
+                        @if($url = \twentyfouronline\Util\Url::deviceLink(\App\Facades\DeviceCache::get(\App\Models\Stp::where('bridgeAddress', $instance['designatedRoot'])->whereNot('bridgeAddress', '')->value('device_id'))))
                             ({!! $url !!})
-                        @elseif($drVendor = \LibreNMS\Util\Mac::parse($instance['designatedRoot'])->vendor())
+                        @elseif($drVendor = \twentyfouronline\Util\Mac::parse($instance['designatedRoot'])->vendor())
                             ({{ $drVendor }})
                         @endif
                     </td>
@@ -157,3 +157,7 @@
         }
     </style>
 @endpush
+
+
+
+

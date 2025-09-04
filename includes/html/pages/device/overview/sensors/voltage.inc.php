@@ -6,3 +6,7 @@ $sensor_unit = 'V';
 $sensor_type = 'Voltage';
 
 require 'includes/html/pages/device/overview/generic/sensor.inc.php';
+
+
+
+

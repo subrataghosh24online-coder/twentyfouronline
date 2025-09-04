@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -34,8 +34,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\AlertScheduleStatus;
-use LibreNMS\Enum\MaintenanceBehavior;
+use twentyfouronline\Enum\AlertScheduleStatus;
+use twentyfouronline\Enum\MaintenanceBehavior;
 
 /**
  * @method static \Database\Factories\AlertScheduleFactory factory(...$parameters)
@@ -145,7 +145,7 @@ class AlertSchedule extends Model
     }
 
     /**
-     * @return int \LibreNMS\Enum\AlertScheduleStatus
+     * @return int \twentyfouronline\Enum\AlertScheduleStatus
      */
     public function getStatusAttribute()
     {
@@ -244,3 +244,7 @@ class AlertSchedule extends Model
             . "start: $this->start end: $this->end";
     }
 }
+
+
+
+

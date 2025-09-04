@@ -5,8 +5,8 @@ We have simple integration for
 to your Gateone command line frontend to access your
 equipment. (Currently this only works with SSH)
 
-GateOne itself isn't included within LibreNMS, you will need to
-install this separately either on the same infrastructure as LibreNMS
+GateOne itself isn't included within twentyfouronline, you will need to
+install this separately either on the same infrastructure as twentyfouronline
 or as a totally  standalone appliance. The installation is beyond the
 scope of this document.
 
@@ -18,10 +18,14 @@ $config['gateone']['server'] = 'http://<your_gateone_url/';
 
 **Note:** You *must* use the full url including the trailing `/`!
 
-We also support prefixing the currently logged in Librenms user to the
+We also support prefixing the currently logged in twentyfouronline user to the
 SSH connection URL that is created, eg. `ssh://admin@localhost`\ To
 enable this, put the following in your `config.php`:
 
 ```php
-$config['gateone']['use_librenms_user'] = true;
+$config['gateone']['use_twentyfouronline_user'] = true;
 ```
+
+
+
+

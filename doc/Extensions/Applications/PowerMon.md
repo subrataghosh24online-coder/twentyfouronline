@@ -26,7 +26,7 @@ Because the methods are unreliable for all hardware, you need to declare to the 
 1. Download the python script onto the host:
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/powermon-snmp.py -O /usr/local/bin/powermon-snmp.py
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/powermon-snmp.py -O /usr/local/bin/powermon-snmp.py
     ```
 
 2. Make the script executable:
@@ -132,11 +132,15 @@ extend  powermon   /usr/local/bin/powermon-snmp.py -m hpasmcli
 ```
 
     > NOTE: Avoid using other script options in the snmpd config as the results may not be
-    > interpreted correctly by LibreNMS.
+    > interpreted correctly by twentyfouronline.
 
 6. Reload your snmpd service:
 ```
 systemctl reload snmpd
 ```
 
-7. You're now ready to enable the application in LibreNMS.
+7. You're now ready to enable the application in twentyfouronline.
+
+
+
+

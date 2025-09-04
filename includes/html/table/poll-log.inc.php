@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $param = [];
 $sql = ' FROM `devices` AS D ';
@@ -28,7 +28,7 @@ if (isset($searchPhrase) && ! empty($searchPhrase)) {
 }
 
 if ($vars['type'] == 'unpolled') {
-    $overdue = (int) (LibrenmsConfig::get('rrd.step', 300) * 1.2);
+    $overdue = (int) (twentyfouronlineConfig::get('rrd.step', 300) * 1.2);
     $sql .= " AND `last_polled` <= DATE_ADD(NOW(), INTERVAL - $overdue SECOND)";
 }
 
@@ -79,3 +79,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output);
+
+
+
+

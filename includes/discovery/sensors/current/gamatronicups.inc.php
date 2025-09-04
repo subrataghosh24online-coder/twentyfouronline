@@ -27,3 +27,7 @@ for ($i = 1; $i <= 3; $i++) {
 
     discover_sensor(null, 'current', $device, $current_oid, $index, $type, $descr, '1', '1', $lowlimit, null, null, null, $current);
 }
+
+
+
+

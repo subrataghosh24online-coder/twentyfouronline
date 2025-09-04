@@ -7,10 +7,10 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage nfs-server
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
  * @author     SvennD <svennd@svennd.be>
 */
 
@@ -46,8 +46,12 @@ foreach ($array as $ds => $var) {
     $rrd_list[$i]['filename'] = $rrd_filename;
     $rrd_list[$i]['descr'] = $var['descr'];
     $rrd_list[$i]['ds'] = $ds;
-    $rrd_list[$i]['colour'] = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$i");
+    $rrd_list[$i]['colour'] = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$i");
     $i++;
 }
 
 require 'includes/html/graphs/generic_v3_multiline.inc.php';
+
+
+
+

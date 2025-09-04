@@ -45,3 +45,7 @@ modules:
                         - { descr: normal, graph: 1, value: 1, generic: 0 }
                         - { descr: highWarning, graph: 1, value: 2, generic: 1 }
                         - { descr: highCritical, graph: 1, value: 3, generic: 2 }
+
+
+
+

@@ -125,3 +125,7 @@ HH3C-PROT-PRIORITY-MIB DEFINITIONS ::= BEGIN
             must change at the same time and the hh3cPPriRowStatus is active ."
         ::= { hh3cProtocolPriorityEntry 4 }
 END
+
+
+
+

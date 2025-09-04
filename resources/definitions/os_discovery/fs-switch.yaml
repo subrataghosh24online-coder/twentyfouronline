@@ -66,7 +66,7 @@ modules:
                     low_warn_limit: FS-MIB::portTransceiverThresholdInfoTemperatureLowWarn
                     warn_limit: FS-MIB::portTransceiverThresholdInfoTemperatureHighWarn
                     high_limit: FS-MIB::portTransceiverThresholdInfoTemperatureHighAlarm
-                    user_func: \LibreNMS\OS\FsSwitch::normalizeTransceiverValues
+                    user_func: \twentyfouronline\OS\FsSwitch::normalizeTransceiverValues
         voltage:
             data:
                 -
@@ -82,7 +82,7 @@ modules:
                     low_warn_limit: FS-MIB::portTransceiverThresholdInfoVccLowWarn
                     warn_limit: FS-MIB::portTransceiverThresholdInfoVccHighWarn
                     high_limit: FS-MIB::portTransceiverThresholdInfoVccHighAlarm
-                    user_func: \LibreNMS\OS\FsSwitch::normalizeTransceiverValues
+                    user_func: \twentyfouronline\OS\FsSwitch::normalizeTransceiverValues
         current:
             data:
                 -
@@ -98,7 +98,7 @@ modules:
                     low_warn_limit: FS-MIB::portTransceiverThresholdInfoTxBiasCurrentLowWarn
                     warn_limit: FS-MIB::portTransceiverThresholdInfoTxBiasCurrentHighWarn
                     high_limit: FS-MIB::portTransceiverThresholdInfoTxBiasCurrentHighAlarm
-                    user_func: \LibreNMS\OS\FsSwitch::normalizeTransceiverValuesCurrent
+                    user_func: \twentyfouronline\OS\FsSwitch::normalizeTransceiverValuesCurrent
         dbm:
             data:
                 -
@@ -114,7 +114,7 @@ modules:
                     low_warn_limit: FS-MIB::portTransceiverThresholdInfoTxPowerLowWarn
                     warn_limit: FS-MIB::portTransceiverThresholdInfoTxPowerHighWarn
                     high_limit: FS-MIB::portTransceiverThresholdInfoTxPowerHighAlarm
-                    user_func: \LibreNMS\OS\FsSwitch::normalizeTransceiverValues
+                    user_func: \twentyfouronline\OS\FsSwitch::normalizeTransceiverValues
                 -
                     oid: portOpticalMonitoringInfoTable
                     value: portOpticalMonitoringInfoRxPower
@@ -128,7 +128,7 @@ modules:
                     low_warn_limit: FS-MIB::portTransceiverThresholdInfoRxPowerLowWarn
                     warn_limit: FS-MIB::portTransceiverThresholdInfoRxPowerHighWarn
                     high_limit: FS-MIB::portTransceiverThresholdInfoRxPowerHighAlarm
-                    user_func: \LibreNMS\OS\FsSwitch::normalizeTransceiverValues
+                    user_func: \twentyfouronline\OS\FsSwitch::normalizeTransceiverValues
         state:
             data:
                 -
@@ -159,3 +159,7 @@ modules:
                         - { value: 1, generic: 1, graph: 1, descr: notPresent }
                         - { value: 2, generic: 0, graph: 1, descr: green }
                         - { value: 3, generic: 2, graph: 1, descr: red }
+
+
+
+

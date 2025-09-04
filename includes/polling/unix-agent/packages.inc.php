@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Package;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $pkgs_id = [];
 $pkgs_db_id = [];
@@ -50,7 +50,7 @@ $managers = [
                 'arch' => $arch,
                 'version' => $version,
                 'build' => '',
-                'size' => (int) \LibreNMS\Util\Number::toBytes($size),
+                'size' => (int) \twentyfouronline\Util\Number::toBytes($size),
                 'status' => 1,
             ]);
         },
@@ -97,3 +97,7 @@ if (isset($packages)) {
 echo "\n";
 
 unset($packages, $existing_package, $package, $managers);
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * serverscheck.inc.php
  *
- * LibreNMS state discover module for serverscheck flooding sensor
+ * twentyfouronline state discover module for serverscheck flooding sensor
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Marcus Pink
  * @author     Marcus Pink <mpink@avantgarde-labs.de>
@@ -57,3 +57,7 @@ foreach ($pre_cache['serverscheck_control'] as $oid_name => $oid_value) {
         }
     }
 }
+
+
+
+

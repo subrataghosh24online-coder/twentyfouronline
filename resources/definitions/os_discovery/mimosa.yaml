@@ -16,3 +16,7 @@ modules:
                     states:
                         - { value: 1, descr: good, graph: 1, generic: 0 }
                         - { value: 2, descr: bad, graph: 1, generic: 2 }
+
+
+
+

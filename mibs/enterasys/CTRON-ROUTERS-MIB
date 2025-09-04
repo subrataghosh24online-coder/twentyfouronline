@@ -1220,3 +1220,7 @@ nwComponentIfName OBJECT-TYPE
         ::= {  nwRtrIfFwdCtrEntry 21 }
 
 END
+
+
+
+

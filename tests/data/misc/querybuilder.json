@@ -189,3 +189,7 @@
         ["select * from `devices` left join `device_group_device` on `devices`.`device_id` = `device_group_device`.`device_id` left join `device_groups` on `device_group_device`.`device_group_id` = `device_groups`.`id` where (`device_groups`.`id` = ?)", ["1"]]
     ]
 ]
+
+
+
+

@@ -57,3 +57,7 @@ modules:
                     index: 'gtTempValue.{{ $index }}'
                     divisor: 1000
                     group: 'Internal Current'
+
+
+
+

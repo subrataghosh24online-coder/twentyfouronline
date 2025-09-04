@@ -603,3 +603,6 @@ prvtEpsProtctSignalFailRecovery NOTIFICATION-TYPE
     ::= { prvtEpsMibNotifications 10 }
 
 END
+
+
+

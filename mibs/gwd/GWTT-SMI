@@ -12,3 +12,6 @@ GWTT-SMI DEFINITIONS ::= BEGIN
   snmpProxy  OBJECT IDENTIFIER ::= { gwtt 4 }  -- snmp proxy
   
 END
+
+
+

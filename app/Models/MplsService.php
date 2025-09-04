@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsService extends DeviceRelatedModel implements Keyable
 {
@@ -52,3 +52,7 @@ class MplsService extends DeviceRelatedModel implements Keyable
         return $this->hasMany(MplsSdpBind::class, 'svc_id');
     }
 }
+
+
+
+

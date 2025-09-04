@@ -17,7 +17,7 @@ $message = 'Error with config';
 // enable/disable components on devices.
 $device_id = intval($_POST['device']);
 
-$OBJCOMP = new LibreNMS\Component();
+$OBJCOMP = new twentyfouronline\Component();
 
 // Go get the component array.
 $COMPONENTS = $OBJCOMP->getComponents($device_id);
@@ -80,3 +80,7 @@ $response = [
     'message' => $message,
 ];
 echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

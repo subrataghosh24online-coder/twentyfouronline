@@ -37,3 +37,7 @@ oids:
         - TPLINK-DDMTXPOWTHRESHOLD-MIB::ddmTxPowThresholdLowWarn
         - TPLINK-DDMTXPOWTHRESHOLD-MIB::ddmTxPowThresholdHighAlarm
         - TPLINK-DDMTXPOWTHRESHOLD-MIB::ddmTxPowThresholdHighWarn
+
+
+
+

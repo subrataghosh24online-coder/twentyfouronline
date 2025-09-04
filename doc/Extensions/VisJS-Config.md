@@ -89,7 +89,7 @@ lnms config:set network_map_devicedependency_vis_options '{ layout:{ hierarchica
 
 You may also access the dynamic configuration interface [example
 here](https://visjs.github.io/vis-network/examples/network/other/configuration.html)
-from within LibreNMS by adding the following to config.php
+from within twentyfouronline by adding the following to config.php
 
 Once you've achieved your desired map appearance, click the generate
 options button at the bottom to be given the necessary parameters to
@@ -130,3 +130,7 @@ lnms config:set network_map_vis_options '{
 ```
 
 ![Example Network Map](../img/networkmap.png)
+
+
+
+

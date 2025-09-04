@@ -30,3 +30,7 @@ return new class extends Migration
         Schema::dropIfExists('devices_group_perms');
     }
 };
+
+
+
+

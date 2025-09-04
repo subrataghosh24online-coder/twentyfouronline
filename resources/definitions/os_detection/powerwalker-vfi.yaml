@@ -19,3 +19,7 @@ over:
         - { graph: device_voltage, text: Voltage }
         - { graph: device_load, text: Load }
         - { graph: device_power, text: Power }
+
+
+
+

@@ -37,3 +37,7 @@ $unit_text = 'Errors/sec';
 $simple_rrd = 1;
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

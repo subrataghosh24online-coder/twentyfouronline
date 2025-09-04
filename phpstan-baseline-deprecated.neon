@@ -7,7 +7,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Alert/AlertRules.php
+			path: twentyfouronline/Alert/AlertRules.php
 
 		-
 			message: '''
@@ -16,7 +16,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Alert/AlertRules.php
+			path: twentyfouronline/Alert/AlertRules.php
 
 		-
 			message: '''
@@ -25,7 +25,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/Alert/AlertRules.php
+			path: twentyfouronline/Alert/AlertRules.php
 
 		-
 			message: '''
@@ -34,7 +34,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/Alert/AlertRules.php
+			path: twentyfouronline/Alert/AlertRules.php
 
 		-
 			message: '''
@@ -43,7 +43,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Alert/AlertUtil.php
+			path: twentyfouronline/Alert/AlertUtil.php
 
 		-
 			message: '''
@@ -52,7 +52,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Alert/AlertUtil.php
+			path: twentyfouronline/Alert/AlertUtil.php
 
 		-
 			message: '''
@@ -61,7 +61,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -70,7 +70,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -79,7 +79,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -88,7 +88,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -97,7 +97,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -106,7 +106,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/Alert/RunAlerts.php
+			path: twentyfouronline/Alert/RunAlerts.php
 
 		-
 			message: '''
@@ -115,7 +115,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Billing.php
+			path: twentyfouronline/Billing.php
 
 		-
 			message: '''
@@ -124,7 +124,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Billing.php
+			path: twentyfouronline/Billing.php
 
 		-
 			message: '''
@@ -133,7 +133,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 8
-			path: LibreNMS/Billing.php
+			path: twentyfouronline/Billing.php
 
 		-
 			message: '''
@@ -142,7 +142,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/Billing.php
+			path: twentyfouronline/Billing.php
 
 		-
 			message: '''
@@ -151,7 +151,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Billing.php
+			path: twentyfouronline/Billing.php
 
 		-
 			message: '''
@@ -160,7 +160,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Component.php
+			path: twentyfouronline/Component.php
 
 		-
 			message: '''
@@ -169,7 +169,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Component.php
+			path: twentyfouronline/Component.php
 
 		-
 			message: '''
@@ -178,7 +178,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/Processor.php
+			path: twentyfouronline/Device/Processor.php
 
 		-
 			message: '''
@@ -187,7 +187,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/Processor.php
+			path: twentyfouronline/Device/Processor.php
 
 		-
 			message: '''
@@ -196,7 +196,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/Processor.php
+			path: twentyfouronline/Device/Processor.php
 
 		-
 			message: '''
@@ -205,7 +205,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/Processor.php
+			path: twentyfouronline/Device/Processor.php
 
 		-
 			message: '''
@@ -214,7 +214,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/Processor.php
+			path: twentyfouronline/Device/Processor.php
 
 		-
 			message: '''
@@ -223,7 +223,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Device/YamlDiscovery.php
+			path: twentyfouronline/Device/YamlDiscovery.php
 
 		-
 			message: '''
@@ -232,7 +232,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -241,7 +241,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -250,7 +250,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -259,7 +259,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -268,7 +268,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -277,7 +277,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Model.php
+			path: twentyfouronline/Model.php
 
 		-
 			message: '''
@@ -286,7 +286,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Modules/Isis.php
+			path: twentyfouronline/Modules/Isis.php
 
 		-
 			message: '''
@@ -295,7 +295,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/Modules/Isis.php
+			path: twentyfouronline/Modules/Isis.php
 
 		-
 			message: '''
@@ -304,7 +304,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Modules/Mempools.php
+			path: twentyfouronline/Modules/Mempools.php
 
 		-
 			message: '''
@@ -313,7 +313,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Modules/Os.php
+			path: twentyfouronline/Modules/Os.php
 
 		-
 			message: '''
@@ -322,7 +322,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/Modules/PrinterSupplies.php
+			path: twentyfouronline/Modules/PrinterSupplies.php
 
 		-
 			message: '''
@@ -331,7 +331,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/Modules/PrinterSupplies.php
+			path: twentyfouronline/Modules/PrinterSupplies.php
 
 		-
 			message: '''
@@ -340,7 +340,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 7
-			path: LibreNMS/Modules/PrinterSupplies.php
+			path: twentyfouronline/Modules/PrinterSupplies.php
 
 		-
 			message: '''
@@ -349,7 +349,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS.php
+			path: twentyfouronline/OS.php
 
 		-
 			message: '''
@@ -358,7 +358,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS.php
+			path: twentyfouronline/OS.php
 
 		-
 			message: '''
@@ -367,7 +367,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS.php
+			path: twentyfouronline/OS.php
 
 		-
 			message: '''
@@ -376,7 +376,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS.php
+			path: twentyfouronline/OS.php
 
 		-
 			message: '''
@@ -385,7 +385,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS.php
+			path: twentyfouronline/OS.php
 
 		-
 			message: '''
@@ -394,7 +394,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Airos.php
+			path: twentyfouronline/OS/Airos.php
 
 		-
 			message: '''
@@ -403,7 +403,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 7
-			path: LibreNMS/OS/AirosAf60.php
+			path: twentyfouronline/OS/AirosAf60.php
 
 		-
 			message: '''
@@ -412,7 +412,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 9
-			path: LibreNMS/OS/AirosAfLtu.php
+			path: twentyfouronline/OS/AirosAfLtu.php
 
 		-
 			message: '''
@@ -421,7 +421,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/Allied.php
+			path: twentyfouronline/OS/Allied.php
 
 		-
 			message: '''
@@ -430,7 +430,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Allied.php
+			path: twentyfouronline/OS/Allied.php
 
 		-
 			message: '''
@@ -439,7 +439,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/AllworxVoip.php
+			path: twentyfouronline/OS/AllworxVoip.php
 
 		-
 			message: '''
@@ -448,7 +448,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Apc.php
+			path: twentyfouronline/OS/Apc.php
 
 		-
 			message: '''
@@ -457,7 +457,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Apc.php
+			path: twentyfouronline/OS/Apc.php
 
 		-
 			message: '''
@@ -466,7 +466,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Apsoluteos.php
+			path: twentyfouronline/OS/Apsoluteos.php
 
 		-
 			message: '''
@@ -475,7 +475,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/AsuswrtMerlin.php
+			path: twentyfouronline/OS/AsuswrtMerlin.php
 
 		-
 			message: '''
@@ -484,7 +484,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/AviatWtm.php
+			path: twentyfouronline/OS/AviatWtm.php
 
 		-
 			message: '''
@@ -493,7 +493,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Avocent.php
+			path: twentyfouronline/OS/Avocent.php
 
 		-
 			message: '''
@@ -502,7 +502,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Axos.php
+			path: twentyfouronline/OS/Axos.php
 
 		-
 			message: '''
@@ -511,7 +511,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Barracudangfirewall.php
+			path: twentyfouronline/OS/Barracudangfirewall.php
 
 		-
 			message: '''
@@ -520,7 +520,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Bats.php
+			path: twentyfouronline/OS/Bats.php
 
 		-
 			message: '''
@@ -529,7 +529,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Beagleboard.php
+			path: twentyfouronline/OS/Beagleboard.php
 
 		-
 			message: '''
@@ -538,7 +538,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Boss.php
+			path: twentyfouronline/OS/Boss.php
 
 		-
 			message: '''
@@ -547,7 +547,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Boss.php
+			path: twentyfouronline/OS/Boss.php
 
 		-
 			message: '''
@@ -556,7 +556,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Boss.php
+			path: twentyfouronline/OS/Boss.php
 
 		-
 			message: '''
@@ -565,7 +565,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Brother.php
+			path: twentyfouronline/OS/Brother.php
 
 		-
 			message: '''
@@ -574,7 +574,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Ceraos.php
+			path: twentyfouronline/OS/Ceraos.php
 
 		-
 			message: '''
@@ -583,7 +583,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ceraos.php
+			path: twentyfouronline/OS/Ceraos.php
 
 		-
 			message: '''
@@ -592,7 +592,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 10
-			path: LibreNMS/OS/Ceraos.php
+			path: twentyfouronline/OS/Ceraos.php
 
 		-
 			message: '''
@@ -601,7 +601,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Ciscosat.php
+			path: twentyfouronline/OS/Ciscosat.php
 
 		-
 			message: '''
@@ -610,7 +610,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ciscosb.php
+			path: twentyfouronline/OS/Ciscosb.php
 
 		-
 			message: '''
@@ -619,7 +619,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Comware.php
+			path: twentyfouronline/OS/Comware.php
 
 		-
 			message: '''
@@ -628,7 +628,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Comware.php
+			path: twentyfouronline/OS/Comware.php
 
 		-
 			message: '''
@@ -637,7 +637,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Coriant.php
+			path: twentyfouronline/OS/Coriant.php
 
 		-
 			message: '''
@@ -646,7 +646,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/DdWrt.php
+			path: twentyfouronline/OS/DdWrt.php
 
 		-
 			message: '''
@@ -655,7 +655,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Deliberant.php
+			path: twentyfouronline/OS/Deliberant.php
 
 		-
 			message: '''
@@ -664,7 +664,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Dhcpatriot.php
+			path: twentyfouronline/OS/Dhcpatriot.php
 
 		-
 			message: '''
@@ -673,7 +673,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Dlink.php
+			path: twentyfouronline/OS/Dlink.php
 
 		-
 			message: '''
@@ -682,7 +682,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Dlinkap.php
+			path: twentyfouronline/OS/Dlinkap.php
 
 		-
 			message: '''
@@ -691,7 +691,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Edgecos.php
+			path: twentyfouronline/OS/Edgecos.php
 
 		-
 			message: '''
@@ -700,7 +700,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Edgecos.php
+			path: twentyfouronline/OS/Edgecos.php
 
 		-
 			message: '''
@@ -709,7 +709,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Edgeos.php
+			path: twentyfouronline/OS/Edgeos.php
 
 		-
 			message: '''
@@ -718,7 +718,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Edgeosolt.php
+			path: twentyfouronline/OS/Edgeosolt.php
 
 		-
 			message: '''
@@ -727,7 +727,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Edgeswitch.php
+			path: twentyfouronline/OS/Edgeswitch.php
 
 		-
 			message: '''
@@ -736,7 +736,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ekinops.php
+			path: twentyfouronline/OS/Ekinops.php
 
 		-
 			message: '''
@@ -745,7 +745,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Enterasys.php
+			path: twentyfouronline/OS/Enterasys.php
 
 		-
 			message: '''
@@ -754,7 +754,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 7
-			path: LibreNMS/OS/Epmp.php
+			path: twentyfouronline/OS/Epmp.php
 
 		-
 			message: '''
@@ -763,7 +763,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Epmp.php
+			path: twentyfouronline/OS/Epmp.php
 
 		-
 			message: '''
@@ -772,7 +772,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/Ericsson6600.php
+			path: twentyfouronline/OS/Ericsson6600.php
 
 		-
 			message: '''
@@ -781,7 +781,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/EricssonTn.php
+			path: twentyfouronline/OS/EricssonTn.php
 
 		-
 			message: '''
@@ -790,7 +790,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ewc.php
+			path: twentyfouronline/OS/Ewc.php
 
 		-
 			message: '''
@@ -799,7 +799,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 8
-			path: LibreNMS/OS/Ewc.php
+			path: twentyfouronline/OS/Ewc.php
 
 		-
 			message: '''
@@ -808,7 +808,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Fabos.php
+			path: twentyfouronline/OS/Fabos.php
 
 		-
 			message: '''
@@ -817,7 +817,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Fortiap.php
+			path: twentyfouronline/OS/Fortiap.php
 
 		-
 			message: '''
@@ -826,7 +826,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Fortiextender.php
+			path: twentyfouronline/OS/Fortiextender.php
 
 		-
 			message: '''
@@ -835,7 +835,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Fortigate.php
+			path: twentyfouronline/OS/Fortigate.php
 
 		-
 			message: '''
@@ -844,7 +844,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Fortios.php
+			path: twentyfouronline/OS/Fortios.php
 
 		-
 			message: '''
@@ -853,7 +853,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/FsGbn.php
+			path: twentyfouronline/OS/FsGbn.php
 
 		-
 			message: '''
@@ -862,7 +862,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/FsSwitch.php
+			path: twentyfouronline/OS/FsSwitch.php
 
 		-
 			message: '''
@@ -871,7 +871,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Gaia.php
+			path: twentyfouronline/OS/Gaia.php
 
 		-
 			message: '''
@@ -880,7 +880,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/HarmonyEnhanced.php
+			path: twentyfouronline/OS/HarmonyEnhanced.php
 
 		-
 			message: '''
@@ -889,7 +889,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Helios.php
+			path: twentyfouronline/OS/Helios.php
 
 		-
 			message: '''
@@ -898,7 +898,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/HiveosWireless.php
+			path: twentyfouronline/OS/HiveosWireless.php
 
 		-
 			message: '''
@@ -907,7 +907,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 11
-			path: LibreNMS/OS/HorizonQuantum.php
+			path: twentyfouronline/OS/HorizonQuantum.php
 
 		-
 			message: '''
@@ -916,7 +916,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ifotec.php
+			path: twentyfouronline/OS/Ifotec.php
 
 		-
 			message: '''
@@ -925,7 +925,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ifotec.php
+			path: twentyfouronline/OS/Ifotec.php
 
 		-
 			message: '''
@@ -934,7 +934,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/InfineraGroove.php
+			path: twentyfouronline/OS/InfineraGroove.php
 
 		-
 			message: '''
@@ -943,7 +943,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ios.php
+			path: twentyfouronline/OS/Ios.php
 
 		-
 			message: '''
@@ -952,7 +952,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 9
-			path: LibreNMS/OS/Ios.php
+			path: twentyfouronline/OS/Ios.php
 
 		-
 			message: '''
@@ -961,7 +961,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Iosxe.php
+			path: twentyfouronline/OS/Iosxe.php
 
 		-
 			message: '''
@@ -970,7 +970,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 7
-			path: LibreNMS/OS/Iosxe.php
+			path: twentyfouronline/OS/Iosxe.php
 
 		-
 			message: '''
@@ -979,7 +979,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Iosxr.php
+			path: twentyfouronline/OS/Iosxr.php
 
 		-
 			message: '''
@@ -988,7 +988,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Jetdirect.php
+			path: twentyfouronline/OS/Jetdirect.php
 
 		-
 			message: '''
@@ -997,7 +997,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Junos.php
+			path: twentyfouronline/OS/Junos.php
 
 		-
 			message: '''
@@ -1006,7 +1006,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 5
-			path: LibreNMS/OS/Junos.php
+			path: twentyfouronline/OS/Junos.php
 
 		-
 			message: '''
@@ -1015,7 +1015,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 10
-			path: LibreNMS/OS/Lcos.php
+			path: twentyfouronline/OS/Lcos.php
 
 		-
 			message: '''
@@ -1024,7 +1024,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 11
-			path: LibreNMS/OS/Lcoslx.php
+			path: twentyfouronline/OS/Lcoslx.php
 
 		-
 			message: '''
@@ -1033,7 +1033,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Lcossx.php
+			path: twentyfouronline/OS/Lcossx.php
 
 		-
 			message: '''
@@ -1042,7 +1042,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/Mimosa.php
+			path: twentyfouronline/OS/Mimosa.php
 
 		-
 			message: '''
@@ -1051,7 +1051,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Mimosa.php
+			path: twentyfouronline/OS/Mimosa.php
 
 		-
 			message: '''
@@ -1060,7 +1060,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Netscaler.php
+			path: twentyfouronline/OS/Netscaler.php
 
 		-
 			message: '''
@@ -1069,7 +1069,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Netsure.php
+			path: twentyfouronline/OS/Netsure.php
 
 		-
 			message: '''
@@ -1078,7 +1078,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Nios.php
+			path: twentyfouronline/OS/Nios.php
 
 		-
 			message: '''
@@ -1087,7 +1087,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Openwrt.php
+			path: twentyfouronline/OS/Openwrt.php
 
 		-
 			message: '''
@@ -1096,7 +1096,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Panos.php
+			path: twentyfouronline/OS/Panos.php
 
 		-
 			message: '''
@@ -1105,7 +1105,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 5
-			path: LibreNMS/OS/Pepwave.php
+			path: twentyfouronline/OS/Pepwave.php
 
 		-
 			message: '''
@@ -1114,7 +1114,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Pfsense.php
+			path: twentyfouronline/OS/Pfsense.php
 
 		-
 			message: '''
@@ -1123,7 +1123,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 10
-			path: LibreNMS/OS/Pmp.php
+			path: twentyfouronline/OS/Pmp.php
 
 		-
 			message: '''
@@ -1132,7 +1132,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Pmp.php
+			path: twentyfouronline/OS/Pmp.php
 
 		-
 			message: '''
@@ -1141,7 +1141,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Pmp.php
+			path: twentyfouronline/OS/Pmp.php
 
 		-
 			message: '''
@@ -1150,7 +1150,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Powerconnect.php
+			path: twentyfouronline/OS/Powerconnect.php
 
 		-
 			message: '''
@@ -1159,7 +1159,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Procurve.php
+			path: twentyfouronline/OS/Procurve.php
 
 		-
 			message: '''
@@ -1168,7 +1168,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Quanta.php
+			path: twentyfouronline/OS/Quanta.php
 
 		-
 			message: '''
@@ -1177,7 +1177,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Quantastor.php
+			path: twentyfouronline/OS/Quantastor.php
 
 		-
 			message: '''
@@ -1186,7 +1186,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Radlan.php
+			path: twentyfouronline/OS/Radlan.php
 
 		-
 			message: '''
@@ -1195,7 +1195,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Radlan.php
+			path: twentyfouronline/OS/Radlan.php
 
 		-
 			message: '''
@@ -1204,7 +1204,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Riverbed.php
+			path: twentyfouronline/OS/Riverbed.php
 
 		-
 			message: '''
@@ -1213,7 +1213,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Routeros.php
+			path: twentyfouronline/OS/Routeros.php
 
 		-
 			message: '''
@@ -1222,7 +1222,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/RuckuswirelessSz.php
+			path: twentyfouronline/OS/RuckuswirelessSz.php
 
 		-
 			message: '''
@@ -1231,7 +1231,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/RuckuswirelessSz.php
+			path: twentyfouronline/OS/RuckuswirelessSz.php
 
 		-
 			message: '''
@@ -1240,7 +1240,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Rutos2xx.php
+			path: twentyfouronline/OS/Rutos2xx.php
 
 		-
 			message: '''
@@ -1249,7 +1249,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Scalance.php
+			path: twentyfouronline/OS/Scalance.php
 
 		-
 			message: '''
@@ -1258,7 +1258,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Schleifenbauer.php
+			path: twentyfouronline/OS/Schleifenbauer.php
 
 		-
 			message: '''
@@ -1267,7 +1267,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Schleifenbauer.php
+			path: twentyfouronline/OS/Schleifenbauer.php
 
 		-
 			message: '''
@@ -1276,7 +1276,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Screenos.php
+			path: twentyfouronline/OS/Screenos.php
 
 		-
 			message: '''
@@ -1285,7 +1285,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Secureplatform.php
+			path: twentyfouronline/OS/Secureplatform.php
 
 		-
 			message: '''
@@ -1294,7 +1294,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Sgos.php
+			path: twentyfouronline/OS/Sgos.php
 
 		-
 			message: '''
@@ -1303,7 +1303,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Sgos.php
+			path: twentyfouronline/OS/Sgos.php
 
 		-
 			message: '''
@@ -1312,7 +1312,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1321,7 +1321,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1330,7 +1330,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1339,7 +1339,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1348,7 +1348,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 5
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1357,7 +1357,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 6
-			path: LibreNMS/OS/Shared/Cisco.php
+			path: twentyfouronline/OS/Shared/Cisco.php
 
 		-
 			message: '''
@@ -1366,7 +1366,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Printer.php
+			path: twentyfouronline/OS/Shared/Printer.php
 
 		-
 			message: '''
@@ -1375,7 +1375,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Unix.php
+			path: twentyfouronline/OS/Shared/Unix.php
 
 		-
 			message: '''
@@ -1384,7 +1384,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/Shared/Unix.php
+			path: twentyfouronline/OS/Shared/Unix.php
 
 		-
 			message: '''
@@ -1393,7 +1393,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Shared/Zyxel.php
+			path: twentyfouronline/OS/Shared/Zyxel.php
 
 		-
 			message: '''
@@ -1402,7 +1402,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Shared/Zyxel.php
+			path: twentyfouronline/OS/Shared/Zyxel.php
 
 		-
 			message: '''
@@ -1411,7 +1411,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Siklu.php
+			path: twentyfouronline/OS/Siklu.php
 
 		-
 			message: '''
@@ -1420,7 +1420,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Siteboss.php
+			path: twentyfouronline/OS/Siteboss.php
 
 		-
 			message: '''
@@ -1429,7 +1429,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Siteboss550.php
+			path: twentyfouronline/OS/Siteboss550.php
 
 		-
 			message: '''
@@ -1438,7 +1438,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/SmOs.php
+			path: twentyfouronline/OS/SmOs.php
 
 		-
 			message: '''
@@ -1447,7 +1447,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 4
-			path: LibreNMS/OS/SmOs.php
+			path: twentyfouronline/OS/SmOs.php
 
 		-
 			message: '''
@@ -1456,7 +1456,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Smartax.php
+			path: twentyfouronline/OS/Smartax.php
 
 		-
 			message: '''
@@ -1465,7 +1465,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Svos.php
+			path: twentyfouronline/OS/Svos.php
 
 		-
 			message: '''
@@ -1474,7 +1474,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 7
-			path: LibreNMS/OS/Teldat.php
+			path: twentyfouronline/OS/Teldat.php
 
 		-
 			message: '''
@@ -1483,7 +1483,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Terra.php
+			path: twentyfouronline/OS/Terra.php
 
 		-
 			message: '''
@@ -1492,7 +1492,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/ThreeCom.php
+			path: twentyfouronline/OS/ThreeCom.php
 
 		-
 			message: '''
@@ -1501,7 +1501,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Topvision.php
+			path: twentyfouronline/OS/Topvision.php
 
 		-
 			message: '''
@@ -1510,7 +1510,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Topvision.php
+			path: twentyfouronline/OS/Topvision.php
 
 		-
 			message: '''
@@ -1519,7 +1519,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Ucos.php
+			path: twentyfouronline/OS/Ucos.php
 
 		-
 			message: '''
@@ -1528,7 +1528,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 9
-			path: LibreNMS/OS/Unifi.php
+			path: twentyfouronline/OS/Unifi.php
 
 		-
 			message: '''
@@ -1537,7 +1537,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Valere.php
+			path: twentyfouronline/OS/Valere.php
 
 		-
 			message: '''
@@ -1546,7 +1546,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Vrp.php
+			path: twentyfouronline/OS/Vrp.php
 
 		-
 			message: '''
@@ -1555,7 +1555,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 8
-			path: LibreNMS/OS/Vrp.php
+			path: twentyfouronline/OS/Vrp.php
 
 		-
 			message: '''
@@ -1564,7 +1564,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 9
-			path: LibreNMS/OS/Vrp.php
+			path: twentyfouronline/OS/Vrp.php
 
 		-
 			message: '''
@@ -1573,7 +1573,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 8
-			path: LibreNMS/OS/Vrp.php
+			path: twentyfouronline/OS/Vrp.php
 
 		-
 			message: '''
@@ -1582,7 +1582,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 3
-			path: LibreNMS/OS/Windows.php
+			path: twentyfouronline/OS/Windows.php
 
 		-
 			message: '''
@@ -1591,7 +1591,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/WisBridge.php
+			path: twentyfouronline/OS/WisBridge.php
 
 		-
 			message: '''
@@ -1600,7 +1600,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Xerox.php
+			path: twentyfouronline/OS/Xerox.php
 
 		-
 			message: '''
@@ -1609,7 +1609,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/XirrusAos.php
+			path: twentyfouronline/OS/XirrusAos.php
 
 		-
 			message: '''
@@ -1618,7 +1618,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Zynos.php
+			path: twentyfouronline/OS/Zynos.php
 
 		-
 			message: '''
@@ -1627,7 +1627,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 1
-			path: LibreNMS/OS/Zywall.php
+			path: twentyfouronline/OS/Zywall.php
 
 		-
 			message: '''
@@ -1636,7 +1636,7 @@ parameters:
 			'''
 			identifier: function.deprecated
 			count: 2
-			path: LibreNMS/OS/Zyxelwlc.php
+			path: twentyfouronline/OS/Zyxelwlc.php
 
 		-
 			message: '''
@@ -10547,3 +10547,7 @@ parameters:
 			identifier: function.deprecated
 			count: 1
 			path: includes/syslog.php
+
+
+
+

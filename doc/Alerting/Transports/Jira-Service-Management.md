@@ -1,8 +1,8 @@
 ## Jira Service Management
 
-Using Jira Service Management LibreNMS integration, LibreNMS forwards alerts to
+Using Jira Service Management twentyfouronline integration, twentyfouronline forwards alerts to
 Jira Service Management with detailed information. Jira Service Management acts as a dispatcher for
-LibreNMS alerts, determines the right people to notify based on
+twentyfouronline alerts, determines the right people to notify based on
 on-call schedules and notifies via email, text messages (SMS), phone
 calls and iOS & Android push notifications. Then escalates alerts
 until the alert is acknowledged or closed.
@@ -14,3 +14,7 @@ until the alert is acknowledged or closed.
 | Config | Example |
 | ------ | ------- |
 | WebHook URL | <https://url/path/to/webhook> |
+
+
+
+

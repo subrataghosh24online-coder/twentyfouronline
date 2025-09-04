@@ -1269,3 +1269,7 @@ gwnSystemTemper OBJECT-TYPE
     ::= { gwnSystemTemperEntityState 1 }
 
 END
+
+
+
+

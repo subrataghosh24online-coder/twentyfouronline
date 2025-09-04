@@ -14,7 +14,7 @@ teltonika MODULE-IDENTITY
 	CONTACT-INFO	"TELTONIKA"
 	DESCRIPTION	"The MIB module for TELTONIKA RUTM routers."
 	REVISION	"202506122318Z"
-	DESCRIPTION	"RUTM MIB for LibreNMS by @westerterp"
+	DESCRIPTION	"RUTM MIB for twentyfouronline by @westerterp"
 	::= { enterprises 48690 }
 
 teltonikaSnmpGroups	OBJECT IDENTIFIER ::= { teltonika 0 }
@@ -1450,3 +1450,7 @@ mwan3Ip OBJECT-TYPE
 
 
 END
+
+
+
+

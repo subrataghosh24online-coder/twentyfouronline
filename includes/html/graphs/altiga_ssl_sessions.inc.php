@@ -29,3 +29,7 @@ $rrd_options .= ' LINE1.25:c#cc0000:15\ Min';
 $rrd_options .= ' GPRINT:c:LAST:\ \ \ %7.2lf';
 $rrd_options .= ' GPRINT:c:AVERAGE:\ \ %7.2lf';
 $rrd_options .= " GPRINT:c:MAX:\ \ %7.2lf\\\\n";
+
+
+
+

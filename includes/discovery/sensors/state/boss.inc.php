@@ -3,7 +3,7 @@
 /**
  * boss.inc.php
  *
- * LibreNMS Fan and Power Supply state Discovery module for Extreme/Avaya ERS
+ * twentyfouronline Fan and Power Supply state Discovery module for Extreme/Avaya ERS
  */
 if ($device['os'] === 'boss') {
     $oid = snmpwalk_cache_oid($device, 's5ChasComTable', [], 'S5-CHASSIS-MIB');
@@ -58,3 +58,7 @@ if ($device['os'] === 'boss') {
         }
     }
 }
+
+
+
+

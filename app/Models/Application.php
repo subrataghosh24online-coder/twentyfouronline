@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Util\StringHelpers;
 
 class Application extends DeviceRelatedModel
 {
@@ -68,3 +68,7 @@ class Application extends DeviceRelatedModel
         return $this->hasMany(ApplicationMetric::class, 'app_id', 'app_id');
     }
 }
+
+
+
+

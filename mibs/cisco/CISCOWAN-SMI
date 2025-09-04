@@ -65,3 +65,7 @@ ciscoWanAgentCapability OBJECT-IDENTITY
         from which AGENT-CAPABILITIES values may be assigned."
     ::= { stratacom 160 }
 END
+
+
+
+

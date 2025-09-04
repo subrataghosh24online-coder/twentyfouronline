@@ -28,3 +28,7 @@ return new class extends Migration
         Schema::dropColumns('isis_adjacencies', 'index');
     }
 };
+
+
+
+

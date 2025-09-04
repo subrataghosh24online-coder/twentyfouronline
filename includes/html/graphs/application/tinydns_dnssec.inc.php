@@ -19,9 +19,9 @@
 /*
  * TinyDNS DNSSec Graph
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2015 f0o, LibreNMS
+ * @copyright 2015 f0o, twentyfouronline
  * @license GPL
- * @package LibreNMS
+ * @package twentyfouronline
  * @subpackage Graphs
  */
 
@@ -48,7 +48,11 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         $i++;
     }
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

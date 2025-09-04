@@ -121,3 +121,7 @@ hh3cGoldLipcLinkDestCpuID OBJECT-TYPE
     ::= { hh3cGoldTrapObjectDefinitions 6 }
 
 END
+
+
+
+

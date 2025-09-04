@@ -1467,3 +1467,7 @@ HH3C-RPR-MIB DEFINITIONS ::= BEGIN
         ::= { hh3cRprTrap 14 }
 
 END
+
+
+
+

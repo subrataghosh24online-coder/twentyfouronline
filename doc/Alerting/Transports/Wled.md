@@ -49,3 +49,7 @@ Set the preset on WLED at 10.1.2.3 to 2 for criticals.
 | Warning  |          |
 | Critical | 2        |
 | Recovery |          |
+
+
+
+

@@ -23,3 +23,7 @@ if (is_numeric($battery_temp)) {
 }
 
 unset($battery_temp);
+
+
+
+

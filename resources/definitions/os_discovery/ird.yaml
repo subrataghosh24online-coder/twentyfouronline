@@ -91,3 +91,7 @@ modules:
                     states:
                         - { descr: No, graph: 1, value: 0, generic: 3 }
                         - { descr: Yes, graph: 1, value: 1, generic: 0 }
+
+
+
+

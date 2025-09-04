@@ -2293,3 +2293,7 @@ prvtSaaY1731slmFramelossFarEndThreshold NOTIFICATION-TYPE
     ::= { prvtSaaNotifications 20 }
 
 END -- end of module PRVT-SAA-MIB.
+
+
+
+

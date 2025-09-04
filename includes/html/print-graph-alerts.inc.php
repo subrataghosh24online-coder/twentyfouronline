@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -10,11 +10,11 @@
  *
  * Copyright (c) 2015 Søren Friis Rosiak <sorenrosiak@gmail.com>
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $pagetitle[] = 'Alert Stats';
@@ -33,7 +33,7 @@ if (! Auth::user()->hasGlobalRead()) {
     $param = array_merge($param, $device_ids);
 }
 
-$query = "SELECT DATE_FORMAT(time_logged, '" . \App\Facades\LibrenmsConfig::get('alert_graph_date_format') . "') Date, COUNT(alert_log.rule_id) totalCount, alert_rules.severity Severity FROM alert_log,alert_rules WHERE alert_log.rule_id=alert_rules.id AND `alert_log`.`state` != 0 $sql GROUP BY DATE_FORMAT(time_logged, '" . \App\Facades\LibrenmsConfig::get('alert_graph_date_format') . "'),alert_rules.severity";
+$query = "SELECT DATE_FORMAT(time_logged, '" . \App\Facades\twentyfouronlineConfig::get('alert_graph_date_format') . "') Date, COUNT(alert_log.rule_id) totalCount, alert_rules.severity Severity FROM alert_log,alert_rules WHERE alert_log.rule_id=alert_rules.id AND `alert_log`.`state` != 0 $sql GROUP BY DATE_FORMAT(time_logged, '" . \App\Facades\twentyfouronlineConfig::get('alert_graph_date_format') . "'),alert_rules.severity";
 
 ?>
 <br>
@@ -112,3 +112,7 @@ foreach ($groups as $group) {
     var graph2d = new vis.Graph2d(container, items, groups, options);
 
 </script>
+
+
+
+

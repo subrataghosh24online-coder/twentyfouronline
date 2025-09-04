@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -19,8 +19,8 @@ class Logo extends Component
         ?string $image = null,
         public ?string $text = null,
     ) {
-        $this->image = $image ?? (string) LibrenmsConfig::get('title_image');
-        $this->text ??= LibrenmsConfig::get('project_name');
+        $this->image = $image ?? (string) twentyfouronlineConfig::get('title_image');
+        $this->text ??= twentyfouronlineConfig::get('project_name');
         $this->is_svg = str_ends_with($this->image, '.svg') && ! str_contains($this->image, '//');
 
         [$this->logo_hide_class, $this->logo_show_class] = match ($this->responsive) {
@@ -41,3 +41,7 @@ class Logo extends Component
         return view('components.logo');
     }
 }
+
+
+
+

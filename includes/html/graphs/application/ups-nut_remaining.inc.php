@@ -14,8 +14,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
 * @copyright  2016 crcro
 * @author     Cercel Valentin <crc@nuamchefazi.ro>
 *
@@ -34,3 +34,7 @@ $ups_nut = Rrd::name($device['hostname'], ['app', 'ups-nut', $app->app_id]);
 $rrd_filename = $ups_nut;
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

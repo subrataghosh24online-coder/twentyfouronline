@@ -3,7 +3,7 @@
 /**
  * sitemonitor.inc.php
  *
- * LibreNMS voltage discovery module for Packetflux SiteMonitor
+ * twentyfouronline voltage discovery module for Packetflux SiteMonitor
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -34,3 +34,7 @@ discover_sensor(null, 'voltage', $device, $oid, 2, 'sitemonitor', 'Power 1', 10,
 $oid = '.1.3.6.1.4.1.32050.2.1.27.5.3';
 $current = (snmp_get($device, $oid, '-Oqv') / 10);
 discover_sensor(null, 'voltage', $device, $oid, 3, 'sitemonitor', 'Power 2', 10, 1, null, null, null, null, $current);
+
+
+
+

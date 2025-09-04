@@ -18,15 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @link       http://librenms.org
+ * @link       http://twentyfouronline.org
  *
  * @copyright  2021 Otto Reinikainen
  * @author     Otto Reinikainen <otto@ottorei.fi>
  */
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! $os instanceof OS) {
     $os = OS::make($device);
 }
-(new \LibreNMS\Modules\Isis())->discover($os);
+(new \twentyfouronline\Modules\Isis())->discover($os);
+
+
+
+

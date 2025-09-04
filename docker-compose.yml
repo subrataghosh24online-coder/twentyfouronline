@@ -1,0 +1,51 @@
+
+
+services:
+  app:
+    build: .
+    container_name: twentyfouronline_app
+    volumes:
+      - ./html/public:/var/www/html
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    networks:
+      - app-network
+    command: tail -f /dev/null
+
+  db:
+    image: mysql:5.7
+    container_name: twentyfouronline_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: twentyfouronline
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: twentyfouronline_phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+
+volumes:
+  dbdata:
+
+networks:
+  app-network:
+    driver: bridge

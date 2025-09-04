@@ -70,3 +70,7 @@ EXTREME-ENTITY-MIB DEFINITIONS ::= BEGIN
 		::= { extremeEntityFRUEntry 3 }
 
 END
+
+
+
+

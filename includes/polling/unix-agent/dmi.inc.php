@@ -11,3 +11,7 @@ foreach (explode("\n", $dmi) as $line) {
 }
 
 unset($dmi);
+
+
+
+

@@ -19,15 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace Database\Seeders;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Symfony\Component\Yaml\Yaml;
@@ -60,7 +60,7 @@ class ConfigSeeder extends Seeder
 
         $reapply = getenv('REAPPLY_YAML_CONFIG');
 
-        if (LibrenmsConfig::get('config_seeded') && ! $reapply) {
+        if (twentyfouronlineConfig::get('config_seeded') && ! $reapply) {
             if (! app()->runningInConsole() || ! $this->command->confirm(trans('commands.db:seed.existing_config'), false)) {
                 return; // don't overwrite existing settings.
             }
@@ -84,14 +84,18 @@ class ConfigSeeder extends Seeder
                     continue;
                 }
 
-                LibrenmsConfig::persist($key, $value);
+                twentyfouronlineConfig::persist($key, $value);
             }
         }
 
-        LibrenmsConfig::persist('config_seeded', true);
+        twentyfouronlineConfig::persist('config_seeded', true);
 
         if ($skipped_existing) {
             echo 'Skipped overwriting existing config settings.  To overwrite them, run: REAPPLY_YAML_CONFIG=1 lnms db:seed' . PHP_EOL;
         }
     }
 }
+
+
+
+

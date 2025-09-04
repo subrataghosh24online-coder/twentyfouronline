@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2017 Martin Zatloukal <slezi2@pvfree.net>
  * This program is free software: you can redistribute it and/or modify it
@@ -22,3 +22,7 @@ $temperature = (float) snmp_get($device, $oid, '-Oqv', 'PT-MONITOR-MIB');
 if ($temperature != 0.0) {
     discover_sensor(null, 'temperature', $device, $oid, $index, $sensor_type, $descr, $divisor, 1, null, null, null, null, $temperature);
 }
+
+
+
+

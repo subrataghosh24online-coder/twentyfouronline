@@ -343,3 +343,7 @@ UBNT-EdgeMAX-MIB DEFINITIONS ::= BEGIN
         ::= { ubntFanEntry 3 }
 
 END
+
+
+
+

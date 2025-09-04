@@ -93,7 +93,7 @@ return [
             ],
             'watchdog_log' => [
                 'description' => 'ჟურნალის ფაილი საყურებლად',
-                'help' => 'LibreNMS-ის ჟურნალის ფაილი.',
+                'help' => 'twentyfouronline-ის ჟურნალის ფაილი.',
             ],
         ],
         'units' => [
@@ -102,3 +102,7 @@ return [
         ],
     ],
 ];
+
+
+
+

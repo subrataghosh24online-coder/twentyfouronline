@@ -14,13 +14,13 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
 * @copyright  2017 crcro
 * @author     Cercel Valentin <crc@nuamchefazi.ro>
 */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'sdfsinfo';
 $options = '-Oqv';
@@ -66,3 +66,7 @@ if (is_string($sdfsinfo)) {
 
     unset($sdfsinfo, $rrd_name, $rrd_def, $data, $fields, $tags);
 }
+
+
+
+

@@ -12,3 +12,7 @@ modules:
             - FORTINET-CORE-MIB::fnSysSerial.0
             - ENTITY-MIB::entPhysicalSerialNum.1
         hardware: ENTITY-MIB::entPhysicalModelName.1
+
+
+
+

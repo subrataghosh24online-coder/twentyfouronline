@@ -17,19 +17,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Data;
+namespace twentyfouronline\Tests\Unit\Data;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use InfluxDB\Point;
-use LibreNMS\Data\Store\InfluxDB;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Data\Store\InfluxDB;
+use twentyfouronline\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('datastores')]
@@ -37,8 +37,8 @@ class InfluxDBStoreTest extends TestCase
 {
     public function testBadSettings(): void
     {
-        LibrenmsConfig::set('influxdb.host', '');
-        LibrenmsConfig::set('influxdb.port', 'abc');
+        twentyfouronlineConfig::set('influxdb.host', '');
+        twentyfouronlineConfig::set('influxdb.port', 'abc');
         $influx = new InfluxDB(InfluxDB::createFromConfig());
 
         \Log::shouldReceive('debug');
@@ -77,7 +77,7 @@ class InfluxDBStoreTest extends TestCase
 
     public function testFilteredMeasurementsAllowed(): void
     {
-        LibrenmsConfig::set('influxdb.measurements', ['testmeasure', 'anothermeasure']);
+        twentyfouronlineConfig::set('influxdb.measurements', ['testmeasure', 'anothermeasure']);
 
         // Create a mock of the Random Interface
         $mock = \Mockery::mock(\InfluxDB\Database::class);
@@ -96,7 +96,7 @@ class InfluxDBStoreTest extends TestCase
 
     public function testFilteredMeasurementsRejected(): void
     {
-        LibrenmsConfig::set('influxdb.measurements', ['anothermeasure', 'yetanothermeasure']);
+        twentyfouronlineConfig::set('influxdb.measurements', ['anothermeasure', 'yetanothermeasure']);
 
         // Create a mock of the Random Interface
         $mock = \Mockery::mock(\InfluxDB\Database::class);
@@ -113,3 +113,7 @@ class InfluxDBStoreTest extends TestCase
         $influx->write($measurement, $fields, $tags, $meta);
     }
 }
+
+
+
+

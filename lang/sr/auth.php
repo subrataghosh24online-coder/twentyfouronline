@@ -18,3 +18,7 @@ return [
     'throttle' => 'Previše pokušaja. Molim probajte ponovo posle :seconds sekundi.',
 
 ];
+
+
+
+

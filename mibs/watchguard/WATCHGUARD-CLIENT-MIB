@@ -311,3 +311,7 @@ WATCHGUARD-CLIENT-MIB DEFINITIONS ::= BEGIN
         ::= { wgClientPPPoEClient 9 }
 
 END
+
+
+
+

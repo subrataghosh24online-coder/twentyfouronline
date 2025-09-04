@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', trans('plugins.admin_page'))
 
@@ -40,3 +40,7 @@
         </div>
     </div>
 @endsection
+
+
+
+

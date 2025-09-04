@@ -2,7 +2,7 @@
 
 /*
  * codec states for raspberry pi
- * requires snmp extend agent script from librenms-agent
+ * requires snmp extend agent script from twentyfouronline-agent
  */
 if (! empty($pre_cache['raspberry_pi_sensors'])) {
     $state_name = 'raspberry_codec';
@@ -42,3 +42,7 @@ if (! empty($pre_cache['raspberry_pi_sensors'])) {
         }
     }
 }
+
+
+
+

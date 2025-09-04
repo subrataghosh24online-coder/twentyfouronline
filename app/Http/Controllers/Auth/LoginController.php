@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\Device;
 use App\Providers\AppServiceProvider;
@@ -52,11 +52,11 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
         // Check if we want to redirect users to the socialite provider directly
-        if (! $request->has('redirect') && ! $request->session()->has('block_auto_redirect') && LibrenmsConfig::get('auth.socialite.redirect') && array_key_first(LibrenmsConfig::get('auth.socialite.configs', []))) {
-            return (new SocialiteController)->redirect($request, array_key_first(LibrenmsConfig::get('auth.socialite.configs', [])));
+        if (! $request->has('redirect') && ! $request->session()->has('block_auto_redirect') && twentyfouronlineConfig::get('auth.socialite.redirect') && array_key_first(twentyfouronlineConfig::get('auth.socialite.configs', []))) {
+            return (new SocialiteController)->redirect($request, array_key_first(twentyfouronlineConfig::get('auth.socialite.configs', [])));
         }
 
-        if (LibrenmsConfig::get('public_status')) {
+        if (twentyfouronlineConfig::get('public_status')) {
             $devices = Device::isActive()->with('location')->get();
 
             return view('auth.public-status')->with('devices', $devices);
@@ -67,6 +67,10 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request): \Illuminate\Http\RedirectResponse
     {
-        return redirect(LibrenmsConfig::get('auth_logout_handler', $this->redirectTo));
+        return redirect(twentyfouronlineConfig::get('auth_logout_handler', $this->redirectTo));
     }
 }
+
+
+
+

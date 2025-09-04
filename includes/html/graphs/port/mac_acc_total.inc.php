@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\Util\Mac;
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Mac;
+use twentyfouronline\Util\Rewrite;
 
 $port = $vars['id'];
 $stat = $vars['stat'] ?: 'bits';
@@ -84,12 +84,12 @@ foreach ($accs as $acc) {
         }//end if
 
         $this_id = str_replace('.', '', $acc['mac']);
-        if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+        if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
             $iter = 0;
         }
 
-        $colour = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($name, 36);
+        $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($name, 36);
         $rrd_options .= ' DEF:in' . $this_id . "=$this_rrd:" . $prefix . 'IN:AVERAGE ';
         $rrd_options .= ' DEF:out' . $this_id . "temp=$this_rrd:" . $prefix . 'OUT:AVERAGE ';
         $rrd_options .= ' CDEF:inB' . $this_id . '=in' . $this_id . ",$multiplier,* ";
@@ -118,3 +118,7 @@ foreach ($accs as $acc) {
 
 $rrd_options .= $rrd_optionsb;
 $rrd_options .= ' HRULE:0#999999';
+
+
+
+

@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2018 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2018 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $where = 1;
@@ -87,3 +87,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

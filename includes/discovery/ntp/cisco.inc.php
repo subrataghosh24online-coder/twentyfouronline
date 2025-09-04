@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture statistics from the CISCO-NTP-MIB
+ * twentyfouronline module to capture statistics from the CISCO-NTP-MIB
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,11 +12,11 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Util\IP;
+use twentyfouronline\Util\IP;
 
 $module = 'ntp';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['type' => $module]);
 
 // We only care about our device id.
@@ -129,3 +129,7 @@ if (! empty($components)) {
 } else {
     dbDelete('applications', '`device_id` = ? AND `app_type` = ?', [$device['device_id'], $module]);
 }
+
+
+
+

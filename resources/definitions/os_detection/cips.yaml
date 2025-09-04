@@ -27,3 +27,7 @@ discovery:
     -
         sysDescr_regex:
             - '/^Cisco Intrusion Prevention System/'
+
+
+
+

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Facades\DeviceCache;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\View\Components\Device\PageTabs;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Url;
 
 class DeviceController
 {
@@ -63,7 +63,7 @@ class DeviceController
     {
         ob_start();
         $device = $device->toArray();
-        $device['os_group'] = LibrenmsConfig::get("os.{$device['os']}.group");
+        $device['os_group'] = twentyfouronlineConfig::get("os.{$device['os']}.group");
         Debug::set(false);
         chdir(base_path());
         $init_modules = ['web', 'auth'];
@@ -91,3 +91,7 @@ class DeviceController
         ]);
     }
 }
+
+
+
+

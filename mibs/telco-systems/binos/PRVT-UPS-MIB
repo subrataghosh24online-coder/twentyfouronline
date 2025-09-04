@@ -167,3 +167,7 @@ PRVT-UPS-MIB DEFINITIONS ::= BEGIN
      ::= { prvtUPSMIBGroups 3 }
 
 END
+
+
+
+

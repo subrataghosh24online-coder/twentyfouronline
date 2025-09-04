@@ -6,13 +6,13 @@
 1. Copy the shell script, postfix-queues, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfix-queues -O /etc/snmp/postfix-queues
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/postfix-queues -O /etc/snmp/postfix-queues
     ```
 
 2. Copy the Perl script, postfixdetailed, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed
     ```
 
 3. Make both scripts executable
@@ -46,7 +46,7 @@ you don't end up with some crazy initial starting value.
 
 !!! note 
     that each time `/etc/snmp/postfixdetailed` is ran, the cache file is
-    updated, so if this happens in between LibreNMS doing it then the
+    updated, so if this happens in between twentyfouronline doing it then the
     values will be thrown off for that polling period.
 
 The application should be auto-discovered as described at the top of
@@ -55,3 +55,7 @@ Extend` heading top of page.
 
 !!! note Redhat
     If using RHEL for your postfix server, `qshape` must be installed manually as it is not officially supported. CentOs 6 rpms seem to work without issues.
+
+
+
+

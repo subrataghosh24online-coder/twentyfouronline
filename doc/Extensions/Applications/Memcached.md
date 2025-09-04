@@ -5,11 +5,11 @@ This script allows you to monitor memcached stats
 ### SNMP Extend
 
 1. Copy the [memcached
-   script](https://github.com/librenms/librenms-agent/blob/master/snmp/memcached)
+   script](https://github.com/twentyfouronline/twentyfouronline-agent/blob/master/snmp/memcached)
    to `/etc/snmp/` on your remote server.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/memcached -O /etc/snmp/memcached
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/memcached -O /etc/snmp/memcached
     ```
 
 2. Make the script executable:
@@ -29,3 +29,7 @@ This script allows you to monitor memcached stats
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

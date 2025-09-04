@@ -3,7 +3,7 @@
 /**
  * bitrate.inc.php
  *
- * LibreNMS bitrate overview for WebUI
+ * twentyfouronline bitrate overview for WebUI
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2021 Peca Nesovanovic
  * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
@@ -29,3 +29,7 @@ $sensor_unit = 'bps';
 $sensor_type = 'Bitrate';
 
 require 'includes/html/pages/device/overview/generic/sensor.inc.php';
+
+
+
+

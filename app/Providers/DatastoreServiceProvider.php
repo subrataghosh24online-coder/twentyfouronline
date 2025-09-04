@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,20 +28,20 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use LibreNMS\Data\Store\Datastore;
-use LibreNMS\Interfaces\Data\Datastore as DatastoreContract;
+use twentyfouronline\Data\Store\Datastore;
+use twentyfouronline\Interfaces\Data\Datastore as DatastoreContract;
 
 class DatastoreServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'LibreNMS\\Data\\Store\\';
+    protected $namespace = 'twentyfouronline\\Data\\Store\\';
     protected $stores = [
-        'LibreNMS\Data\Store\Graphite',
-        'LibreNMS\Data\Store\InfluxDB',
-        'LibreNMS\Data\Store\InfluxDBv2',
-        'LibreNMS\Data\Store\OpenTSDB',
-        'LibreNMS\Data\Store\Prometheus',
-        'LibreNMS\Data\Store\Rrd',
-        'LibreNMS\Data\Store\Kafka',
+        'twentyfouronline\Data\Store\Graphite',
+        'twentyfouronline\Data\Store\InfluxDB',
+        'twentyfouronline\Data\Store\InfluxDBv2',
+        'twentyfouronline\Data\Store\OpenTSDB',
+        'twentyfouronline\Data\Store\Prometheus',
+        'twentyfouronline\Data\Store\Rrd',
+        'twentyfouronline\Data\Store\Kafka',
     ];
 
     public function register(): void
@@ -72,14 +72,18 @@ class DatastoreServiceProvider extends ServiceProvider
     public function registerInflux()
     {
         $this->app->singleton('InfluxDB\Database', function ($app) {
-            return \LibreNMS\Data\Store\InfluxDB::createFromConfig();
+            return \twentyfouronline\Data\Store\InfluxDB::createFromConfig();
         });
     }
 
     public function registerKafka()
     {
         $this->app->singleton('RdKafka\Producer', function ($app) {
-            return \LibreNMS\Data\Store\Kafka::getClient();
+            return \twentyfouronline\Data\Store\Kafka::getClient();
         });
     }
 }
+
+
+
+

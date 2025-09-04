@@ -29,3 +29,7 @@ $rrd_options .= ' AREA:idle_perc#00007776:idle:STACK';
 $rrd_options .= " GPRINT:idle_perc:LAST:'     %5.2lf%%'";
 $rrd_options .= " GPRINT:idle_perc:AVERAGE:'   %5.2lf%%'";
 $rrd_options .= " GPRINT:idle_perc:MAX:'   %5.2lf%%\\n'";
+
+
+
+

@@ -34,3 +34,7 @@ if (is_array($oids)) {
         discover_sensor(null, 'temperature', $device, $oid, $index, 'ftos-sseries', $descr, '1', '1', null, null, null, null, $current);
     }
 }
+
+
+
+

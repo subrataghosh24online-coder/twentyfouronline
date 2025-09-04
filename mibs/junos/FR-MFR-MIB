@@ -882,3 +882,7 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
           "Group of objects describing notifications (traps)."
       ::= { mfrMibGroups 3 }
 END
+
+
+
+

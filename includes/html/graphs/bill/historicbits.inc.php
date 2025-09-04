@@ -2,7 +2,7 @@
 
 use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Plot\LinePlot;
-use LibreNMS\Billing;
+use twentyfouronline\Billing;
 
 $bill_hist_id = $vars['bill_hist_id'];
 $reducefactor = $vars['reducefactor'];
@@ -58,7 +58,7 @@ function InvertCallback($x)
 
 function YCallback($y)
 {
-    return \LibreNMS\Util\Number::formatSi($y, 0, 0, '');
+    return \twentyfouronline\Util\Number::formatSi($y, 0, 0, '');
 }
 
 $graph = new Graph($vars['width'], $vars['height'], $graph_data['graph_name']);
@@ -139,3 +139,7 @@ if (strtolower($graph_data['bill_type']) == 'cdr') {
 }
 
 $graph->stroke();
+
+
+
+

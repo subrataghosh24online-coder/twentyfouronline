@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Steve Calv�rio <https://github.com/Calvario/>
  *
@@ -48,3 +48,7 @@ $ups_battery_voltage_nominal = snmp_get($device, $ups_battery_voltage_nominal_oi
 if (is_numeric($ups_battery_voltage_nominal)) {
     discover_sensor(null, 'voltage', $device, $ups_battery_voltage_nominal_oid, 'SystemStatus', $ups_device_manufacturer . ' ' . $ups_device_model, 'UPS Battery Voltage Nominal', '1', '1', null, null, null, null, $ups_battery_voltage_nominal);
 }
+
+
+
+

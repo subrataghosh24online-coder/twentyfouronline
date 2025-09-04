@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 GTM Wide IP Details
+ * twentyfouronline module to display F5 GTM Wide IP Details
  *
  * Adapted from F5 LTM module by Darren Napper
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
@@ -13,7 +13,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 // Define some error messages
 $error_poolaction = [];
@@ -25,7 +25,7 @@ $error_poolaction[4] = 'Failover and Restart';
 $error_poolaction[5] = 'Go Active';
 $error_poolaction[6] = 'None';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options['filter']['disabled'] = ['=', 0];
 $components = $component->getComponents($device['device_id'], $options);
 
@@ -119,3 +119,7 @@ unset(
     $error_poolaction,
     $keep
 );
+
+
+
+

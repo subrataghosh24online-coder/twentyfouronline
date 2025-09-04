@@ -4,8 +4,8 @@ use App\Models\PortAdsl;
 use App\Models\PortsNac;
 use App\Models\PortVdsl;
 use App\Plugins\Hooks\PortTabHook;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Url;
 
 $vars['view'] = basename($vars['view'] ?? 'graphs');
 
@@ -16,7 +16,7 @@ $port_details = 1;
 $hostname = $device['hostname'];
 $ifname = $port->ifDescr;
 $ifIndex = $port->ifIndex;
-$speed = \LibreNMS\Util\Number::formatSi($port->ifSpeed, 2, 0, 'bps');
+$speed = \twentyfouronline\Util\Number::formatSi($port->ifSpeed, 2, 0, 'bps');
 
 $ifalias = $port->getLabel();
 
@@ -132,7 +132,7 @@ if ($port->qos()->count() > 0) {
     $menu_options['qos'] = 'QoS';
 }
 
-if (LibreNMS\Plugins::countHooks('port_container') || \PluginManager::hasHooks(PortTabHook::class, ['port' => $port])) {
+if (twentyfouronline\Plugins::countHooks('port_container') || \PluginManager::hasHooks(PortTabHook::class, ['port' => $port])) {
     // Checking if any plugin implements the port_container. If yes, allow to display the menu_option
     $menu_options['plugins'] = 'Plugins';
 }
@@ -266,7 +266,7 @@ if (dbFetchCell("SELECT COUNT(*) FROM juniAtmVp WHERE port_id = '" . $port->port
     }
 }//end if
 
-if (Auth::user()->hasGlobalAdmin() && \App\Facades\LibrenmsConfig::get('enable_billing') == 1) {
+if (Auth::user()->hasGlobalAdmin() && \App\Facades\twentyfouronlineConfig::get('enable_billing') == 1) {
     $bills = dbFetchRows('SELECT `bill_id` FROM `bill_ports` WHERE `port_id`=?', [$port->port_id]);
     if (count($bills) === 1) {
         echo "<span style='float: right;'><a href='" . Url::generate(['page' => 'bill', 'bill_id' => $bills[0]['bill_id']]) . "'><i class='fa fa-money fa-lg icon-theme' aria-hidden='true'></i> View Bill</a></span>";
@@ -284,3 +284,7 @@ echo "<div style='margin: 5px;'>";
 require 'includes/html/pages/device/port/' . $vars['view'] . '.inc.php';
 
 echo '</div>';
+
+
+
+

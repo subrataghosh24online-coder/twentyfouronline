@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2018 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  * Copyright (c) 2018 Tony Murray <murraytony@gmail.com>
@@ -12,18 +12,18 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Alerting\QueryBuilderFilter;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Alerting\QueryBuilderFilter;
 
-$default_severity = LibrenmsConfig::get('alert_rule.severity');
-$default_max_alerts = LibrenmsConfig::get('alert_rule.max_alerts');
-$default_delay = LibrenmsConfig::get('alert_rule.delay') . 'm';
-$default_interval = LibrenmsConfig::get('alert_rule.interval') . 'm';
-$default_mute_alerts = LibrenmsConfig::get('alert_rule.mute_alerts');
-$default_invert_rule_match = LibrenmsConfig::get('alert_rule.invert_rule_match');
-$default_recovery_alerts = LibrenmsConfig::get('alert_rule.recovery_alerts');
-$default_acknowledgement_alerts = LibrenmsConfig::get('alert_rule.acknowledgement_alerts');
-$default_invert_map = LibrenmsConfig::get('alert_rule.invert_map');
+$default_severity = twentyfouronlineConfig::get('alert_rule.severity');
+$default_max_alerts = twentyfouronlineConfig::get('alert_rule.max_alerts');
+$default_delay = twentyfouronlineConfig::get('alert_rule.delay') . 'm';
+$default_interval = twentyfouronlineConfig::get('alert_rule.interval') . 'm';
+$default_mute_alerts = twentyfouronlineConfig::get('alert_rule.mute_alerts');
+$default_invert_rule_match = twentyfouronlineConfig::get('alert_rule.invert_rule_match');
+$default_recovery_alerts = twentyfouronlineConfig::get('alert_rule.recovery_alerts');
+$default_acknowledgement_alerts = twentyfouronlineConfig::get('alert_rule.acknowledgement_alerts');
+$default_invert_map = twentyfouronlineConfig::get('alert_rule.invert_map');
 
 if (Auth::user()->hasGlobalAdmin()) {
     $device_id = isset($device['device_id']) ? $device['device_id'] : -1;
@@ -35,7 +35,7 @@ if (Auth::user()->hasGlobalAdmin()) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h5 class="modal-title" id="Create">Alert Rule :: <a target="_blank" href="https://docs.librenms.org/Alerting/"><i class="fa fa-book fa-1x"></i> Docs</a> </h5>
+                    <h5 class="modal-title" id="Create">Alert Rule :: <a target="_blank" href="https://docs.twentyfouronline.org/Alerting/"><i class="fa fa-book fa-1x"></i> Docs</a> </h5>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs" role="tablist">
@@ -478,3 +478,7 @@ if (Auth::user()->hasGlobalAdmin()) {
     </script>
     <?php
 }
+
+
+
+

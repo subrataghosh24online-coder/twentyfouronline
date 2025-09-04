@@ -60,15 +60,15 @@ in cron.
 
 You also may use `-m` to pass a list of comma-separated modules.
 Please refer to [Command options](#command-options) of discovery.php.
-Example: `/opt/librenms/discovery-wrapper.py 1 -m bgp-peers`
+Example: `/opt/twentyfouronline/discovery-wrapper.py 1 -m bgp-peers`
 
 If you want to switch back to discovery.php then you can replace (not recommended):
 
-`33  */6   * * *   librenms    /opt/librenms/discovery-wrapper.py 1 >> /dev/null 2>&1`
+`33  */6   * * *   twentyfouronline    /opt/twentyfouronline/discovery-wrapper.py 1 >> /dev/null 2>&1`
 
 With:
 
-`33  */6   * * *   librenms    /opt/librenms/discovery.php -h all >> /dev/null 2>&1`
+`33  */6   * * *   twentyfouronline    /opt/twentyfouronline/discovery.php -h all >> /dev/null 2>&1`
 
 ## Discovery config
 
@@ -244,3 +244,7 @@ The output will contain:
 
 - DB Updates
 - SNMP Response
+
+
+
+

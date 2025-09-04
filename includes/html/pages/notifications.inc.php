@@ -22,7 +22,7 @@
  */
 
 use App\Models\User;
-use LibreNMS\ObjectCache;
+use twentyfouronline\ObjectCache;
 
 $total = Auth::user()->notifications()->count();
 
@@ -104,7 +104,7 @@ if ($total > 0 && ! isset($vars['archive'])) {
     <div class="row">
       <div class="col-md-12">
         <blockquote<?php echo $notif->severity == 2 ? ' style="border-color: darkred;"' : '' ?>>
-          <p><?php echo \LibreNMS\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
+          <p><?php echo \twentyfouronline\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
           <footer><?php echo $notif->datetime; ?> | Source: <code><?php echo htmlentities($notif->source); ?></code></footer>
         </blockquote>
       </div>
@@ -146,7 +146,7 @@ if ($total > 0 && ! isset($vars['archive'])) {
     <div class="row">
       <div class="col-md-12">
           <blockquote<?php echo $notif->severity == 2 ? ' style="border-color: darkred;"' : '' ?>>
-          <p><?php echo \LibreNMS\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
+          <p><?php echo \twentyfouronline\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
           <footer><?php echo $notif->datetime; ?> | Source: <code><?php echo htmlentities($notif->source); ?></code></footer>
         </blockquote>
       </div>
@@ -187,7 +187,7 @@ if ($total > 0 && ! isset($vars['archive'])) {
     <div class="row">
       <div class="col-md-12">
           <blockquote<?php echo $notif->severity == 2 ? ' style="border-color: darkred;"' : '' ?>>
-          <p><?php echo \LibreNMS\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
+          <p><?php echo \twentyfouronline\Util\Clean::html($notif->body, ['HTML.Allowed' => 'br']); ?></p>
           <footer><?php echo $notif->datetime; ?> | Source: <code><?php echo htmlentities($notif->source); ?></code></footer>
         </blockquote>
       </div>
@@ -316,3 +316,7 @@ $(function() {
 
 });
 </script>
+
+
+
+

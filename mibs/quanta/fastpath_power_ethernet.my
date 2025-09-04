@@ -425,3 +425,7 @@ NETGEAR-POWER-ETHERNET-MIB DEFINITIONS ::= BEGIN
     ::= { agentPethPseEntry 5 }         
 
 END
+
+
+
+

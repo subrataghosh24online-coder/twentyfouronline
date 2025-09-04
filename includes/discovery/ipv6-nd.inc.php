@@ -1,8 +1,12 @@
 <?php
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! $os instanceof OS) {
     $os = OS::make($device);
 }
-(new \LibreNMS\Modules\Ipv6Nd())->discover($os);
+(new \twentyfouronline\Modules\Ipv6Nd())->discover($os);
+
+
+
+

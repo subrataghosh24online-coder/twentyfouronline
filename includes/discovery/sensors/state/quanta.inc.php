@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Quanta LB6M States information module
+ * twentyfouronline Quanta LB6M States information module
  *
  * Copyright (c) 2017 Mark Guzman <segfault@hasno.info>
  * This program is free software: you can redistribute it and/or modify it
@@ -47,3 +47,7 @@ foreach ($tables as $tablevalue) {
         }
     }
 }
+
+
+
+

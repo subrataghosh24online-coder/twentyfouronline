@@ -2,8 +2,8 @@
 
 use App\Models\AccessPoint;
 use Illuminate\Support\Collection;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Mac;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Mac;
 
 if ($device['type'] == 'wireless' && $device['os'] == 'arubaos') {
     // get data about the controller
@@ -113,3 +113,7 @@ DEBUG);
     // mark APs which are not on this controller anymore as deleted
     $db_aps->each->update(['deleted' => 1]);
 }//end if
+
+
+
+

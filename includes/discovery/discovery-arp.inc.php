@@ -1,7 +1,7 @@
 <?php
 
 //
-// LibreNMS module to do device discovery by ARP table contents.
+// twentyfouronline module to do device discovery by ARP table contents.
 //
 // Needs to be run after the ARP table discovery, because it uses the
 // data gathered by the ARP table discovery module.  Keeps a cache of
@@ -10,13 +10,13 @@
 //
 // Copyright (c) 2012-2013 Gear Consulting Pty Ltd <http://libertysys.com.au/>
 //
-// Author:  Paul Gear <librenms@libertysys.com.au>
+// Author:  Paul Gear <twentyfouronline@libertysys.com.au>
 // License: GPLv3
 //
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 $hostname = $device['hostname'];
 $deviceid = $device['device_id'];
@@ -47,12 +47,12 @@ foreach (dbFetchRows($sql, [$deviceid]) as $entry) {
 
     // Even though match_network is done inside discover_new_device, we do it here
     // as well in order to skip unnecessary reverse DNS lookups on discovered IPs.
-    if (match_network(LibrenmsConfig::get('autodiscovery.nets-exclude'), $ip)) {
+    if (match_network(twentyfouronlineConfig::get('autodiscovery.nets-exclude'), $ip)) {
         echo 'x';
         continue;
     }
 
-    if (! match_network(LibrenmsConfig::get('nets'), $ip)) {
+    if (! match_network(twentyfouronlineConfig::get('nets'), $ip)) {
         echo 'i';
         Eventlog::log("Ignored $ip", $deviceid, 'interface', Severity::Notice, $if);
         continue;
@@ -81,3 +81,7 @@ foreach ($names as $name) {
 
 unset($names);
 unset($ips);
+
+
+
+

@@ -17,3 +17,7 @@ Here an example using 3 numbers, any amount of numbers is supported:
 | Token | MYFANCYACCESSTOKEN |
 | From | My Name |
 | Mobiles | +1234567892,+1234567890,+1234567891 |
+
+
+
+

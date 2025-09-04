@@ -81,3 +81,7 @@ foreach ($pre_cache['mem_sensors_status'] as $index => $data) {
         discover_sensor(null, 'humidity', $device, $cur_oid, 'memSensorsHumidity.' . $index, 'apc', $descr, $divisor, $multiplier, null, null, null, null, $value);
     }
 }
+
+
+
+

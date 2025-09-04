@@ -1,0 +1,20 @@
+[Unit]
+Description=twentyfouronline SNMP Poller Service
+After=network.target
+
+[Service]
+ExecStart=/opt/twentyfouronline/twentyfouronline-service.py -v
+ExecReload=/bin/kill -HUP $MAINPID
+WorkingDirectory=/opt/twentyfouronline
+User=twentyfouronline
+Group=twentyfouronline
+RestartSec=10
+Restart=always
+WatchdogSec=30
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+

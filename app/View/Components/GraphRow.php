@@ -63,3 +63,7 @@ class GraphRow extends Component
         return $max * min($columns, count($this->graphs));
     }
 }
+
+
+
+

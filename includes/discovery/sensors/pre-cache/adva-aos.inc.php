@@ -1,14 +1,14 @@
 <?php
 
 /**
- * LibreNMS - ADVA AOS device support - Pre-Cache for Sensors
+ * twentyfouronline - ADVA AOS device support - Pre-Cache for Sensors
  *
  * @category   Network_Monitoring
  *
  * @author     Fabien VINCENT <fabien.vincent@i3d.net>
  * @license    https://gnu.org/copyleft/gpl.html GNU GPL
  *
- * @link       https://github.com/librenms/librenms/
+ * @link       https://github.com/twentyfouronline/twentyfouronline/
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -29,3 +29,7 @@ foreach ($pre_cache as $index => $port) {
     $newDescr = preg_replace('/^node [0-9]+ interface (.+)/', '$1', $port['ifDescr']);
     $pre_cache[$index]['ifDescr'] = $newDescr;
 }
+
+
+
+

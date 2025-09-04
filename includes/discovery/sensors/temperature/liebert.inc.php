@@ -3,7 +3,7 @@
 /**
  * liebert.inc.php
  *
- * LibreNMS temperature discovery module for Liebert
+ * twentyfouronline temperature discovery module for Liebert
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -76,3 +76,7 @@ if (is_numeric($supply_temp)) {
     $divisor = 1;
     discover_sensor(null, 'temperature', $device, $oid, $index, 'liebert', $descr, $divisor, '1', null, null, null, null, $supply_temp);
 }
+
+
+
+

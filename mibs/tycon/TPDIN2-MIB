@@ -174,3 +174,7 @@ temperature2  OBJECT-TYPE
 	::= { monitor 14 }
 
 END
+
+
+
+

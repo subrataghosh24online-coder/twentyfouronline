@@ -4,11 +4,11 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Http\Client\ConnectionException;
-use LibreNMS\Util\EnvHelper;
-use LibreNMS\Util\Http;
-use LibreNMS\ValidationResult;
-use LibreNMS\Validations\Database\CheckDatabaseConnected;
-use LibreNMS\Validations\Poller\CheckRedis;
+use twentyfouronline\Util\EnvHelper;
+use twentyfouronline\Util\Http;
+use twentyfouronline\ValidationResult;
+use twentyfouronline\Validations\Database\CheckDatabaseConnected;
+use twentyfouronline\Validations\Poller\CheckRedis;
 
 class HealthCheck extends Command
 {
@@ -52,10 +52,10 @@ class HealthCheck extends Command
         }
 
         // docker specific checks
-        if (EnvHelper::librenmsDocker()) {
+        if (EnvHelper::twentyfouronlineDocker()) {
             if (getenv('SIDECAR_DISPATCHER')) {
                 // check dispatcher
-                $health_file = \App\Facades\LibrenmsConfig::get('service_health_file');
+                $health_file = \App\Facades\twentyfouronlineConfig::get('service_health_file');
 
                 if (! $health_file) {
                     $this->warn('Dispatcher service health file not enabled, set service_health_file');
@@ -95,3 +95,7 @@ class HealthCheck extends Command
         return 0; // all ok
     }
 }
+
+
+
+

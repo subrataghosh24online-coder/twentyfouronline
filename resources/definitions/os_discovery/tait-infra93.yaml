@@ -1133,3 +1133,7 @@ modules:
                     entPhysicalIndex: '120{{ $index }}'
                     index: 'rctTemperatureBoard.{{ $index }}'
                     group: Reciter
+
+
+
+

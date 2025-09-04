@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 use App\Models\Device;
 use App\Models\Eventlog;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 if (! Auth::user()->hasGlobalAdmin()) {
     $status = ['status' => 1, 'message' => 'You need to be admin'];
@@ -61,3 +61,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
 }
 header('Content-Type: application/json');
 echo json_encode($status, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

@@ -24,10 +24,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (LibreNMS\DB\Eloquent::getDriver() !== 'sqlite') {
+        if (twentyfouronline\DB\Eloquent::getDriver() !== 'sqlite') {
             Schema::table('component_prefs', function (Blueprint $table) {
                 $table->dropForeign('component_prefs_ibfk_1');
             });
         }
     }
 };
+
+
+
+

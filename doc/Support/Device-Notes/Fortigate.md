@@ -5,3 +5,7 @@ config system snmp sysinfo
 end
 ```
 https://docs.fortinet.com/document/fortigate/7.2.0/new-features/742119/enabling-the-index-extension-7-2-8
+
+
+
+

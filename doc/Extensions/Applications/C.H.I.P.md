@@ -6,7 +6,7 @@ Further details: <https://getchip.com/pages/chip>
 1. Copy the shell script to the desired host.
 
 ```bash
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/chip.sh -O /etc/snmp/power-stat.sh
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/chip.sh -O /etc/snmp/power-stat.sh
 ```
 
 2. Make the script executable
@@ -26,3 +26,7 @@ extend power-stat /etc/snmp/power-stat.sh
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

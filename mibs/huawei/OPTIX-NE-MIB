@@ -396,3 +396,6 @@ OPTIX-NE-MIB DEFINITIONS ::= BEGIN
         ::= { optixNe1j1ResultTrapReport 1 }
 
 END
+
+
+

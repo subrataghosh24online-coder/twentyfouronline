@@ -10,3 +10,7 @@ $category = 'acc';
 $rrdVar = 'trashed_libraries';
 
 require 'seafile-common.inc.php';
+
+
+
+

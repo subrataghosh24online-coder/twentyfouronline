@@ -212,3 +212,7 @@ arubaWiredFanTrayNotificationsGroup NOTIFICATION-GROUP
      DESCRIPTION "Notifications sent by fan management."
      ::= { arubaWiredFanTrayGroups 2 }
 END
+
+
+
+

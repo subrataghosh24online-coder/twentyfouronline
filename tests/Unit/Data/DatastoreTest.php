@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Data;
+namespace twentyfouronline\Tests\Unit\Data;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Tests\TestCase;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('datastores')]
@@ -37,7 +37,7 @@ class DatastoreTest extends TestCase
     {
         parent::setUp();
 
-        LibrenmsConfig::forget([
+        twentyfouronlineConfig::forget([
             'graphite',
             'influxdb',
             'influxdbv2',
@@ -54,18 +54,18 @@ class DatastoreTest extends TestCase
         $stores = $ds->getStores();
         $this->assertCount(1, $stores, 'Incorrect number of default stores enabled');
 
-        $this->assertEquals('LibreNMS\Data\Store\Rrd', get_class($stores[0]), 'The default enabled store should be Rrd');
+        $this->assertEquals('twentyfouronline\Data\Store\Rrd', get_class($stores[0]), 'The default enabled store should be Rrd');
     }
 
     public function testInitialization(): void
     {
-        LibrenmsConfig::set('rrd.enable', false);
-        LibrenmsConfig::set('graphite.enable', true);
-        LibrenmsConfig::set('influxdb.enable', true);
-        LibrenmsConfig::set('influxdbv2.enable', true);
-        LibrenmsConfig::set('opentsdb.enable', true);
-        LibrenmsConfig::set('prometheus.enable', true);
-        LibrenmsConfig::set('kafka.enable', false);
+        twentyfouronlineConfig::set('rrd.enable', false);
+        twentyfouronlineConfig::set('graphite.enable', true);
+        twentyfouronlineConfig::set('influxdb.enable', true);
+        twentyfouronlineConfig::set('influxdbv2.enable', true);
+        twentyfouronlineConfig::set('opentsdb.enable', true);
+        twentyfouronlineConfig::set('prometheus.enable', true);
+        twentyfouronlineConfig::set('kafka.enable', false);
 
         $ds = $this->app->make('Datastore');
         $stores = $ds->getStores();
@@ -74,13 +74,17 @@ class DatastoreTest extends TestCase
         $enabled = array_map('get_class', $stores);
 
         $expected_enabled = [
-            'LibreNMS\Data\Store\Graphite',
-            'LibreNMS\Data\Store\InfluxDB',
-            'LibreNMS\Data\Store\InfluxDBv2',
-            'LibreNMS\Data\Store\OpenTSDB',
-            'LibreNMS\Data\Store\Prometheus',
+            'twentyfouronline\Data\Store\Graphite',
+            'twentyfouronline\Data\Store\InfluxDB',
+            'twentyfouronline\Data\Store\InfluxDBv2',
+            'twentyfouronline\Data\Store\OpenTSDB',
+            'twentyfouronline\Data\Store\Prometheus',
         ];
 
         $this->assertEquals($expected_enabled, $enabled, 'Expected all non-default stores to be initialized');
     }
 }
+
+
+
+

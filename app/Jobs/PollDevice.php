@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use App\Events\DevicePolled;
 use App\Events\PollingDevice;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
 use App\Polling\Measure\Measurement;
 use App\Polling\Measure\MeasurementManager;
@@ -15,12 +15,12 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Enum\Severity;
-use LibreNMS\OS;
-use LibreNMS\Polling\ConnectivityHelper;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Dns;
-use LibreNMS\Util\Module;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\OS;
+use twentyfouronline\Polling\ConnectivityHelper;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Dns;
+use twentyfouronline\Util\Module;
 use Throwable;
 
 class PollDevice implements ShouldQueue
@@ -96,8 +96,8 @@ class PollDevice implements ShouldQueue
             $measurement->getDuration()));
 
         // check if the poll took too long and log an event
-        if ($measurement->getDuration() > LibrenmsConfig::get('rrd.step')) {
-            Eventlog::log('Polling took longer than ' . round(LibrenmsConfig::get('rrd.step') / 60, 2) .
+        if ($measurement->getDuration() > twentyfouronlineConfig::get('rrd.step')) {
+            Eventlog::log('Polling took longer than ' . round(twentyfouronlineConfig::get('rrd.step') / 60, 2) .
                 ' minutes!  This will cause gaps in graphs.', $this->device, 'system', Severity::Error);
         }
 
@@ -133,7 +133,7 @@ class PollDevice implements ShouldQueue
                     Log::debug($module_status);
 
                     if (is_array($status)) {
-                        LibrenmsConfig::set('poller_submodules.' . $module, $status);
+                        twentyfouronlineConfig::set('poller_submodules.' . $module, $status);
                     }
 
                     $instance->poll($this->os, $datastore);
@@ -182,7 +182,7 @@ class PollDevice implements ShouldQueue
         $this->device->ip = $this->device->overwrite_ip ?: Dns::lookupIp($this->device) ?: $this->device->ip;
 
         $this->deviceArray = $this->device->toArray();
-        if ($os_group = LibrenmsConfig::get("os.{$this->device->os}.group")) {
+        if ($os_group = twentyfouronlineConfig::get("os.{$this->device->os}.group")) {
             $this->deviceArray['os_group'] = $os_group;
         }
 
@@ -193,7 +193,7 @@ class PollDevice implements ShouldQueue
     private function initRrdDirectory(): void
     {
         $host_rrd = \Rrd::name($this->device->hostname, '', '');
-        if (LibrenmsConfig::get('rrd.enable', true) && ! is_dir($host_rrd)) {
+        if (twentyfouronlineConfig::get('rrd.enable', true) && ! is_dir($host_rrd)) {
             try {
                 mkdir($host_rrd);
                 Log::info("Created directory : $host_rrd");
@@ -233,7 +233,7 @@ EOH, $this->device->hostname, $group ? "($group)" : '', $this->device->status ? 
 
     private function getModules(): array
     {
-        $default_modules = LibrenmsConfig::get('poller_modules', []);
+        $default_modules = twentyfouronlineConfig::get('poller_modules', []);
 
         if (empty($this->module_overrides)) {
             return $default_modules;
@@ -259,3 +259,7 @@ EOH, $this->device->hostname, $group ? "($group)" : '', $this->device->status ? 
         return isset($this->module_overrides[$module]);
     }
 }
+
+
+
+

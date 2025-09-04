@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -105,7 +105,7 @@ class SensorController
             ],
         ];
 
-        $sensors_menu = \LibreNMS\Util\ObjectCache::sensors();
+        $sensors_menu = \twentyfouronline\Util\ObjectCache::sensors();
         foreach ($sensors_menu as $types) {
             foreach ($types as $entry) {
                 $class = $entry['class'];
@@ -120,3 +120,7 @@ class SensorController
         return $metrics;
     }
 }
+
+
+
+

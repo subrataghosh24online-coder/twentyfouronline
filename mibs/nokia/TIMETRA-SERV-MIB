@@ -49395,3 +49395,7 @@ pipActiveProtocolChange          NOTIFICATION-TYPE
     ::= { tstpTraps 42 }
 
 END
+
+
+
+

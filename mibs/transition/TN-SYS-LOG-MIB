@@ -283,3 +283,7 @@ tnSyslogClear OBJECT-TYPE
     ::= { tnSyslogExtEntry 3 }
 
 END
+
+
+
+

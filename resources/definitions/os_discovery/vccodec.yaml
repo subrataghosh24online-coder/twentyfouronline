@@ -1,3 +1,7 @@
 modules:
   os:
     sysDescr_regex: '/SoftW: (?<version>\S+)\nMCU: (Cisco TelePresence )?(?<hardware>.*)\nDate: \S+\nS\/N: (?<serial>\S+)/'
+
+
+
+

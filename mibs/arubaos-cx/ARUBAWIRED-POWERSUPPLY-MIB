@@ -272,3 +272,7 @@ arubaWiredPSUNotificationsGroup NOTIFICATION-GROUP
      DESCRIPTION "Notifications sent by power management."
      ::= { arubaWiredPowerSupplyGroups 2 }
 END
+
+
+
+

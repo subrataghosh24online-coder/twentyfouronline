@@ -66,7 +66,7 @@ around 50. You will also need to set the correct snmp version,
 hostname and community string:
 
 ```bash
-time snmpbulkwalk -v2c -cpublic HOSTNAME -Cr-REPEATERS- -M /opt/librenms/mibs -m IF-MIB IfEntry
+time snmpbulkwalk -v2c -cpublic HOSTNAME -Cr-REPEATERS- -M /opt/twentyfouronline/mibs -m IF-MIB IfEntry
 ```
 
 !!! warning
@@ -129,11 +129,11 @@ get the optimal value.
 
 !!! note
     KEEP in MIND that this doesn't always help, it depends on your system and
-    CPU. So be careful. This can be changed by going to the cron job for librenms.
-    Usually in `/etc/cron.d/librenms` and changing the "16"
+    CPU. So be careful. This can be changed by going to the cron job for twentyfouronline.
+    Usually in `/etc/cron.d/twentyfouronline` and changing the "16"
 
 ```
-*/5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
+*/5  *    * * *   twentyfouronline    /opt/twentyfouronline/cronic /opt/twentyfouronline/poller-wrapper.py 16
 ```
 
 If you use the Dispatch Service then you can adjust the number of threads
@@ -143,7 +143,7 @@ within the WebUI. Please see [Dispatcher Service](../Extensions/Dispatcher-Servi
 
 If your install uses hostnames for devices and you have quite a lot,
 then it's advisable to setup a local recursive dns instance on the
-LibreNMS server. Something like pdns-recursor can be used and then
+twentyfouronline server. Something like pdns-recursor can be used and then
 configure `/etc/resolv.conf` to use 127.0.0.1 for queries.
 
 ## Per port polling
@@ -171,7 +171,7 @@ usage of your poller negatively. You can also set it for a specific OS:
     lnms config:set os.ios.polling.selected_ports true
     ```
 
-Running `./scripts/collect-port-polling.php` as the `librenms` user
+Running `./scripts/collect-port-polling.php` as the `twentyfouronline` user
 will poll your devices with both full and selective polling,
 display a table with the difference and optionally enable or disable
 selected ports polling for devices which would benefit from a change.
@@ -223,8 +223,8 @@ If you are having caching issues, you can clear the opcache by simply restarting
 
 ### For pollers
 
-Create a cache directory that is writable by the librenms user first:
-`sudo mkdir -p /tmp/cache && sudo chmod 775 /tmp/cache && sudo chown -R librenms /tmp/cache`
+Create a cache directory that is writable by the twentyfouronline user first:
+`sudo mkdir -p /tmp/cache && sudo chmod 775 /tmp/cache && sudo chown -R twentyfouronline /tmp/cache`
 
 Update your PHP opcache.ini.  Possible locations: `/etc/php/8.3/cli/conf.d/opcache.ini`, `/etc/php.d/opcache.ini`, or `/etc/php/conf.d/opcache.ini`.
 
@@ -242,3 +242,7 @@ If you are having caching issues, you can clear the file based opcache with `rm 
 
 Debian 12 users, be aware php 8.2 current stable version (8.2.7) creates segmentation faults when opcache uses file cache. Issue should be this one https://github.com/php/php-src/issues/10914 
 Using sury packages or disabling file cache solves the issue
+
+
+
+

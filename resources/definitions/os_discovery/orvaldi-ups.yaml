@@ -31,3 +31,7 @@ modules:
                     descr: 'Nb. of Batteries in Parallel'
                     group: Battery
                     index: 'parallel-{{ $index }}'
+
+
+
+

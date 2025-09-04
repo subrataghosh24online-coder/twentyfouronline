@@ -21,7 +21,7 @@ location /nginx-status {
     1. Download the script onto the desired host.
 
         ```bash
-        wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx -O /etc/snmp/nginx
+        wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/nginx -O /etc/snmp/nginx
         ```
 
     2. Make the script executable
@@ -70,4 +70,8 @@ checkmodule -M -m -o snmpd_nginx.mod snmpd_nginx.te
 semodule_package -o snmpd_nginx.pp -m snmpd_nginx.mod
 semodule -i snmpd_nginx.pp
 ```
+
+
+
+
 

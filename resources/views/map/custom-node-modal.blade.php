@@ -437,3 +437,7 @@
         $("#devicesearch").on("select2:select", nodeDeviceSelect);
     });
 </script>
+
+
+
+

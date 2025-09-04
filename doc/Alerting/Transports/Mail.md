@@ -1,6 +1,6 @@
 ## Mail
 
-The E-Mail transports uses the same email-configuration as the rest of LibreNMS.
+The E-Mail transports uses the same email-configuration as the rest of twentyfouronline.
 As a small reminder, here is its configuration directives including defaults:
 
 Emails will attach all graphs included with the @signedGraphTag directive.
@@ -18,3 +18,7 @@ lnms config:set email_attach_graphs false
 | Config | Example |
 | ------ | ------- |
 | Email | me@example.com |
+
+
+
+

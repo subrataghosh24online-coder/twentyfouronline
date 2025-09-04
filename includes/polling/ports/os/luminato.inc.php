@@ -3,7 +3,7 @@
 /**
  * luminato.inc.php
  *
- * LibreNMS poller module for Teleste Luminato. Modify: ifSpeed ifHighSpeed ifOperStatus
+ * twentyfouronline poller module for Teleste Luminato. Modify: ifSpeed ifHighSpeed ifOperStatus
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyrigh   2021 Peca Nesovanovic
  *
@@ -41,3 +41,7 @@ foreach ($port_stats as $key => $data) {
     // ifHighSpeed is always broken and ver >= 20 ifSpeed is actually ifHighSpeed
     $port_stats[$key]['ifHighSpeed'] = ($ver < 20 ? $data['ifSpeed'] / 1000000 : $data['ifSpeed']);
 }
+
+
+
+

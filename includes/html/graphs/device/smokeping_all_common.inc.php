@@ -2,7 +2,7 @@
 
 // This is my translation of Smokeping's graphing.
 // Thanks to Bill Fenner for Perl->Human translation:>
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $scale_min = 0;
 $scale_rigid = true;
@@ -11,7 +11,7 @@ require 'includes/html/graphs/common.inc.php';
 require 'includes/html/graphs/device/smokeping_common.inc.php';
 
 $i = 0;
-$pings = LibrenmsConfig::get('smokeping.pings');
+$pings = twentyfouronlineConfig::get('smokeping.pings');
 $iter = 0;
 $colourset = 'mixed';
 
@@ -28,14 +28,14 @@ if ($width > '500') {
 }
 
 foreach ($smokeping_files[$direction][$device['hostname']] as $source => $filename) {
-    if (! LibrenmsConfig::has("graph_colours.$colourset.$iter")) {
+    if (! twentyfouronlineConfig::has("graph_colours.$colourset.$iter")) {
         $iter = 0;
     }
 
-    $colour = LibrenmsConfig::get("graph_colours.$colourset.$iter");
+    $colour = twentyfouronlineConfig::get("graph_colours.$colourset.$iter");
     $iter++;
 
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($source, $descr_len);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($source, $descr_len);
 
     $filename = generate_smokeping_file($device, $filename);
     $rrd_options .= " DEF:median$i=" . $filename . ':median:AVERAGE ';
@@ -81,3 +81,7 @@ foreach ($smokeping_files[$direction][$device['hostname']] as $source => $filena
 
     $i++;
 }//end foreach
+
+
+
+

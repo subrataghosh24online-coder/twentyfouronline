@@ -25,3 +25,7 @@ foreach ($wireless_stats as $index => $wireless_entry) {
 }
 
 unset($wireless_stats);
+
+
+
+

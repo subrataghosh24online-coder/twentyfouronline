@@ -25,7 +25,7 @@
 1. Download the script into the desired host.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/linux_softnet_stat -O /etc/snmp/linux_softnet_stat
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/linux_softnet_stat -O /etc/snmp/linux_softnet_stat
     ```
 
 3. Make the script executable
@@ -41,3 +41,7 @@
     ```
 
     Then either enable the application Linux Softnet Stat or wait for it to be re-discovered.
+
+
+
+

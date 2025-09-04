@@ -181,3 +181,7 @@ alaOSPF3ConfigMIBGroup OBJECT-GROUP
     ::= { alcatelIND1OSPF3MIBGroups 1 }
 
 END
+
+
+
+

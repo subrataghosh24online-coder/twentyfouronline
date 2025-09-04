@@ -21,3 +21,7 @@ if ($sensor['sensor_type'] === 'dhcpatriotServiceStatus') {
 }
 
 unset($current_time, $sensor_value_tmp);
+
+
+
+

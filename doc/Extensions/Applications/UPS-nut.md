@@ -8,7 +8,7 @@ A small shell script that exports nut ups status.
 1. Copy the shell script, unbound, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/ups-nut.sh -O /etc/snmp/ups-nut.sh
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/ups-nut.sh -O /etc/snmp/ups-nut.sh
     ```
 
 2. Make the script executable
@@ -35,3 +35,7 @@ Optionally if you have multiple UPS or your UPS is not named APCUPS you can spec
     extend ups-nut /etc/snmp/ups-nut.sh ups1
     extend ups-nut /etc/snmp/ups-nut.sh ups2
     ```
+
+
+
+

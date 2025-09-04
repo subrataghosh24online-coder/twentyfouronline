@@ -20,3 +20,7 @@ class UserObserver
         $user->pushSubscriptions()->delete();
     }
 }
+
+
+
+

@@ -18,15 +18,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  LibreNMS contributors
+ * @copyright  twentyfouronline contributors
  * @author     Tony Murray <murraytony@gmail.com>
  * @author     cjwbath
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 // Try Q-BRIDGE-MIB::dot1qTpFdbPort first
 $fdbPort_table = snmpwalk_group($device, 'dot1qTpFdbPort', 'Q-BRIDGE-MIB');
@@ -92,3 +92,7 @@ if (! empty($fdbPort_table)) {
 }
 
 echo PHP_EOL;
+
+
+
+

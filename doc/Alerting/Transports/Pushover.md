@@ -13,7 +13,7 @@ You also have the possibility to change sound per severity:
 
 Enabling Pushover support is fairly easy, there are only two required parameters.
 
-Firstly you need to create a new Application (called LibreNMS, for
+Firstly you need to create a new Application (called twentyfouronline, for
 example) in your account on the Pushover website ([https://pushover.net/apps](https://pushover.net/apps)).
 
 Now copy your API Key and obtain your User Key from the newly created
@@ -28,3 +28,7 @@ Application and setup the transport.
 | Api Key | APPLICATIONAPIKEYGOESHERE |
 | User Key | USERKEYGOESHERE |
 | Pushover Options | sound_critical=falling <br/> sound_warning=siren <br/> sound_ok=magic |
+
+
+
+

@@ -6,3 +6,7 @@ if (Rrd::checkRrdExists(Rrd::name($device['hostname'], 'netstats-tcp'))) {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

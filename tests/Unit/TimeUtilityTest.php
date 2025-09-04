@@ -1,10 +1,10 @@
 <?php
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use Illuminate\Support\Carbon;
-use LibreNMS\Tests\TestCase;
-use LibreNMS\Util\Time;
+use twentyfouronline\Tests\TestCase;
+use twentyfouronline\Util\Time;
 
 class TimeUtilityTest extends TestCase
 {
@@ -63,3 +63,7 @@ class TimeUtilityTest extends TestCase
         $this->assertEquals(time() + 86400, Time::parseAt('+1 day'));
     }
 }
+
+
+
+

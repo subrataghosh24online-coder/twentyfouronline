@@ -46,3 +46,7 @@ script runs on a per device basis or all devices at once.
 This will provide the help information. To run it for localhost just run:
 
 `./scripts/rrdstep.php -h localhost`
+
+
+
+

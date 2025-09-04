@@ -375,3 +375,7 @@ modules:
                             oid: fgHwSensorEntName
                             op: 'regex'
                             value: '/^((?!VCC).)*$/'
+
+
+
+

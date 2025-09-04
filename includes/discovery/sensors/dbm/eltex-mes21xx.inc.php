@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS discovery module for Eltex-mes21xx SFP Dbm
+ * twentyfouronline discovery module for Eltex-mes21xx SFP Dbm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Peca Nesovanovic
  *
@@ -90,3 +90,7 @@ foreach ($oids as $ifIndex => $data) {
         ]));
     }
 }
+
+
+
+

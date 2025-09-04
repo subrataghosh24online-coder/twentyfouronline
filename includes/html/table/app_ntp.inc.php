@@ -1,6 +1,6 @@
 <?php
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['ignore'] = ['=', 0];
 $options['type'] = 'ntp';
@@ -107,3 +107,7 @@ $output = [
     'total' => $count,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

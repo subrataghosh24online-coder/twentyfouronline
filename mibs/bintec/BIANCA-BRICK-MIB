@@ -3016,3 +3016,7 @@ BIANCA-BRICK-MIB DEFINITIONS ::= BEGIN
         ::= { chkUpdSrvEntry 10 }
 
 END		-- of BIANCA-BRICK definitions
+
+
+
+

@@ -118,3 +118,7 @@ HH3C-VRRP-EXT-MIB DEFINITIONS ::= BEGIN
      ::= { hh3cVrrpExtEntry 3 }
 
 END
+
+
+
+

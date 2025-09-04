@@ -6,3 +6,7 @@ $class = 'rate';
 $unit = 'bps';
 
 require 'includes/html/graphs/device/wireless-sensor.inc.php';
+
+
+
+

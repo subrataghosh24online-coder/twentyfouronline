@@ -7,3 +7,7 @@ $unit = 'Hz';
 $unit_long = 'Hz';
 
 require 'includes/html/graphs/device/wireless-sensor.inc.php';
+
+
+
+

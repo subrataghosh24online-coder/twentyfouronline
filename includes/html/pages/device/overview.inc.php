@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Interfaces\Plugins\Hooks\DeviceOverviewHook;
+use twentyfouronline\Interfaces\Plugins\Hooks\DeviceOverviewHook;
 
 $overview = 1;
 
@@ -19,7 +19,7 @@ require 'overview/maps.inc.php';
 require 'includes/html/dev-groups-overview-data.inc.php';
 require 'overview/puppet_agent.inc.php';
 
-echo LibreNMS\Plugins::call('device_overview_container', [$device]);
+echo twentyfouronline\Plugins::call('device_overview_container', [$device]);
 foreach (PluginManager::call(DeviceOverviewHook::class, ['device' => DeviceCache::getPrimary()]) as $view) {
     echo $view;
 }
@@ -78,3 +78,7 @@ require 'overview/graylog.inc.php';
 echo '</div></div></div>';
 
 //require 'overview/current.inc.php");
+
+
+
+

@@ -26,7 +26,7 @@
 1. Copy the Perl script, smart, to the desired host.
 
 ```bash
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/smart-v1 -O /etc/snmp/smart
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/smart-v1 -O /etc/snmp/smart
 ```
 
 3. Make the script executable
@@ -100,3 +100,7 @@ Extend` heading top of page.
     ```
     0 0 * * * /etc/snmp/smart -t long
     ```
+
+
+
+

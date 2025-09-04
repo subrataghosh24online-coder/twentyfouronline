@@ -3,3 +3,7 @@ modules:
         sysDescr_regex: '/Keenetic.+\(KeeneticOS\s(?<version>\S+)\):.+/'
         serial: ENTITY-MIB::entPhysicalSerialNum
         hardware: ENTITY-MIB::entPhysicalModelName
+
+
+
+

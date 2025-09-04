@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Plugin;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\Plugins\Hooks\SettingsHook;
-use LibreNMS\Interfaces\Plugins\PluginManagerInterface;
-use LibreNMS\Util\Notifications;
+use twentyfouronline\Interfaces\Plugins\Hooks\SettingsHook;
+use twentyfouronline\Interfaces\Plugins\PluginManagerInterface;
+use twentyfouronline\Util\Notifications;
 
 class PluginSettingsController extends Controller
 {
@@ -47,3 +47,7 @@ class PluginSettingsController extends Controller
         return redirect()->back();
     }
 }
+
+
+
+

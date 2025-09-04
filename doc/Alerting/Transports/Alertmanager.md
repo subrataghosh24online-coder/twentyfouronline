@@ -6,7 +6,7 @@ alert processing sent by Prometheus.
 It has built-in functionality for deduplicating, grouping and routing
 alerts based on configurable criteria.
 
-LibreNMS uses alert grouping by alert rule, which can produce an array
+twentyfouronline uses alert grouping by alert rule, which can produce an array
 of alerts of similar content for an array of hosts, whereas
 Alertmanager can group them by alert meta, ideally producing one
 single notice in case an issue occurs.
@@ -40,4 +40,8 @@ If you let those value blank, no authentication will be used.
 | Alertmanager URL(s)   | http://alertmanager1.example.com,http://alertmanager2.example.com |
 | Alertmanager Username | myUsername |
 | Alertmanager Password | myPassword |
-| Alertmanager Options: | source=librenms <br/> customlabel=value <br/> extra_dynamic_value=variable_name |
+| Alertmanager Options: | source=twentyfouronline <br/> customlabel=value <br/> extra_dynamic_value=variable_name |
+
+
+
+

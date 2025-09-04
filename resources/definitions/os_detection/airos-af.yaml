@@ -16,3 +16,7 @@ discovery:
             oid: UBNT-AirFIBER-MIB::fwVersion.1
             op: '!='
             value: false
+
+
+
+

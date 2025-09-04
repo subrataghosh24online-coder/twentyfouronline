@@ -57,3 +57,7 @@ if (isset($vars['vmid'])) {
 </div>
 ';
 }
+
+
+
+

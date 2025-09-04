@@ -69,3 +69,7 @@ lldpPortConfigCdpAwareEnabled OBJECT-TYPE
     DEFVAL         { false }
     ::= { tnLldpExtPortConfigEntry 1 }
 END
+
+
+
+

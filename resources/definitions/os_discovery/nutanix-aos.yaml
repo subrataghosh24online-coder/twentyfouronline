@@ -38,3 +38,7 @@ modules:
                     index: 'CPU-{{ $hypervisorName }}'
                     warn_limit: 90
                     high_limit: 95
+
+
+
+

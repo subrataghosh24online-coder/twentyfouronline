@@ -81,3 +81,7 @@ statusRAMTotal		OBJECT-TYPE
 			::= { status 10 }
 
 END
+
+
+
+

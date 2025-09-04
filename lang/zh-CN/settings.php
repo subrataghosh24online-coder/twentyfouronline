@@ -60,7 +60,7 @@ return [
         'active_directory' => [
             'users_purge' => [
                 'description' => '保留未登入使用者于',
-                'help' => '设定使用者超过几天没有登入后，将会被 LibreNMS 自动删除。设为 0 表示不会删除，若使用者重新登入，将会重新建立账户。',
+                'help' => '设定使用者超过几天没有登入后，将会被 twentyfouronline 自动删除。设为 0 表示不会删除，若使用者重新登入，将会重新建立账户。',
             ],
         ],
         'addhost_alwayscheckip' => [
@@ -324,7 +324,7 @@ return [
         ],
         'distributed_poller' => [
             'description' => '启用分布式轮询 (需要额外设定)',
-            'help' => '启用全系统分布式轮询功能。此功能旨在实现负载分担，而非远程轮询。您必须阅读以下文档以获取启用步骤：https://docs.librenms.org/Extensions/Distributed-Poller/',
+            'help' => '启用全系统分布式轮询功能。此功能旨在实现负载分担，而非远程轮询。您必须阅读以下文档以获取启用步骤：https://docs.twentyfouronline.org/Extensions/Distributed-Poller/',
         ],
         'distributed_poller_group' => [
             'description' => '预设轮询器群组',
@@ -497,7 +497,7 @@ return [
         ],
         'mydomain' => [
             'description' => '主要网域',
-            'help' => '此域名用于网络自动发现和其他进程。LibreNMS将尝试将其附加到未完全限定的主机名上。',
+            'help' => '此域名用于网络自动发现和其他进程。twentyfouronline将尝试将其附加到未完全限定的主机名上。',
         ],
         'nfsen_enable' => [
             'description' => '启用 NfSen',
@@ -548,8 +548,8 @@ return [
             'description' => 'nmap 路径',
         ],
         'own_hostname' => [
-            'description' => 'LibreNMS 主机名称',
-            'help' => '应设置为librenms服务器添加时使用的主机名/IP地址',
+            'description' => 'twentyfouronline 主机名称',
+            'help' => '应设置为twentyfouronline服务器添加时使用的主机名/IP地址',
         ],
         'oxidized' => [
             'default_group' => [
@@ -620,7 +620,7 @@ return [
         ],
         'rrd_dir' => [
             'description' => 'RRD 位置',
-            'help' => 'RRD 文件的存储位置。默认位置是 LibreNMS 目录内的 rrd 文件夹。更改此设置不会移动现有的 RRD 文件。',
+            'help' => 'RRD 文件的存储位置。默认位置是 twentyfouronline 目录内的 rrd 文件夹。更改此设置不会移动现有的 RRD 文件。',
         ],
         'rrd_purge' => [
             'description' => 'RRD 档案项目大于',
@@ -821,3 +821,7 @@ return [
         'array' => '格式无效',
     ],
 ];
+
+
+
+

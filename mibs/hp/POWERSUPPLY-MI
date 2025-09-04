@@ -179,3 +179,7 @@ hpicfPsLastCall  OBJECT-TYPE
       DESCRIPTION "POWER SUPPLY parameters "
       ::= { hpicfPsGroups 1 }
 END
+
+
+
+

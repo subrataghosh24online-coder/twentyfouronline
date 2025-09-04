@@ -1,7 +1,7 @@
 <?php
 
 /**
- * LibreNMS sensors state discovery module for HP Procurve
+ * twentyfouronline sensors state discovery module for HP Procurve
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  */
 $oids = snmpwalk_cache_oid($device, 'voiceIfTable', [], 'INNO-MIB');
 
@@ -39,3 +39,7 @@ if (! empty($oids)) {
         discover_sensor(null, 'state', $device, $num_oid . $index, $index, $state_name, $name, '1', '1', null, null, null, null, $entry['voiceIfState'], 'snmp', $index);
     }
 }
+
+
+
+

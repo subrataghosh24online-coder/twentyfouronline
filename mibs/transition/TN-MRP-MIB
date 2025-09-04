@@ -350,3 +350,6 @@ tnMrpDomainEventTableReset OBJECT-TYPE
     ::= { tnMrpObjects 5 }	
 	
 END
+
+
+

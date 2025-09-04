@@ -3,7 +3,7 @@
 /**
  * procurve.inc.php
  *
- * LibreNMS sensors state discovery module for HP Procurve
+ * twentyfouronline sensors state discovery module for HP Procurve
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -41,3 +41,7 @@ foreach (snmpwalk_cache_oid($device, 'hpicfSensorTable', [], 'HP-ICF-CHASSIS', n
 
     discover_sensor(null, 'state', $device, $state_oid . $index, $state_index, $state_name, $state_descr, '1', '1', null, null, null, null, $state);
 }
+
+
+
+

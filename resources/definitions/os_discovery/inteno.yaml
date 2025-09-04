@@ -43,3 +43,7 @@ modules:
                     index: 'ddmVolt{{ $index }}'
                     group: 'DDM for {{ $vendorName }} {{ $vendorPn }}'
                     descr: 'SFP {{ $index }}'
+
+
+
+

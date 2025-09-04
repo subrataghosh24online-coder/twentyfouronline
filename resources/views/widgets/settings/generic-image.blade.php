@@ -16,3 +16,7 @@
         <input type="text" class="form-control" name="target_url" id="target_url-{{ $id }}" placeholder="{{ __('Target URL') }}" value="{{ $target_url }}">
     </div>
 @endsection
+
+
+
+

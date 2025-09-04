@@ -9,11 +9,11 @@ use App\Facades\Rrd;
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 require 'includes/html/graphs/common.inc.php';
@@ -146,3 +146,7 @@ if ($graph_params->visible('previous')) {
 $rrd_options .= ' HRULE:0#999999';
 
 unset($stacked);
+
+
+
+

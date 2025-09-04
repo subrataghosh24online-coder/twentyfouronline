@@ -32,3 +32,7 @@ if (is_numeric($value)) {
 
     discover_sensor(null, 'temperature', $device, $oid, 0, 'raisecomTemperatureValue', $descr, '1', '1', $low_limit, null, null, $high_limit, $value);
 }
+
+
+
+

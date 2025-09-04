@@ -13,3 +13,7 @@ modules:
             - SOCOMECUPS-MIB::upsIdentAgentSoftwareVersion.0
             - UPS-MIB::upsIdentAgentSoftwareVersion.0
         version_regex: '/v(?<version>[\d.]+)/'
+
+
+
+

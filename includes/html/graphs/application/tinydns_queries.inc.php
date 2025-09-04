@@ -16,14 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 /*
  * TinyDNS Query Graph
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2015 f0o, LibreNMS
+ * @copyright 2015 f0o, twentyfouronline
  * @license GPL
- * @package LibreNMS
+ * @package twentyfouronline
  * @subpackage Graphs
  */
 
@@ -49,7 +49,7 @@ $array = [
 $colours = 'merged';
 $rrd_list = [];
 
-LibrenmsConfig::set('graph_colours.merged', array_merge(LibrenmsConfig::get('graph_colours.greens'), LibrenmsConfig::get('graph_colours.blues')));
+twentyfouronlineConfig::set('graph_colours.merged', array_merge(twentyfouronlineConfig::get('graph_colours.greens'), twentyfouronlineConfig::get('graph_colours.blues')));
 
 if (Rrd::checkRrdExists($rrd_filename)) {
     foreach ($array as $ds) {
@@ -59,7 +59,11 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         $i++;
     }
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

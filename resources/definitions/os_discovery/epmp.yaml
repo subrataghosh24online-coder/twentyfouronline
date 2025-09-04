@@ -52,3 +52,7 @@ modules:
                         - { value: 0, generic: 1, graph: 0, descr: Not Powered }
                         - { value: 1, generic: 3, graph: 0, descr: Powered / Not Detected }
                         - { value: 3, generic: 0, graph: 0, descr: Detected }
+
+
+
+

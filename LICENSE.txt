@@ -1,7 +1,7 @@
 NOTE
 ----
 
-LibreNMS is covered by the GPLv3, and includes exceptions for included
+twentyfouronline is covered by the GPLv3, and includes exceptions for included
 third-party packages.  Please see README.md for full details.
 
 
@@ -682,3 +682,7 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/philosophy/why-not-lgpl.html>.
+
+
+
+

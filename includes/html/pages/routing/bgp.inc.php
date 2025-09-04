@@ -1,11 +1,11 @@
 <?php
 
 use App\Models\Device;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\IPv6;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Time;
-use LibreNMS\Util\Url;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\IPv6;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Time;
+use twentyfouronline\Util\Url;
 
 if (! Auth::user()->hasGlobalRead()) {
     include 'includes/html/error-no-perm.inc.php';
@@ -278,8 +278,8 @@ if (! Auth::user()->hasGlobalRead()) {
         // display overlib graphs
         $graph_array = [];
         $graph_array['type'] = 'bgp_updates';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
-        $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
+        $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
         $graph_array['height'] = '110';
         $graph_array['width'] = $width;
 
@@ -369,7 +369,7 @@ if (! Auth::user()->hasGlobalRead()) {
         if (isset($peer['graph']) && $peer['graph']) {
             $graph_array['height'] = '100';
             $graph_array['width'] = '218';
-            $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+            $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
             echo '<tr></tr><tr class="bgp"><td colspan="9">';
 
             include 'includes/html/print-graphrow.inc.php';
@@ -380,3 +380,7 @@ if (! Auth::user()->hasGlobalRead()) {
 
     echo '</table>';
 }//end if
+
+
+
+

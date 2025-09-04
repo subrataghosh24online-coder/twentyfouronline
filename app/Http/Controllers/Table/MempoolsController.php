@@ -18,22 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\Http\Controllers\Table;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Mempool;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Url;
 
 class MempoolsController extends TableController
 {
@@ -106,7 +106,7 @@ class MempoolsController extends TableController
         $graph = [
             'type' => 'mempool_usage',
             'id' => $mempool->mempool_id,
-            'from' => LibrenmsConfig::get('time.day'),
+            'from' => twentyfouronlineConfig::get('time.day'),
             'height' => 20,
             'width' => 80,
         ];
@@ -121,7 +121,7 @@ class MempoolsController extends TableController
         $graph = [
             'type' => 'mempool_usage',
             'id' => $mempool->mempool_id,
-            'from' => LibrenmsConfig::get('time.day'),
+            'from' => twentyfouronlineConfig::get('time.day'),
             'height' => 150,
             'width' => 400,
         ];
@@ -178,3 +178,7 @@ class MempoolsController extends TableController
         ];
     }
 }
+
+
+
+

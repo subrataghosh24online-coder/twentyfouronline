@@ -16,3 +16,7 @@ $colour_area_max = 'FFEE99';
 $unit_text = 'Objects';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

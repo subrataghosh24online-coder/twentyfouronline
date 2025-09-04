@@ -1,10 +1,10 @@
 #!/usr/bin/php
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Str;
-use LibreNMS\Authentication\LegacyAuth;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Authentication\LegacyAuth;
+use twentyfouronline\Util\Debug;
 
 $options = getopt('u:rldvh');
 if (isset($options['h']) || (! isset($options['l']) && ! isset($options['u']))) {
@@ -25,14 +25,14 @@ if (isset($options['d'])) {
 
 if (isset($options['v'])) {
     // Enable debug mode for auth methods that have it
-    LibrenmsConfig::set('auth_ad_debug', 1);
-    LibrenmsConfig::set('auth_ldap_debug', 1);
+    twentyfouronlineConfig::set('auth_ad_debug', 1);
+    twentyfouronlineConfig::set('auth_ldap_debug', 1);
 }
 
-echo 'Authentication Method: ' . LibrenmsConfig::get('auth_mechanism') . PHP_EOL;
+echo 'Authentication Method: ' . twentyfouronlineConfig::get('auth_mechanism') . PHP_EOL;
 
 // if ldap like, check selinux
-if (LibrenmsConfig::get('auth_mechanism') == 'ldap' || LibrenmsConfig::get('auth_mechanism') == 'active_directory') {
+if (twentyfouronlineConfig::get('auth_mechanism') == 'ldap' || twentyfouronlineConfig::get('auth_mechanism') == 'active_directory') {
     $enforce = shell_exec('getenforce 2>/dev/null');
     if (Str::contains($enforce, 'Enforcing')) {
         // has selinux
@@ -52,7 +52,7 @@ try {
     }
 
     // AD bind tests
-    if ($authorizer instanceof \LibreNMS\Authentication\ActiveDirectoryAuthorizer) {
+    if ($authorizer instanceof \twentyfouronline\Authentication\ActiveDirectoryAuthorizer) {
         // peek inside the class
         $lc_rp = new ReflectionProperty($authorizer, 'ldap_connection');
         $lc_rp->setAccessible(true);
@@ -60,13 +60,13 @@ try {
         $adbind_rm->setAccessible(true);
 
         $bind_success = false;
-        if (LibrenmsConfig::has('auth_ad_binduser') && LibrenmsConfig::has('auth_ad_bindpassword')) {
+        if (twentyfouronlineConfig::has('auth_ad_binduser') && twentyfouronlineConfig::has('auth_ad_bindpassword')) {
             $bind_success = $adbind_rm->invoke($authorizer, false, true);
             if (! $bind_success) {
                 $ldap_error = ldap_error($lc_rp->getValue($authorizer));
                 echo $ldap_error . PHP_EOL;
                 if ($ldap_error == 'Invalid credentials') {
-                    print_error('AD bind failed for user ' . LibrenmsConfig::get('auth_ad_binduser') . '@' . LibrenmsConfig::get('auth_ad_domain') .
+                    print_error('AD bind failed for user ' . twentyfouronlineConfig::get('auth_ad_binduser') . '@' . twentyfouronlineConfig::get('auth_ad_domain') .
                         '. Check \'auth_ad_binduser\' and \'auth_ad_bindpassword\' in your config');
                 }
             } else {
@@ -134,3 +134,7 @@ try {
     echo 'Error: ' . get_class($e) . " thrown!\n";
     echo $e->getMessage() . PHP_EOL;
 }
+
+
+
+

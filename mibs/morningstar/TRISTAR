@@ -648,3 +648,6 @@ maximumBatteryVoltage OBJECT-TYPE
 	::={ tristar 51 }
 
 END
+
+
+

@@ -3,7 +3,7 @@
 /**
  * ict-pdu.inc.php
  *
- * LibreNMS current sensor discovery module for ICT DC Distribution Panel
+ * twentyfouronline current sensor discovery module for ICT DC Distribution Panel
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Lorenzo Zafra
  * @author     Lorenzo Zafra<zafra@ualberta.ca>
@@ -55,3 +55,7 @@ if (! empty($systemCurrent)) {
 
     discover_sensor(null, 'current', $device, $oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current);
 }
+
+
+
+

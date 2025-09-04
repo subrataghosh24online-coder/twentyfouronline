@@ -18,3 +18,7 @@ $graph_max = 1;
 $unit_text = 'Prefixes';
 
 require 'includes/html/graphs/generic_duplex.inc.php';
+
+
+
+

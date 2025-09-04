@@ -659,3 +659,7 @@ ctEtherDuplexOperStatus OBJECT-TYPE
     ::= { ctEtherManualConfigEntry 6 }
      
 END
+
+
+
+

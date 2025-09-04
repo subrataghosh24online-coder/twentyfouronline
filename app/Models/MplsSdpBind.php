@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsSdpBind extends Model implements Keyable
 {
@@ -58,3 +58,7 @@ class MplsSdpBind extends Model implements Keyable
         return $this->belongsTo(MplsService::class, 'svc_id');
     }
 }
+
+
+
+

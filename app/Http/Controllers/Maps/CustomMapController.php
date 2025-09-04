@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2023 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Maps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomMapSettingsRequest;
 use App\Models\CustomMap;
@@ -51,18 +51,18 @@ class CustomMapController extends Controller
             'maps' => CustomMap::orderBy('name')->get(['custom_map_id', 'name', 'menu_group'])->groupBy('menu_group')->sortKeys(),
             'name' => 'New Map',
             'menu_group' => null,
-            'node_align' => LibrenmsConfig::get('custom_map.node_align', 10),
-            'edge_separation' => LibrenmsConfig::get('custom_map.edge_seperation', 10),
-            'reverse_arrows' => LibrenmsConfig::get('custom_map.reverse_arrows', false) ? 'true' : 'false',
+            'node_align' => twentyfouronlineConfig::get('custom_map.node_align', 10),
+            'edge_separation' => twentyfouronlineConfig::get('custom_map.edge_seperation', 10),
+            'reverse_arrows' => twentyfouronlineConfig::get('custom_map.reverse_arrows', false) ? 'true' : 'false',
             'legend' => [
                 'x' => -1,
                 'y' => -1,
             ],
-            'background_type' => LibrenmsConfig::get('custom_map.background_type', 'none'),
-            'background_data' => LibrenmsConfig::get('custom_map.background_data'),
+            'background_type' => twentyfouronlineConfig::get('custom_map.background_type', 'none'),
+            'background_data' => twentyfouronlineConfig::get('custom_map.background_data'),
             'map_conf' => [
-                'width' => LibrenmsConfig::get('custom_map.width', '1800px'),
-                'height' => LibrenmsConfig::get('custom_map.height', '800px'),
+                'width' => twentyfouronlineConfig::get('custom_map.width', '1800px'),
+                'height' => twentyfouronlineConfig::get('custom_map.height', '800px'),
                 'interaction' => [
                     'dragNodes' => true,
                     'dragView' => false,
@@ -121,9 +121,9 @@ class CustomMapController extends Controller
             'legend' => $this->legendConfig($map),
             'background_type' => $map->background_type,
             'background_config' => $map->getBackgroundConfig(),
-            'page_refresh' => LibrenmsConfig::get('page_refresh', 300),
+            'page_refresh' => twentyfouronlineConfig::get('page_refresh', 300),
             'map_conf' => $map_conf,
-            'base_url' => LibrenmsConfig::get('base_url'),
+            'base_url' => twentyfouronlineConfig::get('base_url'),
             'newedge_conf' => $map->newedgeconfig,
             'newnode_conf' => $map->newnodeconfig,
             'vmargin' => 20,
@@ -151,7 +151,7 @@ class CustomMapController extends Controller
             'edit' => true,
             'vmargin' => 20,
             'hmargin' => 20,
-            'base_url' => LibrenmsConfig::get('base_url'),
+            'base_url' => twentyfouronlineConfig::get('base_url'),
             'images' => $this->listNodeImages(),
             'maps' => CustomMap::orderBy('name')->where('custom_map_id', '<>', $map->custom_map_id)->get(['custom_map_id', 'name']),
         ];
@@ -186,18 +186,18 @@ class CustomMapController extends Controller
         $map->newnodeconfig = [
             'borderWidth' => 1,
             'color' => [
-                'border' => LibrenmsConfig::get('custom_map.node_border', '#2B7CE9'),
-                'background' => LibrenmsConfig::get('custom_map.node_background', '#D2E5FF'),
+                'border' => twentyfouronlineConfig::get('custom_map.node_border', '#2B7CE9'),
+                'background' => twentyfouronlineConfig::get('custom_map.node_background', '#D2E5FF'),
             ],
             'font' => [
-                'color' => LibrenmsConfig::get('custom_map.node_font_color', '#343434'),
-                'size' => LibrenmsConfig::get('custom_map.node_font_size', 14),
-                'face' => LibrenmsConfig::get('custom_map.node_font_face', 'arial'),
+                'color' => twentyfouronlineConfig::get('custom_map.node_font_color', '#343434'),
+                'size' => twentyfouronlineConfig::get('custom_map.node_font_size', 14),
+                'face' => twentyfouronlineConfig::get('custom_map.node_font_face', 'arial'),
             ],
             'icon' => [],
             'label' => true,
-            'shape' => LibrenmsConfig::get('custom_map.node_type', 'box'),
-            'size' => LibrenmsConfig::get('custom_map.node_size', 25),
+            'shape' => twentyfouronlineConfig::get('custom_map.node_type', 'box'),
+            'size' => twentyfouronlineConfig::get('custom_map.node_size', 25),
         ];
         $map->newedgeconfig = [
             'arrows' => [
@@ -209,15 +209,15 @@ class CustomMapController extends Controller
                 'type' => 'dynamic',
             ],
             'font' => [
-                'color' => LibrenmsConfig::get('custom_map.edge_font_color', '#343434'),
-                'size' => LibrenmsConfig::get('custom_map.edge_font_size', 12),
-                'face' => LibrenmsConfig::get('custom_map.edge_font_face', 'arial'),
-                'align' => LibrenmsConfig::get('custom_map.edge_font_align', 'horizontal'),
+                'color' => twentyfouronlineConfig::get('custom_map.edge_font_color', '#343434'),
+                'size' => twentyfouronlineConfig::get('custom_map.edge_font_size', 12),
+                'face' => twentyfouronlineConfig::get('custom_map.edge_font_face', 'arial'),
+                'align' => twentyfouronlineConfig::get('custom_map.edge_font_align', 'horizontal'),
             ],
             'label' => true,
         ];
-        $map->background_type = LibrenmsConfig::get('custom_map.background_type', 'none');
-        $map->background_data = LibrenmsConfig::get('custom_map.background_data');
+        $map->background_type = twentyfouronlineConfig::get('custom_map.background_type', 'none');
+        $map->background_data = twentyfouronlineConfig::get('custom_map.background_data');
         $map->legend_colours = $this->getDefaultLegendColours();
         if ($map->legend_colours) {
             $map->legend_steps = count($map->legend_colours) - 2;
@@ -338,7 +338,7 @@ class CustomMapController extends Controller
      */
     private function getDefaultLegendColours(): ?array
     {
-        $ret = LibrenmsConfig::get('custom_map.legend_colours', null);
+        $ret = twentyfouronlineConfig::get('custom_map.legend_colours', null);
 
         // Return null if there is no config
         if (! $ret) {
@@ -373,3 +373,7 @@ class CustomMapController extends Controller
         return $ret;
     }
 }
+
+
+
+

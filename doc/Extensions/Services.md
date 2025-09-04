@@ -1,6 +1,6 @@
 # Nagios Plugins - Services
 
-Services within LibreNMS provides the ability to leverage Nagios plugins to
+Services within twentyfouronline provides the ability to leverage Nagios plugins to
 perform additional monitoring outside of SNMP. Services can also be used
 in conjunction with your SNMP monitoring for larger monitoring functionality.
 
@@ -24,8 +24,8 @@ GUI "Type" dropdown list.
 
 ### Service Templates
 
-Service Templates within LibreNMS provides the same ability as Nagios
-does with Host Groups. Known as Device Groups in LibreNMS.
+Service Templates within twentyfouronline provides the same ability as Nagios
+does with Host Groups. Known as Device Groups in twentyfouronline.
 They are applied devices that belong to the specified Device Group.
 
 Use the Apply buttons to manually create or update Services for the Service
@@ -106,7 +106,7 @@ Centos:
 $config['nagios_plugins']   = "/usr/lib64/nagios/plugins";
 ```
 
-This will point LibreNMS at the location of the nagios plugins -
+This will point twentyfouronline at the location of the nagios plugins -
 please ensure that any plugins you use are set to executable. For example:
 
 Debian/Ubuntu:
@@ -120,24 +120,24 @@ chmod +x /usr/lib64/nagios/plugins/*
 ```
 
 Finally, you now need to add services-wrapper.py to the current cron
-file (/etc/cron.d/librenms typically) like:
+file (/etc/cron.d/twentyfouronline typically) like:
 
 ```bash
-*/5 * * * * librenms /opt/librenms/services-wrapper.py 1
+*/5 * * * * twentyfouronline /opt/twentyfouronline/services-wrapper.py 1
 ```
 
 Now you can add services via the main Services link in the navbar, or
 via the 'Add Service' link within the device, services page.
 
 Note that some services (procs, inodes, load and similar) will always
-poll the local LibreNMS server it's running on, regardless of which
+poll the local twentyfouronline server it's running on, regardless of which
 device you add it to.
 
 ### Performance data
 
 By default, the check-services script will collect all performance
 data that the Nagios script returns and display each datasource on a
-separate graph. LibreNMS expects scripts to return using Nagios
+separate graph. twentyfouronline expects scripts to return using Nagios
 convention for the response message structure:
 [AEN200](https://nagios-plugins.org/doc/guidelines.html#AEN200)
 
@@ -169,7 +169,7 @@ go together. Example below:
         "rtmin": "ms"
     }
     OK u:0.00 s:0.00 r:40.67
-    RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
+    RRD[update /opt/twentyfouronline/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
     -- snip --
 ```
 
@@ -192,10 +192,10 @@ rule would look like:
 
 ### Debug
 
-Change user to librenms for example
+Change user to twentyfouronline for example
 
 ```
-su - librenms
+su - twentyfouronline
 ```
 
 then you can run the following command to help troubleshoot services.
@@ -243,8 +243,12 @@ If you added..
 
 > cpu_check /usr/lib/nagios/plugins/check_cpu.sh -c 95 -w 75
 
-...to `/etc/check_mk/mrpe.cfg` on your remote host, you should be able to check its output by configuring a service using the [check_mrpe](https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/check_mrpe) script.
+...to `/etc/check_mk/mrpe.cfg` on your remote host, you should be able to check its output by configuring a service using the [check_mrpe](https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/check_mrpe) script.
 
- - Add [check_mrpe](https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/check_mrpe) to the Nagios plugins directory on your LibreNMS server and make it executable.
-- In LibreNMS, add a new service to the desired device with the type mrpe.
+ - Add [check_mrpe](https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/check_mrpe) to the Nagios plugins directory on your twentyfouronline server and make it executable.
+- In twentyfouronline, add a new service to the desired device with the type mrpe.
 - Enter the IP address of the remote host and in parameters enter `-a cpu_check` (this should match the name used at the beginning of the line in the mrpe.cfg file).
+
+
+
+

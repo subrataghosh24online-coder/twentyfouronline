@@ -670,3 +670,7 @@ rlsInventoryAmpsDignosticInputOpticalOverload OBJECT-TYPE
     ::= { rlsInventoryAmpsEntry 63 }
 
 END -- end of module CIENA-6500R-AMPS-MIB.
+
+
+
+

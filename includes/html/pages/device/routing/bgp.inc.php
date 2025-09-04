@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\IP;
+use twentyfouronline\Util\IP;
 
 $extra_sql = '';
 $link_array = [
@@ -205,8 +205,8 @@ foreach (dbFetchRows("SELECT * FROM `bgpPeers` WHERE `device_id` = ? $extra_sql 
     $graph_array = [];
     $graph_array['type'] = 'bgp_updates';
     $graph_array['id'] = $peer['bgpPeer_id'];
-    $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
-    $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+    $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
+    $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
     $graph_array['height'] = '110';
     if (isset($width)) {
         $graph_array['width'] = $width;
@@ -221,8 +221,8 @@ foreach (dbFetchRows("SELECT * FROM `bgpPeers` WHERE `device_id` = ? $extra_sql 
     $link_array = $graph_array;
     $link_array['page'] = 'graphs';
     unset($link_array['height'], $link_array['width'], $link_array['legend']);
-    $link = \LibreNMS\Util\Url::generate($link_array);
-    $peeraddresslink = '<span class=list-large>' . \LibreNMS\Util\Url::overlibLink($link, $peerIdentifierIp?->compressed(), \LibreNMS\Util\Url::graphTag($graph_array_zoom)) . '</span>';
+    $link = \twentyfouronline\Util\Url::generate($link_array);
+    $peeraddresslink = '<span class=list-large>' . \twentyfouronline\Util\Url::overlibLink($link, $peerIdentifierIp?->compressed(), \twentyfouronline\Util\Url::graphTag($graph_array_zoom)) . '</span>';
 
     if ($peer['bgpPeerLastErrorCode'] == 0 && $peer['bgpPeerLastErrorSubCode'] == 0) {
         $last_error = $peer['bgpPeerLastErrorText'];
@@ -241,7 +241,7 @@ foreach (dbFetchRows("SELECT * FROM `bgpPeers` WHERE `device_id` = ? $extra_sql 
         <td>' . $peer['bgpPeerDescr'] . "</td>
         <td><strong><span style='color: $admin_col;'>" . $peer['bgpPeerAdminStatus'] . "<span><br /><span style='color: $col;'>" . $peer['bgpPeerState'] . '</span></strong></td>
         <td>' . $last_error . '</td>
-        <td>' . \LibreNMS\Util\Time::formatInterval($peer['bgpPeerFsmEstablishedTime']) . "<br />
+        <td>' . \twentyfouronline\Util\Time::formatInterval($peer['bgpPeerFsmEstablishedTime']) . "<br />
         Updates <i class='fa fa-arrow-down icon-theme' aria-hidden='true'></i> " . $peer['bgpPeerInUpdates'] . "
         <i class='fa fa-arrow-up icon-theme' aria-hidden='true'></i> " . $peer['bgpPeerOutUpdates'] . '</td>
         </tr>';
@@ -284,7 +284,7 @@ foreach (dbFetchRows("SELECT * FROM `bgpPeers` WHERE `device_id` = ? $extra_sql 
     if (! empty($peer['graph'])) {
         $graph_array['height'] = '100';
         $graph_array['width'] = '216';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         echo '<tr class="bgp"><td colspan="7">';
 
         include 'includes/html/print-graphrow.inc.php';
@@ -299,3 +299,7 @@ foreach (dbFetchRows("SELECT * FROM `bgpPeers` WHERE `device_id` = ? $extra_sql 
 ?>
 
 </table>
+
+
+
+

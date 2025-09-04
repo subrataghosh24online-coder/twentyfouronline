@@ -172,3 +172,7 @@ tnEthSatLoopBackBytes OBJECT-TYPE
         "Indicates the counter about the received frame. the unit is bytes."
     ::= { tnEthSatLoopBackStatsEntry 3 }
 END
+
+
+
+

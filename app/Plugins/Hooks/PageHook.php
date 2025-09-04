@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -30,7 +30,7 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Str;
 
-abstract class PageHook implements \LibreNMS\Interfaces\Plugins\Hooks\SinglePageHook
+abstract class PageHook implements \twentyfouronline\Interfaces\Plugins\Hooks\SinglePageHook
 {
     public string $view = 'resources.views.page';
 
@@ -53,3 +53,7 @@ abstract class PageHook implements \LibreNMS\Interfaces\Plugins\Hooks\SinglePage
         ]));
     }
 }
+
+
+
+

@@ -8,3 +8,7 @@ if (isset($vars['phpfpm_pool'])) {
 } else {
     $rrd_filename = Rrd::name($device['hostname'], ['app', $name, $app->app_id, 'totals___' . $stat]);
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Eloquent\Builder;
-use LibreNMS\Util\Html;
+use twentyfouronline\Util\Html;
 
 function printEntPhysical($device, $ent, $level, $class)
 {
@@ -42,7 +42,7 @@ function printEntPhysical($device, $ent, $level, $class)
         $display_entPhysicalName = $ent['entPhysicalName'];
         if ($ent['ifIndex']) {
             $port = PortCache::getByIfIndex($ent['ifIndex'], $device['device_id']);
-            $display_entPhysicalName = \LibreNMS\Util\Url::portLink($port);
+            $display_entPhysicalName = \twentyfouronline\Util\Url::portLink($port);
         }
 
         if ($ent['entPhysicalModelName'] && $display_entPhysicalName) {
@@ -155,3 +155,7 @@ printEntPhysical($device, $ent['entPhysicalIndex'], $level, 'liOpen');
 echo '</ul></div>';
 
 $pagetitle = 'Inventory';
+
+
+
+

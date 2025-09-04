@@ -108,7 +108,7 @@ and displays the following:
 ```php
 <html>
     <head>
-        <title>LibreNMS Alert</title>
+        <title>twentyfouronline Alert</title>
     </head>
     <body>
         <div class="container">
@@ -262,7 +262,7 @@ Conditional formatting example, will display a link to the host in
 email or just the hostname in any other transport:
 
 ```php
-@if ($alert->transport == 'mail')<a href="https://my.librenms.install/device/device={{ $alert->hostname }}/">{{ $alert->hostname }}</a>
+@if ($alert->transport == 'mail')<a href="https://my.twentyfouronline.install/device/device={{ $alert->hostname }}/">{{ $alert->hostname }}</a>
 @else
 {{ $alert->hostname }}
 @endif
@@ -292,7 +292,7 @@ To use HTML emails you must set HTML email to Yes in the WebUI:
 There are two helpers for graphs that will use a signed url to allow secure external
 access. Anyone using the signed url will be able to view the graph.
 
- - Your LibreNMS web must be accessible from the location where the graph is viewed.
+ - Your twentyfouronline web must be accessible from the location where the graph is viewed.
    Some alert transports require publicly accessible urls.
  - APP_URL must be set in .env to use signed graphs.
  - Changing APP_KEY will invalidate all previously issued singed urls.
@@ -326,13 +326,13 @@ for that transport.
 Output:
 
 ```html
-<img class="librenms-graph" src="https://librenms.org/graph?from=1662176216&amp;height=250&amp;id=20425&amp;to=1662219416&amp;type=port_bits&amp;width=700&amp;signature=f6e516e8fd893c772eeaba165d027cb400e15a515254de561a05b63bc6f360a4">
+<img class="twentyfouronline-graph" src="https://twentyfouronline.org/graph?from=1662176216&amp;height=250&amp;id=20425&amp;to=1662219416&amp;type=port_bits&amp;width=700&amp;signature=f6e516e8fd893c772eeaba165d027cb400e15a515254de561a05b63bc6f360a4">
 ```
 
 Specific graph using url input:
 
 ```php
-@signedGraphTag('https://librenms.org/graph.php?type=device_processor&from=-2d&device=2&legend=no&height=400&width=1200')
+@signedGraphTag('https://twentyfouronline.org/graph.php?type=device_processor&from=-2d&device=2&legend=no&height=400&width=1200')
 ```
 
 ### @signedGraphUrl
@@ -438,7 +438,7 @@ The included templates apart from the default template are:
 ### Microsoft Teams - Markdown
 
 ```php
-[{{ $alert->title }}](https://your.librenms.url/device/device={{ $alert->device_id }}/)
+[{{ $alert->title }}](https://your.twentyfouronline.url/device/device={{ $alert->device_id }}/)
 **Device name:** {{ $alert->sysName }}
 **Severity:** {{ $alert->severity }}
 @if ($alert->state == 0)
@@ -477,19 +477,19 @@ The included templates apart from the default template are:
 @else
     "themeColor": "337AB7",
 @endif
-    "summary": "LibreNMS",
+    "summary": "twentyfouronline",
     "sections": [
         {
 @if ($alert->name)
             "facts": [
                 {
                     "name": "Rule:",
-                    "value": "[{{ $alert->name }}](https://your.librenms.url/device/device={{ $alert->device_id }}/tab=alert/)"
+                    "value": "[{{ $alert->name }}](https://your.twentyfouronline.url/device/device={{ $alert->device_id }}/tab=alert/)"
                 },
 @else
                 {
                     "name": "Rule:",
-                    "value": "[{{ $alert->rule }}](https://your.librenms.url/device/device={{ $alert->device_id }}/tab=alert/)"
+                    "value": "[{{ $alert->rule }}](https://your.twentyfouronline.url/device/device={{ $alert->device_id }}/tab=alert/)"
                 },
 @endif
                 {
@@ -512,7 +512,7 @@ The included templates apart from the default template are:
 @endif
                 {
                     "name": "Hostname:",
-                    "value": "[{{ $alert->hostname }}](https://your.librenms.url/device/device={{ $alert->device_id }}/)"
+                    "value": "[{{ $alert->hostname }}](https://your.twentyfouronline.url/device/device={{ $alert->device_id }}/)"
                 },
                 {
                     "name": "Hardware:",
@@ -534,7 +534,7 @@ The included templates apart from the default template are:
             "facts": [
                 {
                     "name": "Port:",
-                    "value": "[{{ $value['ifName'] }}](https://your.librenms.url/device/device={{ $alert->device_id }}/tab=port/port={{ $value['port_id'] }}/)"
+                    "value": "[{{ $value['ifName'] }}](https://your.twentyfouronline.url/device/device={{ $alert->device_id }}/tab=port/port={{ $value['port_id'] }}/)"
                 },
                 {
                     "name": "Description:",
@@ -578,7 +578,7 @@ The included templates apart from the default template are:
     };
 @endphp
 {
-    "type": "LibreNMS AdaptiveCard Alert",
+    "type": "twentyfouronline AdaptiveCard Alert",
     "attachments": [
         {
             "contentType": "application/vnd.microsoft.card.adaptive",
@@ -592,7 +592,7 @@ The included templates apart from the default template are:
                         "size":  "Large",
                         "weight":  "Bolder",
                         "color":  "{{ $state_color }}",
-                        "text":  "🚨 **LibreNMS Alert @if ($alert->state == 0) - Resolved @endif**",
+                        "text":  "🚨 **twentyfouronline Alert @if ($alert->state == 0) - Resolved @endif**",
                         "horizontalAlignment":  "Center",
                         "spacing":  "Small"
                     },
@@ -702,7 +702,7 @@ The included templates apart from the default template are:
                         "type":  "Action.OpenUrl",
                         "title":  "View Alert",
                         "style": "positive",
-                        "url":  "https://librenms.server.utsc.utoronto.ca/device/{{ $alert->device_id }}/alerts"
+                        "url":  "https://twentyfouronline.server.utsc.utoronto.ca/device/{{ $alert->device_id }}/alerts"
                     }
                 ]
                 }
@@ -710,3 +710,7 @@ The included templates apart from the default template are:
     ]
 }
 ```
+
+
+
+

@@ -18,3 +18,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:txFrequency:MIN:%0.2lf%s ';
     $rrd_options .= ' GPRINT:txFrequency:MAX:%0.2lf%s\\\l ';
 }
+
+
+
+

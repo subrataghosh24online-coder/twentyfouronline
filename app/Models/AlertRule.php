@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -29,7 +29,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Enum\AlertState;
+use twentyfouronline\Enum\AlertState;
 
 class AlertRule extends BaseModel
 {
@@ -182,3 +182,7 @@ class AlertRule extends BaseModel
             ->wherePivot('target_type', 'group');
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Network Management and Monitoring System
+ * twentyfouronline Network Management and Monitoring System
  * Copyright (C) 2006-2011, Observium Developers - http://www.observium.org
  *
  * This program is free software: you can redistribute it and/or modify
@@ -12,12 +12,12 @@
  * See COPYING for more details.
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $query = 'SELECT `sensor_class` FROM `sensors` WHERE `device_id` = ?';
 $params = [$device['device_id']];
 
-$submodules = LibrenmsConfig::get('poller_submodules.sensors', []);
+$submodules = twentyfouronlineConfig::get('poller_submodules.sensors', []);
 if (! empty($submodules)) {
     $query .= ' AND `sensor_class` IN ' . dbGenPlaceholders(count($submodules));
     $params = array_merge($params, $submodules);
@@ -30,3 +30,7 @@ foreach (dbFetchRows($query, $params) as $sensor_type) {
 }
 
 unset($submodules, $sensor_type, $query, $params);
+
+
+
+

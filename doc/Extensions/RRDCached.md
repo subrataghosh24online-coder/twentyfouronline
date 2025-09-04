@@ -3,7 +3,7 @@
  - [Github: Oetiker RRDCached](https://github.com/oetiker/rrdtool-1.x/)
  - [RRDCached](https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html)
 
-This document will explain how to set up RRDCached for LibreNMS.
+This document will explain how to set up RRDCached for twentyfouronline.
 
 Since version 1.5, rrdtool / rrdcached now supports creating rrd files
 over rrdcached. If you have rrdcached 1.5.5 or above, you can also
@@ -48,7 +48,7 @@ T = Tune RRD files.
 | >=1.6.x | No        | G,C,U    |
 | >=1.8.x | No        | G,C,U,T  |
 
-It is recommended that you monitor your LibreNMS server with LibreNMS
+It is recommended that you monitor your twentyfouronline server with twentyfouronline
 so you can view the disk I/O usage delta.
 This can be done with the [RRDCached plugin](Applications/RRDCached.md).
 
@@ -71,14 +71,14 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
 
         ```bash
         BASE_OPTIONS="-B -F -R"
-        BASE_PATH=/opt/librenms/rrd/
-        DAEMON_GROUP=librenms
-        DAEMON_USER=librenms
+        BASE_PATH=/opt/twentyfouronline/rrd/
+        DAEMON_GROUP=twentyfouronline
+        DAEMON_USER=twentyfouronline
         DAEMON=/usr/bin/rrdcached
         JOURNAL_PATH=/var/lib/rrdcached/journal/
         PIDFILE=/run/rrdcached.pid
         SOCKFILE=/run/rrdcached.sock
-        SOCKGROUP=librenms
+        SOCKGROUP=twentyfouronline
         WRITE_JITTER=1800
         WRITE_THREADS=4
         WRITE_TIMEOUT=1800
@@ -87,7 +87,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
      3. Fix permissions
 
         ```bash
-        chown librenms:librenms /var/lib/rrdcached/journal/
+        chown twentyfouronline:twentyfouronline /var/lib/rrdcached/journal/
         ```
 
      4. Restart the rrdcached service
@@ -111,14 +111,14 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
 
         ```bash
         BASE_OPTIONS="-B -F -R"
-        BASE_PATH=/opt/librenms/rrd/
-        DAEMON_GROUP=librenms
-        DAEMON_USER=librenms
+        BASE_PATH=/opt/twentyfouronline/rrd/
+        DAEMON_GROUP=twentyfouronline
+        DAEMON_USER=twentyfouronline
         DAEMON=/usr/bin/rrdcached
         JOURNAL_PATH=/var/lib/rrdcached/journal/
         PIDFILE=/var/run/rrdcached.pid
         SOCKFILE=/run/rrdcached.sock
-        SOCKGROUP=librenms
+        SOCKGROUP=twentyfouronline
         WRITE_JITTER=1800
         WRITE_THREADS=4
         WRITE_TIMEOUT=1800
@@ -127,7 +127,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
      3. Fix permissions
 
         ```bash
-        chown librenms:librenms /var/lib/rrdcached/journal/
+        chown twentyfouronline:twentyfouronline /var/lib/rrdcached/journal/
         ```
 
      4. Restart the rrdcached service
@@ -142,13 +142,13 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
     !!! note
         `rrdcached` is installed as part of the `rrdtool` package, but the `rrdcached` service is not setup by default, unlike the Ubuntu/Debian setup.
 
-        The intermediate files generated during the process for the SELinux policy (e.g., `rrdcached_librenms.mod` and `rrdcached_librenms.pp`) do not need to be saved after the policy module is successfully installed.
+        The intermediate files generated during the process for the SELinux policy (e.g., `rrdcached_twentyfouronline.mod` and `rrdcached_twentyfouronline.pp`) do not need to be saved after the policy module is successfully installed.
 
 
      1. link in the service and reload:
 
         ```bash
-        ln -s /opt/librenms/dist/rrdcached/rrdcached.service /etc/systemd/system/
+        ln -s /opt/twentyfouronline/dist/rrdcached/rrdcached.service /etc/systemd/system/
         systemctl daemon-reload
         ```
 
@@ -158,7 +158,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
          1. Compile the SELinux Policy Compile the SELinux policy module using the following command:
 
             ```bash
-            checkmodule -M -m -o /tmp/rrdcached_librenms.mod /opt/librenms/dist/rrdcached/rrdcached_librenms.te
+            checkmodule -M -m -o /tmp/rrdcached_twentyfouronline.mod /opt/twentyfouronline/dist/rrdcached/rrdcached_twentyfouronline.te
             ```
 
             Explanation:
@@ -169,7 +169,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
          2. Package the Policy Module Package the compiled module into a loadable policy package:
 
             ```bash
-            semodule_package -o /tmp/rrdcached_librenms.pp -m /tmp/rrdcached_librenms.mod
+            semodule_package -o /tmp/rrdcached_twentyfouronline.pp -m /tmp/rrdcached_twentyfouronline.mod
             ```
 
             Explanation:
@@ -179,7 +179,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
          3. Apply the Policy Module Apply the policy module to the system:
 
             ```bash
-            semodule -i /tmp/rrdcached_librenms.pp
+            semodule -i /tmp/rrdcached_twentyfouronline.pp
             ```
 
             Explanation:
@@ -193,7 +193,7 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
 
 === "CentOS 6"
 
-    This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
+    This example is based on a fresh twentyfouronline install, on a minimal CentOS 6 installation.
     In this example, we'll use the Repoforge repository.
 
     ```bash
@@ -222,15 +222,15 @@ Ubuntu and Debian are very similar, the main difference is the location of the `
 
     ```bash
     # Settings for rrdcached
-    OPTIONS="-w 1800 -z 1800 -f 3600 -s librenms -U librenms -G librenms -B -R -j /var/tmp -l unix:/run/rrdcached.sock -t 4 -F -b /opt/librenms/rrd/"
-    RRDC_USER=librenms
+    OPTIONS="-w 1800 -z 1800 -f 3600 -s twentyfouronline -U twentyfouronline -G twentyfouronline -B -R -j /var/tmp -l unix:/run/rrdcached.sock -t 4 -F -b /opt/twentyfouronline/rrd/"
+    RRDC_USER=twentyfouronline
     ```
 
     ```bash
     mkdir /var/run/rrdcached
-    chown librenms:librenms /var/run/rrdcached/
-    chown librenms:librenms /var/rrdtool/
-    chown librenms:librenms /var/rrdtool/rrdcached/
+    chown twentyfouronline:twentyfouronline /var/run/rrdcached/
+    chown twentyfouronline:twentyfouronline /var/rrdtool/
+    chown twentyfouronline:twentyfouronline /var/rrdtool/rrdcached/
     ```
 
     ```bash
@@ -254,9 +254,9 @@ For remote RRDCached server make sure you have network option `-L` in `/var/defa
     NETWORK_OPTIONS="-L"
     ```
 
-## LibreNMS config
+## twentyfouronline config
 
-Edit your LibreNMS config by running the following:
+Edit your twentyfouronline config by running the following:
 
 === "Local RRDCached"
 
@@ -276,8 +276,8 @@ Edit your LibreNMS config by running the following:
 
 ## Verify
 
-Check to see if the graphs are being drawn in LibreNMS. This might take a few minutes.
-After at least one poll cycle (5 mins), check the LibreNMS disk I/O performance delta.
+Check to see if the graphs are being drawn in twentyfouronline. This might take a few minutes.
+After at least one poll cycle (5 mins), check the twentyfouronline disk I/O performance delta.
 Disk I/O can be found under the menu Devices>All Devices>[localhost_hostname]>Health>Disk I/O.
 
 Depending on many factors, you should see the Ops/sec drop by ~30-40%.
@@ -287,16 +287,16 @@ Depending on many factors, you should see the Ops/sec drop by ~30-40%.
 If you are using SELinux, and you have issue you can verify the policy module is installed by running the following command:
 
 ```bash
-semodule -l | grep rrdcached_librenms
+semodule -l | grep rrdcached_twentyfouronline
 ```
 
-Test Functionality: Ensure LibreNMS can successfully interact with RRDcached without SELinux denials. Check SELinux logs for any denials:
+Test Functionality: Ensure twentyfouronline can successfully interact with RRDcached without SELinux denials. Check SELinux logs for any denials:
 
 ```bash
 ausearch -m avc -ts recent
 ```
 
-If there are no denials, the policy module has been successfully installed and Librenms can interact with RRDcached.
+If there are no denials, the policy module has been successfully installed and twentyfouronline can interact with RRDcached.
 
 ## Securing RRCached
 
@@ -328,7 +328,7 @@ server {
 
     error_log  /var/log/nginx/rrd.stream.error.log;
 
-    allow $LibreNMS_IP;
+    allow $twentyfouronline_IP;
     deny all;
 
     proxy_pass unix:/run/rrdcached.sock;
@@ -336,10 +336,14 @@ server {
 
 ```
 
-Replace `$LibreNMS_IP` with the ip of the server that will be using rrdcached. You can specify more than one `allow` statement. This will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.
+Replace `$twentyfouronline_IP` with the ip of the server that will be using rrdcached. You can specify more than one `allow` statement. This will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.
 
 next, we'll symlink the config to streams-enabled:
 `ln -s /etc/nginx/streams-{available,enabled}/rrd`
 
 and reload nginx
 `service nginx reload`
+
+
+
+

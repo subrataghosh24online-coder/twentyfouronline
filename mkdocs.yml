@@ -1,8 +1,8 @@
-site_name: LibreNMS Docs
+site_name: twentyfouronline Docs
 docs_dir: doc
 theme:
   name: material
-  logo: img/librenms.svg
+  logo: img/twentyfouronline.svg
   language: en
   font:
     text: 'Roboto'
@@ -33,7 +33,7 @@ theme:
     - content.action.edit
     - content.code.copy
 site_dir: out
-site_url: https://docs.librenms.org
+site_url: https://docs.twentyfouronline.org
 markdown_extensions:
   - tables
   - admonition
@@ -74,17 +74,17 @@ plugins:
         'Extensions/Port-Description-Parser.md': 'Extensions/Interface-Description-Parsing.md'
         'Extensions/Prometheus.md': 'Extensions/metrics/Prometheus.md'
         'General/Contributing.md': 'Developing/Getting-Started.md'
-        'Installation/CentOS-image.md': 'Installation/Install-LibreNMS.md'
-        'Installation/index.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-CentOS-6-Apache-Nginx.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-CentOS-7-Apache.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-CentOS-7-Nginx.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-Debian-11-Nginx.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-Ubuntu-1604-Apache.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-Ubuntu-1604-Nginx.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-Ubuntu-1804-Apache.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installation-Ubuntu-1804-Nginx.md': 'Installation/Install-LibreNMS.md'
-        'Installation/Installing-LibreNMS.md': 'Installation/Install-LibreNMS.md'
+        'Installation/CentOS-image.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/index.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-CentOS-6-Apache-Nginx.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-CentOS-7-Apache.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-CentOS-7-Nginx.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-Debian-11-Nginx.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-Ubuntu-1604-Apache.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-Ubuntu-1604-Nginx.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-Ubuntu-1804-Apache.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installation-Ubuntu-1804-Nginx.md': 'Installation/Install-twentyfouronline.md'
+        'Installation/Installing-twentyfouronline.md': 'Installation/Install-twentyfouronline.md'
         'Installation/Ubuntu-image.md': 'Installation/Images.md'
         'Support/Support-New-OS.md': 'Developing/Support-New-OS.md'
   - minify:
@@ -96,12 +96,12 @@ plugins:
       js_files:
           - js/docs-settings-links.js
       css_files:
-          - librenms.css
+          - twentyfouronline.css
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css
-  - librenms.css
+  - twentyfouronline.css
 extra_javascript:
   - js/docs-settings-links.js
 extra:
@@ -114,29 +114,29 @@ extra:
     version_min: 8.2
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/librenms/
+      link: https://github.com/twentyfouronline/
       name: GitHub
     - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/librenms/librenms
+      link: https://hub.docker.com/r/twentyfouronline/twentyfouronline
       name: Docker
     - icon: fontawesome/brands/discord
-      link: https://discord.com/invite/librenms
+      link: https://discord.com/invite/twentyfouronline
       name: Discord
     - icon: fontawesome/brands/reddit
-      link: https://www.reddit.com/r/LibreNMS/
+      link: https://www.reddit.com/r/twentyfouronline/
       name: Reddit
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/librenms
+      link: https://twitter.com/twentyfouronline
       name: Twitter
     - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/LibreNMS
+      link: https://www.facebook.com/twentyfouronline
       name: Facebook
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/librenms/
+      link: https://www.linkedin.com/company/twentyfouronline/
       name: LinkedIn
-site_author: LibreNMS
-site_description: LibreNMS user and developer documentation
-repo_url: https://github.com/librenms/librenms/
+site_author: twentyfouronline
+site_description: twentyfouronline user and developer documentation
+repo_url: https://github.com/twentyfouronline/twentyfouronline/
 edit_uri: edit/master/doc
 repo_name: GitHub
 nav:
@@ -150,7 +150,7 @@ nav:
     - 3rd Party Libraries: General/Acknowledgement.md
 
   - Installation:
-    - Installing LibreNMS: Installation/Install-LibreNMS.md
+    - Installing twentyfouronline: Installation/Install-twentyfouronline.md
     - Other Methods:
       - Docker: Installation/Docker.md
       - Virtual machines: Installation/Images.md
@@ -196,7 +196,7 @@ nav:
       - Redis Sentinel: Extensions/Redis-Sentinel.md
       - RRDCached: Extensions/RRDCached.md
       - RRDTune: Extensions/RRDTune.md
-      - Scaling LibreNMS: Extensions/Distributed-Poller.md
+      - Scaling twentyfouronline: Extensions/Distributed-Poller.md
       - SNMP Proxy: Extensions/SNMP-Proxy.md
       - SNMP Trap Handler: Extensions/SNMP-Trap-Handler.md
       - Sub-directory Support: Extensions/Sub-Directory.md
@@ -308,3 +308,7 @@ nav:
       - Raritan: Support/Device-Notes/Raritan.md
       - RouterOS: Support/Device-Notes/Routeros.md
       - Supermicro: Extensions/Supermicro.md
+
+
+
+

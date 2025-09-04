@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -53,10 +53,10 @@ $rrd_options .= " COMMENT:'" . str_pad($unit_long, 35) . str_pad('Cur', $col_w) 
 
 foreach ($sensors as $index => $sensor) {
     $sensor_id = $sensor['sensor_id'];
-    $colour_index = $index % count(\App\Facades\LibrenmsConfig::get('graph_colours.mixed'));
-    $colour = \App\Facades\LibrenmsConfig::get("graph_colours.mixed.$colour_index");
+    $colour_index = $index % count(\App\Facades\twentyfouronlineConfig::get('graph_colours.mixed'));
+    $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.mixed.$colour_index");
 
-    $sensor_descr_fixed = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($sensor['sensor_descr'], 28);
+    $sensor_descr_fixed = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($sensor['sensor_descr'], 28);
     $rrd_file = Rrd::name($device['hostname'], ['wireless-sensor', $sensor['sensor_class'], $sensor['sensor_type'], $sensor['sensor_index']]);
     $rrd_options .= " DEF:sensor$sensor_id=$rrd_file:sensor:AVERAGE";
 
@@ -69,3 +69,7 @@ foreach ($sensors as $index => $sensor) {
     $rrd_options .= " GPRINT:$output_def$sensor_id:MIN:'$num$unit'";
     $rrd_options .= " GPRINT:$output_def$sensor_id:MAX:'$num$unit'\\l ";
 }//end foreach
+
+
+
+

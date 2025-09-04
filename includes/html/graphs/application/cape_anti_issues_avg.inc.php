@@ -20,3 +20,7 @@ $descr = 'Average';
 $ds = 's3anti_issues';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

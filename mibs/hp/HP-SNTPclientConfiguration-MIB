@@ -269,3 +269,7 @@ HP-SNTPclientConfiguration-MIB DEFINITIONS ::= BEGIN
       DESCRIPTION "This Group defines a server table entry."
       ::= { hpSntpConfigGroups 4 }
 END
+
+
+
+

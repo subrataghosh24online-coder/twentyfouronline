@@ -16,3 +16,7 @@ $scale_min = '0';
 $unit_text = 'Server Conn';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

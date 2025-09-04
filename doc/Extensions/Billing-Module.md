@@ -13,10 +13,10 @@ To enable and use the billing module you need to perform the following steps:
     ```
 
 === "Cron"
-    Edit `/etc/cron.d/librenms` and add the following:
+    Edit `/etc/cron.d/twentyfouronline` and add the following:
     ```bash
-    */5 * * * * librenms /opt/librenms/poll-billing.php >> /dev/null 2>&1
-    01  * * * * librenms /opt/librenms/billing-calculate.php >> /dev/null 2>&1
+    */5 * * * * twentyfouronline /opt/twentyfouronline/poll-billing.php >> /dev/null 2>&1
+    01  * * * * twentyfouronline /opt/twentyfouronline/billing-calculate.php >> /dev/null 2>&1
     ```
 
 === "Dispatcher Service"
@@ -25,7 +25,7 @@ To enable and use the billing module you need to perform the following steps:
 
 ## Adding a bill
 
-To create a new bill, from the LibreNMS menu select Ports -> Traffic Bills and
+To create a new bill, from the twentyfouronline menu select Ports -> Traffic Bills and
 select `+ Create Bill`.
 
 Enter the relevant details within the form, ensuring that you select at least
@@ -46,3 +46,7 @@ This can be changed on a per bill basis by setting 95th Calculation to "Aggregat
 
 This configuration setting is cosmetic and only changes the default
 selected option when adding a new bill.
+
+
+
+

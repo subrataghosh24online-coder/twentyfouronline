@@ -48,3 +48,7 @@ for ($i = 1; $i <= $numPhase; $i++) {
     $index = (100 + $i);
     discover_sensor(null, 'frequency', $device, $freq_oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current);
 }
+
+
+
+

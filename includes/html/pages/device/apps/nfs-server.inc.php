@@ -7,10 +7,10 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage nfs-server
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
  * @author     SvennD <svennd@svennd.be>
 */
 
@@ -91,7 +91,7 @@ foreach ($graphs[$vars['app_section']] as $key => $info) {
     $graph_type = $key;
     $graph_array['height'] = '100';
     $graph_array['width'] = '215';
-    $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+    $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
     $graph_array['id'] = $app['app_id'];
     $graph_array['type'] = 'application_' . $key;
 
@@ -106,3 +106,7 @@ foreach ($graphs[$vars['app_section']] as $key => $info) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

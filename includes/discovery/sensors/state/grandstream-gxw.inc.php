@@ -3,7 +3,7 @@
 /**
  * grandstream-gxw.inc.php
  *
- * LibreNMS state sensor discovery for Grandstream GXW devices
+ * twentyfouronline state sensor discovery for Grandstream GXW devices
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2025 LibreNMS
- * @author     LibreNMS Contributors
+ * @copyright  2025 twentyfouronline
+ * @author     twentyfouronline Contributors
  */
 echo 'Grandstream GXW: ';
 
@@ -122,3 +122,7 @@ if (is_array($statuses)) {
 }
 
 unset($statuses, $states, $state_lookup, $states, $statuses);
+
+
+
+

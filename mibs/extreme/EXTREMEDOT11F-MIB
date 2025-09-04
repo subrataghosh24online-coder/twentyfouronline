@@ -26,3 +26,7 @@ EXTREMEdot11f-MIB DEFINITIONS ::= BEGIN
     ::= { extremeAP 22 }
 
 END
+
+
+
+

@@ -7,7 +7,7 @@ A shell script that gets the stats from chronyd and exports them with SNMP Exten
 1. Download the shell script onto the desired host
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/chrony -O /etc/snmp/chrony
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/chrony -O /etc/snmp/chrony
     ```
 
 2. Make the script executable
@@ -28,3 +28,7 @@ A shell script that gets the stats from chronyd and exports them with SNMP Exten
 4. Restart snmpd service on the host
 
     Application should be auto-discovered and its stats presented on the Apps-page on the host. Note: Applications module needs to be enabled on the host or globally for the statistics to work as intended.
+
+
+
+

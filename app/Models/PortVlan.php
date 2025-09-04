@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class PortVlan extends PortRelatedModel implements Keyable
 {
@@ -37,3 +37,7 @@ class PortVlan extends PortRelatedModel implements Keyable
         return $this->port_id . '-' . $this->vlan;
     }
 }
+
+
+
+

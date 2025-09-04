@@ -467,3 +467,7 @@ switchMgtTrapsObj  OBJECT IDENTIFIER ::= { sessionMgr 7 }
         ::= { alcatelIND1SessionMgrMIBGroups 4 }
 
 END
+
+
+
+

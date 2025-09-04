@@ -2877,3 +2877,7 @@ INSERT INTO migrations VALUES(335,'2025_04_29_150404_context_nullable_in_ipv4_ma
 INSERT INTO migrations VALUES(336,'2025_04_29_150423_context_nullable_in_ipv6_nd_table',1);
 INSERT INTO migrations VALUES(337,'2025_05_02_133959_filter_empty_socialite_configs',1);
 INSERT INTO migrations VALUES(338,'2025_05_03_152418_remove_invalid_sensor_classes',1);
+
+
+
+

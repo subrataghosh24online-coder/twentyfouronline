@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class Label extends Component
 {
@@ -35,3 +35,7 @@ class Label extends Component
         return view('components.label');
     }
 }
+
+
+
+

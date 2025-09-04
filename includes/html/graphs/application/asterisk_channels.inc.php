@@ -12,3 +12,7 @@ $unit_text = 'Channels';
 $rrd_filename = Rrd::name($device['hostname'], ['app', 'asterisk', 'stats', $app->app_id]);
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

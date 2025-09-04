@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Ipv6Nd extends Model implements Keyable
 {
@@ -23,3 +23,7 @@ class Ipv6Nd extends Model implements Keyable
         return $this->getAttribute('port_id') . '_' . $this->getAttribute('ipv6_address');
     }
 }
+
+
+
+

@@ -51,9 +51,9 @@ can access device variables such as `$device->hostname`, `$device->sysName` and 
 | external | Open link in new window. Default: true |
 | action | Show as action on device list. Default: false |
 
-### Launching Windows programs from the LibreNMS device menu
+### Launching Windows programs from the twentyfouronline device menu
 
-You can launch windows programs from links in LibreNMS, but it does take
+You can launch windows programs from links in twentyfouronline, but it does take
 some registry entries on the client device. Save the following as winbox.reg, 
 edit for your winbox.exe path and double click to add to your registry.
 
@@ -108,3 +108,7 @@ The primary button is edit device by default.
 Custom ports can be set through the device setting misc tab and will be appended to the Uri. Empty value will not append anything and automatically default to the standard.
 	- custom ssh port set to 2222 will result in ssh://10.0.0.0:2222
 	- custom telnet port set to 2323 will result in telnet://10.0.0.0:2323
+
+
+
+

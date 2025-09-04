@@ -6,7 +6,7 @@ foreach ($ponTable as $e7OltPonPortShelf => $ponShelf) {
     foreach ($ponShelf as $e7OltPonPortSlot => $ponSlot) {
         foreach ($ponSlot as $e7OltPonPortId => $ponPort) {
             if ($ponPort['E7-Calix-MIB::e7OltPonPortStatus'] != 0) {
-                $ifIndex = \LibreNMS\OS\Exa::getIfIndex($e7OltPonPortShelf, $e7OltPonPortSlot, $e7OltPonPortId, 'gpon'); // we know these are GPON, so we can infer the ifIndex
+                $ifIndex = \twentyfouronline\OS\Exa::getIfIndex($e7OltPonPortShelf, $e7OltPonPortSlot, $e7OltPonPortId, 'gpon'); // we know these are GPON, so we can infer the ifIndex
                 $index = "$e7OltPonPortShelf.$e7OltPonPortSlot.$e7OltPonPortId";
                 $name = "$e7OltPonPortShelf/$e7OltPonPortSlot/$e7OltPonPortId";
 
@@ -32,3 +32,7 @@ foreach ($ponTable as $e7OltPonPortShelf => $ponShelf) {
         }
     }
 }
+
+
+
+

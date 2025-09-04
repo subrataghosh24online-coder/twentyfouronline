@@ -986,3 +986,7 @@
     "builder": {"condition":"AND","rules":[{"id":"applications.app_type","field":"applications.app_type","type":"string","input":"text","operator":"equal","value":"zfs"},{"id":"application_metrics.metric like \"pool_%_%_errors\"","field":"application_metrics.metric like \"pool_%_%_errors\"","type":null,"input":"text","operator":"equal","value":"1"},{"id":"application_metrics.value","field":"application_metrics.value","type":"string","input":"text","operator":"greater","value":"0"}],"valid":true}
   }
 ]
+
+
+
+

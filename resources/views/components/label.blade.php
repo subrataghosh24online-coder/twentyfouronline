@@ -4,3 +4,7 @@
         <span {{ $badge->attributes->class('badge') }}>{{ $badge }}</span>
     @endisset
 </span>
+
+
+
+

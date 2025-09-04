@@ -18,27 +18,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\Http;
-use LibreNMS\Util\Version;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\Http;
+use twentyfouronline\Util\Version;
 
 class ProxyTest extends TestCase
 {
     public function testClientAgentIsCorrect(): void
     {
-        $this->assertEquals('LibreNMS/' . Version::VERSION, Http::client()->getOptions()['headers']['User-Agent']);
+        $this->assertEquals('twentyfouronline/' . Version::VERSION, Http::client()->getOptions()['headers']['User-Agent']);
     }
 
     public function testProxyIsNotSet(): void
     {
-        LibrenmsConfig::set('http_proxy', '');
-        LibrenmsConfig::set('https_proxy', '');
-        LibrenmsConfig::set('no_proxy', '');
+        twentyfouronlineConfig::set('http_proxy', '');
+        twentyfouronlineConfig::set('https_proxy', '');
+        twentyfouronlineConfig::set('no_proxy', '');
         $client_options = Http::client()->getOptions();
         $this->assertEmpty($client_options['proxy']['http']);
         $this->assertEmpty($client_options['proxy']['https']);
@@ -47,9 +47,9 @@ class ProxyTest extends TestCase
 
     public function testProxyIsSet(): void
     {
-        LibrenmsConfig::set('http_proxy', 'http://proxy:5000');
-        LibrenmsConfig::set('https_proxy', 'tcp://proxy:5183');
-        LibrenmsConfig::set('no_proxy', 'localhost,127.0.0.1,::1,.domain.com');
+        twentyfouronlineConfig::set('http_proxy', 'http://proxy:5000');
+        twentyfouronlineConfig::set('https_proxy', 'tcp://proxy:5183');
+        twentyfouronlineConfig::set('no_proxy', 'localhost,127.0.0.1,::1,.domain.com');
         $client_options = Http::client()->getOptions();
         $this->assertEquals('http://proxy:5000', $client_options['proxy']['http']);
         $this->assertEquals('tcp://proxy:5183', $client_options['proxy']['https']);
@@ -63,9 +63,9 @@ class ProxyTest extends TestCase
 
     public function testProxyIsSetFromEnv(): void
     {
-        LibrenmsConfig::set('http_proxy', '');
-        LibrenmsConfig::set('https_proxy', '');
-        LibrenmsConfig::set('no_proxy', '');
+        twentyfouronlineConfig::set('http_proxy', '');
+        twentyfouronlineConfig::set('https_proxy', '');
+        twentyfouronlineConfig::set('no_proxy', '');
 
         putenv('HTTP_PROXY=someproxy:3182');
         putenv('HTTPS_PROXY=https://someproxy:3182');
@@ -90,3 +90,7 @@ class ProxyTest extends TestCase
         ], $client_options['proxy']['no']);
     }
 }
+
+
+
+

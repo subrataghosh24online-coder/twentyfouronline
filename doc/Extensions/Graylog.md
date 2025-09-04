@@ -1,25 +1,25 @@
 # Graylog integration
 
 We have simple integration for Graylog, you will be able to view any
-logs from within LibreNMS that have been parsed by the syslog input
+logs from within twentyfouronline that have been parsed by the syslog input
 from within Graylog itself. This includes logs from devices which
-aren't in LibreNMS still, you can also see logs for a specific device
+aren't in twentyfouronline still, you can also see logs for a specific device
 under the logs section for the device.
 
-Currently, LibreNMS does not associate shortnames from Graylog with
-full FQDNS. If you have your devices in LibreNMS using full FQDNs,
+Currently, twentyfouronline does not associate shortnames from Graylog with
+full FQDNS. If you have your devices in twentyfouronline using full FQDNs,
 such as hostname.example.com, be aware that rsyslogd, by default,
 sends the shortname only. To fix this, add
 
 `$PreserveFQDN on`
 
 to your rsyslog config to send the full FQDN so device logs will be
-associated correctly in LibreNMS. Also see near the bottom of this
+associated correctly in twentyfouronline. Also see near the bottom of this
 document for tips on how to enable/suppress the domain part of
 hostnames in syslog-messages for some platforms.
 
-Graylog itself isn't included within LibreNMS, you will need to
-install this separately either on the same infrastructure as LibreNMS
+Graylog itself isn't included within twentyfouronline, you will need to
+install this separately either on the same infrastructure as twentyfouronline
 or as a totally standalone appliance.
 
 Config is simple, here's an example based on Graylog 2.4:
@@ -35,7 +35,7 @@ Config is simple, here's an example based on Graylog 2.4:
 
 ## Timezone
 Graylog messages are stored using GMT timezone. You can display
-graylog messages in LibreNMS webui using your desired timezone by
+graylog messages in twentyfouronline webui using your desired timezone by
 setting the following option using `lnms config:set`:
 
 !!! setting "external/graylog"
@@ -75,8 +75,8 @@ In JSON body paste this:
 
 ```
 {
-	"name": "LibreNMS-Read",
-	"description": "Extended reading permissions for LibreNMS",
+	"name": "twentyfouronline-Read",
+	"description": "Extended reading permissions for twentyfouronline",
 	"permissions" : [
 		"searches:relative",
 		"streams:read"
@@ -93,7 +93,7 @@ Graylog, "read" permissions alone are not sufficient.
 ## TLS Certificate
 If you have enabled TLS for the Graylog API and you are using a
 self-signed certificate, please make sure that the certificate is
-trusted by your LibreNMS host, otherwise the connection will
+trusted by your twentyfouronline host, otherwise the connection will
 fail. Additionally, the certificate's Common Name (CN) has to match
 the FQDN or IP address specified in
 
@@ -183,5 +183,9 @@ or
 ```
 set deviceconfig setting management hostname-type-in-syslog FQDN
 ```
+
+
+
+
 
 

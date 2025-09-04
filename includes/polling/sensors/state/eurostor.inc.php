@@ -7,3 +7,7 @@ $stateLookupTable = [
 ];
 
 $sensor_value = $stateLookupTable[$sensor_value];
+
+
+
+

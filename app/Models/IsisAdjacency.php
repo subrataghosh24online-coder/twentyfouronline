@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @link       http://librenms.org
+ * @link       http://twentyfouronline.org
  *
  * @copyright  2021 Otto Reinikainen
  * @author     Otto Reinikainen <otto@ottorei.fi>
@@ -28,7 +28,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class IsisAdjacency extends PortRelatedModel implements Keyable
 {
@@ -67,3 +67,7 @@ class IsisAdjacency extends PortRelatedModel implements Keyable
         return $this->ifIndex . $this->index;
     }
 }
+
+
+
+

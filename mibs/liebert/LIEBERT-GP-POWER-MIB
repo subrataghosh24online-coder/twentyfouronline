@@ -3298,3 +3298,7 @@ lgpPwrRectifierPulseCount OBJECT-TYPE
         "Rectifier pulse count per waveform cycle (6-, 12-, 18-, or 24-pulse)."
     ::= { lgpPwrConfig 4 }
 END
+
+
+
+

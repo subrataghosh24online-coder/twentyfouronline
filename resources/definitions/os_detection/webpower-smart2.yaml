@@ -16,3 +16,7 @@ discovery:
         sysDescr_regex:
             - '/WebPower Smart II Card/'
             - '/USHA Smart II Card/'
+
+
+
+

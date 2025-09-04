@@ -1615,3 +1615,7 @@ NETGEAR-CAPTIVE-PORTAL-MIB DEFINITIONS ::= BEGIN
          ::= { cpCaptivePortalConfigWebEntry 2 }
 
 END
+
+
+
+

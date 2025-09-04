@@ -13,3 +13,7 @@ if ($auth || port_permitted($vp['port_id'])) {
     $auth = true;
     $rrd_filename = Rrd::name($vp['hostname'], ['vp', $vp['ifIndex'], $vp['vp_id']]);
 }
+
+
+
+

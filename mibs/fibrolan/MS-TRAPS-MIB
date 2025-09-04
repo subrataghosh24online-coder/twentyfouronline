@@ -1526,3 +1526,7 @@ flTrapSeverity	OBJECT-TYPE
 		Vars: trap severity, slot number, channel number, port number, port description"
 		::= 6000
 END
+
+
+
+

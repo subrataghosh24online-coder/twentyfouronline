@@ -49,3 +49,7 @@ foreach ($logs as $log) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

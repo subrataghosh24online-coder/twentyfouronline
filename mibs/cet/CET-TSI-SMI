@@ -21,3 +21,7 @@ CET-TSI-SMI DEFINITIONS ::= BEGIN
  bipRdiMIB     OBJECT IDENTIFIER ::= { cetMIB 3 } -- BIP-RDI
 
  END
+
+
+
+

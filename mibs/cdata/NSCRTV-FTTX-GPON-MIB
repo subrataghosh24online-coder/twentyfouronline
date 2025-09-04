@@ -5505,3 +5505,7 @@ gponOnuPonPortOpticalTransmissionPropertyTable  OBJECT-TYPE
 				"Description."
 			::= { gponTrafficProfileInfoEntry 9 }
 	END
+
+
+
+

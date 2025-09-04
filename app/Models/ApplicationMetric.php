@@ -21,3 +21,7 @@ class ApplicationMetric extends Model
         return $this->belongsTo(Application::class, 'app_id');
     }
 }
+
+
+
+

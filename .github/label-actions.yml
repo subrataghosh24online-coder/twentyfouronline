@@ -2,8 +2,8 @@ support-request:
   comment: >
     :wave: @{issue-author} sorry but this is not the place to ask for help.
 
-    For help please use our [Discord server](https://discord.gg/librenms) or the [community site](https://community.librenms.org/c/help): https://docs.librenms.org/Support
-    
+    For help please use our [Discord server](https://discord.gg/twentyfouronline) or the [community site](https://community.twentyfouronline.org/c/help): https://docs.twentyfouronline.org/Support
+
   close: true
 
 'Needs Tests :unicorn:':
@@ -11,4 +11,4 @@ support-request:
     comment: >
       Please add test data so we can ensure your change is not broken in the future.
 
-      Read the docs to find out how: https://docs.librenms.org/Developing/os/Test-Units
+      Read the docs to find out how: https://docs.twentyfouronline.org/Developing/os/Test-Units

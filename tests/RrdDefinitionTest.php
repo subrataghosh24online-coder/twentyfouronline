@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\RRD\RrdDefinition;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\RRD\RrdDefinition;
 
 class RrdDefinitionTest extends TestCase
 {
@@ -38,17 +38,17 @@ class RrdDefinitionTest extends TestCase
 
     public function testWrongType(): void
     {
-        $this->expectException(\LibreNMS\Exceptions\InvalidRrdTypeException::class);
-        LibrenmsConfig::set('rrd.step', 300);
-        LibrenmsConfig::set('rrd.heartbeat', 600);
+        $this->expectException(\twentyfouronline\Exceptions\InvalidRrdTypeException::class);
+        twentyfouronlineConfig::set('rrd.step', 300);
+        twentyfouronlineConfig::set('rrd.heartbeat', 600);
         $def = new RrdDefinition();
         $def->addDataset('badtype', 'Something unexpected');
     }
 
     public function testNameEscaping(): void
     {
-        LibrenmsConfig::set('rrd.step', 300);
-        LibrenmsConfig::set('rrd.heartbeat', 600);
+        twentyfouronlineConfig::set('rrd.step', 300);
+        twentyfouronlineConfig::set('rrd.heartbeat', 600);
         $expected = 'DS:bad_name-is_too_lon:GAUGE:600:0:100 ';
         $def = RrdDefinition::make()->addDataset('b a%d$_n:a^me-is_too_lon%g.', 'GAUGE', 0, 100, 600);
 
@@ -57,8 +57,8 @@ class RrdDefinitionTest extends TestCase
 
     public function testCreation(): void
     {
-        LibrenmsConfig::set('rrd.step', 300);
-        LibrenmsConfig::set('rrd.heartbeat', 600);
+        twentyfouronlineConfig::set('rrd.step', 300);
+        twentyfouronlineConfig::set('rrd.heartbeat', 600);
         $expected = 'DS:pos:COUNTER:600:0:125000000000 ' .
             'DS:unbound:DERIVE:600:U:U ';
 
@@ -69,3 +69,7 @@ class RrdDefinitionTest extends TestCase
         $this->assertEquals($expected, $def);
     }
 }
+
+
+
+

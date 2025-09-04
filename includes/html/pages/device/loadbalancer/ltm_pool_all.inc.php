@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to Display data from F5 BigIP LTM Devices
+ * twentyfouronline module to Display data from F5 BigIP LTM Devices
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -56,7 +56,11 @@
             2: "danger"
         },
     }).on("click.rs.jquery.bootgrid", function (e, columns, row) {
-        var link = '<?php echo \LibreNMS\Util\Url::generate($vars, ['type' => 'ltm_pool', 'subtype' => 'ltm_pool_details']); ?>poolid='+row['poolid'];
+        var link = '<?php echo \twentyfouronline\Util\Url::generate($vars, ['type' => 'ltm_pool', 'subtype' => 'ltm_pool_details']); ?>poolid='+row['poolid'];
         window.location.href = link;
     });
 </script>
+
+
+
+

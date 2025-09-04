@@ -264,3 +264,7 @@ ZYXEL-ZYWALL-ZLD-COMMON-MIB DEFINITIONS ::= BEGIN
      			vpnConnectionConnected."
 		::= { vpnConnectionCounter 4 }
 END
+
+
+
+

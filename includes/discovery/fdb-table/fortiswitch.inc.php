@@ -32,14 +32,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 CTNET BV
  * @author     Rudy Broersma <r.broersma@ctnet.nl>
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 $macTable = SnmpQuery::hideMib()->walk('BRIDGE-MIB::dot1dTpFdbAddress')->table();
 $portTable = SnmpQuery::hideMib()->walk('BRIDGE-MIB::dot1dTpFdbPort')->table();
@@ -71,3 +71,7 @@ foreach ($macTable['dot1dTpFdbAddress'] as $dot1dTpFdbPort => $mac) {
 }
 
 echo PHP_EOL;
+
+
+
+

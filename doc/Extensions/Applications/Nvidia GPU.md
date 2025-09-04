@@ -5,7 +5,7 @@
 1. Copy the shell script, nvidia, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/nvidia -O /etc/snmp/nvidia
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/nvidia -O /etc/snmp/nvidia
     ```
 
 2. Make the script executable
@@ -33,4 +33,8 @@
 
     For questions about what the various values are/mean, please see the
     nvidia-smi man file under the section covering dmon.
+
+
+
+
 

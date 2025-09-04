@@ -1,6 +1,6 @@
 {
-    "short_name": "LibreNMS",
-    "name": "LibreNMS: Network Monitoring",
+    "short_name": "twentyfouronline",
+    "name": "twentyfouronline: Network Monitoring",
     "description": "A fully featured network monitoring system that provides a wealth of features and device support",
     "icons": [
         {
@@ -52,3 +52,7 @@
         }
     ]
 }
+
+
+
+

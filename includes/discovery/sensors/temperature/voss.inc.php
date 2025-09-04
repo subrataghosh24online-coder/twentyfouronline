@@ -3,7 +3,7 @@
 /**
  * voss.inc.php
  *
- * LibreNMS Temperature Sensor Discovery module for Extreme/Avaya VOSS(VSP Operating System Software)
+ * twentyfouronline Temperature Sensor Discovery module for Extreme/Avaya VOSS(VSP Operating System Software)
  *
  * Copyright (c) 2017 Daniel Cox <danielcoxman@gmail.com>
  *
@@ -67,3 +67,7 @@ d_echo("VOSS $descr: $value\n");
 if (is_numeric($value) && $value != 0) {
     discover_sensor(null, 'temperature', $device, $oid, $index, 'avaya-vsp', $descr, '1', '1', null, null, null, null, $value);
 }
+
+
+
+

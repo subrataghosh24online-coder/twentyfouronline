@@ -21,10 +21,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 class OspfTxRetransmitTest extends SnmpTrapTestCase
 {
@@ -80,3 +80,7 @@ TRAP,
         );
     }
 }
+
+
+
+

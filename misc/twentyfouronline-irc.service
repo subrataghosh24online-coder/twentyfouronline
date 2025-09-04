@@ -1,0 +1,16 @@
+# /etc/systemd/system/twentyfouronline-irc.service 
+
+[Unit]
+Description=twentyfouronline IRC bot
+After=network.target
+
+[Service]
+ExecStart=/opt/twentyfouronline/irc.php
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+
+
+

@@ -17,3 +17,7 @@ discovery:
         value: 
             - 'NETWORK-SECURITY-PLATFORM'
             - 'TRELLIX-INTRUSION-PREVENTION-SYSTEM'
+
+
+
+

@@ -1,11 +1,11 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
 use Carbon\Carbon;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'sneck';
 
@@ -21,8 +21,8 @@ if (isset($app->data['data']) && isset($app->data['data']['debugs'])) {
     $old_debugs = array_keys($app->data['data']['debugs']);
 }
 
-if (LibrenmsConfig::has('apps.sneck.polling_time_diff')) {
-    $compute_time_diff = LibrenmsConfig::get('apps.sneck.polling_time_diff');
+if (twentyfouronlineConfig::has('apps.sneck.polling_time_diff')) {
+    $compute_time_diff = twentyfouronlineConfig::get('apps.sneck.polling_time_diff');
 } else {
     $compute_time_diff = false;
 }
@@ -179,3 +179,7 @@ if (count($unknowned) > 0) {
 
 // update it here as we are done with this mostly
 update_application($app, 'OK', $fields);
+
+
+
+

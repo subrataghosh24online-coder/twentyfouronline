@@ -6,15 +6,15 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use Carbon\Carbon;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $no_refresh = true;
 $param = [];
@@ -78,7 +78,7 @@ $pagetitle[] = 'Outages';
                 clear: 'fa fa-trash-o',
                 close: 'fa fa-close'
             },
-            defaultDate: '<?php echo Carbon::now(session('preferences.timezone'))->subMonth()->format(LibrenmsConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
+            defaultDate: '<?php echo Carbon::now(session('preferences.timezone'))->subMonth()->format(twentyfouronlineConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
         });
         $("#dtpickerfrom").on("dp.change", function (e) {
             $("#dtpickerto").data("DateTimePicker").minDate(e.date);
@@ -95,7 +95,7 @@ $pagetitle[] = 'Outages';
                 clear: 'fa fa-trash-o',
                 close: 'fa fa-close'
             },
-            defaultDate: '<?php echo Carbon::now(session('preferences.timezone'))->format(LibrenmsConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
+            defaultDate: '<?php echo Carbon::now(session('preferences.timezone'))->format(twentyfouronlineConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
         });
         $("#dtpickerto").on("dp.change", function (e) {
             $("#dtpickerfrom").data("DateTimePicker").maxDate(e.date);
@@ -106,7 +106,7 @@ $pagetitle[] = 'Outages';
         if ($("#dtpickerto").val() != "") {
             $("#dtpickerfrom").data("DateTimePicker").maxDate($("#dtpickerto").val());
         } else {
-            $("#dtpickerto").data("DateTimePicker").maxDate('<?php echo Carbon::now(session('preferences.timezone'))->format(LibrenmsConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>');
+            $("#dtpickerto").data("DateTimePicker").maxDate('<?php echo Carbon::now(session('preferences.timezone'))->format(twentyfouronlineConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>');
         }
     });
 
@@ -124,4 +124,8 @@ $pagetitle[] = 'Outages';
     })<?php echo $device_id ? ".val($device_id).trigger('change');" : ''; ?>;
     <?php } ?>
 </script>
+
+
+
+
 

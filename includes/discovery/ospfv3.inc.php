@@ -1,3 +1,7 @@
 <?php
 
-(new \LibreNMS\Modules\Ospfv3)->discover($os);
+(new \twentyfouronline\Modules\Ospfv3)->discover($os);
+
+
+
+

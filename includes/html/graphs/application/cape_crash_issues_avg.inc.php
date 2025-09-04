@@ -22,3 +22,7 @@ $descr = 'Average';
 $ds = 's3crash_issues';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

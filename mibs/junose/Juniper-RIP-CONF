@@ -63,3 +63,7 @@ juniRipAgentV1  AGENT-CAPABILITIES
     ::= { juniRipAgent 1 }
 
 END
+
+
+
+

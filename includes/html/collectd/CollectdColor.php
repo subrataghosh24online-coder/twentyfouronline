@@ -18,10 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  */
 
-namespace LibreNMS;
+namespace twentyfouronline;
 
 class CollectdColor
 {
@@ -63,7 +63,7 @@ class CollectdColor
                     }
                 } else {
                     if (is_a($value, 'CollectdColor') ||
-                        is_a($value, 'LibreNMS\CollectdColor')) {
+                        is_a($value, 'twentyfouronline\CollectdColor')) {
                         $this->r = $value->r;
                         $this->g = $value->g;
                         $this->b = $value->b;
@@ -133,3 +133,7 @@ class CollectdColor
         return sprintf('%02x%02x%02x', $r > 255 ? 255 : $r, $g > 255 ? 255 : $g, $b > 255 ? 255 : $b);
     }
 }
+
+
+
+

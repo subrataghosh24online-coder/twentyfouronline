@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scan networks for snmp hosts and add them to LibreNMS
+Scan networks for snmp hosts and add them to twentyfouronline
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,8 +15,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@package    LibreNMS
-@link       https://www.librenms.org
+@package    twentyfouronline
+@link       https://www.twentyfouronline.org
 @copyright  2017 Tony Murray
 @author     Tony Murray <murraytony@gmail.com>
 """
@@ -171,7 +171,7 @@ if __name__ == "__main__":
     # Parse arguments #
     ###################
     parser = argparse.ArgumentParser(
-        description="Scan network for snmp hosts and add them to LibreNMS.",
+        description="Scan network for snmp hosts and add them to twentyfouronline.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument(
@@ -259,7 +259,7 @@ Example: 192.168.0.1/32 will be treated as a single host address""",
     VERBOSE_LEVEL = args.verbose or VERBOSE_LEVEL
     THREADS = args.threads or THREADS
 
-    # Import LibreNMS config
+    # Import twentyfouronline config
     install_dir = path.dirname(path.realpath(__file__))
     chdir(install_dir)
     try:
@@ -295,7 +295,7 @@ Example: 192.168.0.1/32 will be treated as a single host address""",
     # make sure we have something to scan
     if not CONFIG.get("nets", []) and not netargs:
         parser.error(
-            "'nets' is not set in your LibreNMS config, you must specify a network to scan"
+            "'nets' is not set in your twentyfouronline config, you must specify a network to scan"
         )
 
     # check for valid networks
@@ -373,3 +373,7 @@ Example: 192.168.0.1/32 will be treated as a single host address""",
 
     print(summary)
     print("Runtime: {:.2f} seconds".format(time() - start_time))
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to display F5 GTM Wide IP Details
+ * twentyfouronline module to display F5 GTM Wide IP Details
  *
  * Adapted from F5 LTM module by Darren Napper
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
@@ -58,7 +58,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_gtm_allwide_requests';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -76,7 +76,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_gtm_allwide_resolved';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -94,7 +94,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_gtm_allwide_dropped';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -107,7 +107,11 @@
                 2: "danger"
             },
         }).on("click.rs.jquery.bootgrid", function (e, columns, row) {
-            var link = '<?php echo \LibreNMS\Util\Url::generate($vars, ['type' => 'gtm_wide', 'subtype' => 'gtm_wide_det']); ?>wideid='+row['wideid'];
+            var link = '<?php echo \twentyfouronline\Util\Url::generate($vars, ['type' => 'gtm_wide', 'subtype' => 'gtm_wide_det']); ?>wideid='+row['wideid'];
             window.location.href = link;
         });
     </script>
+
+
+
+

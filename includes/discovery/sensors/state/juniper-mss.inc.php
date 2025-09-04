@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2017 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -32,3 +32,7 @@ if (is_array($temp)) {
         discover_sensor(null, 'state', $device, $cur_oid . $index, $index, $state_name, $descr, 1, 1, null, null, null, null, $temp[$index]['trpzSysPowerSupplyStatus'], 'snmp', $index);
     }
 }
+
+
+
+

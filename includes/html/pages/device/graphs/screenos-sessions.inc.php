@@ -6,3 +6,7 @@ if ($device['os'] == 'netscreen' || $device['os_group'] == 'netscreen') {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

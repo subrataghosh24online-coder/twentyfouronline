@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 require 'includes/html/graphs/common.inc.php';
@@ -32,11 +32,11 @@ if ($width > '500') {
     $rrd_options .= " COMMENT:'" . substr(str_pad($unit_text, $descr_len + 5), 0, $descr_len + 5) . "Total       Used       Free\l'";
 }
 
-$descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr(short_hrDeviceDescr($components['name']), $descr_len);
+$descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr(short_hrDeviceDescr($components['name']), $descr_len);
 
-$perc = \LibreNMS\Util\Number::calculatePercent((int) $components['memory_used'], (int) $tmp_component['memory_total']);
+$perc = \twentyfouronline\Util\Number::calculatePercent((int) $components['memory_used'], (int) $tmp_component['memory_total']);
 
-$background = \LibreNMS\Util\Color::percentage($perc, 75);
+$background = \twentyfouronline\Util\Color::percentage($perc, 75);
 
 $rrd_options .= " DEF:qfp_used=$rrd_filename:InUse:AVERAGE";
 $rrd_options .= " DEF:qfp_free=$rrd_filename:Free:AVERAGE";
@@ -81,3 +81,7 @@ if ($width > '500') {
     $rrd_options .= " COMMENT:'\l'";
     $rrd_options .= " LINE1:qfp_warn_th#aa0000:'Threshold':dashes";
 }
+
+
+
+

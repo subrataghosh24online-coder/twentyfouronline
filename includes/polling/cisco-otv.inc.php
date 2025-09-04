@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture Cisco Class-Based QoS Details
+ * twentyfouronline module to capture Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 if ($device['os_group'] == 'cisco') {
     // Define some error messages
@@ -61,7 +61,7 @@ if ($device['os_group'] == 'cisco') {
 
     $tmp_module = 'Cisco-OTV';
 
-    $component = new LibreNMS\Component();
+    $component = new twentyfouronline\Component();
     $options['filter']['type'] = ['=', $tmp_module];
     $options['filter']['disabled'] = ['=', 0];
     $components = $component->getComponents($device['device_id'], $options);
@@ -201,3 +201,7 @@ if ($device['os_group'] == 'cisco') {
         $error_overlay
     );
 }
+
+
+
+

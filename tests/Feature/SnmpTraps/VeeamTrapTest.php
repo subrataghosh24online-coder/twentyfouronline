@@ -1,8 +1,8 @@
 <?php
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class VeeamTrapTest extends SnmpTrapTestCase
 {
@@ -120,3 +120,7 @@ TRAP,
         );
     }
 }
+
+
+
+

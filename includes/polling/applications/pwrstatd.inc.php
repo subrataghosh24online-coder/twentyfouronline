@@ -1,8 +1,8 @@
 <?php
 
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppMissingKeysException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppMissingKeysException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'pwrstatd';
 $output = 'OK';
@@ -47,7 +47,7 @@ foreach ($pwrstatd_data as $data) {
         'wrating' => $data['wrating'],
     ];
 
-    $sn = \LibreNMS\Util\Clean::fileName($data['sn']);
+    $sn = \twentyfouronline\Util\Clean::fileName($data['sn']);
     $rrd_name = ['app', $name, $app->app_id, $sn];
     $metrics[$sn] = $fields;
     $tags = ['name' => $sn, 'app_id' => $app->app_id, 'rrd_def' => $rrd_def, 'rrd_name' => $rrd_name];
@@ -55,3 +55,7 @@ foreach ($pwrstatd_data as $data) {
 }
 
 update_application($app, $output, $metrics);
+
+
+
+

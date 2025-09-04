@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\Models\Eventlog;
 use App\Models\Vminfo;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class VminfoObserver
 {
@@ -65,3 +65,7 @@ class VminfoObserver
         //
     }
 }
+
+
+
+

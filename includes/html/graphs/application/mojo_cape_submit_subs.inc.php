@@ -13,3 +13,7 @@ if (isset($vars['slug'])) {
 }
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

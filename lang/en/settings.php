@@ -109,7 +109,7 @@ return [
         'active_directory' => [
             'users_purge' => [
                 'description' => 'Keep inactive users for',
-                'help' => 'Users will be deleted from LibreNMS after this many days of not logging in. 0 means never and users will be recreated if the user logs back in.',
+                'help' => 'Users will be deleted from twentyfouronline after this many days of not logging in. 0 means never and users will be recreated if the user logs back in.',
             ],
         ],
         'addhost_alwayscheckip' => [
@@ -547,11 +547,11 @@ return [
         ],
         'collectd_dir' => [
             'description' => 'Collectd Directory',
-            'help' => 'Directory where collectd stores its RRD files.  This is used to display data from collectd into LibreNMS.',
+            'help' => 'Directory where collectd stores its RRD files.  This is used to display data from collectd into twentyfouronline.',
         ],
         'collectd_sock' => [
             'description' => 'Collectd Socket',
-            'help' => 'Socket collectd is listening on.  This is used to display data from collectd into LibreNMS.',
+            'help' => 'Socket collectd is listening on.  This is used to display data from collectd into twentyfouronline.',
         ],
         'core_descr' => [
             'description' => 'Core Port Types',
@@ -800,7 +800,7 @@ return [
         ],
         'distributed_poller' => [
             'description' => 'Enable Distributed Polling (requires additional setup)',
-            'help' => 'Enable distributed polling system wide. This is intended for load sharing, not remote polling. You must read the documentation for steps to enable: https://docs.librenms.org/Extensions/Distributed-Poller/',
+            'help' => 'Enable distributed polling system wide. This is intended for load sharing, not remote polling. You must read the documentation for steps to enable: https://docs.twentyfouronline.org/Extensions/Distributed-Poller/',
         ],
         'default_poller_group' => [
             'description' => 'Default Poller Group',
@@ -1435,7 +1435,7 @@ return [
         ],
         'mydomain' => [
             'description' => 'Primary Domain',
-            'help' => 'This domain is used for network auto-discovery and other processes. LibreNMS will attempt to append it to unqualified hostnames.',
+            'help' => 'This domain is used for network auto-discovery and other processes. twentyfouronline will attempt to append it to unqualified hostnames.',
         ],
         'network_map_show_on_worldmap' => [
             'description' => 'Display network links on the map',
@@ -1524,8 +1524,8 @@ return [
             'help' => 'Show the sysDescr on the device overview page',
         ],
         'own_hostname' => [
-            'description' => 'LibreNMS hostname',
-            'help' => 'Should be set to the hostname/ip the librenms server is added as',
+            'description' => 'twentyfouronline hostname',
+            'help' => 'Should be set to the hostname/ip the twentyfouronline server is added as',
         ],
         'oxidized' => [
             'default_group' => [
@@ -1549,7 +1549,7 @@ return [
             ],
             'ignore_os' => [
                 'description' => 'Do not backup these OS',
-                'help' => 'Do not backup the listed OS with Oxidized.  The OS must match the LibreNMS OS name (these are all lowercase with no spaces).  Only allows existing OS.',
+                'help' => 'Do not backup the listed OS with Oxidized.  The OS must match the twentyfouronline OS name (these are all lowercase with no spaces).  Only allows existing OS.',
             ],
             'ignore_types' => [
                 'description' => 'Do not backup these device types',
@@ -1851,7 +1851,7 @@ return [
             ],
             'xdp' => [
                 'description' => 'Enable xDP discovery protocols',
-                'help' => 'Use LLDP, CDP, etc protocols to discover network topology and neighbors and add them to LibreNMS',
+                'help' => 'Use LLDP, CDP, etc protocols to discover network topology and neighbors and add them to twentyfouronline',
             ],
             'xdp_exclude' => [
                 'sysname_regexp' => [
@@ -1889,11 +1889,11 @@ return [
         'reporting' => [
             'error' => [
                 'description' => 'Send Error Reports',
-                'help' => 'Sends some errors to LibreNMS for analysis and fixing',
+                'help' => 'Sends some errors to twentyfouronline for analysis and fixing',
             ],
             'usage' => [
                 'description' => 'Send Usage Reports',
-                'help' => 'Reports usage and versions to LibreNMS. To delete anonymous stats, visit the about page. You can view stats at https://stats.librenms.org',
+                'help' => 'Reports usage and versions to twentyfouronline. To delete anonymous stats, visit the about page. You can view stats at https://stats.twentyfouronline.org',
             ],
             'dump_errors' => [
                 'description' => 'Dump debug errors (Will break your install)',
@@ -1922,7 +1922,7 @@ return [
         ],
         'rrd_dir' => [
             'description' => 'RRD Location',
-            'help' => 'Location of rrd files.  Default is rrd inside the LibreNMS directory.  Changing this setting does not move the rrd files.',
+            'help' => 'Location of rrd files.  Default is rrd inside the twentyfouronline directory.  Changing this setting does not move the rrd files.',
         ],
         'rrd_purge' => [
             'description' => 'RRD Files entries older than',
@@ -1945,7 +1945,7 @@ return [
         ],
         'rrdtool_version' => [
             'description' => 'Sets the version of rrdtool on your server',
-            'help' => 'Anything over 1.5.5 supports all features LibreNMS uses, do not set higher than your installed version',
+            'help' => 'Anything over 1.5.5 supports all features twentyfouronline uses, do not set higher than your installed version',
         ],
         'schedule_type' => [
             'alerting' => [
@@ -2007,7 +2007,7 @@ return [
         'sensors' => [
             'guess_limits' => [
                 'description' => 'Guess sensor limits',
-                'help' => 'If enabled, LibreNMS will try to guess the sensor limits based on the sensor type and value. This is not always accurate and may lead to incorrect limits.',
+                'help' => 'If enabled, twentyfouronline will try to guess the sensor limits based on the sensor type and value. This is not always accurate and may lead to incorrect limits.',
             ],
         ],
         'service_master_timeout' => [
@@ -2072,7 +2072,7 @@ return [
         ],
         'service_watchdog_log' => [
             'description' => 'Log File to Watch',
-            'help' => 'Default is the LibreNMS log file. Sets the default value for all nodes.',
+            'help' => 'Default is the twentyfouronline log file. Sets the default value for all nodes.',
         ],
         'service_health_file' => [
             'description' => 'Service Health File',
@@ -2377,3 +2377,7 @@ return [
         'directory' => ':value is not a valid directory',
     ],
 ];
+
+
+
+

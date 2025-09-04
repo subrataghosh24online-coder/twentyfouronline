@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Edit Service Template'))
 
@@ -30,3 +30,7 @@
     <script src="{{ asset('js/sql-parser.min.js') }}"></script>
     <script src="{{ asset('js/query-builder.standalone.min.js') }}"></script>
 @endsection
+
+
+
+

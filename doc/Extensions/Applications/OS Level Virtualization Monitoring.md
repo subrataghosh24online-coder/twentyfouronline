@@ -47,7 +47,7 @@
     sudo systemctl restart snmpd
     ```
 
-Wait for it to be rediscovered by LibreNMS.
+Wait for it to be rediscovered by twentyfouronline.
 
 An optional config file may be specified via -f or placed at
 `/usr/local/etc/oslv_monitor.json`.
@@ -249,3 +249,7 @@ items below.
 - `thp_collapse_alloc`
 - `thp_swpout`
 - `thp_swpout_fallback`
+
+
+
+

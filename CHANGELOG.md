@@ -1,1 +1,5 @@
-The changelog can be found at our [docs](https://docs.librenms.org/#General/Changelog/) site.
+The changelog can be found at our [docs](https://docs.twentyfouronline.org/#General/Changelog/) site.
+
+
+
+

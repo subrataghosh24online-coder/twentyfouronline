@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Plugin;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\Plugins\Hooks\SinglePageHook;
-use LibreNMS\Interfaces\Plugins\PluginManagerInterface;
+use twentyfouronline\Interfaces\Plugins\Hooks\SinglePageHook;
+use twentyfouronline\Interfaces\Plugins\PluginManagerInterface;
 
 class PluginPageController extends Controller
 {
@@ -41,3 +41,7 @@ class PluginPageController extends Controller
         return redirect()->back();
     }
 }
+
+
+
+

@@ -25,3 +25,7 @@ if (preg_match('/Configured from .+ by (?P<user>\S+)/', $msg, $matches)) {
     // without user detection...
     $oxidized_api->updateNode($hostname, $msg);
 }
+
+
+
+

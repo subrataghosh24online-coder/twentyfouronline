@@ -3,3 +3,7 @@ modules:
         version: 'ENTITY-MIB::entPhysicalSoftwareRev.22'
         hardware: 'ENTITY-MIB::entPhysicalName.149'
         serial: 'ENTITY-MIB::entPhysicalSerialNum.10'
+
+
+
+

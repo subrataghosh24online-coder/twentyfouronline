@@ -661,3 +661,7 @@ hh3cDot11SaTrapChlIntfNum OBJECT-TYPE
          on the 802.11a/n or 802.11b/g/n radio band."
     ::= { hh3cDot11SaTrapVars 12 }
 END
+
+
+
+

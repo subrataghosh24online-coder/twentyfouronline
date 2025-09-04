@@ -18,3 +18,7 @@ foreach (SnmpQuery::walk($oid)->values() as $oid => $name) {
         $port_stats[$index]['ifAlias'] = $name;
     }
 }
+
+
+
+

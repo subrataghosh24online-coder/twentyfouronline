@@ -5,3 +5,7 @@ modules:
     sysDescr_regex:
       - '/VerHw:(?<hardware>[^;]+);VerSw:(?<version>[\d.]+)/'
       - '/VerSw:(?<version>[\d.]+);VerHw:(?<hardware>[^;]+)/'
+
+
+
+

@@ -15,7 +15,7 @@ export default function popup(url = "", options = {}) {
 
                 // close other popups, except this one
                 this.ignoreNextShownEvent = true;
-                this.$dispatch("librenms-popup-shown", this.$el);
+                this.$dispatch("twentyfouronline-popup-shown", this.$el);
             }, timeout);
         },
         hide(timeout) {
@@ -29,3 +29,7 @@ export default function popup(url = "", options = {}) {
         }
     };
 }
+
+
+
+

@@ -1,6 +1,6 @@
 # Environment Variables
 
-LibreNMS allows certain settings to be set via the environment or
+twentyfouronline allows certain settings to be set via the environment or
 through the .env file.
 
 ## Database
@@ -10,8 +10,8 @@ Set the variables to connect to the database.  The default values are shown belo
 ```dotenv
 DB_HOST=localhost
 DB_PORT=3306
-DB_DATABASE=librenms
-DB_USERNAME=librenms
+DB_DATABASE=twentyfouronline
+DB_USERNAME=twentyfouronline
 DB_PASSWORD=
 DB_SOCKET=
 ```
@@ -34,21 +34,21 @@ Set the base url for generated urls.
 This will be needed when using signed graph urls for alerting. It may
 be needed when using reverse proxies combined with a subdirectory.
 
-Generally, LibreNMS will make correct URLs (especially if you have set
+Generally, twentyfouronline will make correct URLs (especially if you have set
 up your proxy variables correctly)
 
 ```dotenv
-APP_URL=http://librenms/
+APP_URL=http://twentyfouronline/
 ```
 
 ## User / Group
 
-The user and group that LibreNMS should operate as.
+The user and group that twentyfouronline should operate as.
 Group will default to the same as the user if unset.
 
 ```dotenv
-LIBRENMS_USER=librenms
-LIBRENMS_GROUP=librenms
+twentyfouronline_USER=twentyfouronline
+twentyfouronline_GROUP=twentyfouronline
 ```
 
 ## Debug
@@ -60,3 +60,7 @@ Increases the amount of information shown when an error occurs.
 ```dotenv
 APP_DEBUG=true
 ```
+
+
+
+

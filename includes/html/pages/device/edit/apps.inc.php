@@ -1,10 +1,10 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 // Load our list of available applications
 $applications = [];
-foreach (glob(LibrenmsConfig::get('install_dir') . '/includes/polling/applications/*.inc.php') as $file) {
+foreach (glob(twentyfouronlineConfig::get('install_dir') . '/includes/polling/applications/*.inc.php') as $file) {
     $name = basename($file, '.inc.php');
     $applications[$name] = $name;
 }
@@ -22,12 +22,12 @@ $enabled_apps = array_reduce(dbFetchRows(
 echo '<ul class="list-group row">';
 foreach ($applications as $app) {
     $modifiers = '';
-    $app_text = \LibreNMS\Util\StringHelpers::niceCase($app);
+    $app_text = \twentyfouronline\Util\StringHelpers::niceCase($app);
     // check if the app exists in the enable apps array and check if it was automatically enabled
     if (isset($enabled_apps[$app])) {
         $modifiers = ' checked';
         if ($enabled_apps[$app]
-            && (get_dev_attrib($device, 'poll_applications') || LibrenmsConfig::getOsSetting($device['os'], 'poller_modules.applications'))
+            && (get_dev_attrib($device, 'poll_applications') || twentyfouronlineConfig::getOsSetting($device['os'], 'poller_modules.applications'))
         ) {
             $app_text .= '<span class="text-success"> (Discovered)</span>';
             $modifiers .= ' disabled';
@@ -70,3 +70,7 @@ echo '</ul>';
         });
     });
 </script>
+
+
+
+

@@ -7,10 +7,10 @@ Either use SNMP extend or use the agent.
 
 === "SNMP Extend"
 
-    1. Download the script onto the desired host (the host must be added to LibreNMS devices)
+    1. Download the script onto the desired host (the host must be added to twentyfouronline devices)
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
     ```
 
     2. Make the script executable
@@ -19,11 +19,11 @@ Either use SNMP extend or use the agent.
     chmod +x /etc/snmp/apache-stats.py
     ```
 
-    3. Create the cache directory, '/var/cache/librenms/' and make sure
+    3. Create the cache directory, '/var/cache/twentyfouronline/' and make sure
     that it is owned by the user running the SNMP daemon.
 
     ```bash
-    mkdir -p /var/cache/librenms/
+    mkdir -p /var/cache/twentyfouronline/
     ```
 
     4. Verify it is working by running /etc/snmp/apache-stats.py Package `urllib3` for python3 needs to be installed. In Debian-based systems for example you can achieve this by issuing:
@@ -67,12 +67,16 @@ Either use SNMP extend or use the agent.
 
     1. Verify it is working by running `/usr/lib/check_mk_agent/local/apache`
 
-    2. Create the cache directory, '/var/cache/librenms/' and make sure
+    2. Create the cache directory, '/var/cache/twentyfouronline/' and make sure
     that it is owned by the user running the SNMP daemon.
 
         ```bash
-        mkdir -p /var/cache/librenms/
+        mkdir -p /var/cache/twentyfouronline/
         ```
 
-    3. On the device page in Librenms, edit your host and check the
+    3. On the device page in twentyfouronline, edit your host and check the
     `Apache` under the Applications tab.
+
+
+
+

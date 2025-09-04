@@ -17,3 +17,7 @@ return [
     'throttle' => 'Trop de tentatives. Essaie dans quelques secondes.',
 
 ];
+
+
+
+

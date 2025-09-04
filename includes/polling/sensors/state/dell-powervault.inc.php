@@ -5,3 +5,7 @@ if ($sensor['sensor_type'] === 'dellme') {
     $sensor_value = array_pop($connUnitSensorMessage) === ' OK' ? 1 : 2;
     unset($connUnitSensorMessage);
 }
+
+
+
+

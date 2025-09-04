@@ -1,14 +1,14 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
 
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 $auth = false;
 $start = microtime(true);
@@ -26,7 +26,7 @@ if (! Auth::check()) {
 
 Debug::set(isset($_GET['debug']));
 
-require \App\Facades\LibrenmsConfig::get('install_dir') . '/includes/html/graphs/graph.inc.php';
+require \App\Facades\twentyfouronlineConfig::get('install_dir') . '/includes/html/graphs/graph.inc.php';
 
 app('Datastore')->terminate();
 
@@ -36,3 +36,7 @@ if (Debug::isEnabled()) {
     echo '<br />';
     app(\App\Polling\Measure\MeasurementManager::class)->printStats();
 }
+
+
+
+

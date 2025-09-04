@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture NTP statistics
+ * twentyfouronline module to capture NTP statistics
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -13,16 +13,16 @@
  *
  * This module will display NTP details from various device types.
  * To display, modules must create rrd's named: ntp-%PEER%.rrd with the following DS':
- *      DS:stratum:GAUGE:'.\App\Facades\LibrenmsConfig::get('rrd.heartbeat').':0:U
- *      DS:offset:GAUGE:'.\App\Facades\LibrenmsConfig::get('rrd.heartbeat').':0:U
- *      DS:delay:GAUGE:'.\App\Facades\LibrenmsConfig::get('rrd.heartbeat').':0:U
- *      DS:dispersion:GAUGE:'.\App\Facades\LibrenmsConfig::get('rrd.heartbeat').':0:U
+ *      DS:stratum:GAUGE:'.\App\Facades\twentyfouronlineConfig::get('rrd.heartbeat').':0:U
+ *      DS:offset:GAUGE:'.\App\Facades\twentyfouronlineConfig::get('rrd.heartbeat').':0:U
+ *      DS:delay:GAUGE:'.\App\Facades\twentyfouronlineConfig::get('rrd.heartbeat').':0:U
+ *      DS:dispersion:GAUGE:'.\App\Facades\twentyfouronlineConfig::get('rrd.heartbeat').':0:U
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
-if (isset($device['os_group']) && file_exists(LibrenmsConfig::get('install_dir') . "/includes/polling/ntp/{$device['os_group']}.inc.php")) {
-    include LibrenmsConfig::get('install_dir') . "/includes/polling/ntp/{$device['os_group']}.inc.php";
+if (isset($device['os_group']) && file_exists(twentyfouronlineConfig::get('install_dir') . "/includes/polling/ntp/{$device['os_group']}.inc.php")) {
+    include twentyfouronlineConfig::get('install_dir') . "/includes/polling/ntp/{$device['os_group']}.inc.php";
 }
 
 if ($device['os'] == 'awplus') {
@@ -33,3 +33,7 @@ unset(
     $cntpPeersVarEntry,
     $atNtpAssociationEntry
 );
+
+
+
+

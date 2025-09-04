@@ -60,3 +60,7 @@
         init_select2('#device_group-{{ $id }}', 'device-group', {});
     </script>
 @endsection
+
+
+
+

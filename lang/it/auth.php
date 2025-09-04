@@ -17,3 +17,7 @@ return [
     'throttle' => 'Troppi tentativi di accesso. Riprova tra :seconds secondi.',
 
 ];
+
+
+
+

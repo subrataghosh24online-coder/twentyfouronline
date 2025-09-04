@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Poller;
 use App\Models\PollerCluster;
@@ -17,7 +17,7 @@ class PollerController extends Controller
 
     public function __construct()
     {
-        $this->rrdstep = LibrenmsConfig::get('rrd.step');
+        $this->rrdstep = twentyfouronlineConfig::get('rrd.step');
     }
 
     public function logTab(Request $request)
@@ -37,7 +37,7 @@ class PollerController extends Controller
         return view('poller.groups', [
             'current_tab' => 'groups',
             'poller_groups' => PollerGroup::query()->withCount('devices')->get(),
-            'default_group_id' => LibrenmsConfig::get('default_poller_group'),
+            'default_group_id' => twentyfouronlineConfig::get('default_poller_group'),
             'ungrouped_count' => Device::where('poller_group', 0)->count(),
         ]);
     }
@@ -114,3 +114,7 @@ class PollerController extends Controller
         return $pollers->map->configDefinition($groups);
     }
 }
+
+
+
+

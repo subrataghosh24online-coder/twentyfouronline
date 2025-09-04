@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Number;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Number;
 
 if ($this_port['dot3StatsIndex'] and $port['ifType'] == 'ethernetCsmacd') {
     $etherlike_oids = [
@@ -38,3 +38,7 @@ if ($this_port['dot3StatsIndex'] and $port['ifType'] == 'ethernetCsmacd') {
 
     echo 'EtherLike ';
 }
+
+
+
+

@@ -90,3 +90,7 @@ modules:
                         - { value: 10, descr: ok, graph: 1, generic: 0 }
                         - { value: 11, descr: failed, graph: 1, generic: 2 }
                         - { value: 100, descr: not supported, graph: 1, generic: 3 }
+
+
+
+

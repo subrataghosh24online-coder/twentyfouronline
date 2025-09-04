@@ -32,7 +32,7 @@
 1. Copy the shell script to the desired host.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nextcloud -O /etc/snmp/nextcloud
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/nextcloud -O /etc/snmp/nextcloud
     ```
 
 2. Make the script executable
@@ -64,3 +64,7 @@
     ```
 
 Then just wait for it to be rediscovered.
+
+
+
+

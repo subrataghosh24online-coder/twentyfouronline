@@ -3,7 +3,7 @@
 /*
  * nxos.inc.php
  *
- * LibreNMS NX-OS Fan state
+ * twentyfouronline NX-OS Fan state
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link        https://www.librenms.org
+ * @link        https://www.twentyfouronline.org
  *
  * @copyright   2016 Dave Bell <me@geordish.org>
  * @author      Dave Bell <me@geordish.org>
@@ -49,3 +49,7 @@ if (is_array($fan_trays)) {
         discover_sensor(null, 'state', $device, $current_oid, $index, $state_name, $descr, 1, 1, null, null, null, null, $current_value);
     }
 }
+
+
+
+

@@ -19,3 +19,7 @@ $descr = 'Flushes';
 $ds = 'freqs';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

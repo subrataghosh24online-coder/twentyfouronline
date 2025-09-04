@@ -7,3 +7,7 @@ foreach (dbFetchRows('SELECT * FROM `devices`,`locations` WHERE location_id = ? 
         $auth = true;
     }
 }
+
+
+
+

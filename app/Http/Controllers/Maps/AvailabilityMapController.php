@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2023 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Maps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\DeviceGroup;
 use Illuminate\Http\Request;
@@ -38,16 +38,20 @@ class AvailabilityMapController extends Controller
     public function availabilityMap(Request $request): View
     {
         $data = [
-            'page_refresh' => LibrenmsConfig::get('page_refresh', 300),
-            'compact' => LibrenmsConfig::get('webui.availability_map_compact'),
-            'box_size' => LibrenmsConfig::get('webui.availability_map_box_size'),
-            'sort' => LibrenmsConfig::get('webui.availability_map_sort_status') ? 'status' : 'hostname',
-            'use_groups' => LibrenmsConfig::get('webui.availability_map_use_device_groups'),
-            'services' => LibrenmsConfig::get('show_services'),
-            'uptime_warn' => LibrenmsConfig::get('uptime_warning'),
-            'devicegroups' => LibrenmsConfig::get('webui.availability_map_use_device_groups') ? DeviceGroup::hasAccess($request->user())->orderBy('name')->get(['id', 'name']) : [],
+            'page_refresh' => twentyfouronlineConfig::get('page_refresh', 300),
+            'compact' => twentyfouronlineConfig::get('webui.availability_map_compact'),
+            'box_size' => twentyfouronlineConfig::get('webui.availability_map_box_size'),
+            'sort' => twentyfouronlineConfig::get('webui.availability_map_sort_status') ? 'status' : 'hostname',
+            'use_groups' => twentyfouronlineConfig::get('webui.availability_map_use_device_groups'),
+            'services' => twentyfouronlineConfig::get('show_services'),
+            'uptime_warn' => twentyfouronlineConfig::get('uptime_warning'),
+            'devicegroups' => twentyfouronlineConfig::get('webui.availability_map_use_device_groups') ? DeviceGroup::hasAccess($request->user())->orderBy('name')->get(['id', 'name']) : [],
         ];
 
         return view('map.availability', $data);
     }
 }
+
+
+
+

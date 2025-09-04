@@ -16,7 +16,7 @@ recommended you use an alternative database location
     1. Download the script onto the desired host.
 
         ```bash
-        wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate -O /etc/snmp/osupdate
+        wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/osupdate -O /etc/snmp/osupdate
         ```
 
     2. Make the script executable
@@ -59,4 +59,8 @@ recommended you use an alternative database location
 
     Then uncomment the line towards the top marked to be uncommented if
     using it as a agent.
+
+
+
+
 

@@ -79,3 +79,7 @@ modules:
                     states:
                         - { descr: Ok, graph: 1, value: 1, generic: 0 }
                         - { descr: Abnormal, graph: 1, value: 2, generic: 2 }
+
+
+
+

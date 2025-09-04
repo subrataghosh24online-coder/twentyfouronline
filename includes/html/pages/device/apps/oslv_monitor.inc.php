@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Port;
 use App\Models\Storage;
 
@@ -351,28 +351,28 @@ if (isset($vars['oslvm']) && isset($app_data['oslvm_data'][$vars['oslvm']])) {
                 $path_graph_array = [];
                 $path_graph_array['height'] = '100';
                 $path_graph_array['width'] = '210';
-                $path_graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+                $path_graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
                 $path_graph_array['id'] = $storage_info['storage_id'];
                 $path_graph_array['type'] = 'storage_usage';
-                $path_graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+                $path_graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
                 $path_graph_array['legend'] = 'no';
 
                 $path_link_array = $path_graph_array;
                 $path_link_array['page'] = 'graphs';
                 unset($rpath_link_array['height'], $path_link_array['width'], $path_link_array['legend']);
 
-                $path_link = LibreNMS\Util\Url::generate($path_link_array);
+                $path_link = twentyfouronline\Util\Url::generate($path_link_array);
 
                 $path_overlib_content = generate_overlib_content($path_graph_array, $device['hostname'] . ' - ' . $storage_info['storage_descr']);
 
                 $path_graph_array['width'] = 80;
                 $path_graph_array['height'] = 20;
                 $path_graph_array['bg'] = 'ffffff00';
-                $path_minigraph = LibreNMS\Util\Url::lazyGraphTag($path_graph_array);
+                $path_minigraph = twentyfouronline\Util\Url::lazyGraphTag($path_graph_array);
 
-                $mount_path = LibreNMS\Util\Url::overlibLink($path_link, $mount_path, $path_overlib_content);
+                $mount_path = twentyfouronline\Util\Url::overlibLink($path_link, $mount_path, $path_overlib_content);
                 $mount_path_usage = round($storage_info['storage_perc']) . '% ';
-                $mount_path_usage_graph = LibreNMS\Util\Url::overlibLink($path_link, $path_minigraph, $path_overlib_content);
+                $mount_path_usage_graph = twentyfouronline\Util\Url::overlibLink($path_link, $path_minigraph, $path_overlib_content);
             }
         }
         $table_info['rows'][] = [
@@ -612,37 +612,37 @@ if ($app_data['has']['sock']) {
     ];
 }
 if ($app_data['has']['linux_mem_stats']) {
-    if (LibrenmsConfig::get('apps.oslv_monitor.linux_pg_memory_stats')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.linux_pg_memory_stats')) {
         $graphs[] = [
             'type' => 'cgroups_pg',
             'description' => 'Linux Pg Memory Stats',
         ];
     }
-    if (LibrenmsConfig::get('apps.oslv_monitor.misc_linux_memory_stats')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.misc_linux_memory_stats')) {
         $graphs[] = [
             'type' => 'cgroups_mem_misc',
             'description' => 'Misc Linux Memory Stats',
         ];
     }
-    if (LibrenmsConfig::get('apps.oslv_monitor.zswap_size')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.zswap_size')) {
         $graphs[] = [
             'type' => 'cgroups_zswap',
             'description' => 'Zswap Size',
         ];
     }
-    if (LibrenmsConfig::get('apps.oslv_monitor.zswap_activity')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.zswap_activity')) {
         $graphs[] = [
             'type' => 'cgroups_zswap_activity',
             'description' => 'Zswap Activity',
         ];
     }
-    if (LibrenmsConfig::get('apps.oslv_monitor.workingset_stats')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.workingset_stats')) {
         $graphs[] = [
             'type' => 'cgroups_workingset',
             'description' => 'Workingset Stats',
         ];
     }
-    if (LibrenmsConfig::get('apps.oslv_monitor.thp_activity')) {
+    if (twentyfouronlineConfig::get('apps.oslv_monitor.thp_activity')) {
         $graphs[] = [
             'type' => 'cgroups_thp_activity',
             'description' => 'THP Activity',
@@ -696,3 +696,7 @@ foreach ($graphs as $key => $graph_info) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

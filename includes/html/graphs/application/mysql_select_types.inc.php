@@ -30,3 +30,7 @@ $nototal = 0;
 $unit_text = 'Queries';
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

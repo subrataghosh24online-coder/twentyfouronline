@@ -810,3 +810,7 @@ etherHistoryHighCapacityOctets OBJECT-TYPE
 -- High Capacity Extensions for the hostTable
 
 END
+
+
+
+

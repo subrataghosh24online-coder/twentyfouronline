@@ -8,7 +8,7 @@ https://www.cyberpowersystems.com/products/software/power-panel-personal/
 1. Copy the python script, pwrstatd.py, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/pwrstatd.py -O /etc/snmp/pwrstatd.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/pwrstatd.py -O /etc/snmp/pwrstatd.py
     ```
 
 2. Make the script executable
@@ -36,3 +36,7 @@ https://www.cyberpowersystems.com/products/software/power-panel-personal/
     ```bash
     sudo systemctl restart snmpd
     ```
+
+
+
+

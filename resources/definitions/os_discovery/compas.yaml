@@ -90,3 +90,7 @@ modules:
                         - { value: 2, descr: 'Battery Test', graph: 0, generic: 1 }
                         - { value: 3, descr: 'AC Failure', graph: 0, generic: 2 }
                         - { value: 5, descr: 'Safe', graph: 0, generic: 0 }
+
+
+
+

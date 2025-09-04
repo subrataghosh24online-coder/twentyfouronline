@@ -1,3 +1,7 @@
 modules:
   os:
     sysDescr_regex: '/HP (VC )?(?<hardware>.*)Module (Virtual Connect )?(?<version>[\d.]+)/'
+
+
+
+

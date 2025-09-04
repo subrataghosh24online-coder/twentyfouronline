@@ -10,3 +10,7 @@ class HrSystem extends DeviceRelatedModel
 
     protected $primaryKey = 'hrSystem_id';
 }
+
+
+
+

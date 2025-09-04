@@ -1378,3 +1378,7 @@ jnxWAPClientBytesTx OBJECT-TYPE
     ::= { jnxWlanWAPClientEntry 10 }
 
 END
+
+
+
+

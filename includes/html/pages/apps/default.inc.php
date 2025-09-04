@@ -1,12 +1,12 @@
 <?php
 
 use App\Models\Application;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Url;
 
 $graph_array['height'] = '100';
 $graph_array['width'] = '220';
-$graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
-$graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+$graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
+$graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
 $graph_array_zoom = $graph_array;
 $graph_array_zoom['height'] = '150';
 $graph_array_zoom['width'] = '400';
@@ -17,7 +17,7 @@ $apps = Application::query()->hasAccess(Auth::user())->where('app_type', $vars['
 });
 
 foreach ($apps as $app) {
-    $app_state = \LibreNMS\Util\Html::appStateIcon($app['app_state']);
+    $app_state = \twentyfouronline\Util\Html::appStateIcon($app['app_state']);
     if (! empty($app_state['icon'])) {
         $app_state_info = '<font color="' . $app_state['color'] . '"><i title="' . $app_state['hover_text'] . '" class="fa ' . $app_state['icon'] . ' fa-fw fa-lg" aria-hidden="true"></i></font>';
     } else {
@@ -52,3 +52,7 @@ foreach ($apps as $app) {
     echo '</div>';
     echo '</div>';
 }//end foreach
+
+
+
+

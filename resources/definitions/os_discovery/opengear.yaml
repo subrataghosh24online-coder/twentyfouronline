@@ -147,3 +147,7 @@ modules:
                         - { value: 4, descr: GSM, graph: 4, generic: 0 }
                         - { value: 5, descr: UMTS, graph: 5, generic: 0 }
                         - { value: 6, descr: LTE, graph: 6, generic: 0 }
+
+
+
+

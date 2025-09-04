@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Steve Calvário <https://github.com/Calvario/>
  *
@@ -32,3 +32,7 @@ $ups_load = snmp_get($device, $ups_load_oid, '-Oqv');
 if (is_numeric($ups_load)) {
     discover_sensor(null, 'load', $device, $ups_load_oid, 0, 'snmp', $ups_device_manufacturer . ' ' . $ups_device_model . ' - UPS Load', '1', '1', 0, null, null, 100, intval($ups_load));
 }
+
+
+
+

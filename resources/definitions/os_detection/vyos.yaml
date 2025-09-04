@@ -12,3 +12,7 @@ discovery:
         sysDescr_regex:
             - '/^Vyatta VyOS/'
             - '/^VyOS/i'
+
+
+
+

@@ -8,3 +8,7 @@ $unit = '%%';
 $unit_long = 'CCQ';
 
 require 'includes/html/graphs/device/wireless-sensor.inc.php';
+
+
+
+

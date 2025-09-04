@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use LibreNMS\ComposerHelper;
+use twentyfouronline\ComposerHelper;
 
 class PluginRemoveCommand extends Command
 {
@@ -46,3 +46,7 @@ class PluginRemoveCommand extends Command
         return 0;
     }
 }
+
+
+
+

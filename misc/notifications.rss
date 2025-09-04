@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
- <title>LibreNMS Notifications</title>
- <description>RSS feed for notifications to LibreNMS users</description>
- <link>https://www.librenms.org/</link>
+ <title>twentyfouronline Notifications</title>
+ <description>RSS feed for notifications to twentyfouronline users</description>
+ <link>https://www.twentyfouronline.org/</link>
  <lastBuildDate>Mon, 02 May 2016 20:00:00 +0000</lastBuildDate>
  <pubDate>Mon, 02 Mar 2016 20:00:00 +0000</pubDate>
  <ttl>1800</ttl>
@@ -14,7 +14,7 @@
   </item>
   <item>
     <title>Removal of ciscoASA table</title>
-    <description>On the 12th of February 2025, we will be merging in pull request 16952 (https://github.com/librenms/librenms/pull/16952) which will remove the ciscoASA table. Please see https://community.librenms.org/t/remove-of-the-ciscoasa-table/26978 for further information.</description>
+    <description>On the 12th of February 2025, we will be merging in pull request 16952 (https://github.com/twentyfouronline/twentyfouronline/pull/16952) which will remove the ciscoASA table. Please see https://community.twentyfouronline.org/t/remove-of-the-ciscoasa-table/26978 for further information.</description>
     <pubDate>Sun, 19 Jan 2025 22:00:00 +0000</pubDate>
   </item>
   <item>
@@ -29,8 +29,12 @@
   </item>
   <item>
     <title>OS Definitions and discovery yaml file relocation</title>
-    <description>As part of the continued effort to improve LibreNMS, it's code base and associated files, we will be migrating the yaml files used for OS detection and support. Please see https://community.librenms.org/t/os-definitions-and-discovery-file-relocation/27646 for further information.</description>
+    <description>As part of the continued effort to improve twentyfouronline, it's code base and associated files, we will be migrating the yaml files used for OS detection and support. Please see https://community.twentyfouronline.org/t/os-definitions-and-discovery-file-relocation/27646 for further information.</description>
     <pubDate>Wed, 16 Apr 2025 22:00:00 +0000</pubDate>
   </item>
 </channel>
 </rss>
+
+
+
+

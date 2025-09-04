@@ -42,3 +42,7 @@ foreach ($pre_cache['sentry4_temp'] as $index => $data) {
         discover_sensor(null, 'temperature', $device, $oid, 'st4TempSensorValue' . $index, 'sentry4', $descr, $divisor, $multiplier, $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $current, 'snmp', null, null, $user_func);
     }
 }
+
+
+
+

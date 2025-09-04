@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -29,8 +29,8 @@ namespace App\Http\Controllers\Ajax;
 use App\Models\BgpPeer;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use LibreNMS\Util\Color;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Color;
+use twentyfouronline\Util\Url;
 
 class BgpSearchController extends SearchController
 {
@@ -71,3 +71,7 @@ class BgpSearchController extends SearchController
         ];
     }
 }
+
+
+
+

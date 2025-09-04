@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Quanta LB6M Temperature information module
+ * twentyfouronline Quanta LB6M Temperature information module
  *
  * Copyright (c) 2017 Mark Guzman <segfault@hasno.info>
  * This program is free software: you can redistribute it and/or modify it
@@ -25,3 +25,7 @@ foreach ($sensors_values as $index => $entry) {
         discover_sensor(null, 'temperature', $device, "$numeric_oid_base.$index", $index, $sensor_type, $descr, 1, 1, null, null, null, null, $current_value);
     }
 }
+
+
+
+

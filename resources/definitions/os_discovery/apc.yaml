@@ -1347,3 +1347,7 @@ modules:
                     index: 'upsBasicBatteryLastReplaceDate.{{ $index }}'
                     descr: 'Last Battery Replacement'
                     user_func: dateToRuntime
+
+
+
+

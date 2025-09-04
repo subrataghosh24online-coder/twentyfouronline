@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('preferences.title'))
 
@@ -129,7 +129,7 @@
 
     @config('auth.socialite.configs')
     <x-panel title="{{ __('OAuth/SAML Authentication') }}">
-        @foreach (\App\Facades\LibrenmsConfig::get('auth.socialite.configs', []) as $provider => $config)
+        @foreach (\App\Facades\twentyfouronlineConfig::get('auth.socialite.configs', []) as $provider => $config)
         <form role="form" action="{{ route('socialite.redirect', $provider) }}" method="post">
             {{ csrf_field() }}
             <button type="submit" id="login" class="btn btn-success btn-block">
@@ -340,3 +340,7 @@
         #twofactorkeycontainer { display: none; }
     </style>
 @endsection
+
+
+
+

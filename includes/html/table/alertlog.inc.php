@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2018 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2018 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $alert_severities = [
@@ -85,10 +85,10 @@ if ($rowCount != -1) {
 }
 
 if (session('preferences.timezone')) {
-    $sql = "SELECT E.id AS alert_log_id, E.details AS alert_log_details, R.severity, D.device_id,name AS alert,rule_id,state,time_logged,DATE_FORMAT(IFNULL(CONVERT_TZ(time_logged, @@global.time_zone, ?),time_logged), '" . \App\Facades\LibrenmsConfig::get('dateformat.mysql.compact') . "') as humandate,details $sql";
+    $sql = "SELECT E.id AS alert_log_id, E.details AS alert_log_details, R.severity, D.device_id,name AS alert,rule_id,state,time_logged,DATE_FORMAT(IFNULL(CONVERT_TZ(time_logged, @@global.time_zone, ?),time_logged), '" . \App\Facades\twentyfouronlineConfig::get('dateformat.mysql.compact') . "') as humandate,details $sql";
     $param = array_merge([session('preferences.timezone')], $param);
 } else {
-    $sql = "SELECT E.id AS alert_log_id, E.details AS alert_log_details, R.severity, D.device_id,name AS alert,rule_id,state,time_logged,DATE_FORMAT(time_logged, '" . \App\Facades\LibrenmsConfig::get('dateformat.mysql.compact') . "') as humandate,details $sql";
+    $sql = "SELECT E.id AS alert_log_id, E.details AS alert_log_details, R.severity, D.device_id,name AS alert,rule_id,state,time_logged,DATE_FORMAT(time_logged, '" . \App\Facades\twentyfouronlineConfig::get('dateformat.mysql.compact') . "') as humandate,details $sql";
 }
 
 $rulei = 0;
@@ -147,3 +147,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

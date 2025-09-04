@@ -1,9 +1,9 @@
 <?php
 
-namespace LibreNMS\Tests\Unit\Util;
+namespace twentyfouronline\Tests\Unit\Util;
 
-use LibreNMS\Tests\TestCase;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Tests\TestCase;
+use twentyfouronline\Util\Mac;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 
@@ -67,3 +67,7 @@ class MacUtilTest extends TestCase
         ];
     }
 }
+
+
+
+

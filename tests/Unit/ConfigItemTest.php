@@ -1,9 +1,9 @@
 <?php
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
-use LibreNMS\Tests\TestCase;
-use LibreNMS\Util\DynamicConfigItem;
+use twentyfouronline\Tests\TestCase;
+use twentyfouronline\Util\DynamicConfigItem;
 
 class ConfigItemTest extends TestCase
 {
@@ -95,3 +95,7 @@ class ConfigItemTest extends TestCase
         $this->assertFalse($array_keys_not_empty->checkValue([null => []]));
     }
 }
+
+
+
+

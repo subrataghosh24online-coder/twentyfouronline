@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Discovery;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Eventlog;
 use App\Models\SensorToStateIndex;
@@ -35,8 +35,8 @@ use App\Models\StateTranslation;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\DB\SyncsModels;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\DB\SyncsModels;
+use twentyfouronline\Enum\Severity;
 
 class Sensor
 {
@@ -113,15 +113,15 @@ class Sensor
 
     public function canSkip(\App\Models\Sensor $sensor): bool
     {
-        if (! empty($sensor->sensor_class) && (LibrenmsConfig::getOsSetting($this->device->os, "disabled_sensors.$sensor->sensor_class") || LibrenmsConfig::get("disabled_sensors.$sensor->sensor_class"))) {
+        if (! empty($sensor->sensor_class) && (twentyfouronlineConfig::getOsSetting($this->device->os, "disabled_sensors.$sensor->sensor_class") || twentyfouronlineConfig::get("disabled_sensors.$sensor->sensor_class"))) {
             return true;
         }
-        foreach (LibrenmsConfig::getCombined($this->device->os, 'disabled_sensors_regex') as $skipRegex) {
+        foreach (twentyfouronlineConfig::getCombined($this->device->os, 'disabled_sensors_regex') as $skipRegex) {
             if (! empty($sensor->sensor_descr) && preg_match($skipRegex, $sensor->sensor_descr)) {
                 return true;
             }
         }
-        foreach (LibrenmsConfig::getCombined($this->device->os, "disabled_sensors_regex.$sensor->sensor_class") as $skipRegex) {
+        foreach (twentyfouronlineConfig::getCombined($this->device->os, "disabled_sensors_regex.$sensor->sensor_class") as $skipRegex) {
             if (! empty($sensor->sensor_descr) && preg_match($skipRegex, $sensor->sensor_descr)) {
                 return true;
             }
@@ -187,3 +187,7 @@ class Sensor
         }
     }
 }
+
+
+
+

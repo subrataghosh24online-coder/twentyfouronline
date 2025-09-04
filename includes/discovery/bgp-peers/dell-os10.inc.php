@@ -3,7 +3,7 @@
 /**
  * dell-os10.inc.php
  *
- * LibreNMS bgp_peers for Dell OS10
+ * twentyfouronline bgp_peers for Dell OS10
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2021 LibreNMS Contributors
- * @author     LibreNMS Contributors
+ * @copyright  2021 twentyfouronline Contributors
+ * @author     twentyfouronline Contributors
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\BgpPeer;
 use App\Models\Vrf;
-use LibreNMS\Util\IP;
+use twentyfouronline\Util\IP;
 
 if ($device['os'] == 'dell-os10') {
     $bgpPeersCache = snmpwalk_cache_multi_oid($device, 'os10bgp4V2PeerTable', [], 'DELLEMC-OS10-BGP4V2-MIB', 'dell');
@@ -47,7 +47,7 @@ if ($device['os'] == 'dell-os10') {
 
         foreach ($peer as $address => $value) {
             // resolve AS number by DNS_TXT record
-            $astext = \LibreNMS\Util\AutonomousSystem::get($value['os10bgp4V2PeerRemoteAs'])->name();
+            $astext = \twentyfouronline\Util\AutonomousSystem::get($value['os10bgp4V2PeerRemoteAs'])->name();
 
             // FIXME - the `devices` table gets updated in the main bgp-peers.inc.php
             // Setting it here avoids the code that resets it to null if not found in BGP4-MIB.
@@ -72,7 +72,7 @@ if ($device['os'] == 'dell-os10') {
                 ];
                 DeviceCache::getPrimary()->bgppeers()->create($row);
 
-                if (LibrenmsConfig::get('autodiscovery.bgp')) {
+                if (twentyfouronlineConfig::get('autodiscovery.bgp')) {
                     $name = gethostbyaddr($address);
                     discover_new_device($name, $device, 'BGP');
                 }
@@ -120,3 +120,7 @@ if ($device['os'] == 'dell-os10') {
     unset($bgpPeers);
     // No return statement here, so standard BGP mib will still be polled after this file is executed.
 }
+
+
+
+

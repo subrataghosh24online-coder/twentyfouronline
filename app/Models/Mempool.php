@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use LibreNMS\Exceptions\InsufficientDataException;
-use LibreNMS\Exceptions\UncorrectableNegativeException;
-use LibreNMS\Interfaces\Models\Keyable;
-use LibreNMS\Util\Number;
+use twentyfouronline\Exceptions\InsufficientDataException;
+use twentyfouronline\Exceptions\UncorrectableNegativeException;
+use twentyfouronline\Interfaces\Models\Keyable;
+use twentyfouronline\Util\Number;
 
 class Mempool extends DeviceRelatedModel implements Keyable
 {
@@ -132,3 +132,7 @@ class Mempool extends DeviceRelatedModel implements Keyable
         return "$this->mempool_type-$this->mempool_index";
     }
 }
+
+
+
+

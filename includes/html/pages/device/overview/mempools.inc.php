@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Arr;
-use LibreNMS\Util\Color;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Color;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Url;
 
 $graph_type = 'mempool_usage';
 
@@ -34,11 +34,11 @@ if ($mempools->isNotEmpty()) {
     $graph = \App\Http\Controllers\Device\Tabs\OverviewController::setGraphWidth([
         'device' => DeviceCache::getPrimary()->device_id,
         'type' => 'device_mempool',
-        'from' => \App\Facades\LibrenmsConfig::get('time.day'),
+        'from' => \App\Facades\twentyfouronlineConfig::get('time.day'),
         'legend' => 'no',
         'popup_title' => DeviceCache::getPrimary()->hostname . ' - Memory Usage',
     ]);
-    echo \LibreNMS\Util\Url::graphPopup($graph, \LibreNMS\Util\Url::lazyGraphTag($graph), $mempools_url);
+    echo \twentyfouronline\Util\Url::graphPopup($graph, \twentyfouronline\Util\Url::lazyGraphTag($graph), $mempools_url);
     echo '  </td>
             </tr>';
 
@@ -64,8 +64,8 @@ if ($mempools->isNotEmpty()) {
             'id' => $mempool->mempool_id,
             'height' => 100,
             'width' => 210,
-            'from' => \App\Facades\LibrenmsConfig::get('time.day'),
-            'to' => \App\Facades\LibrenmsConfig::get('time.now'),
+            'from' => \App\Facades\twentyfouronlineConfig::get('time.day'),
+            'to' => \App\Facades\twentyfouronlineConfig::get('time.now'),
             'legend' => 'no',
         ];
 
@@ -76,7 +76,7 @@ if ($mempools->isNotEmpty()) {
         $graph_array['height'] = 20;
         $graph_array['bg'] = 'ffffff00';
         // the 00 at the end makes the area transparent.
-        $minigraph = \LibreNMS\Util\Url::lazyGraphTag($graph_array);
+        $minigraph = \twentyfouronline\Util\Url::lazyGraphTag($graph_array);
 
         switch ($mempool->mempool_class) {
             case 'system':
@@ -92,9 +92,9 @@ if ($mempools->isNotEmpty()) {
         }
 
         echo '<tr>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $mempool->mempool_descr, $overlib_content) . '</td>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $percentageBar, $overlib_content) . '
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $mempool->mempool_descr, $overlib_content) . '</td>
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $percentageBar, $overlib_content) . '
             </a></td>
             </tr>';
     }//end foreach
@@ -104,3 +104,7 @@ if ($mempools->isNotEmpty()) {
         </div>
         </div>';
 }//end if
+
+
+
+

@@ -4790,3 +4790,7 @@ nwIpxEventTextString     OBJECT-TYPE
         ::= { nwIpxEventEntry 7 }
 
 END
+
+
+
+

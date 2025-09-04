@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class DiskIo extends DeviceRelatedModel implements Keyable
 {
@@ -21,3 +21,7 @@ class DiskIo extends DeviceRelatedModel implements Keyable
         return $this->diskio_index . $this->diskio_descr;
     }
 }
+
+
+
+

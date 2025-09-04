@@ -2,11 +2,11 @@
 
 ## Stats data and your privacy
 
-This document has been put together to explain what LibreNMS does when
+This document has been put together to explain what twentyfouronline does when
 it calls back home to report some anonymous statistics.
 
 Let's start off by saying, all of the code that processes the data and
-submits it is included in the standard LibreNMS branch you've
+submits it is included in the standard twentyfouronline branch you've
 installed, the code that accepts this data and in turn generates some
 pretty graphs is all open source and available on GitHub. Please feel
 free to review the code, comment on it and suggest changes /
@@ -44,7 +44,7 @@ do with that data.
 ## How do I enable stats submission?
 
 If you're happy with all of this - please consider switching the call
-back system on, you can do this within the About LibreNMS page within
+back system on, you can do this within the About twentyfouronline page within
 your control panel. In the Statistics section you will find a toggle
 switch to enable / disable the feature. If you've previously had it
 switched on and want to opt out and remove your data, click the 'Clear
@@ -60,10 +60,10 @@ If you disable daily.sh then opting in will not have any affect.
 
 ### Where can I see the data I submitted?
 You can't see the data raw, but we collate all of the data together and provide a
-dynamic site so you can see the results of all contributed stats [here](https://stats.librenms.org)
+dynamic site so you can see the results of all contributed stats [here](https://stats.twentyfouronline.org)
 
 ### I want my data removed.
-That's easy, simply press 'Clear remote stats' in the About LibreNMS page of your control
+That's easy, simply press 'Clear remote stats' in the About twentyfouronline page of your control
 panel, the next time the call back script is run it will remove all the data we have.
 
 ### I clicked the 'Clear remote stats' button by accident.
@@ -74,3 +74,7 @@ Hopefully this answers the questions you might have on why and what we
 are doing here, if not, please pop into our [discord
 server](https://t.libren.ms/discord) or community forum and ask any
 questions you like.
+
+
+
+

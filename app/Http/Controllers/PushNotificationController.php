@@ -53,3 +53,7 @@ class PushNotificationController extends Controller
             ->deletePushSubscription($request->input('endpoint'));
     }
 }
+
+
+
+

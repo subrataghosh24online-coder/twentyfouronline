@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\Eventlog;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppParsingFailedException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppParsingFailedException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'fail2ban';
 
@@ -76,3 +76,7 @@ if (count($added_jails) > 0 || count($removed_jails) > 0) {
 }
 
 update_application($app, 'ok', $metrics);
+
+
+
+

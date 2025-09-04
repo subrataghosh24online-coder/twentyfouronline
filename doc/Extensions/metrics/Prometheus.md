@@ -22,7 +22,7 @@ really able to provide any help with this side of things.
 - Support for Prometheus or Grafana, we would highly recommend that
   you have some level of experience with these.
 
-RRD will continue to function as normal so LibreNMS itself should
+RRD will continue to function as normal so twentyfouronline itself should
 continue to function as normal.
 
 ## Configuration
@@ -31,8 +31,8 @@ continue to function as normal.
     ```bash
     lnms config:set prometheus.enable true
     lnms config:set prometheus.url 'http://127.0.0.1:9091'
-    lnms config:set prometheus.job 'librenms'
-    lnms config:set prometheus.prefix 'librenms'
+    lnms config:set prometheus.job 'twentyfouronline'
+    lnms config:set prometheus.prefix 'twentyfouronline'
     ```
 
 If your pushgateway uses basic authentication, configure the following:
@@ -58,14 +58,14 @@ INOCTETS
 ifInErrors_rate
 ```
 
-Configuring a prefix name, for example 'librenms', instead caused those 
+Configuring a prefix name, for example 'twentyfouronline', instead caused those 
 metrics to be exposed with the following names:
 
 ```
-librenms_OUTUCASTPKTS
-librenms_ifOutUcastPkts_rate
-librenms_INOCTETS
-librenms_ifInErrors_rate
+twentyfouronline_OUTUCASTPKTS
+twentyfouronline_ifOutUcastPkts_rate
+twentyfouronline_INOCTETS
+twentyfouronline_ifInErrors_rate
 ```
 
 ## Sample Prometheus Scrape Config (for scraping the Push Gateway)
@@ -81,3 +81,7 @@ librenms_ifInErrors_rate
 The same data then stored within rrd will be sent to Prometheus and
 recorded. You can then create graphs within Grafana to display the
 information you need.
+
+
+
+

@@ -18,22 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2022 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\Http\Middleware;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Closure;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\IP;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\IP;
 
 class AuthenticateGraph
 {
@@ -77,7 +77,7 @@ class AuthenticateGraph
 
     protected function isAllowed(Request $request): bool
     {
-        if (LibrenmsConfig::get('allow_unauth_graphs', false)) {
+        if (twentyfouronlineConfig::get('allow_unauth_graphs', false)) {
             d_echo("Unauthorized graphs allowed\n");
 
             return true;
@@ -86,7 +86,7 @@ class AuthenticateGraph
         $ip = $request->getClientIp();
         try {
             $client_ip = IP::parse($ip);
-            foreach (LibrenmsConfig::get('allow_unauth_graphs_cidr', []) as $range) {
+            foreach (twentyfouronlineConfig::get('allow_unauth_graphs_cidr', []) as $range) {
                 if ($client_ip->inNetwork($range)) {
                     d_echo("Unauthorized graphs allowed from $range\n");
 
@@ -100,3 +100,7 @@ class AuthenticateGraph
         return false;
     }
 }
+
+
+
+

@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use Illuminate\Support\Arr;
-use LibreNMS\Tests\TestCase;
-use LibreNMS\Util\FileCategorizer;
+use twentyfouronline\Tests\TestCase;
+use twentyfouronline\Util\FileCategorizer;
 
 class FileCategorizerTest extends TestCase
 {
@@ -61,7 +61,7 @@ class FileCategorizerTest extends TestCase
                 'includes/polling/sensors.inc.php',
                 'misc/test.php',
                 'app/Http/Kernel.php',
-                'LibreNMS/Modules/Mpls.php',
+                'twentyfouronline/Modules/Mpls.php',
             ],
         ]);
     }
@@ -82,7 +82,7 @@ class FileCategorizerTest extends TestCase
         $this->assertCategorized([
             'python' => [
                 'python.py',
-                'LibreNMS/__init__.py',
+                'twentyfouronline/__init__.py',
             ],
         ]);
     }
@@ -113,11 +113,11 @@ class FileCategorizerTest extends TestCase
         $this->assertCategorized([
             'resources' => [
                 'resources/js/app.js',
-                'resources/js/components/LibrenmsSetting.vue',
-                'resources/views/layouts/librenmsv1.blade.php',
+                'resources/js/components/twentyfouronlineSetting.vue',
+                'resources/views/layouts/twentyfouronlinev1.blade.php',
             ],
             'php' => [
-                'resources/views/layouts/librenmsv1.blade.php',
+                'resources/views/layouts/twentyfouronlinev1.blade.php',
             ],
         ]);
     }
@@ -159,16 +159,16 @@ class FileCategorizerTest extends TestCase
         $this->assertCategorized([
             'os' => ['3com', 'arris-dsr4410md', 'adva_fsp3kr7', 'xirrus_aos'],
             'os-files' => [
-                'LibreNMS/OS/ThreeCom.php',
-                'LibreNMS/OS/ArrisDsr4410md.php',
-                'LibreNMS/OS/AdvaFsp3kr7.php',
-                'LibreNMS/OS/XirrusAos.php',
+                'twentyfouronline/OS/ThreeCom.php',
+                'twentyfouronline/OS/ArrisDsr4410md.php',
+                'twentyfouronline/OS/AdvaFsp3kr7.php',
+                'twentyfouronline/OS/XirrusAos.php',
             ],
             'php' => [
-                'LibreNMS/OS/ThreeCom.php',
-                'LibreNMS/OS/ArrisDsr4410md.php',
-                'LibreNMS/OS/AdvaFsp3kr7.php',
-                'LibreNMS/OS/XirrusAos.php',
+                'twentyfouronline/OS/ThreeCom.php',
+                'twentyfouronline/OS/ArrisDsr4410md.php',
+                'twentyfouronline/OS/AdvaFsp3kr7.php',
+                'twentyfouronline/OS/XirrusAos.php',
             ],
         ]);
 
@@ -191,18 +191,18 @@ class FileCategorizerTest extends TestCase
             'os-files' => [
                 'tests/data/3com.json',
                 'tests/snmpsim/calix.snmprec',
-                'LibreNMS/OS/Ptp650.php',
+                'twentyfouronline/OS/Ptp650.php',
                 'resources/definitions/os_detection/dd-wrt.yaml',
                 'resources/definitions/os_discovery/arista_eos.yaml',
             ],
             'php' => [
-                'LibreNMS/OS/Ptp650.php',
+                'twentyfouronline/OS/Ptp650.php',
             ],
             'full-checks' => [true],
         ], [
             'tests/data/3com.json',
             'tests/snmpsim/calix.snmprec',
-            'LibreNMS/OS/Ptp650.php',
+            'twentyfouronline/OS/Ptp650.php',
             'resources/definitions/os_detection/dd-wrt.yaml',
             'resources/definitions/os_discovery/arista_eos.yaml',
         ]);
@@ -231,3 +231,7 @@ class FileCategorizerTest extends TestCase
         ];
     }
 }
+
+
+
+

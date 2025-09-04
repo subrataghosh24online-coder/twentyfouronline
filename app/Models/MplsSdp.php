@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsSdp extends Model implements Keyable
 {
@@ -48,3 +48,7 @@ class MplsSdp extends Model implements Keyable
         return $this->hasMany(MplsSdpBind::class, 'sdp_id');
     }
 }
+
+
+
+

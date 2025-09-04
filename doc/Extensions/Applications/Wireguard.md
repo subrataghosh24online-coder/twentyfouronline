@@ -9,7 +9,7 @@ The Wireguard application polls the Wireguard service and scrapes all client sta
 1. Copy the python script, wireguard.py, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/wireguard.pl -O /etc/snmp/wireguard.pl
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/wireguard.pl -O /etc/snmp/wireguard.pl
     ```
 
 2. Install the depends.
@@ -74,3 +74,7 @@ The default for `pubkey_resolvers` is
     ```bash
     sudo systemctl restart snmpd
     ```
+
+
+
+

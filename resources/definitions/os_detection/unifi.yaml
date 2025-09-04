@@ -24,3 +24,7 @@ discovery:
             oid: 'IEEE802dot11-MIB::dot11manufacturerProductName'
             op: 'contains'
             value: 'UAP'
+
+
+
+

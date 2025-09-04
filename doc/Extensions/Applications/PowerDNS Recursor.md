@@ -5,7 +5,7 @@ A recursive DNS server: <https://www.powerdns.com/recursor.html>
 ## Direct, Agent or SNMP Extend
 === "Direct"
 
-    The LibreNMS polling host must be able to connect to port 8082 on the
+    The twentyfouronline polling host must be able to connect to port 8082 on the
     monitored device. The web-server must be enabled, see the Recursor
     docs: <https://doc.powerdns.com/md/recursor/settings/#webserver>
 
@@ -33,7 +33,7 @@ A recursive DNS server: <https://www.powerdns.com/recursor.html>
     1. Copy the shell script, powerdns-recursor, to the desired host
     
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor -O /etc/snmp/powerdns-recursor
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/powerdns-recursor -O /etc/snmp/powerdns-recursor
     ```
 
     2. Make the script executable
@@ -53,4 +53,8 @@ A recursive DNS server: <https://www.powerdns.com/recursor.html>
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+
 

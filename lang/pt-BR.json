@@ -307,8 +307,8 @@
 	"Last Polled": "Última Coleta",
 	"Last Run": "Última Execução",
 	"Level": "Nível",
-	"LibreNMS is a community-based project": "LibreNMS é um projeto comunitário",
-	"LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS é um sistema de monitoramento de rede baseado em PHP/MySQL com descoberta automática",
+	"twentyfouronline is a community-based project": "twentyfouronline é um projeto comunitário",
+	"twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline é um sistema de monitoramento de rede baseado em PHP/MySQL com descoberta automática",
 	"License": "Licença",
 	"Lists": "Listas",
 	"Load": "Carga",
@@ -382,7 +382,7 @@
 	"only devices": "somente dispositivos",
 	"only services": "somente serviços",
 	"Operating System": "Sistema Operacional",
-	"Opt in to send anonymous usage statistics to LibreNMS?": "Deseja enviar estatísticas de uso anônimas para o LibreNMS?",
+	"Opt in to send anonymous usage statistics to twentyfouronline?": "Deseja enviar estatísticas de uso anônimas para o twentyfouronline?",
 	"or higher": "ou maior",
 	"Order By": "Ordenar Por",
 	"Origin": "Origem",
@@ -641,7 +641,7 @@
 	"Warning and critical": "Aviso e crítico",
 	"Web Server": "Servidor Web",
 	"Web site": "Site",
-	"Whoops, looks like something went wrong. Check your librenms.log.": "Ops, parece que algo deu errado. Verifique o seu librenms.log.",
+	"Whoops, looks like something went wrong. Check your twentyfouronline.log.": "Ops, parece que algo deu errado. Verifique o seu twentyfouronline.log.",
 	"Whoops, the web server could not write required files to the filesystem.": "Ops, o servidor web não pôde gravar os arquivos necessários no sistema de arquivos.",
 	"Widget title": "Título do Widget",
 	"Widget :title added": "Widget :title adicionado",
@@ -656,3 +656,7 @@
 	"Wrong Two-Factor Token.": "Token de Autenticação em Dois Fatores incorreto.",
 	"Whois": "Whois"
 }
+
+
+
+

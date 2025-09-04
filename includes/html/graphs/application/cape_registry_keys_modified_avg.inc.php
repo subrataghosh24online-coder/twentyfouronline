@@ -23,3 +23,7 @@ $descr = 'Average';
 $ds = 's3regkeysmod';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

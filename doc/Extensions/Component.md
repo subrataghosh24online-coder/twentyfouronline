@@ -60,7 +60,7 @@ write them to the `component` table, not the `component_prefs` table.
 Create an instance of the component class:
 
 ```php
-$COMPONENT = new LibreNMS\Component();
+$COMPONENT = new twentyfouronline\Component();
 ```
 
 ### <a name="get">Retrieving Components</a>
@@ -315,3 +315,7 @@ following modules:
   - `includes/polling/cisco-otv.inc.php`
   - `html/includes/graphs/device/cisco-otv-mac.inc.php`
   - `html/pages/routing/cisco-otv.inc.php`
+
+
+
+

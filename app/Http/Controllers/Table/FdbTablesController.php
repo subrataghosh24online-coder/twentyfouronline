@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -35,8 +35,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Mac;
 
 class FdbTablesController extends TableController
 {
@@ -318,3 +318,7 @@ class FdbTablesController extends TableController
         return $query; // Return the query builder instance
     }
 }
+
+
+
+

@@ -62,3 +62,7 @@ foreach ($eth_stats as $index => $port) {
 unset($eth_stats);
 unset($eth_traffic);
 unset($curIfIndex);
+
+
+
+

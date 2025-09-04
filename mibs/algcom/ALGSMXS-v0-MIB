@@ -12,3 +12,7 @@ SensorUnits OBJECT IDENTIFIER ::= { SMxSOIDs 4 }
 SensorThrMin OBJECT IDENTIFIER ::= { SMxSOIDs 5 }
 SensorThrMax OBJECT IDENTIFIER ::= { SMxSOIDs 6 }
 END
+
+
+
+

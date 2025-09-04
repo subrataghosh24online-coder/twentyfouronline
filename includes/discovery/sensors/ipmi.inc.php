@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -14,8 +14,8 @@ if ($ipmi['host'] = get_dev_attrib($device, 'ipmi_hostname')) {
     $ipmi['ciphersuite'] = get_dev_attrib($device, 'ipmi_ciphersuite');
     $ipmi['timeout'] = filter_var(get_dev_attrib($device, 'ipmi_timeout'), FILTER_VALIDATE_INT) ?: '3';
 
-    $cmd = [LibrenmsConfig::get('ipmitool', 'ipmitool')];
-    if (LibrenmsConfig::get('own_hostname') != $device['hostname'] || $ipmi['host'] != 'localhost') {
+    $cmd = [twentyfouronlineConfig::get('ipmitool', 'ipmitool')];
+    if (twentyfouronlineConfig::get('own_hostname') != $device['hostname'] || $ipmi['host'] != 'localhost') {
         if (empty($ipmi['kg_key']) || is_null($ipmi['kg_key'])) {
             array_push($cmd, '-H', $ipmi['host'], '-p', $ipmi['port'], '-U', $ipmi['user'], '-P', $ipmi['password'], '-L', 'USER');
         } else {
@@ -29,7 +29,7 @@ if ($ipmi['host'] = get_dev_attrib($device, 'ipmi_hostname')) {
         }
     }
 
-    foreach (LibrenmsConfig::get('ipmi.type', []) as $ipmi_type) {
+    foreach (twentyfouronlineConfig::get('ipmi.type', []) as $ipmi_type) {
         // Check if the IPMI type is available, catch segfaults of ipmitool/freeipmi.
         try {
             Log::debug('Trying IPMI type: ' . $ipmi_type);
@@ -58,10 +58,10 @@ if ($ipmi['host'] = get_dev_attrib($device, 'ipmi_hostname')) {
         [$desc,$current,$unit,$state,$low_nonrecoverable,$low_limit,$low_warn,$high_warn,$high_limit,$high_nonrecoverable] = $values;
 
         $index++;
-        if ($current != 'na' && LibrenmsConfig::has("ipmi_unit.$unit")) {
+        if ($current != 'na' && twentyfouronlineConfig::has("ipmi_unit.$unit")) {
             discover_sensor(
                 null,
-                LibrenmsConfig::get("ipmi_unit.$unit"),
+                twentyfouronlineConfig::get("ipmi_unit.$unit"),
                 $device,
                 $desc,
                 $index,
@@ -89,3 +89,7 @@ $sensorDiscovery->sync(sensor_class: 'fanspeed', poller_type: 'ipmi');
 $sensorDiscovery->sync(sensor_class: 'power', poller_type: 'ipmi');
 $sensorDiscovery->sync(sensor_class: 'current', poller_type: 'ipmi');
 $sensorDiscovery->sync(sensor_class: 'load', poller_type: 'ipmi');
+
+
+
+

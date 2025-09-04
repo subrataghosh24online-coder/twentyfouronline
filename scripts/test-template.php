@@ -4,10 +4,10 @@
 $init_modules = ['alerts', 'laravel'];
 require __DIR__ . '/../includes/init.php';
 
-use LibreNMS\Alert\AlertData;
-use LibreNMS\Alert\RunAlerts;
-use LibreNMS\Alert\Template;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Alert\AlertData;
+use twentyfouronline\Alert\RunAlerts;
+use twentyfouronline\Alert\Template;
+use twentyfouronline\Util\Debug;
 
 $options = getopt('t:h:r:p:s:d::');
 
@@ -58,3 +58,7 @@ Example:
 ');
     exit(1);
 }
+
+
+
+

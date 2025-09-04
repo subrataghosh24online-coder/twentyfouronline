@@ -10,3 +10,7 @@ $category = 'sysinfo';
 $rrdVar = 'connected';
 
 require 'seafile-common.inc.php';
+
+
+
+

@@ -9,3 +9,7 @@ if (is_numeric($proc['device_id']) && ($auth || device_permitted($proc['device_i
     $title .= ' :: Processor :: ' . htmlentities($proc['processor_descr']);
     $auth = true;
 }
+
+
+
+

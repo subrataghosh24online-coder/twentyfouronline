@@ -66,3 +66,7 @@ PAN-GLOBAL-TC DEFINITIONS ::= BEGIN
 			Enumerates all possible chassis types for Palo Alto devices."
 		SYNTAX       OCTET STRING (SIZE (0..64))
 END
+
+
+
+

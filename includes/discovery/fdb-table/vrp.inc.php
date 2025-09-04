@@ -7,16 +7,16 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
 
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage discovery
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  * @copyright  2018 PipoCanaja <pipocanaja@gmail.com>
  * @author     PipoCanaja <pipocanaja@gmail.com>
  * @author     Tony Murray <murraytony@gmail.com> (bridge.inc.php used as base)
  */
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 $fdbPort_table = snmpwalk_group($device, 'hwDynFdbPort', 'HUAWEI-L2MAM-MIB');
 $hwCfgMacAddrQueryIfIndex = snmpwalk_group($device, 'hwCfgMacAddrQueryIfIndex', 'HUAWEI-L2MAM-MIB', 10);
@@ -73,3 +73,7 @@ if (! empty($hwCfgMacAddrQueryIfIndex)) {
 
 unset($fdbPort_table);
 unset($hwCfgMacAddrQueryIfIndex);
+
+
+
+

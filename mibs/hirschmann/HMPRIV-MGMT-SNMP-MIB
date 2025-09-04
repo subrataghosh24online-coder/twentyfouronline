@@ -10067,3 +10067,7 @@ hmSysSelftestPortError NOTIFICATION-TYPE
 	that the specific port is in an error state and a device reboot is needed."
 	::= { hmAgentEvent 16 }
 END
+
+
+
+

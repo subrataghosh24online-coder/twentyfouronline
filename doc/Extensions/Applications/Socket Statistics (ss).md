@@ -72,7 +72,7 @@ vsock
 1. Copy the python script, ss.py, to the desired host
 
     ```
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/ss.py -O /etc/snmp/ss.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/ss.py -O /etc/snmp/ss.py
     ```
 
 2. Make the script executable
@@ -131,3 +131,7 @@ semodule -i snmpd_ss.pp
 ```
 
 6. Restart snmpd.
+
+
+
+

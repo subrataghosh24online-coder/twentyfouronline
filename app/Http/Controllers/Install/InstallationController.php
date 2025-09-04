@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,8 +27,8 @@
 namespace App\Http\Controllers\Install;
 
 use App\Http\Controllers\Controller;
-use LibreNMS\DB\Eloquent;
-use LibreNMS\Interfaces\InstallerStep;
+use twentyfouronline\DB\Eloquent;
+use twentyfouronline\Interfaces\InstallerStep;
 
 class InstallationController extends Controller
 {
@@ -121,9 +121,9 @@ class InstallationController extends Controller
             Eloquent::setConnection(
                 $this->connection,
                 $db['host'] ?? 'localhost',
-                $db['username'] ?? 'librenms',
+                $db['username'] ?? 'twentyfouronline',
                 $db['password'] ?? null,
-                $db['database'] ?? 'librenms',
+                $db['database'] ?? 'twentyfouronline',
                 $db['port'] ?? 3306,
                 $db['socket'] ?? null
             );
@@ -133,8 +133,8 @@ class InstallationController extends Controller
 
     protected function filterActiveSteps()
     {
-        if (is_string(config('librenms.install'))) {
-            $this->steps = array_intersect_key($this->steps, array_flip(explode(',', config('librenms.install'))));
+        if (is_string(config('twentyfouronline.install'))) {
+            $this->steps = array_intersect_key($this->steps, array_flip(explode(',', config('twentyfouronline.install'))));
         }
 
         return $this->steps;
@@ -161,3 +161,7 @@ class InstallationController extends Controller
         }, $this->steps);
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -21,3 +21,7 @@ $temperature = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if (is_numeric($temperature)) {
     discover_sensor(null, 'temperature', $device, $oid, $index, $sensor_type, $descr, $divisor, '1', '0', null, null, '65', $temperature);
 }
+
+
+
+

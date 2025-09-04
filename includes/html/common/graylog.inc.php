@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -11,11 +11,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use App\Models\Device;
@@ -51,7 +51,7 @@ searchbar = "<div id=\"{{ctx.id}}\" class=\"{{css.header}}\"><div class=\"row\">
 
 $tmp_output .= '"<div class=\"form-group\"><select name=\"stream\" id=\"stream\" class=\"form-control\" data-placeholder=\"All Messages\">"+';
 if ($vars['stream']) {
-    $tmp_output .= '"<option value=\"' . \LibreNMS\Util\Clean::html($vars['stream'], []) . '\">' . \LibreNMS\Util\Clean::html($vars['stream'], []) . '</option>" +';
+    $tmp_output .= '"<option value=\"' . \twentyfouronline\Util\Clean::html($vars['stream'], []) . '\">' . \twentyfouronline\Util\Clean::html($vars['stream'], []) . '</option>" +';
     $filter_device = $device->device_id;
 }
 $tmp_output .= '"</select>&nbsp;</div>"+';
@@ -75,7 +75,7 @@ if (! empty($filter_device)) {
 ';
 }
 
-if (\App\Facades\LibrenmsConfig::has('graylog.timezone')) {
+if (\App\Facades\twentyfouronlineConfig::has('graylog.timezone')) {
     $timezone = 'row.timestamp;';
 } else {
     $timezone = 'moment.parseZone(row.timestamp).local().format("YYYY-MM-DD HH:MM:SS");';
@@ -151,3 +151,7 @@ $tmp_output .= '
 ';
 
 $common_output[] = $tmp_output;
+
+
+
+

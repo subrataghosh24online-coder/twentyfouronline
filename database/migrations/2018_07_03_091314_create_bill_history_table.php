@@ -37,7 +37,7 @@ return new class extends Migration
             $table->unique(['bill_id', 'bill_datefrom', 'bill_dateto']);
         });
 
-        if (LibreNMS\DB\Eloquent::getDriver() == 'mysql') {
+        if (twentyfouronline\DB\Eloquent::getDriver() == 'mysql') {
             DB::statement('ALTER TABLE `bill_history` CHANGE `pdf` `pdf` longblob NULL ;');
         }
     }
@@ -52,3 +52,7 @@ return new class extends Migration
         Schema::drop('bill_history');
     }
 };
+
+
+
+

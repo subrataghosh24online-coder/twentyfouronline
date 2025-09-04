@@ -3,7 +3,7 @@
 /**
  * rpigpiomonitor.inc.php
  *
- * LibreNMS sensors discovery module for Raspberry Pi GPIO Monitor extension
+ * twentyfouronline sensors discovery module for Raspberry Pi GPIO Monitor extension
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @link      https://librenms.org
+ * @link      https://twentyfouronline.org
  *
  * @copyright 2021 Denny Friebe
  * @author    Denny Friebe <denny.friebe@icera-network.de>
@@ -80,3 +80,7 @@ if (! empty($gpio_mon_data)) {
         }
     }
 }
+
+
+
+

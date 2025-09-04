@@ -18,3 +18,6 @@ TPLINK-LLDP-MIB DEFINITIONS ::= BEGIN
 		tplinkLldpMIBObjects		OBJECT IDENTIFIER ::= {tplinkLldpMIB 1}
 		tplinkLldpMIBNotifications	OBJECT IDENTIFIER ::= {tplinkLldpMIB 2}    
 END
+
+
+

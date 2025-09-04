@@ -234,3 +234,7 @@ hh3c8021XExt2PaePortHandshakeStatus  OBJECT-TYPE
     ::= { hh3c8021XExt2AuthConfigExtEntry 7 }
 
 END
+
+
+
+

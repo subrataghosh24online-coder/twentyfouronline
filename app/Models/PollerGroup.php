@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -44,7 +44,7 @@ class PollerGroup extends Model
 
         static::deleting(function (PollerGroup $pollergroup) {
             // handle device poller group fallback to default poller
-            $default_poller_id = \App\Facades\LibrenmsConfig::get('default_poller_group');
+            $default_poller_id = \App\Facades\twentyfouronlineConfig::get('default_poller_group');
             $pollergroup->devices()->update(['poller_group' => $default_poller_id]);
         });
     }
@@ -62,3 +62,7 @@ class PollerGroup extends Model
         return $this->hasMany(Device::class, 'poller_group', 'id');
     }
 }
+
+
+
+

@@ -9,3 +9,7 @@ return [
         'not_enabled' => 'Você deve ter a configuração :setting ativada para usar este recurso.',
     ],
 ];
+
+
+
+

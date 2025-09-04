@@ -490,3 +490,7 @@ CTINB-MIB  DEFINITIONS ::= BEGIN
             ::= { inbStatsEntry 14 }
 
 END 
+
+
+
+

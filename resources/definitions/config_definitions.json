@@ -1087,11 +1087,11 @@
             }
         },
         "callback_clear": {
-            "default": "https://stats.librenms.org/clear.php",
+            "default": "https://stats.twentyfouronline.org/clear.php",
             "type": "text"
         },
         "callback_post": {
-            "default": "https://stats.librenms.org/log.php",
+            "default": "https://stats.twentyfouronline.org/log.php",
             "type": "text"
         },
         "callback_proxy": {
@@ -2174,7 +2174,7 @@
             }
         },
         "email_user": {
-            "default": "LibreNMS",
+            "default": "twentyfouronline",
             "group": "alerting",
             "section": "email",
             "order": 1,
@@ -2368,7 +2368,7 @@
             "default": null,
             "type": "text"
         },
-        "gateone.use_librenms_user": {
+        "gateone.use_twentyfouronline_user": {
             "default": false,
             "type": "boolean"
         },
@@ -2449,7 +2449,7 @@
             }
         },
         "github_api": {
-            "default": "https://api.github.com/repos/librenms/librenms/",
+            "default": "https://api.github.com/repos/twentyfouronline/twentyfouronline/",
             "type": "text"
         },
         "good_if": {
@@ -4384,7 +4384,7 @@
         },
         "group": {
             "type": "text",
-            "default": "librenms"
+            "default": "twentyfouronline"
         },
         "gui.network-map.style": {
             "default": "new",
@@ -4598,7 +4598,7 @@
             "order": 3
         },
         "influxdb.db": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text",
             "group": "poller",
             "section": "influxdb",
@@ -4691,14 +4691,14 @@
             "order": 3
         },
         "influxdbv2.bucket": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text",
             "group": "poller",
             "section": "influxdbv2",
             "order": 4
         },
         "influxdbv2.organization": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text",
             "group": "poller",
             "section": "influxdbv2",
@@ -4794,7 +4794,7 @@
             "order": 6
         },
         "kafka.topic": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text",
             "group": "poller",
             "section": "kafka",
@@ -5019,7 +5019,7 @@
             "type": "boolean"
         },
         "irc_ctcp_version": {
-            "default": "LibreNMS IRCbot. https://www.librenms.org/",
+            "default": "twentyfouronline IRCbot. https://www.twentyfouronline.org/",
             "type": "text"
         },
         "irc_debug": {
@@ -5466,8 +5466,8 @@
             "default": false,
             "type": "boolean"
         },
-        "notifications.LibreNMS": {
-            "default": "https://www.librenms.org/notifications.rss",
+        "notifications.twentyfouronline": {
+            "default": "https://www.twentyfouronline.org/notifications.rss",
             "type": "text"
         },
         "notifications.local": {
@@ -6211,19 +6211,19 @@
             "order": 1
         },
         "project_home": {
-            "default": "https://www.librenms.org/",
+            "default": "https://www.twentyfouronline.org/",
             "type": "text"
         },
         "project_id": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text"
         },
         "project_issues": {
-            "default": "https://community.librenms.org/c/help",
+            "default": "https://community.twentyfouronline.org/c/help",
             "type": "text"
         },
         "project_name": {
-            "default": "LibreNMS",
+            "default": "twentyfouronline",
             "type": "text"
         },
         "prometheus.enable": {
@@ -6244,7 +6244,7 @@
             }
         },
         "prometheus.job": {
-            "default": "librenms",
+            "default": "twentyfouronline",
             "type": "text",
             "group": "poller",
             "section": "prometheus",
@@ -7046,7 +7046,7 @@
         },
         "user": {
             "type": "text",
-            "default": "librenms"
+            "default": "twentyfouronline"
         },
         "vertical_summary": {
             "default": 0,
@@ -7198,3 +7198,7 @@
         }
     }
 }
+
+
+
+

@@ -2,7 +2,7 @@
 
 ## Overview
 
-High Availability (HA) in LibreNMS ensures continuous operation and minimizes downtime by implementing redundancy for two critical components:
+High Availability (HA) in twentyfouronline ensures continuous operation and minimizes downtime by implementing redundancy for two critical components:
 
 - **Polling**: The data collection process
 - **WebUI**: The web interface for users
@@ -13,7 +13,7 @@ To achieve high availability, you need to ensure that the following components a
 2. **Redis w/ Redis Sentinel**: For session management and caching
 3. **RRD Files**: For storing polled data
 
-Also make sure that the **poller uses a distributed setup** which must be [LibreNMS Dispatcher service](../Extensions/Dispatcher-Service.md).
+Also make sure that the **poller uses a distributed setup** which must be [twentyfouronline Dispatcher service](../Extensions/Dispatcher-Service.md).
 
 For simplicity, the web-ui and poller can be configured to use the same Redis Sentinel cluster.
 
@@ -28,7 +28,7 @@ One way to add HA support for RRD is to use a shared storage over NFS with Glust
 
 ## WebUI High Availability
 
-The WebUI achieves HA through multiple LibreNMS instances sharing these backend services:
+The WebUI achieves HA through multiple twentyfouronline instances sharing these backend services:
 
 - Clustered Database
 - Redis with Sentinel
@@ -44,8 +44,8 @@ The WebUI achieves HA through multiple LibreNMS instances sharing these backend 
    - Implement Redis Sentinel
    - See [Redis-Sentinel.md](../Extensions/Redis-Sentinel.md) for configuration details
 
-3. **Deploy multiple LibreNMS instances**:
-   - Install LibreNMS on multiple servers
+3. **Deploy multiple twentyfouronline instances**:
+   - Install twentyfouronline on multiple servers
    - Configure each instance to use the same database and Redis Sentinel cluster
    - Ensure identical `.env` configurations across all instances. Remember to set `APP_KEY` to the same value on all instances.
    - Each install should have a unique `NODE_ID` in your `.env`.
@@ -66,3 +66,7 @@ Distributed polling allows multiple pollers to work together, providing load dis
 1. **Configure distributed polling**:
    - Follow the instructions in [Distributed-Poller.md](../Extensions/Distributed-Poller.md)
    - Ensure all pollers connect to the clustered database, Redis Sentinel and can access the same RRD files.
+
+
+
+

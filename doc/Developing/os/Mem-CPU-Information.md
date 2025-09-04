@@ -3,7 +3,7 @@ Processor for your new device.
 
 #### Memory
 
-LibreNMS will attempt to detect memory statistics using the standard HOST-RESOURCES-MIB and UCD-SNMP-MIB MIBs.
+twentyfouronline will attempt to detect memory statistics using the standard HOST-RESOURCES-MIB and UCD-SNMP-MIB MIBs.
 To detect non-standard MIBs, they can be defined via Yaml.
 
 ##### YAML
@@ -53,17 +53,17 @@ If you need to implement custom discovery or polling you can implement
 the MempoolsDiscovery interface and the MempoolsPolling interface in the OS class.
 MempoolsPolling is optional, standard polling will be used based on OIDs stored in the database.
 
-OS Class files reside under `LibreNMS\OS`
+OS Class files reside under `twentyfouronline\OS`
 
 ```php
 <?php
 
-namespace LibreNMS\OS;
+namespace twentyfouronline\OS;
 
-use LibreNMS\Interfaces\Discovery\MempoolsDiscovery;
-use LibreNMS\Interfaces\Polling\MempoolsPolling;
+use twentyfouronline\Interfaces\Discovery\MempoolsDiscovery;
+use twentyfouronline\Interfaces\Polling\MempoolsPolling;
 
-class Example extends \LibreNMS\OS implements MempoolsDiscovery, MempoolsPolling
+class Example extends \twentyfouronline\OS implements MempoolsDiscovery, MempoolsPolling
 {
     /**
      * Discover a Collection of Mempool models.
@@ -133,22 +133,22 @@ Accessing values within yaml:
 If you need to implement custom discovery or polling you can implement
 the ProcessorDiscovery interface and the ProcessorPolling interface in the OS class.
 
-OS Class files reside under `LibreNMS\OS`
+OS Class files reside under `twentyfouronline\OS`
 
 ```php
 <?php
-namespace LibreNMS\OS;
+namespace twentyfouronline\OS;
 
-use LibreNMS\Device\Processor;
-use LibreNMS\Interfaces\Discovery\ProcessorDiscovery;
-use LibreNMS\Interfaces\Polling\ProcessorPolling;
-use LibreNMS\OS;
+use twentyfouronline\Device\Processor;
+use twentyfouronline\Interfaces\Discovery\ProcessorDiscovery;
+use twentyfouronline\Interfaces\Polling\ProcessorPolling;
+use twentyfouronline\OS;
 
 class ExampleOS extends OS implements ProcessorDiscovery, ProcessorPolling
 {
     /**
      * Discover processors.
-     * Returns an array of LibreNMS\Device\Processor objects that have been discovered
+     * Returns an array of twentyfouronline\Device\Processor objects that have been discovered
      *
      * @return array Processors
      */
@@ -169,3 +169,7 @@ class ExampleOS extends OS implements ProcessorDiscovery, ProcessorPolling
     }
 }
 ```
+
+
+
+

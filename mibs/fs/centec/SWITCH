@@ -65210,3 +65210,7 @@ ipslaPktOverthreshold NOTIFICATION-TYPE
    ::= { ipslaTrap 4 }
    
 END
+
+
+
+

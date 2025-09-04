@@ -42,3 +42,7 @@ return new class extends Migration
         Schema::drop('access_points');
     }
 };
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 function get_cache($host, $value)
 {
@@ -46,14 +46,14 @@ function process_syslog($entry, $update)
 {
     global $dev_cache;
 
-    foreach (LibrenmsConfig::get('syslog_filter') as $bi) {
+    foreach (twentyfouronlineConfig::get('syslog_filter') as $bi) {
         if (strpos($entry['msg'], $bi) !== false) {
             return $entry;
         }
     }
 
     $entry['host'] = preg_replace('/^::ffff:/', '', $entry['host']);
-    $syslog_xlate = LibrenmsConfig::get('syslog_xlate');
+    $syslog_xlate = twentyfouronlineConfig::get('syslog_xlate');
     if (! empty($syslog_xlate[$entry['host']])) {
         $entry['host'] = $syslog_xlate[$entry['host']];
     }
@@ -62,8 +62,8 @@ function process_syslog($entry, $update)
         $os = get_cache($entry['host'], 'os');
         $hostname = get_cache($entry['host'], 'hostname');
 
-        if (LibrenmsConfig::get('enable_syslog_hooks') && is_array(LibrenmsConfig::getOsSetting($os, 'syslog_hook'))) {
-            foreach (LibrenmsConfig::getOsSetting($os, 'syslog_hook') as $k => $v) {
+        if (twentyfouronlineConfig::get('enable_syslog_hooks') && is_array(twentyfouronlineConfig::getOsSetting($os, 'syslog_hook'))) {
+            foreach (twentyfouronlineConfig::getOsSetting($os, 'syslog_hook') as $k => $v) {
                 $syslogprogmsg = $entry['program'] . ': ' . $entry['msg'];
                 if ((isset($v['script'])) && (isset($v['regex'])) && preg_match($v['regex'], $syslogprogmsg)) {
                     shell_exec(escapeshellcmd($v['script']) . ' ' . escapeshellarg($hostname) . ' ' . escapeshellarg($os) . ' ' . escapeshellarg($syslogprogmsg) . ' >/dev/null 2>&1 &');
@@ -170,3 +170,7 @@ function process_syslog($entry, $update)
 
     return $entry;
 }//end process_syslog()
+
+
+
+

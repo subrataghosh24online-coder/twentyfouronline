@@ -1165,3 +1165,7 @@ UPS2-MIB DEFINITIONS ::= BEGIN
             ::= { upsAddlFuncsEntry 9 }
 
 END
+
+
+
+

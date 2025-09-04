@@ -315,3 +315,7 @@ ZYXEL-AS-ATM-MIB DEFINITIONS ::= BEGIN
 	::= { asChannelStatusEntry 4 }
 
 END
+
+
+
+

@@ -1,6 +1,6 @@
 # Adding Device
 
-You have two options for adding a new device into LibreNMS. You can
+You have two options for adding a new device into twentyfouronline. You can
 add a device via the [WebUI](Adding-a-Device.md#via-webui) or by using the [CLI](Adding-a-Device.md#via-cli).
 
 ## Via WebUI
@@ -23,8 +23,8 @@ the device and set the display name to original Hostname.
 
 ## Via CLI
 
-Using the command line via ssh as the `librenms` user, you can add a
-new device by changing to the directory of your LibreNMS install and
+Using the command line via ssh as the `twentyfouronline` user, you can add a
+new device by changing to the directory of your twentyfouronline install and
 typing (be sure to put the correct details).
 
 ```bash
@@ -47,9 +47,9 @@ would enter:
 
 ## Ping Only Device
 
-You can add ping only devices into LibreNMS through the WebUI or CLI. When
+You can add ping only devices into twentyfouronline through the WebUI or CLI. When
 adding the device switch the SNMP button to "off". The device will be
-added into LibreNMS as a Ping Only Device and will show ICMP Response Graph.
+added into twentyfouronline as a Ping Only Device and will show ICMP Response Graph.
 
 - Hostname: IP address or DNS name.
 - Hardware: Optional you can type in whatever you like.
@@ -72,3 +72,7 @@ want to read the [Auto-discovery Setup](../Extensions/Auto-Discovery.md) guide.
 
 You may also want to add devices programmatically, if so, take a look
 at our [API documentation](../API/index.md)
+
+
+
+

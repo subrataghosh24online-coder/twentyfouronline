@@ -1,0 +1,15 @@
+[Unit]
+Description=twentyfouronline Scheduler
+
+[Service]
+Type=oneshot
+StandardOutput=null
+StandardError=null
+WorkingDirectory=/opt/twentyfouronline/
+ExecStart=/usr/bin/env php artisan schedule:run --no-ansi --no-interaction
+User=twentyfouronline
+Group=twentyfouronline
+
+
+
+

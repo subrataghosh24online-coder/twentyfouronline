@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Device;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Facades\Rrd;
 use App\Http\Requests\UpdateDeviceRequest;
 use App\Models\Device;
@@ -34,16 +34,16 @@ use App\Models\PollerGroup;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Enum\MaintenanceBehavior;
-use LibreNMS\Exceptions\HostRenameException;
-use LibreNMS\Util\File;
-use LibreNMS\Util\Number;
+use twentyfouronline\Enum\MaintenanceBehavior;
+use twentyfouronline\Exceptions\HostRenameException;
+use twentyfouronline\Util\File;
+use twentyfouronline\Util\Number;
 
 class EditDeviceController
 {
     public function index(Device $device): View
     {
-        $types = array_column(LibrenmsConfig::get('device_types'), 'text', 'type');
+        $types = array_column(twentyfouronlineConfig::get('device_types'), 'text', 'type');
         if (! isset($types[$device->type])) {
             $types[$device->type] = $device->type;
         }
@@ -66,11 +66,11 @@ class EditDeviceController
             'parents' => $device->parents()->pluck('device_id'),
             'devices' => Device::orderBy('hostname')->whereNot('device_id', $device->device_id)->select(['device_id', 'hostname', 'sysName'])->get(),
             'poller_groups' => PollerGroup::orderBy('group_name')->pluck('group_name', 'id'),
-            'default_poller_group' => LibrenmsConfig::get('distributed_poller_group'),
+            'default_poller_group' => twentyfouronlineConfig::get('distributed_poller_group'),
             'override_sysContact_bool' => $device->getAttrib('override_sysContact_bool'),
             'override_sysContact_string' => $device->getAttrib('override_sysContact_bool') ? $device->getAttrib('override_sysContact_string') : $device->sysContact,
             'maintenance' => $isUnderMaintenance,
-            'default_maintenance_behavior' => MaintenanceBehavior::from((int) LibrenmsConfig::get('alert.scheduled_maintenance_default_behavior'))->value,
+            'default_maintenance_behavior' => MaintenanceBehavior::from((int) twentyfouronlineConfig::get('alert.scheduled_maintenance_default_behavior'))->value,
             'exclusive_maintenance_id' => $exclusive_schedule_id,
             'rrd_size' => Number::formatBi($rrd_size),
             'rrd_num' => $rrd_num,
@@ -121,3 +121,7 @@ class EditDeviceController
         return response()->redirectToRoute('device', ['device' => $device->device_id, 'edit']);
     }
 }
+
+
+
+

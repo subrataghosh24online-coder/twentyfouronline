@@ -16,7 +16,7 @@ $systemd_state_types = ['load', 'active', 'sub'];
 // the systemd.py script results.  Currently "load",
 // "active", and "sub" are valid systemd state types.
 // Originally, this application used a shared RRD file
-// for each systemd state type. However, LibreNMS does
+// for each systemd state type. However, twentyfouronline does
 // not support adding new metrics to existing RRDs.
 // Therefore, existing metrics are now associated with
 // the "shared" string and any NEW metrics/state statuses
@@ -182,3 +182,7 @@ $systemd_mapper = [
         'total' => 'shared',
     ],
 ];
+
+
+
+

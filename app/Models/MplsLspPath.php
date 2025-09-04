@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsLspPath extends Model implements Keyable
 {
@@ -54,3 +54,7 @@ class MplsLspPath extends Model implements Keyable
         return $this->belongsTo(MplsLsp::class, 'lsp_id');
     }
 }
+
+
+
+

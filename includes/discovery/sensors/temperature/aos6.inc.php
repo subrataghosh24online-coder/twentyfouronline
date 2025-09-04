@@ -15,3 +15,7 @@ foreach ($aos6_temp_oids as $index => $entry) {
         discover_sensor(null, 'temperature', $device, $oid, $index, 'aos6', $descr, 1, 1, $limit_low, $warn_limit_low, $warn_limit, $limit, $value, 'snmp');
     }
 }
+
+
+
+

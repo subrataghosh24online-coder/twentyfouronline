@@ -48,3 +48,7 @@ foreach (array_keys($rrdArray) as $state_type) {
 }
 
 require 'includes/html/graphs/generic_multi_line_exact_numbers.inc.php';
+
+
+
+

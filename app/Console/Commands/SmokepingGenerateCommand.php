@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Adam Bishop
  * @author     Adam Bishop <adam@omega.org.uk>
@@ -27,7 +27,7 @@
 namespace App\Console\Commands;
 
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -112,7 +112,7 @@ class SmokepingGenerateCommand extends LnmsCommand
      */
     public function buildProbesConfiguration()
     {
-        $probes = $this->assembleProbes(LibrenmsConfig::get('smokeping.probes'));
+        $probes = $this->assembleProbes(twentyfouronlineConfig::get('smokeping.probes'));
         $header = $this->buildHeader($this->option('no-header'), $this->option('compat'));
 
         return $this->render($header, $probes);
@@ -134,7 +134,7 @@ class SmokepingGenerateCommand extends LnmsCommand
             ];
         }
 
-        $targets = $this->buildTargets($smokelist, LibrenmsConfig::get('smokeping.probes'), $this->option('single-process'));
+        $targets = $this->buildTargets($smokelist, twentyfouronlineConfig::get('smokeping.probes'), $this->option('single-process'));
         $header = $this->buildHeader($this->option('no-header'), $this->option('compat'));
 
         return $this->render($header, $targets);
@@ -163,8 +163,8 @@ class SmokepingGenerateCommand extends LnmsCommand
         }
 
         return array_merge(
-            $this->buildProbes('FPing', self::DEFAULTIP4PROBE, self::IP4PROBE, LibrenmsConfig::get('fping'), $probeCount),
-            $this->buildProbes('FPing6', self::DEFAULTIP6PROBE, self::IP6PROBE, LibrenmsConfig::get('fping6'), $probeCount)
+            $this->buildProbes('FPing', self::DEFAULTIP4PROBE, self::IP4PROBE, twentyfouronlineConfig::get('fping'), $probeCount),
+            $this->buildProbes('FPing6', self::DEFAULTIP6PROBE, self::IP6PROBE, twentyfouronlineConfig::get('fping6'), $probeCount)
         );
     }
 
@@ -257,9 +257,9 @@ class SmokepingGenerateCommand extends LnmsCommand
      */
     private function validateOptions()
     {
-        if (! LibrenmsConfig::has('smokeping.probes') ||
-            ! LibrenmsConfig::has('fping') ||
-            ! LibrenmsConfig::has('fping6')
+        if (! twentyfouronlineConfig::has('smokeping.probes') ||
+            ! twentyfouronlineConfig::has('fping') ||
+            ! twentyfouronlineConfig::has('fping6')
         ) {
             $this->error(__('commands.smokeping:generate.config-insufficient'));
 
@@ -272,7 +272,7 @@ class SmokepingGenerateCommand extends LnmsCommand
             return false;
         }
 
-        if (LibrenmsConfig::get('smokeping.probes') < 1) {
+        if (twentyfouronlineConfig::get('smokeping.probes') < 1) {
             $this->error(__('commands.smokeping:generate.no-probes'));
 
             return false;
@@ -359,7 +359,7 @@ class SmokepingGenerateCommand extends LnmsCommand
     /**
      * Rewrite menu entries to a format that smokeping finds acceptable
      *
-     * @param  string  $entry  The LibreNMS device hostname to rewrite
+     * @param  string  $entry  The twentyfouronline device hostname to rewrite
      * @return string
      */
     private function buildMenuEntry($entry)
@@ -390,3 +390,7 @@ class SmokepingGenerateCommand extends LnmsCommand
         return sprintf('%s%s', self::IP6PROBE, $this->ip6count++);
     }
 }
+
+
+
+

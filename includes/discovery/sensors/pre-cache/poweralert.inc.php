@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Neil Lathwood <neil@lathwood.co.uk>
  * This program is free software: you can redistribute it and/or modify it
@@ -13,3 +13,7 @@
 
 echo 'tlUpsSnmpCardSerialNum ';
 $pre_cache['poweralert_serial'] = trim(snmp_get($device, '.1.3.6.1.4.1.850.100.1.1.4.0', '-Ovq', 'TRIPPLITE-MIB'), '"');
+
+
+
+

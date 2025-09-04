@@ -1,9 +1,9 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Str;
-use LibreNMS\Data\Graphing\GraphParameters;
-use LibreNMS\Enum\ImageFormat;
+use twentyfouronline\Data\Graphing\GraphParameters;
+use twentyfouronline\Enum\ImageFormat;
 
 try {
     if (isset($vars['device'])) {
@@ -41,15 +41,15 @@ try {
         $env['TZ'] = session('preferences.timezone');
     }
 
-    require LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/auth.inc.php";
+    require twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/auth.inc.php";
 
     if ($auth && is_customoid_graph($type, $subtype)) {
         $unit = $vars['unit'];
-        include LibrenmsConfig::get('install_dir') . '/includes/html/graphs/customoid/customoid.inc.php';
-    } elseif ($auth && is_file(LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/$subtype.inc.php")) {
-        include LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/$subtype.inc.php";
-    } elseif ($auth && is_file(LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/generic.inc.php")) {
-        include LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/generic.inc.php";
+        include twentyfouronlineConfig::get('install_dir') . '/includes/html/graphs/customoid/customoid.inc.php';
+    } elseif ($auth && is_file(twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/$subtype.inc.php")) {
+        include twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/$subtype.inc.php";
+    } elseif ($auth && is_file(twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/generic.inc.php")) {
+        include twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/generic.inc.php";
     } else {
         graph_error("$type*$subtype Graph Template Missing", "$type*$subtype");
     }
@@ -63,7 +63,7 @@ try {
 
     // check after auth
     if (isset($vars['device']) && empty($device['device_id'])) {
-        throw new \LibreNMS\Exceptions\RrdGraphException('Device not found');
+        throw new \twentyfouronline\Exceptions\RrdGraphException('Device not found');
     }
 
     $rrd_options = $graph_params . ' ' . $rrd_options;
@@ -73,11 +73,11 @@ try {
         echo "<div class='infobox'>";
         echo "<p style='font-size: 16px; font-weight: bold;'>RRDTool Command</p>";
         echo "<pre class='rrd-pre'>";
-        echo escapeshellcmd('rrdtool ' . Rrd::buildCommand('graph', LibrenmsConfig::get('temp_dir') . '/' . Str::random(), $rrd_options));
+        echo escapeshellcmd('rrdtool ' . Rrd::buildCommand('graph', twentyfouronlineConfig::get('temp_dir') . '/' . Str::random(), $rrd_options));
         echo '</pre>';
         try {
             Rrd::graph($rrd_options, $env);
-        } catch (\LibreNMS\Exceptions\RrdGraphException $e) {
+        } catch (\twentyfouronline\Exceptions\RrdGraphException $e) {
             echo "<p style='font-size: 16px; font-weight: bold;'>RRDTool Output</p>";
             echo "<pre class='rrd-pre'>";
             echo $e->getMessage();
@@ -98,14 +98,14 @@ try {
     $image_data = Rrd::graph($rrd_options, $env);
 
     // output the graph
-    if (\LibreNMS\Util\Debug::isEnabled()) {
+    if (\twentyfouronline\Util\Debug::isEnabled()) {
         echo '<img src="data:' . ImageFormat::forGraph($vars['graph_type'] ?? null)->contentType() . ';base64,' . base64_encode($image_data) . '" alt="graph" />';
     } else {
         header('Content-type: ' . ImageFormat::forGraph($vars['graph_type'] ?? null)->contentType());
         echo (isset($vars['output']) && $vars['output'] === 'base64') ? base64_encode($image_data) : $image_data;
     }
-} catch (\LibreNMS\Exceptions\RrdGraphException $e) {
-    if (\LibreNMS\Util\Debug::isEnabled()) {
+} catch (\twentyfouronline\Exceptions\RrdGraphException $e) {
+    if (\twentyfouronline\Util\Debug::isEnabled()) {
         throw $e;
     }
 
@@ -115,3 +115,7 @@ try {
         graph_error('Error Drawing Graph: ' . $e->getMessage(), 'Draw Error');
     }
 }
+
+
+
+

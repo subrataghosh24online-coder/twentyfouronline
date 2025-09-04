@@ -598,3 +598,7 @@ IMPORTS
         ::= { tnSlotCompliances 1 }
 
 END -- DEFINITION OF TROPIC-SLOT-MIB
+
+
+
+

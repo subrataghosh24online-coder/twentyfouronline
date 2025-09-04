@@ -1,37 +1,37 @@
 ## Zenduty
 
 Two options are available for ZenDuty support, the first, [native ZenDuty](#native-zenduty)
-is via the API Transport as detailed in official [ZenDuty integration documentation](https://docs.zenduty.com/docs/librenms).
-The other way is by utilising a [native LibreNMS transport](#native-librenms-transport).
+is via the API Transport as detailed in official [ZenDuty integration documentation](https://docs.zenduty.com/docs/twentyfouronline).
+The other way is by utilising a [native twentyfouronline transport](#native-twentyfouronline-transport).
 
 ### Native ZenDuty
-Leveraging LibreNMS > Zenduty Integration, users can send new LibreNMS 
+Leveraging twentyfouronline > Zenduty Integration, users can send new twentyfouronline 
 alerts to the right team and notify them based on on-call schedules
 via email, SMS, Phone Calls, Slack, Microsoft Teams and mobile push
 notifications. Zenduty provides engineers with detailed context around 
-the LibreNMS alert along with playbooks and a complete incident command
+the twentyfouronline alert along with playbooks and a complete incident command
 framework to triage, remediate and resolve incidents with speed.
 
-Create a [LibreNMS Integration](https://docs.zenduty.com/docs/librenms) from inside 
+Create a [twentyfouronline Integration](https://docs.zenduty.com/docs/twentyfouronline) from inside 
 [Zenduty](https://www.zenduty.com), then copy the Webhook URL from Zenduty
-to LibreNMS.
+to twentyfouronline.
 
 For a detailed guide with screenshots, refer to the 
-[LibreNMS documentation at Zenduty](https://docs.zenduty.com/docs/librenms).
+[twentyfouronline documentation at Zenduty](https://docs.zenduty.com/docs/twentyfouronline).
 
 **Example:**
 
 | Config | Example |
 | ------ | ------- |
-| WebHook URL | <https://www.zenduty.com/api/integration/librenms/integration-key/> |
+| WebHook URL | <https://www.zenduty.com/api/integration/twentyfouronline/integration-key/> |
 
-### Native LibreNMS Transport
+### Native twentyfouronline Transport
 This integration uses the [ZenDuty Webhooks](https://zenduty.com/docs/generic-integration/) 
 which allows you to use all available ZenDuty parameters such as URLs, SLA, 
 Escalation Policies, etc.
 
 Follow the instructions in the above link to obtain your Webhook URL and then paste that 
-into the `ZenDuty WebHook` field when setting up the LibreNMS transport.
+into the `ZenDuty WebHook` field when setting up the twentyfouronline transport.
 
 You can also set the SLA ID and Escalation Policy ID from within the Transport configuration 
 which will be sent with all alerts.
@@ -116,3 +116,7 @@ Alert sent to:
 | WebHook URL          | <https://events.zenduty.com/integration/we8jv/generic/hash/> |
 | SLA ID               | g27u4gr824r-dd32rf2wdedeas-3e2wd223d23                       |
 | Escalation Policy ID | KIJDi23rwnef23-dankjd323r-DSAD£2232fds                        |
+
+
+
+

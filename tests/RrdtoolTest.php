@@ -18,79 +18,79 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Data\Store\Rrd;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Data\Store\Rrd;
 
 class RrdtoolTest extends TestCase
 {
     public function testBuildCommandLocal(): void
     {
-        LibrenmsConfig::set('rrdcached', '');
-        LibrenmsConfig::set('rrdtool_version', '1.4');
-        LibrenmsConfig::set('rrd_dir', '/opt/librenms/rrd');
+        twentyfouronlineConfig::set('rrdcached', '');
+        twentyfouronlineConfig::set('rrdtool_version', '1.4');
+        twentyfouronlineConfig::set('rrd_dir', '/opt/twentyfouronline/rrd');
 
-        $cmd = $this->buildCommandProxy('create', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('create /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('create', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('create /opt/twentyfouronline/rrd/f o', $cmd);
 
-        $cmd = $this->buildCommandProxy('tune', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('tune /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('tune', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('tune /opt/twentyfouronline/rrd/f o', $cmd);
 
-        $cmd = $this->buildCommandProxy('update', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('update /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('update', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('update /opt/twentyfouronline/rrd/f o', $cmd);
 
-        LibrenmsConfig::set('rrdtool_version', '1.6');
+        twentyfouronlineConfig::set('rrdtool_version', '1.6');
 
-        $cmd = $this->buildCommandProxy('create', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('create /opt/librenms/rrd/f o -O', $cmd);
+        $cmd = $this->buildCommandProxy('create', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('create /opt/twentyfouronline/rrd/f o -O', $cmd);
 
-        $cmd = $this->buildCommandProxy('tune', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('tune /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('tune', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('tune /opt/twentyfouronline/rrd/f o', $cmd);
 
-        $cmd = $this->buildCommandProxy('update', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('update /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('update', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('update /opt/twentyfouronline/rrd/f o', $cmd);
     }
 
     public function testBuildCommandRemote(): void
     {
-        LibrenmsConfig::set('rrdcached', 'server:42217');
-        LibrenmsConfig::set('rrdtool_version', '1.4');
-        LibrenmsConfig::set('rrd_dir', '/opt/librenms/rrd');
+        twentyfouronlineConfig::set('rrdcached', 'server:42217');
+        twentyfouronlineConfig::set('rrdtool_version', '1.4');
+        twentyfouronlineConfig::set('rrd_dir', '/opt/twentyfouronline/rrd');
 
-        $cmd = $this->buildCommandProxy('create', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('create /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('create', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('create /opt/twentyfouronline/rrd/f o', $cmd);
 
-        $cmd = $this->buildCommandProxy('tune', '/opt/librenms/rrd/f', 'o');
-        $this->assertEquals('tune /opt/librenms/rrd/f o', $cmd);
+        $cmd = $this->buildCommandProxy('tune', '/opt/twentyfouronline/rrd/f', 'o');
+        $this->assertEquals('tune /opt/twentyfouronline/rrd/f o', $cmd);
 
-        $cmd = $this->buildCommandProxy('update', '/opt/librenms/rrd/f', 'o');
+        $cmd = $this->buildCommandProxy('update', '/opt/twentyfouronline/rrd/f', 'o');
         $this->assertEquals('update f o --daemon server:42217', $cmd);
 
-        LibrenmsConfig::set('rrdtool_version', '1.6');
+        twentyfouronlineConfig::set('rrdtool_version', '1.6');
 
-        $cmd = $this->buildCommandProxy('create', '/opt/librenms/rrd/f', 'o');
+        $cmd = $this->buildCommandProxy('create', '/opt/twentyfouronline/rrd/f', 'o');
         $this->assertEquals('create f o -O --daemon server:42217', $cmd);
 
-        $cmd = $this->buildCommandProxy('tune', '/opt/librenms/rrd/f', 'o');
+        $cmd = $this->buildCommandProxy('tune', '/opt/twentyfouronline/rrd/f', 'o');
         $this->assertEquals('tune f o --daemon server:42217', $cmd);
 
-        $cmd = $this->buildCommandProxy('update', '/opt/librenms/rrd/f', 'o');
+        $cmd = $this->buildCommandProxy('update', '/opt/twentyfouronline/rrd/f', 'o');
         $this->assertEquals('update f o --daemon server:42217', $cmd);
     }
 
     public function testBuildCommandException(): void
     {
-        LibrenmsConfig::set('rrdcached', '');
-        LibrenmsConfig::set('rrdtool_version', '1.4');
+        twentyfouronlineConfig::set('rrdcached', '');
+        twentyfouronlineConfig::set('rrdtool_version', '1.4');
 
-        $this->expectException('LibreNMS\Exceptions\FileExistsException');
+        $this->expectException('twentyfouronline\Exceptions\FileExistsException');
         // use this file, since it is guaranteed to exist
         $this->buildCommandProxy('create', __FILE__, 'o');
     }
@@ -104,3 +104,7 @@ class RrdtoolTest extends TestCase
         return $mock->buildCommand($command, $filename, $options);
     }
 }
+
+
+
+

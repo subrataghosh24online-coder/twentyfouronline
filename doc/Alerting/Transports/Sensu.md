@@ -8,13 +8,13 @@ upon an alert being generated.
 It will be categorised (ok, warning or critical), and if you configure the
 alert to send recovery notifications, Sensu will also clear the alert
 automatically. No configuration is required - as long as you are running the
-Sensu Agent on your poller with the HTTP socket enabled on tcp/3031, LibreNMS
+Sensu Agent on your poller with the HTTP socket enabled on tcp/3031, twentyfouronline
 will start generating Sensu events as soon as you create the transport.
 
-Acknowledging alerts within LibreNMS is not directly supported, but an
+Acknowledging alerts within twentyfouronline is not directly supported, but an
 annotation (`acknowledged`) is set, so a mutator or silence, or even the
 handler could be written to look for it directly in the handler. There is also
-an annotation (`generated-by`) set, to allow you to treat LibreNMS events
+an annotation (`generated-by`) set, to allow you to treat twentyfouronline events
 differently from agent events.
 
 The 'shortname' option is a simple way to reduce the length of device names in
@@ -28,10 +28,10 @@ websrv08.dc4.eu.corp.example.net gets shortened to websrv08.dc4.eu.cen).
 to fix up rule names, but it's best to stick to letters, numbers and spaces
 - The transport only deals in absolutes - it ignores the got worse/got better
 /changed states
-- The agent will buffer alerts, but LibreNMS will not - if your agent is
+- The agent will buffer alerts, but twentyfouronline will not - if your agent is
 offline, alerts will be dropped
-- There is no backchannel between Sensu and LibreNMS - if you make changes in
-Sensu to LibreNMS alerts, they'll be lost on the next event (silences will work)
+- There is no backchannel between Sensu and twentyfouronline - if you make changes in
+Sensu to twentyfouronline alerts, they'll be lost on the next event (silences will work)
 
 **Example:**
 
@@ -41,3 +41,7 @@ Sensu to LibreNMS alerts, they'll be lost on the next event (silences will work)
 | Sensu Namespace | eu-west               |
 | Check Prefix    | lnms                  |
 | Source Key      | hostname              |
+
+
+
+

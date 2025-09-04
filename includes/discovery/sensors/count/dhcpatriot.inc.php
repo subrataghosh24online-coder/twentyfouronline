@@ -93,3 +93,7 @@ foreach ($oids as $index => $entry) {
 }
 
 unset($oids, $current_time, $class, $divisor, $multiplier, $low_limit, $low_warn_limit, $warn_limit, $high_limit, $poller_type, $entPhysicalIndex, $entPhysicalIndex_measured, $user_func, $group, $oid, $type, $descr, $current, $epoch_time);
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture Cisco Class-Based QoS Details
+ * twentyfouronline module to capture Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -13,7 +13,7 @@
  */
 
 // Define some error messages
-use LibreNMS\Util\IP;
+use twentyfouronline\Util\IP;
 
 $error_poolaction = [];
 $error_poolaction[0] = 'Unused';
@@ -24,7 +24,7 @@ $error_poolaction[4] = 'Failover and Restart';
 $error_poolaction[5] = 'Go Active';
 $error_poolaction[6] = 'None';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id']);
 
 // We only care about our device id.
@@ -424,3 +424,7 @@ if (! empty($f5CertEntry) || ! empty($ltmBwcEntry) || ! empty($ltmVirtualServEnt
     $component->setComponentPrefs($device['device_id'], $components);
     echo "\n";
 }// End if not error
+
+
+
+

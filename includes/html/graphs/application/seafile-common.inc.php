@@ -34,3 +34,7 @@ if ($unit_type == 'float') {
 } else {
     require 'includes/html/graphs/generic_multi_line_exact_numbers.inc.php';
 }
+
+
+
+

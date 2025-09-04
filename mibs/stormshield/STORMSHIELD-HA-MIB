@@ -317,3 +317,7 @@ STORMSHIELD-HA-MIB DEFINITIONS ::= BEGIN
       DESCRIPTION "Temperature in Celsius degree"
       ::= { snsNodeCpuEntry 2 }
 END
+
+
+
+

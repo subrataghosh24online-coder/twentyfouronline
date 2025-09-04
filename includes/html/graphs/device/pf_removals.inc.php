@@ -14,3 +14,7 @@ $graph_max = 1;
 $unit_text = 'Removals';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

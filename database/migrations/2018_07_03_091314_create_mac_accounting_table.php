@@ -52,3 +52,7 @@ return new class extends Migration
         Schema::drop('mac_accounting');
     }
 };
+
+
+
+

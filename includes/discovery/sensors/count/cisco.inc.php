@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS - Cisco count sensors
+ * twentyfouronline - Cisco count sensors
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       http://librenms.org
- * @copyright  2021 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       http://twentyfouronline.org
+ * @copyright  2021 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $tables = [
@@ -35,3 +35,7 @@ foreach ($tables as $tablevalue) {
         discover_sensor(null, 'count', $device, $cur_oid . $index, $index, $state_name, $descr, 1, 1, null, null, null, null, $temp[$index][$tablevalue['state_name']], 'snmp', $index);
     }
 }
+
+
+
+

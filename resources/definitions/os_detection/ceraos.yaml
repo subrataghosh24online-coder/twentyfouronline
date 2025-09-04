@@ -39,3 +39,7 @@ discovery_modules:
     services: false
     ntp: false
     charge: false
+
+
+
+

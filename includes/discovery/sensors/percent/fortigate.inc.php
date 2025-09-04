@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS FortiGate percentage sensors
+ * twentyfouronline FortiGate percentage sensors
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,8 +9,8 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 CTNET BV
  * @author     Rudy Broersma
@@ -51,3 +51,7 @@ if (! empty($fgDhcpTables['fgDhcpLeaseUsage'])) {
         }
     }
 }
+
+
+
+

@@ -6,3 +6,7 @@ if (is_numeric($vars['device']) && ($auth || device_permitted($vars['src']))) {
     $graph_title = DeviceCache::get($device['device_id'])->displayName();
     $auth = true;
 }
+
+
+
+

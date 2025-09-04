@@ -229,3 +229,7 @@ tnHttpsCertMessage          OBJECT-TYPE
          'NL'. The ASCII value of 'NL' is equal to 10."
     ::= { tnHttpsCertViewEntry 2 }
 END
+
+
+
+

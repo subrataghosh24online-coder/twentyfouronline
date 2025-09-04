@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Ipv4Network;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -30,7 +30,7 @@ class MaintenanceCleanupNetworks extends LnmsCommand
     {
         $force = $this->option('force');
 
-        if (LibrenmsConfig::get('networks_purge') === true || $force) {
+        if (twentyfouronlineConfig::get('networks_purge') === true || $force) {
             $oldNetworks = Ipv4Network::withCount('ipv4')->having('ipv4_count', 0)->pluck('ipv4_network_id');
             if ($oldNetworks->count() > 0) {
                 $this->line(trans('commands.maintenance:cleanup-networks.delete', ['count' => $oldNetworks->count()]));
@@ -41,3 +41,7 @@ class MaintenanceCleanupNetworks extends LnmsCommand
         return 0;
     }
 }
+
+
+
+

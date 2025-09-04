@@ -18,3 +18,7 @@ $colour_area_out_max = 'FFEFAA';
 $rrd_filename = Rrd::name($device['hostname'], ['app', 'mailscannerV2', $app->app_id]);
 
 require 'includes/html/graphs/generic_duplex.inc.php';
+
+
+
+

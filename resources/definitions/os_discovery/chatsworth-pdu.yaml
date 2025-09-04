@@ -105,3 +105,7 @@ modules:
                         - { descr: NoAlarm, graph: 1, value: 0, generic: 0 }
                         - { descr: Warning, graph: 1, value: 1, generic: 1 }
                         - { descr: Aalrm, graph: 1, value: 2, generic: 2 }
+
+
+
+

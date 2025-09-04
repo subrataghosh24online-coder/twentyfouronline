@@ -62,3 +62,7 @@ foreach ($exa_stats as $name => $tmp_stats) {
     }
     $port_stats[$index]['ifDescr'] = $port_stats[$index]['ifName'];
 }
+
+
+
+

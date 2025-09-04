@@ -13,3 +13,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:txoctetsAll:MIN:%0.2lf%s ';
     $rrd_options .= ' GPRINT:txoctetsAll:MAX:%0.2lf%s\\\l ';
 }
+
+
+
+

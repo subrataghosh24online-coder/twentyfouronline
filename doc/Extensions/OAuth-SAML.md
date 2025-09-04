@@ -2,11 +2,11 @@
 
 ## Introduction
 
-LibreNMS has support for [Laravel Socialite](https://github.com/laravel/socialite) to try and simplify the use of OAuth 1 or 2 providers such as using GitHub, Microsoft, Twitter + many more and SAML.
+twentyfouronline has support for [Laravel Socialite](https://github.com/laravel/socialite) to try and simplify the use of OAuth 1 or 2 providers such as using GitHub, Microsoft, Twitter + many more and SAML.
 
 [Socialite Providers](https://socialiteproviders.com) supports more than 100+ 3rd parties so you will most likely find support for the SAML or OAuth provider you need without too much trouble.
 
-Please do note however, these providers are not maintained by LibreNMS so we cannot add support for new ones and we can only provide you basic help with general configuration.
+Please do note however, these providers are not maintained by twentyfouronline so we cannot add support for new ones and we can only provide you basic help with general configuration.
 See the Socialite Providers website for more information on adding a new OAuth provider.
 
 Below we will guide you on how to install SAML or some of these OAth providers, you should be able to use these as a guide on how to install any others you may need but **please, please, ensure you read the Socialite Providers documentation carefully**.
@@ -18,7 +18,7 @@ Below we will guide you on how to install SAML or some of these OAth providers, 
 
 ## Requirements
 
-LibreNMS version 22.3.0 or later.
+twentyfouronline version 22.3.0 or later.
 
 Please ensure you set `APP_URL` within your `.env` file so that callback URLs work correctly with the identify provider.
 
@@ -98,7 +98,7 @@ Next we need to find the provider name and writing it down
 Now we need some values from the OAuth provider itself, in most cases you need to register a new "OAuth application" at the providers site. This will vary from provider to provider but the process itself should be similar to the examples below.
 
 !!! note
-    The callback URL is always: https://*your-librenms-url*/auth/*provider*/callback
+    The callback URL is always: https://*your-twentyfouronline-url*/auth/*provider*/callback
     It doesn't need to be a public available site, but it almost always needs to support TLS (https)!
 
 === "GitHub"
@@ -168,7 +168,7 @@ Now we need some values from the OAuth provider itself, in most cases you need t
 
 ### Saving configuration
 
-Now we need to set the configuration options for your provider within LibreNMS itself. Please replace the values in the examples below with the values you collected earlier:
+Now we need to set the configuration options for your provider within twentyfouronline itself. Please replace the values in the examples below with the values you collected earlier:
 
 The format of the configuration string is `auth.socialite.configs.*provider name*.*value*`
 
@@ -342,12 +342,12 @@ It is up the IdP to provide the relevant details that you will need for configur
     ![socialite-saml-google-1](../img/socialite-saml-google-1.png)
     ![socialite-saml-google-2](../img/socialite-saml-google-2.png)
 
-    Press "DOWNLOAD METADATA" and save the file somewhere accessible by your LibreNMS server
+    Press "DOWNLOAD METADATA" and save the file somewhere accessible by your twentyfouronline server
 
     ![socialite-saml-google-3](../img/socialite-saml-google-3.png)
 
-    ACS URL = https://*your-librenms-url*/auth/saml2/callback
-    Entity ID = https://*your-librenms-url*/auth/saml2
+    ACS URL = https://*your-twentyfouronline-url*/auth/saml2/callback
+    Entity ID = https://*your-twentyfouronline-url*/auth/saml2
     Name ID format = PERSISTANT
     Name ID = Basic Information > Primary email
 
@@ -381,7 +381,7 @@ It is up the IdP to provide the relevant details that you will need for configur
 
 === "Azure"
 
-    ![LibreNMS-SAML-Azure](https://user-images.githubusercontent.com/8980985/222431219-af2369dc-1abd-4943-8dfb-5a21d8b9976c.png)
+    ![twentyfouronline-SAML-Azure](https://user-images.githubusercontent.com/8980985/222431219-af2369dc-1abd-4943-8dfb-5a21d8b9976c.png)
     ```bash
     echo "SESSION_SAME_SITE=none" >> .env
     lnms plugin:add socialiteproviders/saml2
@@ -433,7 +433,7 @@ It is up the IdP to provide the relevant details that you will need for configur
 
 ### Add provider event listener
 
-Now we just need to define the listener service within LibreNMS:
+Now we just need to define the listener service within twentyfouronline:
 
 !!! setting "settings/auth/socialite"
     ```bash
@@ -451,7 +451,7 @@ If you get an error with http code 419, you should try to remove `SESSION_SAME_S
 ### Service provider metadata
 
 Your identify provider might ask you for your Service Provider (SP) metadata.
-LibreNMS exposes all of this information from your [LibreNMS install](https://*your-librenms-url*/auth/saml2/metadata)
+twentyfouronline exposes all of this information from your [twentyfouronline install](https://*your-twentyfouronline-url*/auth/saml2/metadata)
 
 
 ## Troubleshooting
@@ -467,7 +467,7 @@ If you have a need to, then you can override redirect url with the following com
 
 === "OAuth"
     Replace `github` and the relevant URL below with your identity provider details.
-    `lnms config:set auth.socialite.configs.github.redirect https://demo.librenms.org/auth/github/callback`
+    `lnms config:set auth.socialite.configs.github.redirect https://demo.twentyfouronline.org/auth/github/callback`
 
 === "SAML2"
     `lnms config:set auth.socialite.configs.saml2.sp_acs auth/saml2/callback`
@@ -477,6 +477,10 @@ If you have a need to, then you can override redirect url with the following com
 !!! setting "settings/auth/socialite"
     From here you can configure the settings for any identity providers you have configured along with some bespoke options.
 
-    Redirect Login page: This setting will skip your LibreNMS login and take the end user straight to the first idP you configured.
+    Redirect Login page: This setting will skip your twentyfouronline login and take the end user straight to the first idP you configured.
 
     Allow registration via provider: If this setting is disabled, new users signing in via the idP will not be authenticated. This setting allows a local user to be automatically created which permits their login.
+
+
+
+

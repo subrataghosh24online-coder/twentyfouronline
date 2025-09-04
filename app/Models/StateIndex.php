@@ -32,3 +32,7 @@ class StateIndex extends Model
         return $this->hasMany(StateTranslation::class, 'state_index_id', 'state_index_id');
     }
 }
+
+
+
+

@@ -260,3 +260,6 @@ WRI-POWER-MIB DEFINITIONS ::= BEGIN
 				::= { powerGeneral 4 }
 
 END
+
+
+

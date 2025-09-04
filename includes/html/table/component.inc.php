@@ -4,7 +4,7 @@ $row = 1;
 
 $device_id = $vars['device_id'];
 
-$OBJCOMP = new LibreNMS\Component();
+$OBJCOMP = new twentyfouronline\Component();
 
 // Add a filter if supplied
 if (isset($searchPhrase) && ! empty($searchPhrase)) {
@@ -66,3 +66,7 @@ $output = [
     'total' => ! empty($COMPONENTS[$device_id]) ? count($COMPONENTS[$device_id]) : 0,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

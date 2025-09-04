@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use LibreNMS\Interfaces\SnmptrapHandler;
-use LibreNMS\Snmptrap\Handlers\Fallback;
+use twentyfouronline\Interfaces\SnmptrapHandler;
+use twentyfouronline\Snmptrap\Handlers\Fallback;
 
 class SnmptrapProvider extends ServiceProvider
 {
@@ -32,3 +32,7 @@ class SnmptrapProvider extends ServiceProvider
         });
     }
 }
+
+
+
+

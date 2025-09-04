@@ -406,3 +406,7 @@ modules:
                     descr: batteryTimeLeftDescription
                     low_warn_limit: batteryTimeLeftMinorAlarmLevel
                     low_limit: batteryTimeLeftMajorAlarmLevel
+
+
+
+

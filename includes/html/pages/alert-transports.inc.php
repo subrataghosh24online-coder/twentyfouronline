@@ -10,7 +10,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 
         if ($validator->passes()) {
             $transport_name = $request->get('oauthtransport');
-            $class = \LibreNMS\Alert\Transport::getClass($transport_name);
+            $class = \twentyfouronline\Alert\Transport::getClass($transport_name);
             if (class_exists($class)) {
                 $transport = app($class);
                 if ($transport->handleOauth($request)) {
@@ -31,3 +31,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 } else {
     include 'includes/html/error-no-perm.inc.php';
 }
+
+
+
+

@@ -1,6 +1,6 @@
 ## SnmpQuery
 
-To fetch and manipulate snmp data in LibreNMS, use SnmpQuery.
+To fetch and manipulate snmp data in twentyfouronline, use SnmpQuery.
 Oids can be specified several ways, the preferred way is full textual such
 as IF-MIB::ifIndex. Numeric and short are also supported.
 
@@ -227,4 +227,8 @@ Functions for checking the results of the SNMP query.
  - isValid - check for issues such as aborted SNMP walks (such as network disconnect) and other things.
  - getExitCode - will get the exit code of the snmp process
  - getErrorMessage - will return the stderr output from the process.
+
+
+
+
 

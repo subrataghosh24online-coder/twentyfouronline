@@ -1,14 +1,14 @@
 <?php
 
 /**
- * LibreNMS - Nokia PSD SFP DDM Sensors
+ * twentyfouronline - Nokia PSD SFP DDM Sensors
  *
  * @category   Network_Monitoring
  *
  * @author     Nick Peelman <nick@peelman.us>
  * @license    https://gnu.org/copyleft/gpl.html GNU GPL
  *
- * @link       https://github.com/librenms/librenms/
+ * @link       https://github.com/twentyfouronline/twentyfouronline/
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -49,3 +49,7 @@ if (strpos($device['sysObjectID'], '.1.3.6.1.4.1.7483.1.3.1.12') !== false) {
         }
     }
 }   //  ************** End of Sensors for Nokia PSD **********
+
+
+
+

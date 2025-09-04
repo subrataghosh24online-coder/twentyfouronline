@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -43,3 +43,7 @@ class CustomMapNodeImage extends BaseModel
         return $this->hasMany(CustomMapNode::class, 'node_image_id');
     }
 }
+
+
+
+

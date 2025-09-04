@@ -19,26 +19,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\RRD\RrdDefinition;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\RRD\RrdDefinition;
 
 $data = '';
 $name = 'powerdns-recursor';
 
 if (! empty($agent_data['app'][$name])) {
     $data = $agent_data['app'][$name];
-} elseif (LibrenmsConfig::has('apps.powerdns-recursor.api-key')) {
-    $port = LibrenmsConfig::get('apps.powerdns-recursor.port', 8082);
-    $scheme = LibrenmsConfig::get('apps.powerdns-recursor.https') ? 'https://' : 'http://';
+} elseif (twentyfouronlineConfig::has('apps.powerdns-recursor.api-key')) {
+    $port = twentyfouronlineConfig::get('apps.powerdns-recursor.port', 8082);
+    $scheme = twentyfouronlineConfig::get('apps.powerdns-recursor.https') ? 'https://' : 'http://';
 
     d_echo("\nNo Agent Data. Attempting to connect directly to the powerdns-recursor server $scheme" . $device['hostname'] . ":$port\n");
-    $context = stream_context_create(['http' => ['header' => 'X-API-Key: ' . LibrenmsConfig::get('apps.powerdns-recursor.api-key')]]);
+    $context = stream_context_create(['http' => ['header' => 'X-API-Key: ' . twentyfouronlineConfig::get('apps.powerdns-recursor.api-key')]]);
     $data = file_get_contents($scheme . $device['hostname'] . ':' . $port . '/api/v1/servers/localhost/statistics', false, $context);
     if ($data === false) {
         $data = file_get_contents($scheme . $device['hostname'] . ':' . $port . '/servers/localhost/statistics', false, $context);
@@ -143,3 +143,7 @@ if (! empty($data)) {
 }
 
 unset($data, $stats, $rrd_def, $rrd_keys, $tags, $fields);
+
+
+
+

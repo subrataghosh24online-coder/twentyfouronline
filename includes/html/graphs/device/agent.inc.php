@@ -24,3 +24,7 @@ $multiplier_action = '/';
 $unit_text = 'Seconds';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

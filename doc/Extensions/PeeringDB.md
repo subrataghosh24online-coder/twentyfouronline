@@ -1,6 +1,6 @@
 # PeeringDB Support
 
-LibreNMS has integration with PeeringDB to match up your BGP sessions
+twentyfouronline has integration with PeeringDB to match up your BGP sessions
 with the peering exchanges you are connected to.
 
 To enable the integration please do so within the WebUI
@@ -16,3 +16,7 @@ initial collection is delayed for a random amount of time to avoid
 overloading the PeeringDB API.
 
 Once enabled you will have an additional menu item under Routing -> PeeringDB
+
+
+
+

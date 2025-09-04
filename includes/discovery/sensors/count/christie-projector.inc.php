@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       http://librenms.org
- * @copyright  2023 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       http://twentyfouronline.org
+ * @copyright  2023 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use Illuminate\Support\Str;
@@ -36,3 +36,7 @@ if (Str::startsWith($device['sysObjectID'], '.1.3.6.1.4.1.25766')) {
         snmp_get($device, '.1.3.6.1.4.1.25766.1.12.1.1.3.5.1.6.1', '-Ovq')
     );
 }
+
+
+
+

@@ -15,3 +15,7 @@ discovery:
           oid: ATEN-IPMI-MIB::bmcMajorVesion.0
           op: '!='
           value: false
+
+
+
+

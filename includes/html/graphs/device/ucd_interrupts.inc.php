@@ -11,3 +11,7 @@ $float_precision = 3;
 $descr = '';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

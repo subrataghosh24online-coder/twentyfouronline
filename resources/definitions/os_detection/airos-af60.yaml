@@ -18,3 +18,7 @@ discovery:
             oid: UI-AF60-MIB::af60FirmwareVersion.1
             op: '!='
             value: false
+
+
+
+

@@ -1,8 +1,12 @@
 <?php
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! $os instanceof OS) {
     $os = OS::make($device);
 }
-(new \LibreNMS\Modules\Vlans())->discover($os);
+(new \twentyfouronline\Modules\Vlans())->discover($os);
+
+
+
+

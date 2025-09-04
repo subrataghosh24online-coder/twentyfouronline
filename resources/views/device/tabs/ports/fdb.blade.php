@@ -39,3 +39,7 @@
         url: "{{ url('/ajax/table/fdb-tables') }}"
     });
 </script>
+
+
+
+

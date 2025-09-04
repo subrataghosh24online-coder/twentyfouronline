@@ -30,3 +30,7 @@ $rrd_options .= 'LINE1:d#00AAAA:"File syncs  "  ';
 $rrd_options .= 'GPRINT:d:LAST:"%6.2lf %s"  ';
 $rrd_options .= 'GPRINT:d:AVERAGE:"%6.2lf %s"  ';
 $rrd_options .= 'GPRINT:d:MAX:"%6.2lf %s\\n"  ';
+
+
+
+

@@ -61,3 +61,7 @@ foreach ($upgradestatus as $index => $entry) {
     //Discover Sensors
     discover_sensor(null, 'state', $device, $cur_oid . $index, $index, $state_name, $descr, 1, 1, null, null, null, null, $entry['devFWUpgradeStatus'], 'snmp', $index);
 }
+
+
+
+

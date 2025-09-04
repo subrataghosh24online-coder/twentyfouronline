@@ -120,3 +120,7 @@ foreach ($oids as $index => $entry) {
 }
 
 unset($class, $oid, $index, $type, $descr, $divisor, $multiplier, $low_limit, $low_warn_limit, $warn_limit, $high_limit, $current, $poller_type, $entPhysicalIndex, $entPhysicalIndex_measured, $user_func, $group, $oids, $current_time, $tmp_snmp_multi, $tmp_data, $states);
+
+
+
+

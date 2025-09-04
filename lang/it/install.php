@@ -35,8 +35,8 @@ return [
         'not_finished' => 'Non hai ancora terminato!',
         'retry' => 'Riprova',
         'statistics' => 'Sarebbe fantastico se contribuissi alle nostre statistiche, puoi farlo su :about selezionando il pulsante sotto statistiche.',
-        'statistics_link' => 'Informazioni su LibreNMS',
-        'thanks' => 'Grazie per aver configurato LibreNMS.',
+        'statistics_link' => 'Informazioni su twentyfouronline',
+        'thanks' => 'Grazie per aver configurato twentyfouronline.',
         'title' => 'Installazione terminata',
         'validate' => 'Prima, è necessario :validate e risolvere eventuali problemi.',
         'validate_link' => 'convalida la tua installazione',
@@ -57,7 +57,7 @@ return [
         'migrate' => 'Versione database',
         'user' => 'Creazione utente',
     ],
-    'title' => 'Installazione di LibreNMS',
+    'title' => 'Installazione di twentyfouronline',
     'user' => [
         'button' => 'Aggiungi utente',
         'created' => 'Utente creato',
@@ -69,3 +69,7 @@ return [
         'username' => 'Username',
     ],
 ];
+
+
+
+

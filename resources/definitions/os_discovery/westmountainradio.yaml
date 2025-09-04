@@ -82,3 +82,7 @@ modules:
                     states:
                         - { value: 0, generic: 3, graph: 0, descr: outletOff }
                         - { value: 1, generic: 0, graph: 0, descr: outletOn }
+
+
+
+

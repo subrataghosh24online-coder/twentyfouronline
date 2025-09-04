@@ -1,17 +1,17 @@
 ## Getting started
 
-### <a name="faq1"> How do I install LibreNMS?</a>
+### <a name="faq1"> How do I install twentyfouronline?</a>
 
 This is currently well documented within the doc folder of the installation files.
 
-Please see the following [doc](../Installation/Install-LibreNMS.md)
+Please see the following [doc](../Installation/Install-twentyfouronline.md)
 
 ### <a name="faq2"> How do I add a device?</a>
 
-You have two options for adding a new device into LibreNMS.
+You have two options for adding a new device into twentyfouronline.
 
 1: Using the command line via ssh you can add a new device by changing
-   to the directory of your LibreNMS install and typing:
+   to the directory of your twentyfouronline install and typing:
 
 ```bash
 lnms device:add [hostname or ip]
@@ -30,7 +30,7 @@ To see all options run: `lnms device:add -h`
 
 [Getting Help](index.md)
 
-### <a name="faq4"> What are the supported OSes for installing LibreNMS on?</a>
+### <a name="faq4"> What are the supported OSes for installing twentyfouronline on?</a>
 
 Supported is quite a strong word :) The 'officially' supported distros are:
 
@@ -45,17 +45,17 @@ server](https://t.libren.ms/discord).
 
 ### <a name="faq5"> Do you have a demo available?</a>
 
-We do indeed, you can find access to the demo [here](https://demo.librenms.org)
+We do indeed, you can find access to the demo [here](https://demo.twentyfouronline.org)
 
 
 ## Support
 
-### <a name='how-does-librenms-use-mibs'>How does LibreNMS use MIBs?</a>
+### <a name='how-does-twentyfouronline-use-mibs'>How does twentyfouronline use MIBs?</a>
 
-LibreNMS does not parse MIBs to discover sensors for devices.
-LibreNMS uses static discovery definitions written in YAML or PHP.
+twentyfouronline does not parse MIBs to discover sensors for devices.
+twentyfouronline uses static discovery definitions written in YAML or PHP.
 Therefore, updating a MIB alone will not improve OS support, the
-definitions must be updated.  LibreNMS only uses MIBs to make OIDs
+definitions must be updated.  twentyfouronline only uses MIBs to make OIDs
 easier to read.
 
 ### <a name="faq6"> Why do I get blank pages sometimes in the WebUI?</a>
@@ -70,13 +70,13 @@ it then it could be that the php memory limit needs to be increased in
 ### <a name="faq10"> Why do I not see any graphs?</a>
 
 The easiest way to check if all is well is to run `./validate.php` as
-librenms from within your install directory. This should give you info on
+twentyfouronline from within your install directory. This should give you info on
 why things aren't working.
 
 One other reason could be a restricted snmpd.conf file or snmp view
 which limits the data sent back. If you use net-snmp then we suggest
 using the [included
-snmpd.conf](https://raw.githubusercontent.com/librenms/librenms/master/snmpd.conf.example)
+snmpd.conf](https://raw.githubusercontent.com/twentyfouronline/twentyfouronline/master/snmpd.conf.example)
 file.
 
 ### <a name="faq7"> How do I debug pages not loading correctly?</a>
@@ -103,11 +103,11 @@ for further details.
 
 ### <a name="faq14"> Why do I get a lot apache or rrdtool zombies in my process list?</a>
 
-If this is related to your web service for LibreNMS then this has been
+If this is related to your web service for twentyfouronline then this has been
 tracked down to an issue within php which the developers aren't
 fixing. We have implemented a work around which means you shouldn't be
 seeing this. If you are, please report this in [issue
-443](https://github.com/librenms/librenms/issues/443).
+443](https://github.com/twentyfouronline/twentyfouronline/issues/443).
 
 ### <a name="faq15"> Why do I see traffic spikes in my graphs?</a>
 
@@ -124,7 +124,7 @@ over) or when you run the included script (lnms port:tune) -
 see [RRDTune doc](../Extensions/RRDTune.md)
 
  SNMP ifInOctets and ifOutOctets are counters, which means they start
- at 0 (at device boot) and count up from there. LibreNMS records the
+ at 0 (at device boot) and count up from there. twentyfouronline records the
  value every 5 minutes and uses the difference between the previous
  value and the current value to calculate rate. (Also, this value
  resets to 0 when it hits the max value)
@@ -157,7 +157,7 @@ benefits no matter the size.
 
 ### <a name="faq16"> How do I change the IP / hostname of a device?</a>
 
-There is a host rename tool called renamehost.php in your librenms
+There is a host rename tool called renamehost.php in your twentyfouronline
 root directory. When renaming you are also changing the device's IP /
 hostname address for monitoring.
 
@@ -182,7 +182,7 @@ We have a few things you can try:
 
 ### <a name="faq18"> Things aren't working correctly?</a>
 
-Run `./validate.php` as librenms from within your install.
+Run `./validate.php` as twentyfouronline from within your install.
 
 Re-run `./validate.php` once you've resolved any issues raised.
 
@@ -252,31 +252,31 @@ $config['device_traffic_iftype'][] = '/ieee8023adLag/';
 $config['device_traffic_iftype'][] = '/ppp/';
 ```
 
-### <a name="faq24"> How do I migrate my LibreNMS install to another server?</a>
+### <a name="faq24"> How do I migrate my twentyfouronline install to another server?</a>
 
 If you are moving from one CPU architecture to another then you will
 need to dump the rrd files and re-create them. If you are in this
 scenario then you can use [Dan Brown's migration
-scripts](https://web.archive.org/web/20180815212723/https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/).
+scripts](https://web.archive.org/web/20180815212723/https://vlan50.com/2015/04/17/migrating-from-observium-to-twentyfouronline/).
 
 If you are just moving to another server with the same CPU
 architecture then the following steps should be all that's needed:
 
-- Install LibreNMS as per our normal documentation; you don't need to
+- Install twentyfouronline as per our normal documentation; you don't need to
   run through the web installer or building the sql schema.
-- Stop cron by commenting out all lines in `/etc/cron.d/librenms`
-- Dump the MySQL database `librenms` from your old server (`mysqldump
-  librenms -u root -p > librenms.sql`)...
-- and import it into your new server (`mysql -u root -p librenms < librenms.sql`).
+- Stop cron by commenting out all lines in `/etc/cron.d/twentyfouronline`
+- Dump the MySQL database `twentyfouronline` from your old server (`mysqldump
+  twentyfouronline -u root -p > twentyfouronline.sql`)...
+- and import it into your new server (`mysql -u root -p twentyfouronline < twentyfouronline.sql`).
 - Copy the `rrd/` folder to the new server.
 - Copy the `.env` and `config.php` files to the new server.
 - Check for modified files (eg specific os, ...) with `git status` and
   migrate them.
 - Ensure ownership of the copied files and folders (substitute your
-  user if necessary) - `chown -R librenms:librenms /opt/librenms`
+  user if necessary) - `chown -R twentyfouronline:twentyfouronline /opt/twentyfouronline`
 - Delete old pollers on the GUI (gear icon --> Pollers --> Pollers)
-- Validate your installation (/opt/librenms/validate.php)
-- Re-enable cron by uncommenting all lines in `/etc/cron.d/librenms`
+- Validate your installation (/opt/twentyfouronline/validate.php)
+- Re-enable cron by uncommenting all lines in `/etc/cron.d/twentyfouronline`
 
 ### <a name="faq25"> Why is my EdgeRouter device not detected?</a>
 
@@ -287,7 +287,7 @@ breaks our detection.
 
 If you don't have that set then this may be then due to an update of
 EdgeOS or a new device type, please [create an
-issue](https://github.com/librenms/librenms/issues/new).
+issue](https://github.com/twentyfouronline/twentyfouronline/issues/new).
 
 ### <a name="faq26"> Why are some of my disks not showing?</a>
 
@@ -304,7 +304,7 @@ Or
 
 `disk /storage`
 
-Restart snmpd and LibreNMS should populate the additional disk after a fresh discovery.
+Restart snmpd and twentyfouronline should populate the additional disk after a fresh discovery.
 
 #### <a name="faq27"> Why are my disks reporting an incorrect size?</a>
 
@@ -358,7 +358,7 @@ devices and can't change passwords.
 ### <a name="faq31"> Why does modifying 'Default Alert Template' fail?</a>
 
 This template's entry could be missing in the database. Please run
-this from the LibreNMS directory:
+this from the twentyfouronline directory:
 
 ```bash
 php artisan db:seed --class=DefaultAlertTemplateSeeder
@@ -387,7 +387,7 @@ With the basic installation on Ubuntu 22.04 LTS with Nginx and PHP 8.1 FPM this 
 ### <a name="faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a>
 
 If you've changed your database credentials then you will need to
-update LibreNMS with those new details.
+update twentyfouronline with those new details.
 Please edit `.env`
 
 [.env](../Support/Environment-Variables.md#database):
@@ -413,10 +413,10 @@ you may need to set [APP_URL](../Support/Environment-Variables.md#base-url) and 
 ### <a name='my-alerts-aren't-being-delivered-on-time'>My alerts aren't being delivered on time</a>
 
 If you're running MySQL/MariaDB on a separate machine or container
-make sure the timezone is set properly on both the LibreNMS **and**
+make sure the timezone is set properly on both the twentyfouronline **and**
 MySQL/MariaDB instance. Alerts will be delivered according to
 MySQL/MariaDB's time, so a mismatch between the two can cause alerts
-to be delivered late if LibreNMS is on a timezone later than
+to be delivered late if twentyfouronline is on a timezone later than
 MySQL/MariaDB.
 
 ### <a name='my-alert-templates-stopped-working'>My alert templates stopped working</a>
@@ -428,7 +428,7 @@ this new syntax (including the titles).
 
 ### <a name='how-do-i-use-trend-prediction-in-graphs'>How do I use trend prediction in graphs</a>
 
-As of [Ver. 1.55](https://community.librenms.org/t/v1-55-release-changelog-august-2019/9428) a new feature has been added where you can view a simple linear prediction in port graphs.
+As of [Ver. 1.55](https://community.twentyfouronline.org/t/v1-55-release-changelog-august-2019/9428) a new feature has been added where you can view a simple linear prediction in port graphs.
 
 > It doesn't work on non-port graphs or consolidated graphs at the time this FAQ entry was written.
 
@@ -441,25 +441,25 @@ To view a prediction:
 You should now see a linear prediction line on the graph.
 ### <a name='move-db-to-another-server'>How do I move only the DB to another server?</a>
 
-There is already a reference how to move your whole LNMS installation to another server. But the following steps will help you to split up an "All-in-one" installation to one LibreNMS installation with a separate database install.
+There is already a reference how to move your whole LNMS installation to another server. But the following steps will help you to split up an "All-in-one" installation to one twentyfouronline installation with a separate database install.
 *Note: This section assumes you have a MySQL/MariaDB instance
 
-- Stop the apache and mysql service in you LibreNMS installation.
-- Edit out all the cron entries in `/etc/cron.d/librenms`.
-- Dump your `librenms`database on your current install by issuing `mysqldump librenms -u root -p > librenms.sql`.
+- Stop the apache and mysql service in you twentyfouronline installation.
+- Edit out all the cron entries in `/etc/cron.d/twentyfouronline`.
+- Dump your `twentyfouronline`database on your current install by issuing `mysqldump twentyfouronline -u root -p > twentyfouronline.sql`.
 - Stop and disable the MySQL server on your current install.
 - On your new server make sure you create a new database with the standard install command, no need to add a user for localhost though.
-- Copy this over to your new database server and import it with `mysql -u root -p librenms < librenms.sql`.
+- Copy this over to your new database server and import it with `mysql -u root -p twentyfouronline < twentyfouronline.sql`.
 - Enter to mysql and add permissions with the following two commands:
 ```sql
-GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'IP_OF_YOUR_LNMS_SERVER' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'FQDN_OF_YOUR_LNMS_SERVER' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON twentyfouronline.* TO 'twentyfouronline'@'IP_OF_YOUR_LNMS_SERVER' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON twentyfouronline.* TO 'twentyfouronline'@'FQDN_OF_YOUR_LNMS_SERVER' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
 ```
 - Enable and restart MySQL server.
 - Edit your `config.php` file to point the install to the new database server location.
-- **Very important**: On your LibreNMS server, inside your install directory is a `.env` file, in it you need to edit the `DBHOST` paramater to point to your new server location.
+- **Very important**: On your twentyfouronline server, inside your install directory is a `.env` file, in it you need to edit the `DBHOST` paramater to point to your new server location.
 - After all this is done, enable all the cron entries again and start apache.
 ### <a name='optional-requirements-for-snmpv3-sha2-auth'>What are the "optional requirements message" when I add SNMPv3 devices?</a>
 When you add a device via the WebUI you may see a little message stating "Optional requirements are not met so some options are disabled". Do not panic. This simply means your system does not contain **openssl >= 1.1** and **net-snmp >= 5.8**, which are the minimum specifications needed to be able to use SHA-224|256|384|512 as auth algorithms.
@@ -477,7 +477,7 @@ follow the below steps.
 
 ### <a name="faq20"> What information do you need to add a new OS?</a>
 
-Please [open a feature request in the community forum](https://community.librenms.org/c/feature-requests) and provide
+Please [open a feature request in the community forum](https://community.twentyfouronline.org/c/feature-requests) and provide
 the output of Discovery, Poller, and Snmpwalk as separate non-expiring
 "pastebin" links, we recommend using <https://paste.rs/> or <https://paste.sh/>
 
@@ -504,7 +504,7 @@ as well as any useful link (MIBs from vendor, logo, etc etc)
 
 Thanks for asking, sometimes it's not quite so obvious and everyone
 can contribute something different. So here are some ways you can help
-LibreNMS improve.
+twentyfouronline improve.
 
 - Code. This is a big thing. We want this community to grow by the
   software developing and evolving to cater for users needs. The
@@ -517,7 +517,7 @@ LibreNMS improve.
   - Poller / Discovery code. Improving it (we think a lot can be done
     to speed things up), adding new device support and updating old
     ones.
-  - The LibreNMS main website, this is hosted on GitHub like the main
+  - The twentyfouronline main website, this is hosted on GitHub like the main
     repo and we accept use contributions here as well :)
 - Hardware. We don't physically need it but if we are to add device
   support, it's made a whole lot easier with access to the kit via
@@ -530,7 +530,7 @@ LibreNMS improve.
   that's just not true.
 - Feature requests. Can't code / won't code. No worries, chuck a
   feature request into our [community
-  forum](https://community.librenms.org) with enough detail and
+  forum](https://community.twentyfouronline.org) with enough detail and
   someone will take a look. A lot of the time this might be what
   interests someone, they need the same feature or they just have
   time. Please be patient, everyone who contributes does so in their
@@ -550,13 +550,13 @@ LibreNMS improve.
 
 ### <a name="faq13"> How can I test another users branch?</a>
 
-LibreNMS can and is developed by anyone, this means someone may be
+twentyfouronline can and is developed by anyone, this means someone may be
 working on a new feature or support for a device that you want. It can
 be helpful for others to test these new features, using Git, this is
 made easy.
 
 ```bash
-cd /opt/librenms
+cd /opt/twentyfouronline
 ```
 
 Firstly ensure that your current branch is in good state:
@@ -571,7 +571,7 @@ Let's say that you want to test a users (f0o) new development branch
 (issue-1337) then you can do the following:
 
 ```bash
-git remote add f0o https://github.com/f0o/librenms.git
+git remote add f0o https://github.com/f0o/twentyfouronline.git
 git remote update f0o
 git checkout issue-1337
 ```
@@ -588,3 +588,7 @@ whilst you are still in it, do the following:
 ```bash
 git pull f0o issue-1337
 ```
+
+
+
+

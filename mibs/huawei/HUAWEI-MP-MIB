@@ -424,3 +424,7 @@ HUAWEI-MP-MIB DEFINITIONS ::= BEGIN
             ::= { hwMpGroups 3 }                                            
                                                                                             
 END
+
+
+
+

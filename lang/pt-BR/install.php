@@ -38,7 +38,7 @@ return [
         'retry' => 'Tentar Novamente',
         'settings' => 'Configurações Adicionais',
         'success' => 'Instalação Completa',
-        'thanks' => 'Obrigado por usar o LibreNMS.',
+        'thanks' => 'Obrigado por usar o twentyfouronline.',
         'title' => 'Finalizar a Instalação',
         'validate_button' => 'Validar a Instalação',
     ],
@@ -58,7 +58,7 @@ return [
         'migrate' => 'Construir o Banco de Dados',
         'user' => 'Criar Usuário',
     ],
-    'title' => 'Instalação do LibreNMS',
+    'title' => 'Instalação do twentyfouronline',
     'user' => [
         'button' => 'Adicionar Usuário',
         'created' => 'Usuário Criado',
@@ -70,3 +70,7 @@ return [
         'username' => 'Nome de Usuário',
     ],
 ];
+
+
+
+

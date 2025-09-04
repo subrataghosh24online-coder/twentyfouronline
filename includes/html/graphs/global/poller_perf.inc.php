@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -57,8 +57,8 @@ foreach (Device::pluck('hostname') as $index => $hostname) {
     }
 }
 
-$total_color = \App\Facades\LibrenmsConfig::get('graph_colours.mixed.2', '36393D');
-$device_color = \App\Facades\LibrenmsConfig::get('graph_colours.mixed.6', 'CCCCCC');
+$total_color = \App\Facades\twentyfouronlineConfig::get('graph_colours.mixed.2', '36393D');
+$device_color = \App\Facades\twentyfouronlineConfig::get('graph_colours.mixed.6', 'CCCCCC');
 
 // sum all the poll times
 $poler_cdef = implode(',', $cdef);
@@ -90,3 +90,7 @@ if ($graph_params->visible('previous')) {
     $rrd_options .= ' GPRINT:pollerundefX:LAST:%8.2lf  GPRINT:pollerundefX:MIN:%8.2lf';
     $rrd_options .= ' GPRINT:pollerundefX:MAX:%8.2lf  GPRINT:pollerundefX:AVERAGE:%8.2lf\\n';
 }
+
+
+
+

@@ -3132,3 +3132,7 @@ pmPowerMgmtSensorsTableLowCriticalF OBJECT-TYPE
 ::= { pmPowerMgmtSensorsTableEntry 63 }
 
 END
+
+
+
+

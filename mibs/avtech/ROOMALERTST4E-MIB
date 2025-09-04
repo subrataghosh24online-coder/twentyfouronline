@@ -200,3 +200,7 @@ room-alert-st4e-snmp-trap TRAP-TYPE
 			by the alarmmessage variable."
 ::= 2
 END
+
+
+
+

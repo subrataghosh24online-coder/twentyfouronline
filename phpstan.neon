@@ -14,7 +14,7 @@ parameters:
         - bootstrap
         - config
         - database
-        - LibreNMS
+        - twentyfouronline
         - resources
         - routes
         - tests
@@ -22,7 +22,7 @@ parameters:
     excludePaths:
         - tests/phpstan/
         - tests/Unit/Data/KafkaDBStoreTest.php
-        - LibreNMS/Data/Store/Kafka.php
+        - twentyfouronline/Data/Store/Kafka.php
 
     scanDirectories:
         - includes
@@ -41,5 +41,9 @@ parameters:
 
     parallel:
         processTimeout: 300.0
+
+
+
+
 
 

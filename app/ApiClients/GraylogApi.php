@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,9 +26,9 @@
 
 namespace App\ApiClients;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
-use LibreNMS\Util\Http;
+use twentyfouronline\Util\Http;
 
 class GraylogApi
 {
@@ -37,18 +37,18 @@ class GraylogApi
 
     public function __construct()
     {
-        if (version_compare(LibrenmsConfig::get('graylog.version', '2.4'), '2.1', '>=')) {
+        if (version_compare(twentyfouronlineConfig::get('graylog.version', '2.4'), '2.1', '>=')) {
             $this->api_prefix = '/api';
         }
 
-        $base_uri = LibrenmsConfig::get('graylog.server');
-        if ($port = LibrenmsConfig::get('graylog.port')) {
+        $base_uri = twentyfouronlineConfig::get('graylog.server');
+        if ($port = twentyfouronlineConfig::get('graylog.port')) {
             $base_uri .= ':' . $port;
         }
 
         $this->client = Http::client()
             ->baseUrl($base_uri)
-            ->withBasicAuth(LibrenmsConfig::get('graylog.username'), LibrenmsConfig::get('graylog.password'))
+            ->withBasicAuth(twentyfouronlineConfig::get('graylog.username'), twentyfouronlineConfig::get('graylog.password'))
             ->acceptJson();
     }
 
@@ -74,7 +74,7 @@ class GraylogApi
             return [];
         }
 
-        $uri = LibrenmsConfig::get('graylog.base_uri');
+        $uri = twentyfouronlineConfig::get('graylog.base_uri');
         if (! $uri) {
             $uri = $this->api_prefix . '/search/universal/relative';
         }
@@ -98,7 +98,7 @@ class GraylogApi
      */
     public function buildSimpleQuery(?string $search = null, ?Device $device = null): string
     {
-        $field = LibrenmsConfig::get('graylog.query.field');
+        $field = twentyfouronlineConfig::get('graylog.query.field');
         $query = [];
         if ($search) {
             $query[] = 'message:"' . $search . '"';
@@ -125,7 +125,7 @@ class GraylogApi
             $device->sysName,
         ]);
 
-        if (LibrenmsConfig::get('graylog.match-any-address')) {
+        if (twentyfouronlineConfig::get('graylog.match-any-address')) {
             $addresses = $addresses->merge($device->ipv4->pluck('ipv4_address')
                 ->filter(
                     function ($address) {
@@ -144,6 +144,10 @@ class GraylogApi
 
     public function isConfigured(): bool
     {
-        return (bool) LibrenmsConfig::get('graylog.server');
+        return (bool) twentyfouronlineConfig::get('graylog.server');
     }
 }
+
+
+
+

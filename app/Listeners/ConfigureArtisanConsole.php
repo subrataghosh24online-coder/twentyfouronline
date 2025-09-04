@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use Illuminate\Console\Events\ArtisanStarting;
-use LibreNMS\Util\Version;
+use twentyfouronline\Util\Version;
 
 class ConfigureArtisanConsole
 {
@@ -21,7 +21,11 @@ class ConfigureArtisanConsole
     public function handle(ArtisanStarting $event): void
     {
         $console = $event->artisan;
-        $console->setName('LibreNMS');
+        $console->setName('twentyfouronline');
         $console->setVersion(Version::VERSION);
     }
 }
+
+
+
+

@@ -2,8 +2,8 @@
 
 This is currently being tested, use at your own risk.
 
-LibreNMS can be used with a MariaDB Galera Cluster. This is a Multi Master cluster, meaning each
-node in the cluster can read and write to the database. They all have the same ability. LibreNMS will
+twentyfouronline can be used with a MariaDB Galera Cluster. This is a Multi Master cluster, meaning each
+node in the cluster can read and write to the database. They all have the same ability. twentyfouronline will
 randomly choose a working node to read and write requests to.
 
 
@@ -42,7 +42,7 @@ wsrep_on=ON
 wsrep_provider=/usr/lib/galera/libgalera_smm.so
 
 # Galera Cluster Configuration
-wsrep_cluster_name="librenms_cluster"
+wsrep_cluster_name="twentyfouronline_cluster"
 wsrep_cluster_address="gcomm://192.168.1.35,192.168.1.36,192.168.1.37,192.168.1.38,192.168.1.39"
 
 # Galera Synchronization Configuration
@@ -50,7 +50,7 @@ wsrep_sst_method=rsync
 
 # Galera Node Configuration
 wsrep_node_address="192.168.1.35"
-wsrep_node_name="librenms1.35"
+wsrep_node_name="twentyfouronline1.35"
 ```
 Change the following values for your environment.
 * wsrep_cluster_address -  All the IP address's of your nodes.
@@ -58,10 +58,10 @@ Change the following values for your environment.
 * wsrep_node_address - IP address of this node.
 * wsrep_node_name - Name of this node.
 
-### Edit LibreNMS .env
+### Edit twentyfouronline .env
 
-LibreNMS supports up to 9 galera nodes, you define these nodes in the .env file. For each node we have the ability to define if this librenms installation/poller is able to write, read or both to that node.
-The galera nodes you define here can be the same or differnt for each librenms poller. If you have a poller you only want to write/read to one galera node, you would simply add one DB_HOST, and omit all the rest. This allows you to precisely control what galera nodes a librenms poller is reading and or writing too.
+twentyfouronline supports up to 9 galera nodes, you define these nodes in the .env file. For each node we have the ability to define if this twentyfouronline installation/poller is able to write, read or both to that node.
+The galera nodes you define here can be the same or differnt for each twentyfouronline poller. If you have a poller you only want to write/read to one galera node, you would simply add one DB_HOST, and omit all the rest. This allows you to precisely control what galera nodes a twentyfouronline poller is reading and or writing too.
 
 * DB_HOST is always set to read/write.
 * DB_HOST must be set, however, it does not have to be the same on each poller, it can be different as long as it's part of the same galera cluster.
@@ -83,11 +83,11 @@ DB_HOST_W3=192.168.1.37
 
 DB_STICKY=true
 DB_CONNECTION=mysql_cluster
-DB_DATABASE=librenms
-DB_USERNAME=librenms
+DB_DATABASE=twentyfouronline
+DB_USERNAME=twentyfouronline
 DB_PASSWORD=password
 ```
-The above .env on a librenms installation/poller would communicate to each galera node as follows.
+The above .env on a twentyfouronline installation/poller would communicate to each galera node as follows.
 
 * 192.168.1.35 - Read/Write
 * 192.168.1.36 - Read/Write
@@ -153,3 +153,7 @@ safe_to_bootstrap: 1
 If the safe_to_bootstrap = 1, then Galera determined that this node has the most up-to-date database and can be safeley used to start the cluster.
 
 Once you have found a node that can be used for starting the cluster, follow the steps in starting for the first time.
+
+
+
+

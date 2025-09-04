@@ -2,7 +2,7 @@
 
 /*
  * voltages for raspberry pi
- * requires snmp extend agent script from librenms-agent
+ * requires snmp extend agent script from twentyfouronline-agent
  */
 if (! empty($pre_cache['raspberry_pi_sensors'])) {
     $sensor_type = 'raspberry_volts';
@@ -98,3 +98,7 @@ if (preg_match('/(Linux).+(ntc)/', $device['sysDescr'])) {
         discover_sensor(null, 'voltage', $device, $oid . $index, $index, $sensor_type, $descr, '1', '1', $lowlimit, $lowwarnlimit, $warnlimit, $limit, $value);
     }
 }
+
+
+
+

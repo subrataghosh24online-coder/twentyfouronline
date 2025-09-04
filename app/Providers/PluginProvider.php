@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -29,7 +29,7 @@ namespace App\Providers;
 use App\Exceptions\PluginDoesNotImplementHookException;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use LibreNMS\Interfaces\Plugins\PluginManagerInterface;
+use twentyfouronline\Interfaces\Plugins\PluginManagerInterface;
 
 class PluginProvider extends ServiceProvider
 {
@@ -85,7 +85,7 @@ class PluginProvider extends ServiceProvider
     protected function hookType(string $class): string
     {
         foreach (class_implements($class) as $parent) {
-            if (Str::startsWith($parent, 'LibreNMS\Interfaces\Plugins\Hooks\\')) {
+            if (Str::startsWith($parent, 'twentyfouronline\Interfaces\Plugins\Hooks\\')) {
                 return $parent;
             }
         }
@@ -98,3 +98,7 @@ class PluginProvider extends ServiceProvider
         return 'App\Plugins\\' . $dir . '\\' . $name;
     }
 }
+
+
+
+

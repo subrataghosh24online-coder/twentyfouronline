@@ -14,14 +14,14 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
-* @copyright  2020 LibreNMS
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
+* @copyright  2020 twentyfouronline
 * @author     Cercel Valentin <crc@nuamchefazi.ro>
 */
 
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'mailcow-postfix';
 
@@ -77,3 +77,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, 'OK', $fields);
+
+
+
+

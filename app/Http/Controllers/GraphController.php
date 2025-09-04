@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use LibreNMS\Enum\ImageFormat;
-use LibreNMS\Exceptions\RrdGraphException;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Graph;
-use LibreNMS\Util\Url;
+use twentyfouronline\Enum\ImageFormat;
+use twentyfouronline\Exceptions\RrdGraphException;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Graph;
+use twentyfouronline\Util\Url;
 
 class GraphController extends Controller
 {
@@ -49,3 +49,7 @@ class GraphController extends Controller
         }
     }
 }
+
+
+
+

@@ -10,3 +10,7 @@ modules:
             - UPS-MIB::upsIdentUPSSoftwareVersion.0
         version_template: '{{ UPS-MIB::upsIdentAgentSoftwareVersion.0 }} {{ UPS-MIB::upsIdentUPSSoftwareVersion.0 }}'
         features: UPS-MIB::upsIdentAttachedDevices.0
+
+
+
+

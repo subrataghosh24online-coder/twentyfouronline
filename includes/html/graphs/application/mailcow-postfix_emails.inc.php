@@ -7,10 +7,10 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2020 LibreNMS
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2020 twentyfouronline
  * @author     Cercel Valentin <crc@nuamchefazi.ro>
 */
 
@@ -50,3 +50,7 @@ foreach ($array as $ds => $var) {
 }
 
 require 'includes/html/graphs/generic_v3_multiline.inc.php';
+
+
+
+

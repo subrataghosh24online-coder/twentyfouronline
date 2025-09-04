@@ -2542,3 +2542,7 @@ tmnxCellPortCbsdTransDown        NOTIFICATION-TYPE
     ::= { tmnxCellularNotifications 10 }
 
 END
+
+
+
+

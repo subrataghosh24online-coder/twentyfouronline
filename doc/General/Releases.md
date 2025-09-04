@@ -29,7 +29,7 @@ branch by setting:
 Then ensure you are on the master branch by doing:
 
 ```bast
-cd /opt/librenms
+cd /opt/twentyfouronline
 git checkout master
 ./daily.sh
 ```
@@ -53,8 +53,12 @@ To switch to using stable branches you can set:
     lnms config:set update_channel release
     ```
 
-This will pause updates until the next stable release, at that time LibreNMS will
+This will pause updates until the next stable release, at that time twentyfouronline will
 update to the stable release and continue to only update to stable releases.
 
 !!! warning
-    Downgrading is not supported on LibreNMS and will likely cause bugs.
+    Downgrading is not supported on twentyfouronline and will likely cause bugs.
+
+
+
+

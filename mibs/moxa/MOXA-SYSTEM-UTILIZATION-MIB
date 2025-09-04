@@ -85,3 +85,7 @@ MOXA-SYSTEM-UTILIZATION-MIB DEFINITIONS ::= BEGIN
             "Power Consumption."
          ::= { usStatus 4 }
 END
+
+
+
+

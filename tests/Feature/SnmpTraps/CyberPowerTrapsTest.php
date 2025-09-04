@@ -18,15 +18,15 @@
  *
  * Unit tests for CyberPower UPS SNMP trap handlers
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  * @copyright  2020 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class CyberPowerTrapsTest extends SnmpTrapTestCase
 {
@@ -369,3 +369,7 @@ TRAP,
         );
     }
 }
+
+
+
+

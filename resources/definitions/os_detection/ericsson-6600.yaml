@@ -9,3 +9,7 @@ discovery:
         sysDescr_except:
             - 'MINI-LINK Traffic Node'
 mib_dir: ericsson
+
+
+
+

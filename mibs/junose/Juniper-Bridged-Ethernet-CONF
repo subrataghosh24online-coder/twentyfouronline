@@ -60,3 +60,7 @@ juniBridgedEthernetAgentV1  AGENT-CAPABILITIES
     ::= { juniBridgedEthernetAgent 1 }
 
 END
+
+
+
+

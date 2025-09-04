@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Steve Calv�rio <https://github.com/Calvario/>
  *
@@ -27,3 +27,7 @@ $ups_charge = snmp_get($device, $ups_charge_oid, '-Oqv');
 if (is_numeric($ups_charge)) {
     discover_sensor(null, 'charge', $device, $ups_charge_oid, 'UPSChargeValue', $ups_device_manufacturer . ' ' . $ups_device_model, 'UPS Charge Value', 1, 1, 0, 10, null, null, $ups_charge);
 }
+
+
+
+

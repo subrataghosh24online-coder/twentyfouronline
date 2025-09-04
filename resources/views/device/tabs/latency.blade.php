@@ -1,12 +1,12 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
 <x-device.page :device="$device">
     @if($data['smokeping']->hasGraphs())
         <x-panel class="with-nav-tabs">
             <x-slot name="heading">
-                @if(\App\Facades\LibrenmsConfig::get('smokeping.url'))
-                    <a href="{{ \App\Facades\LibrenmsConfig::get('smokeping.url') }}?target={{ $device->type }}.{{ str_replace('.','_',$device->hostname) }}" target="_blank"><span class="panel-title">{{ __('Smokeping') }} <i class="glyphicon glyphicon-share-alt"></i></span></a>
+                @if(\App\Facades\twentyfouronlineConfig::get('smokeping.url'))
+                    <a href="{{ \App\Facades\twentyfouronlineConfig::get('smokeping.url') }}?target={{ $device->type }}.{{ str_replace('.','_',$device->hostname) }}" target="_blank"><span class="panel-title">{{ __('Smokeping') }} <i class="glyphicon glyphicon-share-alt"></i></span></a>
                 @else
                     <span class="panel-title">{{ __('Smokeping') }}</span>
                 @endif
@@ -131,3 +131,7 @@
         }
     </style>
 @endpush
+
+
+
+

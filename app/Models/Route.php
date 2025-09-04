@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Route extends PortRelatedModel implements Keyable
 {
@@ -80,3 +80,7 @@ class Route extends PortRelatedModel implements Keyable
         $this->inetCidrRoutePfxLen;
     }
 }
+
+
+
+

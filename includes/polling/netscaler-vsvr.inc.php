@@ -1,36 +1,36 @@
 <?php
 
-// NS-ROOT-MIB::vsvrFullName."librenms" = STRING: "librenms"
-// NS-ROOT-MIB::vsvrIpAddress."librenms" = IpAddress: 195.78.84.141
-// NS-ROOT-MIB::vsvrPort."librenms" = INTEGER: 80
-// NS-ROOT-MIB::vsvrType."librenms" = INTEGER: http(0)
-// NS-ROOT-MIB::vsvrState."librenms" = INTEGER: up(7)
-// NS-ROOT-MIB::vsvrCurClntConnections."librenms" = Gauge32: 18
-// NS-ROOT-MIB::vsvrCurSrvrConnections."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrSurgeCount."librenms" = Counter32: 0
-// NS-ROOT-MIB::vsvrTotalRequests."librenms" = Counter64: 64532
-// NS-ROOT-MIB::vsvrTotalRequestBytes."librenms" = Counter64: 22223153
-// NS-ROOT-MIB::vsvrTotalResponses."librenms" = Counter64: 64496
-// NS-ROOT-MIB::vsvrTotalResponseBytes."librenms" = Counter64: 1048603453
-// NS-ROOT-MIB::vsvrTotalPktsRecvd."librenms" = Counter64: 629637
-// NS-ROOT-MIB::vsvrTotalPktsSent."librenms" = Counter64: 936237
-// NS-ROOT-MIB::vsvrTotalSynsRecvd."librenms" = Counter64: 43130
-// NS-ROOT-MIB::vsvrCurServicesDown."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrCurServicesUnKnown."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrCurServicesOutOfSvc."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrCurServicesTransToOutOfSvc."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrCurServicesUp."librenms" = Gauge32: 0
-// NS-ROOT-MIB::vsvrTotMiss."librenms" = Counter64: 0
-// NS-ROOT-MIB::vsvrRequestRate."librenms" = STRING: "0"
-// NS-ROOT-MIB::vsvrRxBytesRate."librenms" = STRING: "248"
-// NS-ROOT-MIB::vsvrTxBytesRate."librenms" = STRING: "188"
-// NS-ROOT-MIB::vsvrSynfloodRate."librenms" = STRING: "0"
-// NS-ROOT-MIB::vsvrIp6Address."librenms" = STRING: 0:0:0:0:0:0:0:0
-// NS-ROOT-MIB::vsvrTotHits."librenms" = Counter64: 64537
-// NS-ROOT-MIB::vsvrTotSpillOvers."librenms" = Counter32: 0
-// NS-ROOT-MIB::vsvrTotalClients."librenms" = Counter64: 43023
-// NS-ROOT-MIB::vsvrClientConnOpenRate."librenms" = STRING: "0"
-use LibreNMS\RRD\RrdDefinition;
+// NS-ROOT-MIB::vsvrFullName."twentyfouronline" = STRING: "twentyfouronline"
+// NS-ROOT-MIB::vsvrIpAddress."twentyfouronline" = IpAddress: 195.78.84.141
+// NS-ROOT-MIB::vsvrPort."twentyfouronline" = INTEGER: 80
+// NS-ROOT-MIB::vsvrType."twentyfouronline" = INTEGER: http(0)
+// NS-ROOT-MIB::vsvrState."twentyfouronline" = INTEGER: up(7)
+// NS-ROOT-MIB::vsvrCurClntConnections."twentyfouronline" = Gauge32: 18
+// NS-ROOT-MIB::vsvrCurSrvrConnections."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrSurgeCount."twentyfouronline" = Counter32: 0
+// NS-ROOT-MIB::vsvrTotalRequests."twentyfouronline" = Counter64: 64532
+// NS-ROOT-MIB::vsvrTotalRequestBytes."twentyfouronline" = Counter64: 22223153
+// NS-ROOT-MIB::vsvrTotalResponses."twentyfouronline" = Counter64: 64496
+// NS-ROOT-MIB::vsvrTotalResponseBytes."twentyfouronline" = Counter64: 1048603453
+// NS-ROOT-MIB::vsvrTotalPktsRecvd."twentyfouronline" = Counter64: 629637
+// NS-ROOT-MIB::vsvrTotalPktsSent."twentyfouronline" = Counter64: 936237
+// NS-ROOT-MIB::vsvrTotalSynsRecvd."twentyfouronline" = Counter64: 43130
+// NS-ROOT-MIB::vsvrCurServicesDown."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrCurServicesUnKnown."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrCurServicesOutOfSvc."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrCurServicesTransToOutOfSvc."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrCurServicesUp."twentyfouronline" = Gauge32: 0
+// NS-ROOT-MIB::vsvrTotMiss."twentyfouronline" = Counter64: 0
+// NS-ROOT-MIB::vsvrRequestRate."twentyfouronline" = STRING: "0"
+// NS-ROOT-MIB::vsvrRxBytesRate."twentyfouronline" = STRING: "248"
+// NS-ROOT-MIB::vsvrTxBytesRate."twentyfouronline" = STRING: "188"
+// NS-ROOT-MIB::vsvrSynfloodRate."twentyfouronline" = STRING: "0"
+// NS-ROOT-MIB::vsvrIp6Address."twentyfouronline" = STRING: 0:0:0:0:0:0:0:0
+// NS-ROOT-MIB::vsvrTotHits."twentyfouronline" = Counter64: 64537
+// NS-ROOT-MIB::vsvrTotSpillOvers."twentyfouronline" = Counter32: 0
+// NS-ROOT-MIB::vsvrTotalClients."twentyfouronline" = Counter64: 43023
+// NS-ROOT-MIB::vsvrClientConnOpenRate."twentyfouronline" = STRING: "0"
+use twentyfouronline\RRD\RrdDefinition;
 
 if ($device['os'] == 'netscaler') {
     $oids_gauge = [
@@ -132,3 +132,7 @@ if ($device['os'] == 'netscaler') {
         }
     }
 }//end if
+
+
+
+

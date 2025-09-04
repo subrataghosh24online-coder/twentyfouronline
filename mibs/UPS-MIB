@@ -1911,3 +1911,7 @@ upsFullConfigGroup OBJECT-GROUP
     ::= { upsFullGroups 9 }
 
 END
+
+
+
+

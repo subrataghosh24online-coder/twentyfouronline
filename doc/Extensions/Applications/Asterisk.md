@@ -5,11 +5,11 @@ A small shell script that reports various Asterisk call status.
 ### SNMP Extend
 
 1. Download the [asterisk
-script](https://github.com/librenms/librenms-agent/blob/master/snmp/asterisk)
+script](https://github.com/twentyfouronline/twentyfouronline-agent/blob/master/snmp/asterisk)
 to `/etc/snmp/` on your asterisk server.
 
 ```bash
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/asterisk -O /etc/snmp/asterisk
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/asterisk -O /etc/snmp/asterisk
 ```
 
 2. Make the script executable
@@ -35,3 +35,7 @@ extend asterisk /etc/snmp/asterisk
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

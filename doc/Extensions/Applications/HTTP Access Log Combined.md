@@ -5,7 +5,7 @@
 1. Download the script onto the desired host.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/http_access_log_combined -O /etc/snmp/http_access_log_combined
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/http_access_log_combined -O /etc/snmp/http_access_log_combined
     ```
 
 2. Make the script executable
@@ -36,7 +36,7 @@
     === "If not using cron"
 
     === "If using cron"
-        Add the following to `/etc/crontab.d/librenms_http_access_log_combined`:
+        Add the following to `/etc/crontab.d/twentyfouronline_http_access_log_combined`:
 
         ```bash
         */5 * * * * root /etc/snmp/http_access_log_combined -b -q -w
@@ -151,3 +151,7 @@ checkmodule -M -m -o snmpd_http_access_log_combined.mod snmpd_http_access_log_co
 semodule_package -o snmpd_http_access_log_combined.pp -m snmpd_http_access_log_combined.mod
 semodule -i snmpd_http_access_log_combined.pp
 ```
+
+
+
+

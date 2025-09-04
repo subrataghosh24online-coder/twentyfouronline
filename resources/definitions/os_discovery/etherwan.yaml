@@ -3,3 +3,7 @@ modules:
     sysDescr_regex:
       - '/(?<hardware>.*?), Firmware rev: (?<version>[\d.]+)/'
       - '/  (?<hardware>(\w+ )+Managed Switch)/'
+
+
+
+

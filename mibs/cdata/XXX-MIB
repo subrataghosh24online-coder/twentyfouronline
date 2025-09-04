@@ -1025,3 +1025,7 @@ card-MC-Rmt-Acc-SFP-Removed	NOTIFICATION-TYPE
 				::= { alarmMIB 42}
 
 END
+
+
+
+

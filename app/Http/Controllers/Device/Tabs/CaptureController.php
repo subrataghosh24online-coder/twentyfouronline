@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Http\Controllers\Device\Tabs;
 use App\Models\Device;
 use Illuminate\Http\Request;
 
-class CaptureController implements \LibreNMS\Interfaces\UI\DeviceTab
+class CaptureController implements \twentyfouronline\Interfaces\UI\DeviceTab
 {
     public function visible(Device $device): bool
     {
@@ -56,3 +56,7 @@ class CaptureController implements \LibreNMS\Interfaces\UI\DeviceTab
         return [];
     }
 }
+
+
+
+

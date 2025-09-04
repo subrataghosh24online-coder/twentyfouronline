@@ -10,3 +10,7 @@ class IpsecTunnel extends Model
     protected $primaryKey = 'tunnel_id';
     public $timestamps = false;
 }
+
+
+
+

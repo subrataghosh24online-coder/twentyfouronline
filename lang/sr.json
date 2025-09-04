@@ -171,8 +171,8 @@
     "Last Polled (minutes)": "Zadnji upit (minuta)",
     "Last polled (minutes)": "Zadnji upit (minuta)",
     "Level": "Nivo",
-    "LibreNMS is a community-based project": "LibreNMS je projekat otvorenog koda",
-    "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS je sistem zasnovan na PHP/MySQL i omogućava automatsko otkrivanje i monitoring mreže",
+    "twentyfouronline is a community-based project": "twentyfouronline je projekat otvorenog koda",
+    "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline je sistem zasnovan na PHP/MySQL i omogućava automatsko otkrivanje i monitoring mreže",
     "License": "Licenca",
     "Local git log": "Lokalni Git dnevnik",
     "Location deleted": "Lokacija obrisana",
@@ -223,7 +223,7 @@
     "Online stats:": "Prikupljena statistika:",
     "only devices": "Samo uređaji",
     "only services": "Samo servisi",
-    "Opt in to send anonymous usage statistics to LibreNMS?": "Pošalji anonimnu statistiku ?",
+    "Opt in to send anonymous usage statistics to twentyfouronline?": "Pošalji anonimnu statistiku ?",
     "or higher": "ili veći",
     "Order By": "Sortiraj po",
     "Overview": "Pregled",
@@ -358,3 +358,7 @@
     "Wireless": "WiFi",
     "yes": "Da"
 }
+
+
+
+

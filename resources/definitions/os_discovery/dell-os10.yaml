@@ -53,3 +53,7 @@ modules:
                     states:
                         - { value: 1, descr: normal, graph: 1, generic: 0 }
                         - { value: 2, descr: abnormal, graph: 1, generic: 2 }
+
+
+
+

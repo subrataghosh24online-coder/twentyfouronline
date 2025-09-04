@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $pagetitle[] = 'Historical Usage';
 // $detail      = (isset($vars['detail']) ? $vars['detail'] : "");
@@ -60,7 +60,7 @@ echo '<table class="table table-striped">
         <th>Total</th>
         <th>95th %ile</th>
         <th style="text-align: center;">Overusage</th>
-        <th colspan="2" style="text-align: right;"><a href="' . \LibreNMS\Util\Url::generate($vars, ['detail' => 'all']) . '">
+        <th colspan="2" style="text-align: right;"><a href="' . \twentyfouronline\Util\Url::generate($vars, ['detail' => 'all']) . '">
             <i class="fa fa-bar-chart fa-lg icon-theme" aria-hidden="true" title="Show details"></i> Show details</a>
         </th>
     </tr>
@@ -76,9 +76,9 @@ foreach (dbFetchRows('SELECT * FROM `bill_history` WHERE `bill_id` = ? ORDER BY 
         $percent = $history['bill_percent'];
         $dir_95th = $history['dir_95th'];
         $rate_95th = Number::formatSi($history['rate_95th'], 2, 0, 'bps');
-        $total_data = Number::formatBase($history['traf_total'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
+        $total_data = Number::formatBase($history['traf_total'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
 
-        $background = \LibreNMS\Util\Color::percentage($percent, null);
+        $background = \twentyfouronline\Util\Color::percentage($percent, null);
 
         if ($type == 'CDR') {
             $allowed = Number::formatSi($history['bill_allowed'], 2, 0, 'bps');
@@ -87,19 +87,19 @@ foreach (dbFetchRows('SELECT * FROM `bill_history` WHERE `bill_id` = ? ORDER BY 
             $out = Number::formatSi($history['rate_95th_out'], 2, 0, 'bps');
             $overuse = (($history['bill_overuse'] <= 0) ? '-' : '<span style="color: #' . $background['left'] . '; font-weight: bold;">' . Number::formatSi($history['bill_overuse'], 2, 0, 'bps') . '</span>');
         } elseif ($type == 'Quota') {
-            $allowed = Number::formatBase($history['bill_allowed'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
-            $used = Number::formatBase($history['total_data'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
-            $in = Number::formatBase($history['traf_in'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
-            $out = Number::formatBase($history['traf_out'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
-            $overuse = (($history['bill_overuse'] <= 0) ? '-' : '<span style="color: #' . $background['left'] . '; font-weight: bold;">' . Number::formatBase($history['bill_overuse'], \App\Facades\LibrenmsConfig::get('billing.base')) . '</span>');
+            $allowed = Number::formatBase($history['bill_allowed'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
+            $used = Number::formatBase($history['total_data'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
+            $in = Number::formatBase($history['traf_in'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
+            $out = Number::formatBase($history['traf_out'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
+            $overuse = (($history['bill_overuse'] <= 0) ? '-' : '<span style="color: #' . $background['left'] . '; font-weight: bold;">' . Number::formatBase($history['bill_overuse'], \App\Facades\twentyfouronlineConfig::get('billing.base')) . '</span>');
         }
-        $peakOut = Number::formatBase($history['bill_peak_out'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
-        $peakIn = Number::formatBase($history['bill_peak_in'], \App\Facades\LibrenmsConfig::get('billing.base'), 2, 0, '');
+        $peakOut = Number::formatBase($history['bill_peak_out'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
+        $peakIn = Number::formatBase($history['bill_peak_in'], \App\Facades\twentyfouronlineConfig::get('billing.base'), 2, 0, '');
 
         $total_data = (($type == 'Quota') ? '<b>' . $total_data . '</b>' : $total_data);
         $rate_95th = (($type == 'CDR') ? '<b>' . $rate_95th . '</b>' : $rate_95th);
 
-        $url = \LibreNMS\Util\Url::generate($vars, ['detail' => $history['bill_hist_id']]);
+        $url = \twentyfouronline\Util\Url::generate($vars, ['detail' => $history['bill_hist_id']]);
 
         echo '
             <tr>
@@ -141,3 +141,7 @@ foreach (dbFetchRows('SELECT * FROM `bill_history` WHERE `bill_id` = ? ORDER BY 
 
 echo '</tbody>
 </table>';
+
+
+
+

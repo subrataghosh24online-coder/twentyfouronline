@@ -60,3 +60,7 @@ modules:
           index: 'postTemperature.{{ $index }}'
           descr: Temperature
           group: Post
+
+
+
+

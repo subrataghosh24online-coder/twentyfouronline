@@ -18,15 +18,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\View;
 
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Util\StringHelpers;
 
 class SimpleTemplate
 {
@@ -287,3 +287,7 @@ class SimpleTemplate
         }, $this->template);
     }
 }
+
+
+
+

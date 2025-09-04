@@ -7,7 +7,7 @@ A small shell script that checks your system's fail2ban status.
 1.  Copy the shell script, fail2ban, to the desired host.
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/fail2ban -O /etc/snmp/fail2ban
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/fail2ban -O /etc/snmp/fail2ban
     ```
 
 2.  Make the script executable
@@ -63,3 +63,7 @@ other SNMP information being polled.
 
 For additional details of the switches, please see the POD in the
 script it self at the top.
+
+
+
+

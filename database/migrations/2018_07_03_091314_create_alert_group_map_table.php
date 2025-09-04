@@ -30,3 +30,7 @@ return new class extends Migration
         Schema::drop('alert_group_map');
     }
 };
+
+
+
+

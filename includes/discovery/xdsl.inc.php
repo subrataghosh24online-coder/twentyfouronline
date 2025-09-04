@@ -1,8 +1,12 @@
 <?php
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! $os instanceof OS) {
     $os = OS::make($device);
 }
-(new \LibreNMS\Modules\Xdsl())->discover($os);
+(new \twentyfouronline\Modules\Xdsl())->discover($os);
+
+
+
+

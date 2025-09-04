@@ -66,3 +66,7 @@ return [
         'rediscover_error' => 'An error occurred setting this device to be rediscovered',
     ],
 ];
+
+
+
+

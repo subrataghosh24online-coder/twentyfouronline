@@ -3,7 +3,7 @@
 /**
  * alert-transports.inc.php
  *
- * LibreNMS alert-transports.inc.php for processor
+ * twentyfouronline alert-transports.inc.php for processor
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Vivia Nguyen-Tran
  * @author     Vivia Nguyen-Tran <vivia@ualberta.ca>
@@ -62,7 +62,7 @@ if (empty($name)) {
     }
 
     if ($transport_id) {
-        $class = 'LibreNMS\\Alert\\Transport\\' . ucfirst($transport_type);
+        $class = 'twentyfouronline\\Alert\\Transport\\' . ucfirst($transport_type);
 
         if (! method_exists($class, 'configTemplate')) {
             exit(json_encode([
@@ -114,3 +114,7 @@ exit(json_encode([
     'status' => $status,
     'message' => $message,
 ]));
+
+
+
+

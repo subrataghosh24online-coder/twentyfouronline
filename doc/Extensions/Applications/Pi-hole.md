@@ -8,7 +8,7 @@ unwanted content.  This script reports the status of Pi-hole.
 1. Copy the shell script, pi-hole, to the desired host.
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/pi-hole -O /etc/snmp/pi-hole
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/pi-hole -O /etc/snmp/pi-hole
     ```
 
 2. Make the script executable
@@ -35,3 +35,7 @@ server and change the `API_AUTH_KEY` entry inside the snmp script.
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

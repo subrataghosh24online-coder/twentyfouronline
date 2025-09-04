@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Anthony F McInerney <bofh80>
  * @author     Anthony F McInerney <afm404@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use LibreNMS\Alerting\QueryBuilderFluentParser;
+use twentyfouronline\Alerting\QueryBuilderFluentParser;
 use Log;
 
 class ServiceTemplate extends BaseModel
@@ -227,3 +227,7 @@ class ServiceTemplate extends BaseModel
         return $this->belongsToMany(DeviceGroup::class, 'service_templates_device_group', 'service_template_id', 'device_group_id');
     }
 }
+
+
+
+

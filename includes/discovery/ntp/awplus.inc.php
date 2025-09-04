@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture statistics from the AT-NTP-MIB
+ * twentyfouronline module to capture statistics from the AT-NTP-MIB
  *
  * Copyright (c) 2018 Matt Read <matt.read@alliedtelesis.co.nz>
  *
@@ -14,7 +14,7 @@
 
 $module = 'ntp';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['type' => $module]);
 
 // We only care about our device id.
@@ -25,7 +25,7 @@ $tblComponents = [];
 
 // Let's gather some data..
 // For Reference:
-//      https://github.com/librenms/librenms/blob/master/mibs/awplus/AT-NTP-MIB
+//      https://github.com/twentyfouronline/twentyfouronline/blob/master/mibs/awplus/AT-NTP-MIB
 //      https://www.alliedtelesis.com/documents/network-time-protocol-ntp-feature-overview-and-configuration-guide
 $atNtpAssociationEntry = snmpwalk_group($device, 'atNtpAssociationEntry', 'AT-NTP-MIB');
 
@@ -127,3 +127,7 @@ if (count($components) > 0) {
 } else {
     dbDelete('applications', '`device_id` = ? AND `app_type` = ?', [$device['device_id'], $module]);
 }
+
+
+
+

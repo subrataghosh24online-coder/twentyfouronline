@@ -7,11 +7,15 @@
  *
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $init_modules = ['nodb'];
 require __DIR__ . '/includes/init.php';
 
 if (App::runningInConsole()) {
-    echo LibrenmsConfig::toJson();
+    echo twentyfouronlineConfig::toJson();
 }
+
+
+
+

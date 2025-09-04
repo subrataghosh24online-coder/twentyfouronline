@@ -57,3 +57,7 @@ if (! Rrd::checkRrdExists($rrd_filename)) {
 }
 
 require 'includes/html/graphs/generic_duplex.inc.php';
+
+
+
+

@@ -147,3 +147,7 @@ WLSX-CTS-MIB DEFINITIONS ::= BEGIN
 		::= { wlsxCtsRequestEntry 6 }
 
 END
+
+
+
+

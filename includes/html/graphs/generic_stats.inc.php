@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 require 'includes/html/graphs/common.inc.php';
@@ -63,14 +63,14 @@ if ($nototal) {
 }
 
 if ($height > 99) {
-    $rrd_options .= " COMMENT:'" . \LibreNMS\Data\Store\Rrd::fixedSafeDescr($unit_text, $descr_len) . "      Now      Min      Max     Avg\l'";
+    $rrd_options .= " COMMENT:'" . \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($unit_text, $descr_len) . "      Now      Min      Max     Avg\l'";
 }
 
 $i = 0;
 $iter = 0;
 
 if (! isset($colour)) {
-    $colour = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
@@ -83,72 +83,72 @@ if (! isset($colourAalpha)) {
 }
 
 if (! isset($colour25th)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour25th = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour25th = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
 if (! isset($colour50th)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour50th = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour50th = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
 if (! isset($colour75th)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour75th = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour75th = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
 if (! isset($colour1h)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour1h = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour1h = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
 if (! isset($colour1d)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour1d = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour1d = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
 if (! isset($colour1w)) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter")) {
         $iter = 0;
     }
-    $colour1w = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$iter");
+    $colour1w = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$iter");
     $iter++;
 }
 
-$graph_stat_percentile_disable = \App\Facades\LibrenmsConfig::get('graph_stat_percentile_disable');
+$graph_stat_percentile_disable = \App\Facades\twentyfouronlineConfig::get('graph_stat_percentile_disable');
 
-$descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($descr ?? '', $descr_len);
+$descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($descr ?? '', $descr_len);
 
 if ($height > 25) {
     if (! $no_hourly) {
-        $descr_1h = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 hour avg', $descr_len);
-        $descr_1h_min = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 hour min', $descr_len);
-        $descr_1h_max = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 hour max', $descr_len);
+        $descr_1h = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 hour avg', $descr_len);
+        $descr_1h_min = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 hour min', $descr_len);
+        $descr_1h_max = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 hour max', $descr_len);
     }
     if (! $no_daily) {
-        $descr_1d = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 day avg', $descr_len);
-        $descr_1d_min = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 day min', $descr_len);
-        $descr_1d_max = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 day max', $descr_len);
+        $descr_1d = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 day avg', $descr_len);
+        $descr_1d_min = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 day min', $descr_len);
+        $descr_1d_max = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 day max', $descr_len);
     }
     if (! $no_weekly) {
-        $descr_1w = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 week avg', $descr_len);
-        $descr_1w_min = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 week min', $descr_len);
-        $descr_1w_max = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('1 week max', $descr_len);
+        $descr_1w = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 week avg', $descr_len);
+        $descr_1w_min = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 week min', $descr_len);
+        $descr_1w_max = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('1 week max', $descr_len);
     }
 }
 
@@ -290,3 +290,7 @@ $rrd_options .= $rrd_optionsb;
 $rrd_options .= ' HRULE:0#555555';
 
 unset($stacked);
+
+
+
+

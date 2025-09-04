@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2023 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -64,3 +64,7 @@ class SyntheticDeviceField
         return (string) $device->getAttributeValue($this->name);
     }
 }
+
+
+
+

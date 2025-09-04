@@ -6,7 +6,7 @@ SNMP extend script to get your Puppet Agent data into your host.
 
 1. Download the script onto the desired host
 ```
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/puppet_agent.py -O /etc/snmp/puppet_agent.py
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/puppet_agent.py -O /etc/snmp/puppet_agent.py
 ```
 
 2. Make the script executable
@@ -37,3 +37,7 @@ optionally you can add a specific summary file with creating `/etc/snmp/puppet.j
 custom summary file has highest priority
 
 4. Restart snmpd on the host
+
+
+
+

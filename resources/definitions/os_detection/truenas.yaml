@@ -27,3 +27,7 @@ discovery:
             - '/freenas/i'
             - '/^(TrueNAS)(?!.*-SCALE).*$/i'
             
+
+
+
+

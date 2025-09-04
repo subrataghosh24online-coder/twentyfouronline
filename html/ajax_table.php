@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 $init_modules = ['web', 'auth'];
 require realpath(__DIR__ . '/..') . '/includes/init.php';
@@ -44,3 +44,7 @@ if ($id && file_exists("includes/html/table/$id.inc.php")) {
     header('Content-type: application/json');
     include_once "includes/html/table/$id.inc.php";
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 LTM Virtual Server Details
+ * twentyfouronline module to display F5 LTM Virtual Server Details
  *
  * Copyright (c) 2021 Martin Bergström <martin@bergstr0m.se>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id']);
 
 // We only care about our device id.
@@ -33,7 +33,7 @@ $components = $keep;
 include 'includes/html/graphs/common.inc.php';
 $rrd_options .= ' -l 0 -E ';
 $rrd_options .= " COMMENT:'LTM Pool Members                               Now      Avg      Max\\n'";
-$colours = array_merge(\App\Facades\LibrenmsConfig::get('graph_colours.mixed'), \App\Facades\LibrenmsConfig::get('graph_colours.manycolours'), \App\Facades\LibrenmsConfig::get('graph_colours.manycolours'));
+$colours = array_merge(\App\Facades\twentyfouronlineConfig::get('graph_colours.mixed'), \App\Facades\twentyfouronlineConfig::get('graph_colours.manycolours'), \App\Facades\twentyfouronlineConfig::get('graph_colours.manycolours'));
 $count = 0;
 d_echo('<pre>');
 
@@ -73,3 +73,7 @@ if ($components[$vars['id']]['type'] == 'f5-ltm-pool') {
     } // End Foreach
 }
 d_echo('</pre>');
+
+
+
+

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('device_id')->index();
             $table->string('attrib_type', 32);
             $table->text('attrib_value');
-            if (LibreNMS\DB\Eloquent::getDriver() == 'mysql') {
+            if (twentyfouronline\DB\Eloquent::getDriver() == 'mysql') {
                 $table->timestamp('updated')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             } else {
                 $table->timestamp('updated')->useCurrent();
@@ -35,3 +35,7 @@ return new class extends Migration
         Schema::drop('devices_attribs');
     }
 };
+
+
+
+

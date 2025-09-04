@@ -1,6 +1,6 @@
 # Network Map
 
-LibreNMS has the ability to show you a dynamic network map based on
+twentyfouronline has the ability to show you a dynamic network map based on
 data collected from devices.  These maps are accessed through the
 following menu options:
 
@@ -31,3 +31,7 @@ group maps will be more usable on large networks.
 
 ## Settings
 The map display can be configured by altering the [Vis JS Options](VisJS-Config.md)
+
+
+
+

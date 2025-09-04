@@ -18,3 +18,7 @@ discovery:
             - 'Rittal LCP'
         sysDescr_regex:
             - '/^Rittal LCP/'
+
+
+
+

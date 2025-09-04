@@ -38,3 +38,7 @@ discovery_modules:
     vlans: false
 discovery:
     - { sysDescr_regex: ['/^Cisco Wide Area Application Services/'] }
+
+
+
+

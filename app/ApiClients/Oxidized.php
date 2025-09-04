@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\ApiClients;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 class Oxidized extends BaseApi
 {
@@ -35,16 +35,16 @@ class Oxidized extends BaseApi
     public function __construct()
     {
         $this->timeout = 90;
-        $this->base_uri = LibrenmsConfig::get('oxidized.url') ?? '';
-        $this->enabled = LibrenmsConfig::get('oxidized.enabled') === true && $this->base_uri;
+        $this->base_uri = twentyfouronlineConfig::get('oxidized.url') ?? '';
+        $this->enabled = twentyfouronlineConfig::get('oxidized.enabled') === true && $this->base_uri;
     }
 
     /**
-     * Ask oxidized to refresh the node list for the source (likely the LibreNMS API).
+     * Ask oxidized to refresh the node list for the source (likely the twentyfouronline API).
      */
     public function reloadNodes(): void
     {
-        if ($this->enabled && LibrenmsConfig::get('oxidized.reload_nodes') === true) {
+        if ($this->enabled && twentyfouronlineConfig::get('oxidized.reload_nodes') === true) {
             $this->getClient()->get('/reload.json');
         }
     }
@@ -76,3 +76,7 @@ class Oxidized extends BaseApi
         }
     }
 }
+
+
+
+

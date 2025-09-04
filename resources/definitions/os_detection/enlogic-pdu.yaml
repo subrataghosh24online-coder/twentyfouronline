@@ -13,3 +13,7 @@ discovery:
           oid: ENLOGIC-PDU2-MIB::pduNamePlateType.1
           op: ">="
           value: '1'
+
+
+
+

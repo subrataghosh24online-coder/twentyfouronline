@@ -44,3 +44,7 @@ return [
         'message' => 'SNMP verzija ":snmpver" nije podržana, mora biti v1, v2c, ili v3',
     ],
 ];
+
+
+
+

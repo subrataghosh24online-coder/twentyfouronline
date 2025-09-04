@@ -694,7 +694,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\Util\\Number::cast",
+                    "user_func": "\\twentyfouronline\\Util\\Number::cast",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 }
@@ -936,3 +936,7 @@
         "poller": "matches discovery"
     }
 }
+
+
+
+

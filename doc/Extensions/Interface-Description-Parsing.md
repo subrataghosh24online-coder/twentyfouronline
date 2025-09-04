@@ -1,6 +1,6 @@
 # Interface Description Parsing
 
-Librenms can interpret, display and group certain additional information on ports.
+twentyfouronline can interpret, display and group certain additional information on ports.
 This is done based on the format that the port description is written
 although it's possible  to customise the parser to be specific for your setup.
 
@@ -72,8 +72,8 @@ $config['port_descr_parser'] = "includes/custom/my-port-descr-parser.inc.php";
 For Unix / Linux based systems, you need to run an additional script
 to support the parsing of interface information.
 
-- Add `ifAlias` from `/opt/librenms/scripts/` or download it from
-  [here](https://github.com/librenms/librenms/blob/master/scripts/ifAlias)
+- Add `ifAlias` from `/opt/twentyfouronline/scripts/` or download it from
+  [here](https://github.com/twentyfouronline/twentyfouronline/blob/master/scripts/ifAlias)
   to the Server and make it executable `chmod +x /path/to/ifAlias`
 - Add to `snmpd.conf` something like:
     ``pass .1.3.6.1.2.1.31.1.1.1.18 /path/to/ifAlias``
@@ -85,6 +85,10 @@ to support the parsing of interface information.
 
 - Restart `snmpd` - `systemctl restart snmpd`
 
-There are no changes to be made or additions to install for the polling librenms.
+There are no changes to be made or additions to install for the polling twentyfouronline.
 
 Now you can set up your [keywords](#keywords) in your aliases.
+
+
+
+

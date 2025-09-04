@@ -12,7 +12,7 @@ to indicate it's in development.
 
 To access any of the token end points you will be required to
 authenticate using a token. Tokens can be created directly from within
-the LibreNMS web interface by going to `/api-access/`.
+the twentyfouronline web interface by going to `/api-access/`.
 
 - Click on 'Create API access token'.
 - Select the user you would like to generate the token for.
@@ -28,16 +28,16 @@ through it without knowing any of the available API routes.
 You can do this by first calling `/api/v0`:
 
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://twentyfouronline.org/api/v0
 ```
 
 Output:
 
 ```json
 {
- "list_bgp": "https://librenms.org/api/v0/bgp",
+ "list_bgp": "https://twentyfouronline.org/api/v0/bgp",
   ...
- "edit_rule": "https://librenms.org/api/v0/rules"
+ "edit_rule": "https://twentyfouronline.org/api/v0/rules"
 }
 ```
 
@@ -55,7 +55,7 @@ combination of two or three of these.
   updating information via the API, for instance adding a new device:
 
 ```curl
-curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://twentyfouronline.org/api/v0/devices
 ```
 
 ## Output
@@ -83,3 +83,7 @@ Output from the API currently is via two output types:
 - [Logs](Logs.md)
 - [System](System.md)
 - [Locations](Locations.md)
+
+
+
+

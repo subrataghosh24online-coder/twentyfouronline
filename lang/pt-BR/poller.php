@@ -93,7 +93,7 @@ return [
             ],
             'watchdog_log' => [
                 'description' => 'Arquivo de Log a ser Monitorardo',
-                'help' => 'O padrão é o arquivo de log do LibreNMS.',
+                'help' => 'O padrão é o arquivo de log do twentyfouronline.',
             ],
         ],
         'units' => [
@@ -102,3 +102,7 @@ return [
         ],
     ],
 ];
+
+
+
+

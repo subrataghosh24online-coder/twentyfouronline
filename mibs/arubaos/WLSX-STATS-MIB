@@ -119,3 +119,7 @@ WLSX-STATS-MIB DEFINITIONS ::= BEGIN
 		::= { wlsxStatsRequestEntry 4 }
 
 END
+
+
+
+

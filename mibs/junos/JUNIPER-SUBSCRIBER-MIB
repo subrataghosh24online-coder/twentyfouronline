@@ -872,3 +872,7 @@ jnxSubscriberSlotTotalCounter OBJECT-TYPE
        ::= { jnxSubscriberSlotCountEntry 2  }
 
 END
+
+
+
+

@@ -14,9 +14,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
-* @copyright  2016 Karl Shea, LibreNMS
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
+* @copyright  2016 Karl Shea, twentyfouronline
 * @author     Karl Shea <karl@karlshea.com>
 *
 */
@@ -41,12 +41,16 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         $rrd_list[$i]['filename'] = $rrd_filename;
         $rrd_list[$i]['descr'] = $var['descr'];
         $rrd_list[$i]['ds'] = $ds;
-        $rrd_list[$i]['colour'] = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$i");
+        $rrd_list[$i]['colour'] = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$i");
         $rrd_list[$i]['area'] = $var['area'];
         $i++;
     }
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

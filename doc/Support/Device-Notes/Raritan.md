@@ -3,11 +3,11 @@ The default settings for thresholds for a lot of sensors are not very well chose
 
 If you don't care about threshold data, these can simply be turned off in the device settings - highlighted below. You can also set sensible thresholds yourself.
 
-![Sensor Threshold Configuration in LibreNMS](../../img/raritan-thresholds.png)
+![Sensor Threshold Configuration in twentyfouronline](../../img/raritan-thresholds.png)
 
 Unfortunately Raritan use a threshold of 0 to mean both 'the low value for this sensor is 0' and 'no threshold is configured' so it's impossible for us to filter out these bad values.
 
-Alternatively (and this is the best course of action), you can configure the thresholds on the devices themselves, and LibreNMS will detect them automatically.
+Alternatively (and this is the best course of action), you can configure the thresholds on the devices themselves, and twentyfouronline will detect them automatically.
 
 You can do this with in bulk with either the JSON-RPC API, or RedFish.
 * https://pypi.org/project/raritan/4.3.0.51180/
@@ -38,7 +38,7 @@ For an outlet:
 
 ## Known Sensor Types
 
-'supported' means that support for polling that sensor type has been added to the YAML. Any of the below sensor types should be supportable by LibreNMS, however test data is not currently available for those sensor types.
+'supported' means that support for polling that sensor type has been added to the YAML. Any of the below sensor types should be supportable by twentyfouronline, however test data is not currently available for those sensor types.
 
 | Sensor Type                | Supported | Index |
 |----------------------------|-----------|-------|
@@ -123,3 +123,7 @@ For an outlet:
 | batteryLevel               | No        | 79    |
 | installFaultStatus         | No        | 80    |
 | transferSwitchOutputStatus | No        | 81    |
+
+
+
+

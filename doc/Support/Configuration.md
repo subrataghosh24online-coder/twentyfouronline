@@ -13,7 +13,7 @@ will disable in the Web UI to prevent unexpected behaviour.
 
 ## Configuration format
 
-For configuration stored within the database, LibreNMS uses dot notation for config
+For configuration stored within the database, twentyfouronline uses dot notation for config
 items. For `config.php` this is stored as a php array under `$config`, let's
 use some snmp configuration as an example:
 
@@ -35,7 +35,7 @@ use some snmp configuration as an example:
     Not all documentation has been updated to reflect using `lnms config:set` to
     set configuration items, but it will work and is the preferred option over `config.php`.
 
-    Not all configuration settings have been defined in LibreNMS, they can still be 
+    Not all configuration settings have been defined in twentyfouronline, they can still be 
     set with the `--ignore-checks` option. Without that option input is checked for 
     validity, please be careful of inputting bad values when using `--ignore-checks`. 
 
@@ -60,7 +60,7 @@ Example output:
 ```bash
 lnms config:get --dump | jq 
 {
-  "install_dir": "/opt/librenms",
+  "install_dir": "/opt/twentyfouronline",
   "active_directory": {
     "users_purge": 0
   },
@@ -155,7 +155,7 @@ lnms config:set snmp.community \
 ## Pre-load configuration
 
 This feature is primarily for docker images and other automation.
-When installing LibreNMS for the first time with a new database you can place yaml key value files
+When installing twentyfouronline for the first time with a new database you can place yaml key value files
 in `database/seeders/config` to pre-populate the config database.
 
 Example snmp.yaml:
@@ -183,18 +183,18 @@ The temporary directory is where images and other temporary files are
 created on your filesystem.
 
 ```bash
-lnms config:set log_dir /opt/librenms/logs
+lnms config:set log_dir /opt/twentyfouronline/logs
 ```
 
-Log files created by LibreNMS will be stored within this directory.
+Log files created by twentyfouronline will be stored within this directory.
 
 ## Database config
 
-Set these variables either in .env (/opt/librenms/.env by default) or in the environment.
+Set these variables either in .env (/opt/twentyfouronline/.env by default) or in the environment.
 
 ```dotenv
 DB_HOST=127.0.0.1
-DB_DATABASE=librenms
+DB_DATABASE=twentyfouronline
 DB_USERNAME=DBUSER
 DB_PASSWORD="DBPASS"
 ```
@@ -215,7 +215,7 @@ DB_SOCKET=/run/mysqld/mysqld.sock
 
 ### PHP Settings
 
-You can change the memory limits for php within LibreNMS. The
+You can change the memory limits for php within twentyfouronline. The
 value is in Megabytes and should just be an int value:
 
 `lnms config:set php_memory_limit 128`
@@ -361,10 +361,10 @@ Please refer to [RRDCached](../Extensions/RRDCached.md)
 
 !!! setting "system/server"
     ```bash
-    lnms config:set base_url http://demo.librenms.org
+    lnms config:set base_url http://demo.twentyfouronline.org
     ```
 
-LibreNMS will attempt to detect the URL you are using but you can override that here.
+twentyfouronline will attempt to detect the URL you are using but you can override that here.
 
 !!! setting "webui/style"
     ```bash
@@ -722,7 +722,7 @@ Please refer to [Auto-Discovery](../Extensions/Auto-Discovery.md)
 !!! setting "alerting/email"
     ```bash
     lnms config:set email_backend mail
-    lnms config:set email_from librenms@yourdomain.local
+    lnms config:set email_from twentyfouronline@yourdomain.local
     lnms config:set email_user `lnms config:get project_id`
     lnms config:set email_sendmail_path /usr/sbin/sendmail
     lnms config:set email_smtp_host localhost
@@ -811,7 +811,7 @@ Please refer to [Oxidized](../Extensions/Oxidized.md)
 ### CollectD
 
 Specify the location of the collectd rrd files. Note that the location
-in LibreNMS should be consistent with the location set in
+in twentyfouronline should be consistent with the location set in
 /etc/collectd.conf and etc/collectd.d/rrdtool.conf
 
 !!! setting "external/collectd"
@@ -859,7 +859,7 @@ Please refer to [NFSen](../Extensions/NFSen.md)
 
 ### Location parsing
 
-LibreNMS can interpret sysLocation information and map the device loction based on GeoCoordinates or GeoCoding information.
+twentyfouronline can interpret sysLocation information and map the device loction based on GeoCoordinates or GeoCoding information.
 
 - Info-keywords
   - `[]` contains optional Latitude and Longitude information if manual GeoCoordinate positioning is desired.
@@ -1048,7 +1048,7 @@ Physical id 4
 ## Entity sensors limit values
 
 Vendors may give some limit values (or thresholds) for the discovered
-sensors. By default, when no such value is given or LibreNMS doesn't have,
+sensors. By default, when no such value is given or twentyfouronline doesn't have,
 support for those limits, both high and low limit values are guessed,
 based on the value measured during the initial discovery.
 
@@ -1162,17 +1162,17 @@ Please refer to [Syslog](../Extensions/Syslog.md)
 Enable this to switch on support for libvirt along with `libvirt_protocols`
 to indicate how you connect to libvirt.  You also need to:
 
-1. Generate a non-password-protected ssh key for use by LibreNMS, as the
-    user which runs polling & discovery (usually `librenms`).
+1. Generate a non-password-protected ssh key for use by twentyfouronline, as the
+    user which runs polling & discovery (usually `twentyfouronline`).
 1. On each VM host you wish to monitor:
-   1. Configure public key authentication from your LibreNMS server/poller by
-      adding the librenms public key to `~root/.ssh/authorized_keys`.
+   1. Configure public key authentication from your twentyfouronline server/poller by
+      adding the twentyfouronline public key to `~root/.ssh/authorized_keys`.
    1. (xen+ssh only) Enable libvirtd to gather data from xend by setting
       `(xend-unix-server yes)` in `/etc/xen/xend-config.sxp` and
       restarting xend and libvirtd.
 
 To test your setup, run `virsh -c qemu+ssh://vmhost/system list` or
-`virsh -c xen+ssh://vmhost list` as your librenms polling user.
+`virsh -c xen+ssh://vmhost list` as your twentyfouronline polling user.
 
 !!! setting "external/virtualization"
     ```bash
@@ -1230,3 +1230,7 @@ the standard options, all of which you can configure.
     lnms config:set api.cors.exposeheaders '["Cache-Control", "Content-Language", "Content-Type", "Expires", "Last-Modified", "Pragma"]'
     lnms config:set api.cors.allowcredentials false
     ```
+
+
+
+

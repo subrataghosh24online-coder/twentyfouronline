@@ -14,3 +14,7 @@ class ComponentPref extends Model
         $this->attributes['value'] = is_array($value) ? json_encode($value) : (string) $value;
     }
 }
+
+
+
+

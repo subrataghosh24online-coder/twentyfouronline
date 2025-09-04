@@ -4,7 +4,7 @@
         {{ $device->hardware }}
     </span>
     <span class="tw:text-nowrap tw:pl-2 tw:pr-1">
-        @if($device->os){{ \App\Facades\LibrenmsConfig::getOsSetting($device->os, 'text') }}@endif
+        @if($device->os){{ \App\Facades\twentyfouronlineConfig::getOsSetting($device->os, 'text') }}@endif
         {{ $device->version }}
     </span>
     <span class="tw:text-nowrap tw:pl-2">
@@ -17,3 +17,7 @@
         @endisset
     @endforeach
 </div>
+
+
+
+

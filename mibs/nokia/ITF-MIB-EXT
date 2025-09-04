@@ -1701,3 +1701,7 @@ ITF-MIB-EXT DEFINITIONS ::= BEGIN
         ::= { asamIfPortTypeEntry 1 }
 
 END
+
+
+
+

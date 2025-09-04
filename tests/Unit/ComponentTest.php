@@ -18,20 +18,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use App\Models\ComponentPref;
 use App\Models\ComponentStatusLog;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Str;
-use LibreNMS\Component;
-use LibreNMS\Tests\DBTestCase;
+use twentyfouronline\Component;
+use twentyfouronline\Tests\DBTestCase;
 
 class ComponentTest extends DBTestCase
 {
@@ -207,3 +207,7 @@ class ComponentTest extends DBTestCase
         })->toArray();
     }
 }
+
+
+
+

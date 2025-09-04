@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage graphs
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 require 'includes/html/graphs/common.inc.php';
@@ -57,16 +57,16 @@ if (! $noagg || ! $nodetails) {
 
 $iter = 0;
 foreach ($rrd_list as $rrd) {
-    if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours_in.$iter") || ! \App\Facades\LibrenmsConfig::get("graph_colours.$colours_out.$iter")) {
+    if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_in.$iter") || ! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_out.$iter")) {
         $iter = 0;
     }
 
-    $colour_in = \App\Facades\LibrenmsConfig::get("graph_colours.$colours_in.$iter");
-    $colour_out = \App\Facades\LibrenmsConfig::get("graph_colours.$colours_out.$iter");
+    $colour_in = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_in.$iter");
+    $colour_out = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours_out.$iter");
 
     if (! $nodetails) {
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr_in'] ?? $rrd['descr'] ?? '', $descr_len) . '  In';
-        $descr_out = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr_out'] ?? '', $descr_len) . ' Out';
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr_in'] ?? $rrd['descr'] ?? '', $descr_len) . '  In';
+        $descr_out = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr_out'] ?? '', $descr_len) . ' Out';
     }
 
     $rrd_options .= ' DEF:' . $in . $i . '=' . $rrd['filename'] . ':' . $ds_in . ':AVERAGE ';
@@ -167,3 +167,7 @@ $rrd_options .= $rrd_optionsb;
 $rrd_options .= ' HRULE:0#999999';
 
 unset($stacked);
+
+
+
+

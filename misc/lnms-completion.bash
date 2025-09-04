@@ -6,3 +6,7 @@ _lnms_completion()
 	return $?
 }
 complete -F _lnms_completion lnms
+
+
+
+

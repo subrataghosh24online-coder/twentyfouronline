@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,11 +26,11 @@
 
 namespace App\Models;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Traits\HasThresholds;
 use Illuminate\Support\Arr;
-use LibreNMS\Interfaces\Models\Keyable;
-use LibreNMS\Util\Number;
+use twentyfouronline\Interfaces\Models\Keyable;
+use twentyfouronline\Util\Number;
 
 class WirelessSensor extends DeviceRelatedModel implements Keyable
 {
@@ -82,7 +82,7 @@ class WirelessSensor extends DeviceRelatedModel implements Keyable
 
     public function icon(): string
     {
-        return collect(collect(\LibreNMS\Device\WirelessSensor::getTypes())
+        return collect(collect(\twentyfouronline\Device\WirelessSensor::getTypes())
             ->get($this->sensor_class, []))
             ->get('icon', 'signal');
     }
@@ -107,7 +107,7 @@ class WirelessSensor extends DeviceRelatedModel implements Keyable
 
         if (in_array($this->rrd_type, ['COUNTER', 'DERIVE', 'DCOUNTER', 'DDERIVE'])) {
             //compute and display an approx rate for this sensor
-            $value = Number::formatSi(max(0, $value - $this->sensor_prev) / LibrenmsConfig::get('rrd.step', 300), 2, 3, '');
+            $value = Number::formatSi(max(0, $value - $this->sensor_prev) / twentyfouronlineConfig::get('rrd.step', 300), 2, 3, '');
         }
 
         return match ($this->sensor_class) {
@@ -155,3 +155,7 @@ class WirelessSensor extends DeviceRelatedModel implements Keyable
         return $this;
     }
 }
+
+
+
+

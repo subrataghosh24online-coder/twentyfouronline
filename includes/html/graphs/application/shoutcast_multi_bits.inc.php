@@ -35,3 +35,7 @@ foreach ($rrd_filenames as $file) {
 }
 
 require 'includes/html/graphs/generic_multi_bits_separated.inc.php';
+
+
+
+

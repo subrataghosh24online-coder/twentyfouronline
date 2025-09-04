@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsTunnelCHop extends Model implements Keyable
 {
@@ -35,3 +35,7 @@ class MplsTunnelCHop extends Model implements Keyable
         return $this->mplsTunnelCHopListIndex . '-' . $this->mplsTunnelCHopIndex;
     }
 }
+
+
+
+

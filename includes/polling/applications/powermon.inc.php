@@ -2,7 +2,7 @@
 
 /*
 
-LibreNMS Application for monitoring power consumption and cost
+twentyfouronline Application for monitoring power consumption and cost
 
 @link       https://www.upaya.net.au/
 @copyright  2021 Ben Carbery
@@ -17,8 +17,8 @@ version 3. See https://www.gnu.org/licenses/gpl-3.0.txt
 */
 
 use App\Models\Eventlog;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'powermon';
 
@@ -61,3 +61,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, 'OK', $fields);
+
+
+
+

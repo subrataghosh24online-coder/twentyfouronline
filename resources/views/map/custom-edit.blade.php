@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('map.custom.title.edit'))
 
@@ -872,4 +872,8 @@
    });
 </script>
 @endsection
+
+
+
+
 

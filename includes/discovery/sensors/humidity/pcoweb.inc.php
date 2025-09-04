@@ -46,3 +46,7 @@ foreach ($humidities as $humidity) {
         discover_sensor(null, 'humidity', $device, $humidity['oid'], $index, 'pcoweb', $humidity['descr'], $humidity['precision'], '1', $low_limit, null, null, $high_limit, $current);
     }
 }
+
+
+
+

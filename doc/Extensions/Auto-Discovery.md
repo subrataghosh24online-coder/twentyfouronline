@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-LibreNMS provides the ability to automatically add devices on your
+twentyfouronline provides the ability to automatically add devices on your
 network, we can do this via a few methods which will be explained
 below and also indicate if they are enabled by default.
 
@@ -125,7 +125,7 @@ Enabled by default. Can be disabled with:
 This includes FDP, CDP and LLDP support based on the device type.
 
 The LLDP/xDP links with neighbours will always be discovered as soon as the discovery module is enabled.
-However, LibreNMS will only try to add the new devices discovered with LLDP/xDP if `$config['autodiscovery']['xdp'] = true;`.
+However, twentyfouronline will only try to add the new devices discovered with LLDP/xDP if `$config['autodiscovery']['xdp'] = true;`.
 
 Devices may be excluded from xdp discovery by sysName and sysDescr.
 
@@ -178,21 +178,21 @@ This module is invoked from bgp-peers discovery module.
 
 ### SNMP Scan
 
-Apart from the aforementioned Auto-Discovery options, LibreNMS is also
+Apart from the aforementioned Auto-Discovery options, twentyfouronline is also
 able to proactively scan a network for SNMP-enabled devices using the
 configured version/credentials.
 
 SNMP Scan will scan `nets` by default and respects `autodiscovery.nets-exclude`.
 
 To run the SNMP-Scanner you need to execute the `snmp-scan.py` from
-within your LibreNMS installation directory.
+within your twentyfouronline installation directory.
 
 Here the script's help-page for reference:
 
 ```text
 usage: snmp-scan.py [-h] [-t THREADS] [-g GROUP] [-l] [-v] [--ping-fallback] [--ping-only] [-P] [network ...]
 
-Scan network for snmp hosts and add them to LibreNMS.
+Scan network for snmp hosts and add them to twentyfouronline.
 
 positional arguments:
   network          CIDR noted IP-Range to scan. Can be specified multiple times
@@ -229,4 +229,8 @@ Set globally
     ```bash
     lnms config:set default_poller_group 3
     ```
+
+
+
+
 

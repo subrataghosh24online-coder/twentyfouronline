@@ -2993,3 +2993,7 @@ IMPORTS
         ::= { tnAmplifierCardConfigCompliances 1 }
 
 END -- DEFINITION OF TROPIC-AMPLIFIER-MIB
+
+
+
+

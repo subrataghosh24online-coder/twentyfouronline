@@ -7,7 +7,7 @@ SNMP extend script to monitor your Seafile Server
 
 1. Copy the Python script, seafile.py, to the desired host
 ```
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/seafile.py -O /etc/snmp/seafile.py
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/seafile.py -O /etc/snmp/seafile.py
 ```
 
 Also you have to install the requests Package for Python3.
@@ -47,3 +47,7 @@ The variables are as below.
 
 !!! note
     It is recommended to use a dedicated Administrator account for monitoring.
+
+
+
+

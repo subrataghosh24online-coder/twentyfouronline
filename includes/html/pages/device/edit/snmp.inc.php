@@ -1,7 +1,7 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Enum\PortAssociationMode;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Enum\PortAssociationMode;
 
 $device = DeviceCache::getPrimary();
 
@@ -14,7 +14,7 @@ if (isset($_POST['editing'])) {
         if ($snmp_enabled) {
             $device->snmp_disable = 0;
             $device->snmpver = $_POST['snmpver'];
-            $device->port = $_POST['port'] ?: LibrenmsConfig::get('snmp.port');
+            $device->port = $_POST['port'] ?: twentyfouronlineConfig::get('snmp.port');
             $device->transport = $_POST['transport'] ?: $transport = 'udp';
             $device->port_association_mode = $_POST['port_assoc_mode'];
             $max_repeaters = $_POST['max_repeaters'] ?? '';
@@ -48,7 +48,7 @@ if (isset($_POST['editing'])) {
         $device_updated = false;
 
         if ($force_save !== true && $snmp_enabled) {
-            $helper = new \LibreNMS\Polling\ConnectivityHelper($device);
+            $helper = new \twentyfouronline\Polling\ConnectivityHelper($device);
             $device_is_snmpable = $helper->isSNMPable();
         }
 
@@ -209,7 +209,7 @@ echo "
     <div class='form-group'>
     <label for='os' class='col-sm-2 control-label'>OS (optional)</label>
     <div class='col-sm-4'>
-    <input id='os' class='form-control' name='os' value='" . htmlspecialchars(LibrenmsConfig::get("os.{$device->os}.text")) . "'/>
+    <input id='os' class='form-control' name='os' value='" . htmlspecialchars(twentyfouronlineConfig::get("os.{$device->os}.text")) . "'/>
     <input type='hidden' id='os_id' class='form-control' name='os_id' value='" . htmlspecialchars($device->os) . "'/>
     </div>
     </div>
@@ -226,11 +226,11 @@ echo "
     </select>
     </div>
     <div class='col-sm-2'>
-    <input type='number' name='port' placeholder='port' class='form-control input-sm' value='" . htmlspecialchars($device->port == LibrenmsConfig::get('snmp.port') ? '' : $device->port) . "'>
+    <input type='number' name='port' placeholder='port' class='form-control input-sm' value='" . htmlspecialchars($device->port == twentyfouronlineConfig::get('snmp.port') ? '' : $device->port) . "'>
     </div>
     <div class='col-sm-1'>
     <select name='transport' id='transport' class='form-control input-sm'>";
-foreach (LibrenmsConfig::get('snmp.transports') as $transport) {
+foreach (twentyfouronlineConfig::get('snmp.transports') as $transport) {
     echo "<option value='" . $transport . "'";
     if ($transport == $device->transport) {
         echo " selected='selected'";
@@ -324,13 +324,13 @@ echo "        </select>
     <label for='authalgo' class='col-sm-2 control-label'>Auth Algorithm</label>
     <div class='col-sm-4'>
     <select id='authalgo' name='authalgo' class='form-control'>";
-foreach (\LibreNMS\SNMPCapabilities::authAlgorithms() as $algo => $enabled) {
+foreach (\twentyfouronline\SNMPCapabilities::authAlgorithms() as $algo => $enabled) {
     echo "<option value='$algo' " . (strcasecmp($device->authalgo,$algo) == 0 ? 'selected' : '') . ($enabled ? '' : ' disabled') . ">$algo</option>\n";
 }
 echo '</select>';
 
-if (! \LibreNMS\SNMPCapabilities::supportsSHA2()) {
-    echo '<label class="text-left"><small>Some options are disabled. <a href="https://docs.librenms.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>';
+if (! \twentyfouronline\SNMPCapabilities::supportsSHA2()) {
+    echo '<label class="text-left"><small>Some options are disabled. <a href="https://docs.twentyfouronline.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>';
 }
 echo "
     </div>
@@ -346,13 +346,13 @@ echo "
     <div class='col-sm-4'>
     <select id='cryptoalgo' name='cryptoalgo' class='form-control'>";
 
-foreach (\LibreNMS\SNMPCapabilities::cryptoAlgoritms() as $algo => $enabled) {
+foreach (\twentyfouronline\SNMPCapabilities::cryptoAlgoritms() as $algo => $enabled) {
     echo "<option value='$algo' " . (strcasecmp($device->cryptoalgo,$algo) == 0 ? 'selected' : '') . ($enabled ? '' : ' disabled') . ">$algo</option>\n";
 }
 echo '</select>
     ';
-if (! \LibreNMS\SNMPCapabilities::supportsAES256()) {
-    echo '<label class="text-left"><small>Some options are disabled. <a href="https://docs.librenms.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>';
+if (! \twentyfouronline\SNMPCapabilities::supportsAES256()) {
+    echo '<label class="text-left"><small>Some options are disabled. <a href="https://docs.twentyfouronline.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>';
 }
     echo '
     </div>
@@ -363,7 +363,7 @@ if (! \LibreNMS\SNMPCapabilities::supportsAES256()) {
 </div>
 <?php
 
-if (LibrenmsConfig::get('distributed_poller') === true) {
+if (twentyfouronlineConfig::get('distributed_poller') === true) {
     echo '
         <div class="form-group">
         <label for="poller_group" class="col-sm-2 control-label">Poller Group</label>
@@ -481,3 +481,7 @@ if ($device->snmpver == 'v3') {
 
 ?>
 </script>
+
+
+
+

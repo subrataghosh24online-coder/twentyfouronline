@@ -6,15 +6,15 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use Carbon\Carbon;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $no_refresh = true;
 $param = [];
@@ -108,7 +108,7 @@ $pagetitle[] = 'Syslog';
                 clear: 'fa fa-trash-o',
                 close: 'fa fa-close'
             },
-            defaultDate: '<?php echo Carbon::now()->subDay()->format(LibrenmsConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
+            defaultDate: '<?php echo Carbon::now()->subDay()->format(twentyfouronlineConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>'
         });
         $("#dtpickerfrom").on("dp.change", function (e) {
             $("#dtpickerto").data("DateTimePicker").minDate(e.date);
@@ -135,7 +135,7 @@ $pagetitle[] = 'Syslog';
         if ($("#dtpickerto").val() != "") {
             $("#dtpickerfrom").data("DateTimePicker").maxDate($("#dtpickerto").val());
         } else {
-            $("#dtpickerto").data("DateTimePicker").maxDate('<?php echo Carbon::now()->format(LibrenmsConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>');
+            $("#dtpickerto").data("DateTimePicker").maxDate('<?php echo Carbon::now()->format(twentyfouronlineConfig::get('dateformat.byminute', 'Y-m-d H:i')); ?>');
         }
     });
 
@@ -193,4 +193,8 @@ $pagetitle[] = 'Syslog';
         }
     })<?php echo isset($vars['priority']) ? ".val('" . htmlspecialchars($vars['priority']) . "').trigger('change');" : ''; ?>;
 </script>
+
+
+
+
 

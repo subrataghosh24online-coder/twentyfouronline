@@ -39,7 +39,7 @@ resources/js/vue-i18n-locales.generated.js
 # Docs #
 ########
 out
-librenms_theme
+twentyfouronline_theme
 
 bin/
 lib/

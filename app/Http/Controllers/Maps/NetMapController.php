@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2023 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -26,12 +26,12 @@
 
 namespace App\Http\Controllers\Maps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\DeviceGroup;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Url;
 
 class NetMapController extends Controller
 {
@@ -46,22 +46,26 @@ class NetMapController extends Controller
         }
 
         $data = [
-            'page_refresh' => LibrenmsConfig::get('page_refresh', 300),
+            'page_refresh' => twentyfouronlineConfig::get('page_refresh', 300),
             'group_id' => $group_id,
-            'options' => LibrenmsConfig::get('network_map_vis_options'),
+            'options' => twentyfouronlineConfig::get('network_map_vis_options'),
             'group_name' => $group_name,
-            'link_types' => LibrenmsConfig::get('network_map_items', ['xdp', 'mac']),
+            'link_types' => twentyfouronlineConfig::get('network_map_items', ['xdp', 'mac']),
             'highlight_style' => [
                 'color' => [
                     'highlight' => [
-                        'border' => LibrenmsConfig::get('network_map_legend.highlight.border'),
+                        'border' => twentyfouronlineConfig::get('network_map_legend.highlight.border'),
                     ],
-                    'border' => LibrenmsConfig::get('network_map_legend.highlight.border'),
+                    'border' => twentyfouronlineConfig::get('network_map_legend.highlight.border'),
                 ],
-                'borderWidth' => LibrenmsConfig::get('network_map_legend.highlight.borderWidth'),
+                'borderWidth' => twentyfouronlineConfig::get('network_map_legend.highlight.borderWidth'),
             ],
         ];
 
         return view('map.netmap', $data);
     }
 }
+
+
+
+

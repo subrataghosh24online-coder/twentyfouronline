@@ -55,3 +55,7 @@ function proxmox_vm_info($vmid, $c)
 
     return $vm;
 }
+
+
+
+

@@ -229,3 +229,7 @@ modules:
                   descr: "{{ $tnCardName }} - {{ $tnCardMnemonic }}"
                   index: "tnCardTable.{{ $index }}"
                   divisor: 1000
+
+
+
+

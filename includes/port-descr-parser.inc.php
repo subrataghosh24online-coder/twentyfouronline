@@ -23,3 +23,7 @@ if ($type && $descr) {
 }
 
 unset($type, $descr, $circuit, $notes, $speed, $split);
+
+
+
+

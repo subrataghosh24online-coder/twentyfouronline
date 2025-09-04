@@ -41,3 +41,7 @@ if (! empty($oids)) {
         discover_sensor(null, 'charge', $device, $current_oid, $index, $sensorType, $descr, $precision, 1, $lowlimit, $warnlimit, null, null, $current_val);
     }
 }//end if
+
+
+
+

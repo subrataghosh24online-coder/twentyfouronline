@@ -11,3 +11,7 @@ Use the Signal Mesenger for Alerts. Run the Signal CLI with the D-Bus option.
 | Path | /opt/signal-cli/bin/signal-cli |
 | Recipient type | Group |
 | Recipient | dfgjsdkgljior4345== |
+
+
+
+

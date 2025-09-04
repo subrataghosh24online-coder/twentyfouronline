@@ -180,3 +180,7 @@ extremeDosIsDosActive    OBJECT-TYPE
 		the DOS threshold is crossed for any of the ports."
 	    ::= { extremeDosTrapsPrefix 2 }
 END
+
+
+
+

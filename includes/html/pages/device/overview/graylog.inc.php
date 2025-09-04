@@ -1,8 +1,8 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
-if (LibrenmsConfig::get('graylog.server')) {
+if (twentyfouronlineConfig::get('graylog.server')) {
     echo '
         <div class="row" id="graylog-card">
             <div class="col-md-12">
@@ -33,8 +33,8 @@ if (LibrenmsConfig::get('graylog.server')) {
     </div>
     <script>
     ';
-    $rowCount = LibrenmsConfig::get('graylog.device-page.rowCount', 10);
-    $loglevel = LibrenmsConfig::get('graylog.device-page.loglevel', 7);
+    $rowCount = twentyfouronlineConfig::get('graylog.device-page.rowCount', 10);
+    $loglevel = twentyfouronlineConfig::get('graylog.device-page.loglevel', 7);
     $tmp_output .= '
         $.ajax({
             type: "post",
@@ -70,3 +70,7 @@ if (LibrenmsConfig::get('graylog.server')) {
             </div>
         </div>';
 }
+
+
+
+

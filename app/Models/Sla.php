@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Sla extends DeviceRelatedModel implements Keyable
 {
@@ -29,3 +29,7 @@ class Sla extends DeviceRelatedModel implements Keyable
         return "$this->owner-$this->tag";
     }
 }
+
+
+
+

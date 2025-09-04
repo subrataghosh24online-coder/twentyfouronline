@@ -1,12 +1,12 @@
 <?php
 
 /*
- * LibreNMS - Common Functions
+ * twentyfouronline - Common Functions
  *
  * Original Observium version by: Adam Armstrong, Tom Laermans
  * Copyright (c) 2009-2012 Adam Armstrong.
  *
- * Additions for LibreNMS by: Neil Lathwood, Paul Gear, Tim DuFrane
+ * Additions for twentyfouronline by: Neil Lathwood, Paul Gear, Tim DuFrane
  * Copyright (c) 2014-2015 Neil Lathwood <http://www.lathwood.co.uk>
  * Copyright (c) 2014-2015 Gear Consulting Pty Ltd <http://libertysys.com.au/>
  *
@@ -17,12 +17,12 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Laravel;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Laravel;
 use Symfony\Component\Process\Process;
 
 /**
@@ -36,7 +36,7 @@ function external_exec($command)
     $device = DeviceCache::getPrimary();
 
     $proc = new Process($command);
-    $proc->setTimeout(LibrenmsConfig::get('snmp.exec_timeout', 1200));
+    $proc->setTimeout(twentyfouronlineConfig::get('snmp.exec_timeout', 1200));
 
     if (Debug::isEnabled() && ! Debug::isVerbose()) {
         $patterns = [
@@ -99,7 +99,7 @@ function shorthost($hostname, $len = 12)
     if (filter_var($hostname, FILTER_VALIDATE_IP)) {
         return $hostname;
     }
-    $len = LibrenmsConfig::get('shorthost_target_length', $len);
+    $len = twentyfouronlineConfig::get('shorthost_target_length', $len);
 
     $parts = explode('.', $hostname);
     $shorthost = $parts[0];
@@ -138,7 +138,7 @@ function get_sensor_rrd($device, $sensor)
 function get_sensor_rrd_name($device, $sensor)
 {
     // For IPMI, sensors tend to change order, and there is no index, so we prefer to use the description as key here.
-    if (LibrenmsConfig::getOsSetting($device['os'], 'sensor_descr') || $sensor['poller_type'] == 'ipmi') {
+    if (twentyfouronlineConfig::getOsSetting($device['os'], 'sensor_descr') || $sensor['poller_type'] == 'ipmi') {
         return ['sensor', $sensor['sensor_class'], $sensor['sensor_type'], $sensor['sensor_descr']];
     } else {
         return ['sensor', $sensor['sensor_class'], $sensor['sensor_type'], $sensor['sensor_index']];
@@ -170,7 +170,7 @@ function get_port_by_id($port_id)
 function ifclass($ifOperStatus, $ifAdminStatus)
 {
     // fake a port model
-    return \LibreNMS\Util\Url::portLinkDisplayClass((object) ['ifOperStatus' => $ifOperStatus, 'ifAdminStatus' => $ifAdminStatus]);
+    return \twentyfouronline\Util\Url::portLinkDisplayClass((object) ['ifOperStatus' => $ifOperStatus, 'ifAdminStatus' => $ifAdminStatus]);
 }
 
 function device_by_name($name)
@@ -267,13 +267,13 @@ function c_echo($string, $enabled = true)
  */
 function is_client_authorized($clientip)
 {
-    if (LibrenmsConfig::get('allow_unauth_graphs', false)) {
+    if (twentyfouronlineConfig::get('allow_unauth_graphs', false)) {
         d_echo("Unauthorized graphs allowed\n");
 
         return true;
     }
 
-    foreach (LibrenmsConfig::get('allow_unauth_graphs_cidr', []) as $range) {
+    foreach (twentyfouronlineConfig::get('allow_unauth_graphs_cidr', []) as $range) {
         try {
             if (IP::parse($clientip)->inNetwork($range)) {
                 d_echo("Unauthorized graphs allowed from $range\n");
@@ -297,7 +297,7 @@ function get_graph_subtypes($type, $device = null)
     $types = [];
 
     // find the subtypes defined in files
-    if ($handle = opendir(LibrenmsConfig::get('install_dir') . "/includes/html/graphs/$type/")) {
+    if ($handle = opendir(twentyfouronlineConfig::get('install_dir') . "/includes/html/graphs/$type/")) {
         while (false !== ($file = readdir($handle))) {
             if ($file != '.' && $file != '..' && $file != 'auth.inc.php' && strstr($file, '.inc.php')) {
                 $types[] = str_replace('.inc.php', '', $file);
@@ -313,7 +313,7 @@ function get_graph_subtypes($type, $device = null)
 
 function generate_smokeping_file($device, $file = '')
 {
-    $smokeping = new \LibreNMS\Util\Smokeping(DeviceCache::get((int) $device['device_id']));
+    $smokeping = new \twentyfouronline\Util\Smokeping(DeviceCache::get((int) $device['device_id']));
 
     return $smokeping->generateFileName($file);
 }
@@ -356,7 +356,7 @@ function format_hostname($device): string
     $hostname_is_ip = IP::isValid($hostname);
     $sysName = empty($device['sysName']) ? $hostname : $device['sysName'];
 
-    return \App\View\SimpleTemplate::parse(empty($device['display']) ? LibrenmsConfig::get('device_display_default', '{{ $hostname }}') : $device['display'], [
+    return \App\View\SimpleTemplate::parse(empty($device['display']) ? twentyfouronlineConfig::get('device_display_default', '{{ $hostname }}') : $device['display'], [
         'hostname' => $hostname,
         'sysName' => $sysName,
         'sysName_fallback' => $hostname_is_ip ? $sysName : $hostname,
@@ -692,7 +692,7 @@ function get_vm_parent_id($device)
         return false;
     }
 
-    return dbFetchCell('SELECT `device_id` FROM `vminfo` WHERE `vmwVmDisplayName` = ? OR `vmwVmDisplayName` = ?', [$device['hostname'], $device['hostname'] . '.' . LibrenmsConfig::get('mydomain')]);
+    return dbFetchCell('SELECT `device_id` FROM `vminfo` WHERE `vmwVmDisplayName` = ? OR `vmwVmDisplayName` = ?', [$device['hostname'], $device['hostname'] . '.' . twentyfouronlineConfig::get('mydomain')]);
 }
 
 /**
@@ -727,3 +727,7 @@ function array_by_column($array, $column)
 {
     return array_combine(array_column($array, $column), $array);
 }
+
+
+
+

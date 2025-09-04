@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk>
  * Copyright (c) 2018 TheGreatDoc <https://github.com/TheGreatDoc>
@@ -52,7 +52,7 @@ if (isset($_POST['sub_type']) && ! empty($_POST['sub_type'])) {
             $message = 'Alerts ' . $state_string . ' for sensor ' . htmlspecialchars($_POST['sensor_desc']);
         } else {
             $status = 'error';
-            $message = 'Couldn\'t ' . substr($state_string, 0, -1) . ' alerts for sensor ' . htmlspecialchars($_POST['sensor_desc']) . '. Enable debug and check librenms.log';
+            $message = 'Couldn\'t ' . substr($state_string, 0, -1) . ' alerts for sensor ' . htmlspecialchars($_POST['sensor_desc']) . '. Enable debug and check twentyfouronline.log';
         }
     }
 }
@@ -61,3 +61,7 @@ $response = [
     'message' => $message,
 ];
 echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

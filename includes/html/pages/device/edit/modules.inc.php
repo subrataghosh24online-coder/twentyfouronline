@@ -19,17 +19,17 @@
       </tr>
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\Module;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\Module;
 
 $language = \config('app.locale');
-$settings = (include LibrenmsConfig::get('install_dir') . '/lang/' . $language . '/settings.php')['settings'];
+$settings = (include twentyfouronlineConfig::get('install_dir') . '/lang/' . $language . '/settings.php')['settings'];
 
 $attribs = DeviceCache::getPrimary()->getAttribs();
 $poller_module_names = $settings['poller_modules'];
 $discovery_module_names = $settings['discovery_modules'];
 
-$poller_modules = LibrenmsConfig::get('poller_modules');
+$poller_modules = twentyfouronlineConfig::get('poller_modules');
 unset($poller_modules['core']); // core cannot be toggled
 ksort($poller_modules);
 foreach ($poller_modules as $module => $module_status) {
@@ -50,8 +50,8 @@ foreach ($poller_modules as $module => $module_status) {
         </td>
         <td>';
 
-    if (LibrenmsConfig::has("os.{$device['os']}.poller_modules.$module")) {
-        if (LibrenmsConfig::get("os.{$device['os']}.poller_modules.$module")) {
+    if (twentyfouronlineConfig::has("os.{$device['os']}.poller_modules.$module")) {
+        if (twentyfouronlineConfig::get("os.{$device['os']}.poller_modules.$module")) {
             echo '<span class="text-success">Enabled</span>';
             $module_status = 1;
         } else {
@@ -124,7 +124,7 @@ echo '</td>
 
 <?php
 
-$discovery_modules = LibrenmsConfig::get('discovery_modules');
+$discovery_modules = twentyfouronlineConfig::get('discovery_modules');
 unset($discovery_modules['core']); // core cannot be toggled
 ksort($discovery_modules);
 foreach ($discovery_modules as $module => $module_status) {
@@ -147,8 +147,8 @@ foreach ($discovery_modules as $module => $module_status) {
         </td>
         <td>';
 
-    if (LibrenmsConfig::has("os.{$device['os']}.discovery_modules.$module")) {
-        if (LibrenmsConfig::get("os.{$device['os']}.discovery_modules.$module")) {
+    if (twentyfouronlineConfig::has("os.{$device['os']}.discovery_modules.$module")) {
+        if (twentyfouronlineConfig::get("os.{$device['os']}.discovery_modules.$module")) {
             echo '<span class="text-success">Enabled</span>';
             $module_status = 1;
         } else {
@@ -345,3 +345,7 @@ echo '
       });
   })
 </script>
+
+
+
+

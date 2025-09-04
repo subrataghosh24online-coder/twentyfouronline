@@ -1,3 +1,7 @@
 <?php
 
-(new \LibreNMS\Modules\Vminfo())->discover($os);
+(new \twentyfouronline\Modules\Vminfo())->discover($os);
+
+
+
+

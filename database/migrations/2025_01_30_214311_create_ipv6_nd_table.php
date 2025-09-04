@@ -30,3 +30,7 @@ return new class extends Migration
         Schema::dropIfExists('ipv6_nd');
     }
 };
+
+
+
+

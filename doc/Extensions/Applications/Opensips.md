@@ -7,7 +7,7 @@ Script that reports load-average/memory/open-files stats of Opensips
 1. Download the script onto the desired host
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/opensips-stats.sh -O /etc/snmp/opensips-stats.sh
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/opensips-stats.sh -O /etc/snmp/opensips-stats.sh
     ```
 
 2. Make the script executable:
@@ -23,3 +23,7 @@ Script that reports load-average/memory/open-files stats of Opensips
     ```bash
     extend opensips /etc/snmp/opensips-stats.sh
     ```
+
+
+
+

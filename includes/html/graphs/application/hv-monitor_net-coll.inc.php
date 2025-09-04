@@ -19,3 +19,7 @@ $descr = 'Collisions';
 $ds = 'coll';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

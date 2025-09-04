@@ -8,7 +8,7 @@ GPSD is a daemon that can be used to monitor GPS devices.
     1. Download the script onto the desired host.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/gpsd -O /etc/snmp/gpsd
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/gpsd -O /etc/snmp/gpsd
     ```
 
     2. Make the script executable
@@ -37,3 +37,7 @@ GPSD is a daemon that can be used to monitor GPS devices.
     You may need to configure `$server` or `$port`.
 
     Verify it is working by running `/usr/lib/check_mk_agent/local/gpsd`
+
+
+
+

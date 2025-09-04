@@ -31,3 +31,7 @@ return new class extends Migration
         Schema::drop('notifications_attribs');
     }
 };
+
+
+
+

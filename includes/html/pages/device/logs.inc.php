@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 if (! isset($vars['section'])) {
@@ -45,7 +45,7 @@ if ($vars['section'] == 'eventlog') {
     echo '</span>';
 }
 
-if (\App\Facades\LibrenmsConfig::get('enable_syslog') == 1) {
+if (\App\Facades\twentyfouronlineConfig::get('enable_syslog') == 1) {
     echo ' | ';
 
     if ($vars['section'] == 'syslog') {
@@ -58,7 +58,7 @@ if (\App\Facades\LibrenmsConfig::get('enable_syslog') == 1) {
     }
 }
 
-if (\App\Facades\LibrenmsConfig::get('graylog.server')) {
+if (\App\Facades\twentyfouronlineConfig::get('graylog.server')) {
     echo ' | ';
     if ($vars['section'] == 'graylog') {
         echo '<span class="pagemenu-selected">';
@@ -96,3 +96,7 @@ switch ($vars['section']) {
 }
 
 echo '</div>';
+
+
+
+

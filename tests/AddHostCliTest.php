@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link https://www.librenms.org
+ * @link https://www.twentyfouronline.org
  *
  * @copyright  2020 Lars Elgtvedt Susaas
  * @author     Lars Elgtvedt Susaas
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
 use App\Models\Device;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -114,7 +114,7 @@ class AddHostCliTest extends DBTestCase
 
     public function testSnmpV3AuthProtocol(): void
     {
-        $modes = \LibreNMS\SNMPCapabilities::supportedAuthAlgorithms();
+        $modes = \twentyfouronline\SNMPCapabilities::supportedAuthAlgorithms();
         foreach ($modes as $mode) {
             $host = 'hostName' . $mode;
             $this->artisan('device:add', ['device spec' => $host, '--force' => true, '-a' => $mode, '--v3' => true])
@@ -130,7 +130,7 @@ class AddHostCliTest extends DBTestCase
 
     public function testSnmpV3PrivacyProtocol(): void
     {
-        $modes = \LibreNMS\SNMPCapabilities::supportedCryptoAlgorithms();
+        $modes = \twentyfouronline\SNMPCapabilities::supportedCryptoAlgorithms();
         foreach ($modes as $mode) {
             $host = 'hostName' . $mode;
             $this->artisan('device:add', ['device spec' => $host, '--force' => true, '-x' => $mode, '--v3' => true])
@@ -169,3 +169,7 @@ class AddHostCliTest extends DBTestCase
             ->execute();
     }
 }
+
+
+
+

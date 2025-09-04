@@ -8,3 +8,7 @@ $smalldescrlen = 15;
 $rrdVar = 'sbecc';
 
 require 'nvidia-common.inc.php';
+
+
+
+

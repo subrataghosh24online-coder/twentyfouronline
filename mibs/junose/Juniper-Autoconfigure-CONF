@@ -78,3 +78,7 @@ juniAutoConfAgentV2  AGENT-CAPABILITIES
     ::= { juniAutoConfAgent 2 }
 
 END
+
+
+
+

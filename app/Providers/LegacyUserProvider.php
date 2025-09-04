@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -32,9 +32,9 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Authentication\LegacyAuth;
-use LibreNMS\Exceptions\AuthenticationException;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Authentication\LegacyAuth;
+use twentyfouronline\Exceptions\AuthenticationException;
+use twentyfouronline\Util\Debug;
 use Log;
 use Request;
 use Session;
@@ -234,3 +234,7 @@ class LegacyUserProvider implements UserProvider
         ])->save();
     }
 }
+
+
+
+

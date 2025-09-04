@@ -8,3 +8,7 @@ if ($device['os'] == 'ctm') {
     }
     unset($validTypes, $octet);
 }
+
+
+
+

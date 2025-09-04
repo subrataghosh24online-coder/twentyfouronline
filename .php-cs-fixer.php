@@ -152,7 +152,7 @@ $finder = Finder::create()
         __DIR__ . '/resources',
         __DIR__ . '/routes',
         __DIR__ . '/tests',
-        __DIR__ . '/LibreNMS',
+        __DIR__ . '/twentyfouronline',
     ])
     ->name('*.php')
     ->notName('*.blade.php')
@@ -164,3 +164,7 @@ return (new Config)
     ->setRules($rules)
     ->setRiskyAllowed(true)
     ->setUsingCache(true);
+
+
+
+

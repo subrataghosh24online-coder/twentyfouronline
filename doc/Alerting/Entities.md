@@ -87,3 +87,7 @@ Entity | Description
  `sensors.sensor_current` | The current sensors value.
  `sensors.sensor_prev` | The previous sensor value.
  `sensors.lastupdate` | The sensors last updated datetime stamp.
+
+
+
+

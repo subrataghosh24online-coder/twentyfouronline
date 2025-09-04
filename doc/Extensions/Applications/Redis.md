@@ -9,7 +9,7 @@ Script to monitor your Redis Server
     1. Download the script onto the desired host
  
         ```bash
-        wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/redis.py -O /etc/snmp/redis.py
+        wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/redis.py -O /etc/snmp/redis.py
         ```
 
     2. Make the script executable
@@ -54,3 +54,7 @@ Script to monitor your Redis Server
 
     [Install the agent](../Agent-Setup.md) on this device if it isn't already
     and copy the `redis` script to `/usr/lib/check_mk_agent/local/`
+
+
+
+

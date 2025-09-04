@@ -584,3 +584,7 @@ tnElpsLinkOverDeltaValue OBJECT-TYPE
          larger than the delta value, the data flow will be swithed to the link that own the better DM value."
     ::= { tnElpsLinkOverEntry 2 }
 END
+
+
+
+

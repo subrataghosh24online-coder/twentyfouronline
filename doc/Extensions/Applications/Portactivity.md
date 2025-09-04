@@ -9,10 +9,10 @@
     apt install libjson-perl
     ```
 
-2. Copy the Perl script to the desired host (the host must be added to LibreNMS devices)
+2. Copy the Perl script to the desired host (the host must be added to twentyfouronline devices)
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/portactivity -O /etc/snmp/portactivity
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/portactivity -O /etc/snmp/portactivity
     ```
 
 3. Make the script executable
@@ -41,3 +41,7 @@
     ```
 
 Please note that for only TCP[46] services are supported.
+
+
+
+

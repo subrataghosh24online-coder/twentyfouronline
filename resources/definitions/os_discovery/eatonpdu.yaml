@@ -57,3 +57,7 @@ modules:
                     divisor: 1000
                     descr: 'Input'
                     index: 'inputVoltage.{{ $index }}'
+
+
+
+

@@ -15,3 +15,7 @@ $descr = 'failed_processing';
 $ds = 'failed_processing';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

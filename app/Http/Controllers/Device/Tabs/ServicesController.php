@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,13 +28,13 @@ namespace App\Http\Controllers\Device\Tabs;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class ServicesController implements DeviceTab
 {
     public function visible(Device $device): bool
     {
-        return (bool) \App\Facades\LibrenmsConfig::get('show_services') && $device->services()->exists();
+        return (bool) \App\Facades\twentyfouronlineConfig::get('show_services') && $device->services()->exists();
     }
 
     public function slug(): string
@@ -57,3 +57,7 @@ class ServicesController implements DeviceTab
         return [];
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture statistics from the CISCO-NTP-MIB
+ * twentyfouronline module to capture statistics from the CISCO-NTP-MIB
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,13 +12,13 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Enum\IntegerType;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Number;
+use twentyfouronline\Enum\IntegerType;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Number;
 
 $tmp_module = 'ntp';
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', $tmp_module];
 $options['filter']['disabled'] = ['=', 0];
@@ -95,3 +95,7 @@ if (is_array($components) && count($components) > 0) {
 
 // Clean-up after yourself!
 unset($type, $components, $component, $options, $tmp_module);
+
+
+
+

@@ -251,3 +251,7 @@ A3COM-HUAWEI-OID-MIB DEFINITIONS ::= BEGIN
         h3cIfQos2     OBJECT IDENTIFIER ::= { h3cQos2 1 }
         h3cCBQos2     OBJECT IDENTIFIER ::= { h3cQos2 2 }
 END
+
+
+
+

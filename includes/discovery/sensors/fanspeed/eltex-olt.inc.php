@@ -3,7 +3,7 @@
 /**
  * eltex-olt.inc.php
  *
- * LibreNMS fanspeed discovery module for Eltex OLT
+ * twentyfouronline fanspeed discovery module for Eltex OLT
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -53,3 +53,7 @@ if (isset($tmp_eltex['.1.3.6.1.4.1.35265.1.22.1.10.8.0'])) {
 }
 
 unset($tmp_eltex);
+
+
+
+

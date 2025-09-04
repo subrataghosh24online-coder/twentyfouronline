@@ -5,7 +5,7 @@ $no_refresh = true;
 
   // This needs more verification. Is it already added? Does it exist?
   // Calculation to extract MB/GB/TB of Kbps/Mbps/Gbps
-$base = \App\Facades\LibrenmsConfig::get('billing.base');
+$base = \App\Facades\twentyfouronlineConfig::get('billing.base');
 
 if ($bill_data['bill_type'] == 'quota') {
     $data = $bill_data['bill_quota'];
@@ -173,3 +173,7 @@ if ($bill_data['bill_type'] == 'cdr') {
         $('#port_id').val(null).trigger('change'); // clear port selection
     }
 </script>
+
+
+
+

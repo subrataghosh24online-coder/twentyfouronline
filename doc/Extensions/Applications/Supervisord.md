@@ -7,7 +7,7 @@ It shows you the totals per status and also the uptime per process. That way you
 1. Copy the python script to the desired host.
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/supervisord.py -O /etc/snmp/supervisord.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/supervisord.py -O /etc/snmp/supervisord.py
     ```
 
     Notice that this will use the default unix socket path. Modify the `unix_socket_path` variable in the script if your path differs from the default.
@@ -29,3 +29,7 @@ It shows you the totals per status and also the uptime per process. That way you
     ```bash
     systemctl restart snmpd
     ```
+
+
+
+

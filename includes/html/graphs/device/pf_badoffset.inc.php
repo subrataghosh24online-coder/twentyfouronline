@@ -14,3 +14,7 @@ $graph_max = 1;
 $unit_text = 'BadOffset';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

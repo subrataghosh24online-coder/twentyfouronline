@@ -63,3 +63,7 @@ modules:
                         - { value: 8, generic: 1, graph: 0, descr: 'Minor' }
                         - { value: 16, generic: 2, graph: 0, descr: 'Major' }
                         - { value: 32, generic: 2, graph: 0, descr: 'Critical' }
+
+
+
+

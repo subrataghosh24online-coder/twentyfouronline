@@ -26,7 +26,7 @@
 1. Download the script onto the desired host.
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/opensearch -O /etc/snmp/opensearch
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/opensearch -O /etc/snmp/opensearch
     ```
 
 2. Make it executable
@@ -67,4 +67,8 @@
     ```
 
 6. Enable it or wait for the device to be re-disocvered.
+
+
+
+
 

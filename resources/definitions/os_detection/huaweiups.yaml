@@ -16,3 +16,7 @@ discovery:
         snmpget:
             oid: UPS-MIB::upsIdentManufacturer.0
             value: HUAWEI
+
+
+
+

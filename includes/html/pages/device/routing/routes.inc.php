@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $no_refresh = true;
 ?>
@@ -21,7 +21,7 @@ $no_refresh = true;
         </tr>
     </thead>
 </table>
-<div>Warning: Routing Table is only retrieved during device discovery. Devices are skipped if they have more than <?php echo LibrenmsConfig::get('routes_max_number'); ?> routes.</div>
+<div>Warning: Routing Table is only retrieved during device discovery. Devices are skipped if they have more than <?php echo twentyfouronlineConfig::get('routes_max_number'); ?> routes.</div>
 <script>
 var grid = $("#routes").bootgrid({
     ajax: true,
@@ -72,3 +72,7 @@ function updateTable() {
     $('#routes').bootgrid('reload');
 };
 </script>
+
+
+
+

@@ -27,3 +27,7 @@ tnSSHModeEnable OBJECT-TYPE
     ::= { tnSecuritySwitchSSHMIB 1 }
 
 END
+
+
+
+

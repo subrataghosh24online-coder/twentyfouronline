@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 // CISCO-VPDN-MGMT-MIB::cvpdnTunnelTotal.0 = Gauge32: 0 tunnels
 // CISCO-VPDN-MGMT-MIB::cvpdnSessionTotal.0 = Gauge32: 0 users
@@ -38,3 +38,7 @@ if ($device['os_group'] == 'cisco') {
 
     unset($data, $vpdn, $type, $rrd_filename);
 }//end if
+
+
+
+

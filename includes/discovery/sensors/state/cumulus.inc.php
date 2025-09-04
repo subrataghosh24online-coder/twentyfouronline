@@ -49,3 +49,7 @@ if (is_array($temp)) {
         discover_sensor(null, 'state', $device, $oid, $index, $state_name, $descr, 1, 1, null, null, null, null, $sensor_value, 'snmp', $index);
     }
 }
+
+
+
+

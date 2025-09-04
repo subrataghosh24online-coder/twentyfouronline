@@ -17,3 +17,7 @@ for ($index = 4; $index <= 9; $index++) { //Benu Fans are index 4 thru 9
     discover_sensor(null, 'fanspeed', $device, $sensor_oid, $sensor_index, 'benuos', $descr, '1', '1', null, null, null, null, $current);
     $sensor_index++;
 }//end loop
+
+
+
+

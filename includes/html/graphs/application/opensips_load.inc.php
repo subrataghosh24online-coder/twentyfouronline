@@ -20,3 +20,7 @@ $graph_max = 1000;
 $unit_text = 'Load Average %';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

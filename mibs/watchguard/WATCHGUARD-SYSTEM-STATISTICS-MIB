@@ -146,3 +146,7 @@ WATCHGUARD-SYSTEM-STATISTICS-MIB DEFINITIONS ::= BEGIN
         ::= { wgSystemStatisticsMIB 80 }
 
 END
+
+
+
+

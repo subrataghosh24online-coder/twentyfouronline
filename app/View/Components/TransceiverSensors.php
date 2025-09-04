@@ -35,3 +35,7 @@ class TransceiverSensors extends Component
         return view('components.transceiver-sensors');
     }
 }
+
+
+
+

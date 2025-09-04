@@ -7,11 +7,11 @@
 * option) any later version.  Please see LICENSE.txt at the top level of
 * the source code distribution for details.
 *
-* @package    LibreNMS
+* @package    twentyfouronline
 * @subpackage graphs
-* @link       https://www.librenms.org
-* @copyright  2017 LibreNMS
-* @author     LibreNMS Contributors
+* @link       https://www.twentyfouronline.org
+* @copyright  2017 twentyfouronline
+* @author     twentyfouronline Contributors
 */
 
 $param = [];
@@ -19,7 +19,7 @@ $param = [];
 $pagetitle[] = 'Alert Log';
 
 $alert_states = [
-    // divined from librenms/alerts.php
+    // divined from twentyfouronline/alerts.php
     'Any' => -1,
     'Ok (recovered)' => 0,
     'Alert' => 1,
@@ -209,3 +209,7 @@ $common_output[] = '<div class="form-group"> \
     init_select2("#device_id", "device", {}, ' . $device_selected . ' , "All Devices");
 </script>
 ';
+
+
+
+

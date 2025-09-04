@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Mac;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Mac;
 
 if ($device['os_group'] == 'cisco') {
     $acc_rows = dbFetchRows('SELECT *, A.poll_time AS poll_time FROM `mac_accounting` as A, `ports` AS I where A.port_id = I.port_id AND I.device_id = ?', [$device['device_id']]);
@@ -121,3 +121,7 @@ unset(
     $mac_entries,
     $acc_rows
 );
+
+
+
+

@@ -1,6 +1,6 @@
 # Creating Documentation
 
-One of the goals of the LibreNMS project is to enable users to get all of the
+One of the goals of the twentyfouronline project is to enable users to get all of the
 help they need from our documentation.
 
 The documentation uses the [markdown](https://en.wikipedia.org/wiki/Markdown)
@@ -52,7 +52,7 @@ This means you can use:
 
 - `~~strikethrough~~` to perform ~~strikethrough~~
 - [X] `- [X] List items`
-- Url's can be made `[like this](https://www.librenms.org)` [like this](https://www.librenms.org)
+- Url's can be made `[like this](https://www.twentyfouronline.org)` [like this](https://www.twentyfouronline.org)
 - Code can be placed in \`\` for single line or \`\`\` for multiline.
 - `#` Can be used for main headings which translates to a `<h1>` tag,
   increasing the `#`'s will increase the hX tags.
@@ -72,14 +72,14 @@ This is achieved with `mkdocs`, a python package.
 pip install mkdocs mkdocs-exclude mkdocs-material mkdocs-macros-plugin mkdocs-minify-plugin mkdocs-redirects mkdocs-include-dir-to-nav
 ```
 If you encounter permissions issues, these might be reoslved by using the
-user option, with whatever user you are building as, e.g. `-u librenms`
+user option, with whatever user you are building as, e.g. `-u twentyfouronline`
 
-2. A configuration file for building LibreNMS docs is already included in the
-distribution: `/opt/librenms/mkdocs.yml`. The various configuration
+2. A configuration file for building twentyfouronline docs is already included in the
+distribution: `/opt/twentyfouronline/mkdocs.yml`. The various configuration
 directives are documented
 [here](https://www.mkdocs.org/user-guide/configuration/).
 
-3. Build from the librenms base directory: `cd /opt/librenms`.
+3. Build from the twentyfouronline base directory: `cd /opt/twentyfouronline`.
 
 4. Building is simple:
 
@@ -87,7 +87,7 @@ directives are documented
 mkdocs build
 ```
 
-This will output all the documentation in html format to `/opt/librenms/out`
+This will output all the documentation in html format to `/opt/twentyfouronline/out`
 (this folder will be ignored from any commits).
 
 
@@ -108,7 +108,7 @@ INFO    -  Serving on http://127.0.0.1:8000
 INFO    -  Start watching changes
 ```
 
-Now you will find the complete set of LibreNMS documentation by opening your
+Now you will find the complete set of twentyfouronline documentation by opening your
 browser to `localhost:8000`.
 
 Note it is not necessary to `build` before viewing as the `serve` command
@@ -127,4 +127,8 @@ mkdocs serve --dev-addr=0.0.0.0:8000
 
 WARNING: this is not a secure webserver, do this at your own risk, with
 appropriate host security and do not leave the server running.
+
+
+
+
 

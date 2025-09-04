@@ -18,3 +18,7 @@ return [
     'throttle' => '嘗試登入次數過多。請稍候 :seconds 秒再試。',
 
 ];
+
+
+
+

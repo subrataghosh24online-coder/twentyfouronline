@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -48,27 +48,27 @@ function isValidHttpUrl(string) {
 
 function promptSettingUrl(e) {
     e.preventDefault();
-    let librenmsUrl = prompt("Enter your LibreNMS URL to get direct settings link.\nNote: This URL is only stored in your browser.", localStorage.getItem('librenms_url') || '');
+    let twentyfouronlineUrl = prompt("Enter your twentyfouronline URL to get direct settings link.\nNote: This URL is only stored in your browser.", localStorage.getItem('twentyfouronline_url') || '');
 
-    if (! isValidHttpUrl(librenmsUrl)) {
+    if (! isValidHttpUrl(twentyfouronlineUrl)) {
         alert("Invalid url, must start with http:// or https://")
         return false;
     }
 
-    wrapSettingsLinks(librenmsUrl);
+    wrapSettingsLinks(twentyfouronlineUrl);
     return false;
 }
 
 
-function wrapSettingsLinks(librenmsUrl) {
+function wrapSettingsLinks(twentyfouronlineUrl) {
     // fetch saved url
-    if (! librenmsUrl) {
-        librenmsUrl = localStorage.getItem('librenms_url');
+    if (! twentyfouronlineUrl) {
+        twentyfouronlineUrl = localStorage.getItem('twentyfouronline_url');
     }
 
-    if (librenmsUrl) {
-        localStorage.setItem('librenms_url', librenmsUrl);
-        librenmsUrl = librenmsUrl.replace(/\/+$/i, ''); // trim trailing /
+    if (twentyfouronlineUrl) {
+        localStorage.setItem('twentyfouronline_url', twentyfouronlineUrl);
+        twentyfouronlineUrl = twentyfouronlineUrl.replace(/\/+$/i, ''); // trim trailing /
         [].forEach.call(document.querySelectorAll('.admonition.setting>.admonition-title'), function (el) {
             if (! el.dataset.setting_url) {
                 el.dataset.setting_url = el.innerText;
@@ -76,7 +76,7 @@ function wrapSettingsLinks(librenmsUrl) {
 
             let link = document.createElement('a');
             link.classList.add('setting-link');
-            link.href = librenmsUrl + '/settings/' + el.dataset.setting_url;
+            link.href = twentyfouronlineUrl + '/settings/' + el.dataset.setting_url;
             link.innerText = link.href;
             link.target = '_blank';
 
@@ -100,7 +100,7 @@ function wrapSettingsLinks(librenmsUrl) {
             let link = document.createElement('a');
             link.classList.add('setting-link');
             link.onclick = promptSettingUrl;
-            link.innerText = 'https://<your librenms url>/' + el.dataset.setting_url;
+            link.innerText = 'https://<your twentyfouronline url>/' + el.dataset.setting_url;
             el.innerText = '';
             el.appendChild(link);
         });
@@ -108,5 +108,9 @@ function wrapSettingsLinks(librenmsUrl) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    wrapSettingsLinks(findGetParameter('librenms_url'));
+    wrapSettingsLinks(findGetParameter('twentyfouronline_url'));
 }, false);
+
+
+
+

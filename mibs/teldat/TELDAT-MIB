@@ -3762,3 +3762,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
     telEventTraps                     OBJECT IDENTIFIER ::= { teladmin 4 }
 
 END
+
+
+
+

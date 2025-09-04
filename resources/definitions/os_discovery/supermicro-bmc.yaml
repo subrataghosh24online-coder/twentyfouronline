@@ -226,3 +226,7 @@ modules:
                         - { descr: On, graph: 1, value: 1, generic: 0 }
                         - { descr: Off, graph: 1, value: 0, generic: 2 }
                         - { descr: Reset, graph: 1, value: 2, generic: 1 }
+
+
+
+

@@ -75,3 +75,7 @@ modules:
                         - { value: 0, generic: 0, graph: 1, descr: 'Receiver Mode: Survey' }
                         - { value: 1, generic: 0, graph: 1, descr: 'Receiver Mode: Dynamic' }
                         - { value: 2, generic: 0, graph: 1, descr: 'Receiver Mode: Hold' }
+
+
+
+

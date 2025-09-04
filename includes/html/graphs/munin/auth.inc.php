@@ -12,3 +12,7 @@ if (is_numeric($mplug['device_id']) && ($auth || device_permitted($mplug['device
     $title .= ' :: Plugin :: ' . $mplug['mplug_type'] . ' - ' . $mplug['mplug_title'];
     $auth = true;
 }
+
+
+
+

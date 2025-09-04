@@ -1,6 +1,6 @@
 # Custom Map
 
-LibreNMS has the ability to create custom maps to give a quick
+twentyfouronline has the ability to create custom maps to give a quick
 overview of parts of the network including up/down status of devices
 and link utilisation.  These are also referred to as weather maps.
 
@@ -76,7 +76,7 @@ for the following information:
    the drop-down.  This will overwrite the label, which you can then change if
    you want to.
  - *Style*: You can select the style of the node.  If a device has been selected
-   you can choose the LibreNMS icon by choosing "Device Image".  You can also
+   you can choose the twentyfouronline icon by choosing "Device Image".  You can also
    choose "Icon" to select an image for the device.
  - *Icon*: If you choose "Icon" in the style box, you can select from a list of
    images to represent this node
@@ -189,3 +189,7 @@ Options with special requirements are as follows:
    - There is a special value of "-1" in the legend colours for when the interface is offline, or the port speed could not be determined
    - There is a special value of "-2" in the legend colours for when the device an interface is connected to is offline
    - The default legend_colours config is null, which means lines will change gradually from green->orange->red->purple as they go from 0-50-100-150%.
+
+
+
+

@@ -61,3 +61,7 @@ arubaWiredLedLocator  OBJECT IDENTIFIER ::= { arubaWiredChassisMIB 7 }
 arubaWiredPowerStat   OBJECT IDENTIFIER ::= { arubaWiredChassisMIB 8 }
 
 END
+
+
+
+

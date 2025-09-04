@@ -795,3 +795,7 @@ vlsTxSetSbsThreshold  OBJECT-TYPE
 		"SBS suppression level."
 	::= { vlsCatvTransmitter 17 }
 END
+
+
+
+

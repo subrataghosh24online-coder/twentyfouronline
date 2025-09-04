@@ -115,3 +115,7 @@ gigaSwitch641DeskSfpTp			OBJECT IDENTIFIER ::= { bmSwitch 70 }
 gigaSwitch642DeskSfpSfp			OBJECT IDENTIFIER ::= { bmSwitch 71 }
 
 END
+
+
+
+

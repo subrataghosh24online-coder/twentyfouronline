@@ -7,3 +7,7 @@ modules:
             - MOXA-SYSTEM-INFO-MIB::siStatProductInfoFirmwareVersion.0
         serial:
             - MOXA-SYSTEM-INFO-MIB::siStatProductInfoSerialNumber.0
+
+
+
+

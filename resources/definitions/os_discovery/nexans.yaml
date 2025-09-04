@@ -35,3 +35,7 @@ modules:
                     index: 'infoPowerVoltage3300.{{ $index }}'
                     descr: '3.3V input'
                     divisor: 1000
+
+
+
+

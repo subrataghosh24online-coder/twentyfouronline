@@ -45,3 +45,7 @@ return new class extends Migration
         DB::statement('DROP VIEW IF EXISTS view_port_mac_links;');
     }
 };
+
+
+
+

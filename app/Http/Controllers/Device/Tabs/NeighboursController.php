@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,12 +26,12 @@
 
 namespace App\Http\Controllers\Device\Tabs;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Link;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
-use LibreNMS\Util\Url;
+use twentyfouronline\Interfaces\UI\DeviceTab;
+use twentyfouronline\Util\Url;
 
 class NeighboursController implements DeviceTab
 {
@@ -87,8 +87,12 @@ class NeighboursController implements DeviceTab
             'selection' => $selection,
             'device' => $device,
             'links' => $links,
-            'link_types' => LibrenmsConfig::get('network_map_items', ['xdp', 'mac']),
-            'visoptions' => LibrenmsConfig::get('network_map_vis_options'),
+            'link_types' => twentyfouronlineConfig::get('network_map_items', ['xdp', 'mac']),
+            'visoptions' => twentyfouronlineConfig::get('network_map_vis_options'),
         ];
     }
 }
+
+
+
+

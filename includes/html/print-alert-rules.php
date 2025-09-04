@@ -2,7 +2,7 @@
 /**
  * print-alert-rules.inc.php
  *
- * LibreNMS print alert rules table
+ * twentyfouronline print alert rules table
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,9 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2020 The LibreNMS Community
+ * @copyright  2020 The twentyfouronline Community
  * @author     Original Author <unknown>
  * @author     Joseph Tingiris <joseph.tingiris@gmail.com>
  */
@@ -28,8 +28,8 @@ if (! Auth::user()->hasGlobalAdmin()) {
 }
 
 use App\Facades\DeviceCache;
-use LibreNMS\Alerting\QueryBuilderParser;
-use LibreNMS\Enum\AlertState;
+use twentyfouronline\Alerting\QueryBuilderParser;
+use twentyfouronline\Enum\AlertState;
 
 $no_refresh = true;
 
@@ -527,3 +527,7 @@ function changePage(page,e) {
     $('#result_form').trigger( "submit" );
 }
 </script>
+
+
+
+

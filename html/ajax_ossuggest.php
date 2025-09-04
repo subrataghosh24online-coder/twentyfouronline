@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 $init_modules = ['web', 'auth'];
 require realpath(__DIR__ . '/..') . '/includes/init.php';
@@ -60,7 +60,7 @@ function levsortos($base, $obj, $keys)
 header('Content-type: application/json');
 if (isset($_GET['term'])) {
     $_GET['term'] = strip_tags($_GET['term']);
-    $sortos = levsortos($_GET['term'], \App\Facades\LibrenmsConfig::get('os'), ['text', 'os']);
+    $sortos = levsortos($_GET['term'], \App\Facades\twentyfouronlineConfig::get('os'), ['text', 'os']);
     $sortos = array_slice($sortos, 0, 20);
     foreach ($sortos as $lev => $os) {
         $ret[$lev] = array_intersect_key($os, ['os' => true, 'text' => true]);
@@ -71,3 +71,7 @@ if (! isset($ret)) {
 }
 
 exit(json_encode($ret));
+
+
+
+

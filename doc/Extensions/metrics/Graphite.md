@@ -8,7 +8,7 @@ something like Grafana for graphing.
 - Pretty graphs, this is why at present you need Grafana. You need to
   build your own graphs within Grafana.
 
-RRD will continue to function as normal so LibreNMS itself should
+RRD will continue to function as normal so twentyfouronline itself should
 continue to function as normal.
 
 ## Configuration
@@ -32,7 +32,7 @@ information you need.
 
 ## Graphite Configuration
 
-As LibreNMS updates its metrics every 5 minutes, the following
+As twentyfouronline updates its metrics every 5 minutes, the following
 addition to your storage-schemas.conf is suggested.
 
 ```
@@ -40,3 +40,7 @@ addition to your storage-schemas.conf is suggested.
 pattern = your\.metric\.prefix\..*
 retentions = 5m:30d,15m:90d,1h:1y
 ```
+
+
+
+

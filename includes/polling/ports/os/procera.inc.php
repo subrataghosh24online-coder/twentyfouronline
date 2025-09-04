@@ -3,7 +3,7 @@
 /**
  * procera.inc.php
  *
- * LibreNMS Procera Ports include
+ * twentyfouronline Procera Ports include
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Paul Heinrichs
  * @author     Paul Heinrichs <pdheinrichs@gmail.com>
@@ -76,3 +76,7 @@ foreach ($packetlogic_stats as $index => $port) {
 }
 
 unset($channelTypes, $packetlogic_stats, $procera_port, $mediaType, $negotiatedMedia);
+
+
+
+

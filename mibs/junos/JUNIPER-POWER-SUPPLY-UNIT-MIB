@@ -474,3 +474,7 @@ jnxPsuFpcPowerAllocated OBJECT-TYPE
     ::= { jnxPsuFpcPowerEntry 2 }
 
 END
+
+
+
+

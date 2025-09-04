@@ -288,7 +288,7 @@ modules:
                     descr: 'Int Battery'
                     group: 'HSM'
                     index: pkAHsmBatteryInt
-                    user_func: \LibreNMS\Util\Number::cast
+                    user_func: \twentyfouronline\Util\Number::cast
                 -
                     oid: PRIMEKEY-APPLIANCE-MIB::pkAHsmBatteryExt
                     value: PRIMEKEY-APPLIANCE-MIB::pkAHsmBatteryExt
@@ -296,4 +296,8 @@ modules:
                     descr: 'Ext Battery'
                     group: 'HSM'
                     index: pkAHsmBatteryExt
-                    user_func: \LibreNMS\Util\Number::cast
+                    user_func: \twentyfouronline\Util\Number::cast
+
+
+
+

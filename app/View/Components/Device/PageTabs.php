@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -31,7 +31,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class PageTabs extends Component
 {
@@ -110,3 +110,7 @@ class PageTabs extends Component
         return app()->make(self::$tabsClasses[$tab]);
     }
 }
+
+
+
+

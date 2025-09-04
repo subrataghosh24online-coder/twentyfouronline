@@ -14,7 +14,7 @@
 2. Download the script onto the desired host
 
     ```
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox
     ```
 
 3. Make the script executable
@@ -43,3 +43,7 @@
     ```
 
 6. Restart snmpd on your host
+
+
+
+

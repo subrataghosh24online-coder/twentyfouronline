@@ -25,3 +25,7 @@ discovery:
             value:
                 - 'syno_hw_version'
                 - 'syno_dyn_module'
+
+
+
+

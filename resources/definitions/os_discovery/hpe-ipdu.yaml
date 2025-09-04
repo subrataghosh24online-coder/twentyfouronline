@@ -47,3 +47,7 @@ modules:
                     divisor: 10
                     index: 'mpduOutputVoltage.{{ $index }}'
                     descr: 'MPDU #{{ $mpduOutputIndex }} Voltage'
+
+
+
+

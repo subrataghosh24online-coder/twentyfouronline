@@ -79,3 +79,7 @@ juniCopsAgentV2  AGENT-CAPABILITIES
     ::= { juniCopsAgent 2 }
 
 END
+
+
+
+

@@ -7,7 +7,7 @@ namespace App\Console\Commands;
 use App\Console\LnmsCommand;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Lang;
-use LibreNMS\Util\DynamicConfig;
+use twentyfouronline\Util\DynamicConfig;
 use Symfony\Component\Console\Input\InputArgument;
 
 class ConfigListCommand extends LnmsCommand
@@ -81,3 +81,7 @@ class ConfigListCommand extends LnmsCommand
         return is_string($result) ? $result : $text;
     }
 }
+
+
+
+

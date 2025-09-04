@@ -14620,3 +14620,7 @@ jnxMbgPgwGtpPrDnTPerPrAlrmClr NOTIFICATION-TYPE
     ::= { jnxMbgPgwGtpNotifications 7 }
 
 END
+
+
+
+

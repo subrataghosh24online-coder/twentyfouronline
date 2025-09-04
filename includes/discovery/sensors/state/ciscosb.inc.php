@@ -3,7 +3,7 @@
 /*
  * ciscosb.inc.php
  *
- * LibreNMS Cisco Small Business State Sensors
+ * twentyfouronline Cisco Small Business State Sensors
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link        https://www.librenms.org
+ * @link        https://www.twentyfouronline.org
  *
  * @copyright   2017 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * @author      Søren Friis Rosiak <sorenrosiak@gmail.com>
@@ -46,3 +46,7 @@ if (! empty($temp)) {
         }
     }
 }
+
+
+
+

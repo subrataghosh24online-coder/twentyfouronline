@@ -7,7 +7,7 @@ An authoritative DNS server: <https://www.powerdns.com/auth.html>
     1. Copy the shell script, powerdns.py, to the desired host
     
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns.py -O /etc/snmp/powerdns.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/powerdns.py -O /etc/snmp/powerdns.py
     ```
 
     2. Make the script executable
@@ -43,3 +43,7 @@ An authoritative DNS server: <https://www.powerdns.com/auth.html>
    
    In powerdns.py, modify the process from `[pdnscontrol, "list"]` to `["/usr/bin/sudo", pdnscontrol, "list"]`
    
+
+
+
+

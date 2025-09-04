@@ -511,3 +511,7 @@ ruckusSZAPIpsecRXIdleTime OBJECT-TYPE
         "In seconds since last seen received packet."
     ::= { ruckusSZAPEntry 66 }    
 END
+
+
+
+

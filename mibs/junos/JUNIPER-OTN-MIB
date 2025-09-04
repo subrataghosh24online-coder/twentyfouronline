@@ -1023,3 +1023,7 @@ jnxOtnAlarmCleared NOTIFICATION-TYPE
 	::= { jnxOtnNotificationPrefix 2 }
 
 END
+
+
+
+

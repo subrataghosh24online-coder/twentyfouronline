@@ -222,3 +222,7 @@ arubaWiredTempSensorNotificationsGroup NOTIFICATION-GROUP
      DESCRIPTION "Notifications sent by temperature sensor management."
      ::= { arubaWiredTempSensorGroups 2 }
 END
+
+
+
+

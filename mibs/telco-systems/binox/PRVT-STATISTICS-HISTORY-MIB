@@ -339,3 +339,7 @@ prvtStatHistDataStatus OBJECT-TYPE
     ::= { prvtStatHistDataEntry 7 }
 
 END -- end of module PRVT-STATISTICS-HISTORY-MIB.
+
+
+
+

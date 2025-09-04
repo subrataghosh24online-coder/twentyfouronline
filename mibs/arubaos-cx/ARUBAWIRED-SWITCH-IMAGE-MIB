@@ -224,3 +224,7 @@ arubaWiredSwitchImageDetails OBJECT IDENTIFIER
        ::={arubaWiredSwitchImageGroups 2}
 
 END
+
+
+
+

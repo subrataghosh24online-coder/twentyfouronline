@@ -1020,3 +1020,7 @@ modules:
                         - { value: 6, generic: 1, graph: 0, descr: remoteSignalFailure }
                     snmp_flags: '-OQUsbe'
                     group: 'G.8032'
+
+
+
+

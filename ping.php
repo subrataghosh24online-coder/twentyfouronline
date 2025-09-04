@@ -2,8 +2,8 @@
 <?php
 
 use App\Jobs\PingCheck;
-use LibreNMS\Data\Store\Datastore;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Data\Store\Datastore;
+use twentyfouronline\Util\Debug;
 
 $init_modules = ['alerts', 'laravel', 'nodb'];
 require __DIR__ . '/includes/init.php';
@@ -22,7 +22,7 @@ END;
     exit;
 }
 
-$scheduler = \App\Facades\LibrenmsConfig::get('schedule_type.ping');
+$scheduler = \App\Facades\twentyfouronlineConfig::get('schedule_type.ping');
 if (! isset($options['f']) && $scheduler != 'legacy' && $scheduler != 'cron') {
     if (Debug::isEnabled()) {
         echo "Fast Pings are not enabled for cron scheduling.  Add the -f command argument if you want to force this command to run.\n";
@@ -42,3 +42,7 @@ if (isset($options['g'])) {
 }
 
 PingCheck::dispatchSync($groups);
+
+
+
+

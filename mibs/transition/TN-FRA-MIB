@@ -119,3 +119,7 @@ tnFraLinkState  OBJECT-TYPE
     ::= { tnFraLinkEntry 1}
 END
 
+
+
+
+

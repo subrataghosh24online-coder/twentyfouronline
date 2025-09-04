@@ -157,3 +157,7 @@ modules:
                     descr: 'Output Phase #{{ $index }}'
                     index: 'xupsOutputCurrent.{{ $index }}'
                     divisor: 1
+
+
+
+

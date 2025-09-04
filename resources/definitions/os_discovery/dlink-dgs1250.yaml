@@ -173,3 +173,7 @@ modules:
                         - { descr: HiWarning, graph: 1, value: 2, generic: 1 }
                         - { descr: LoWarning, graph: 1, value: 3, generic: 1 }
                         - { descr: LoAlarm, graph: 1, value: 4, generic: 2 }
+
+
+
+

@@ -6,7 +6,7 @@ use App\Http\Interfaces\ToastInterface;
 use App\Models\DeviceGroup;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use LibreNMS\Alerting\QueryBuilderFilter;
+use twentyfouronline\Alerting\QueryBuilderFilter;
 
 class DeviceGroupController extends Controller
 {
@@ -174,3 +174,7 @@ class DeviceGroupController extends Controller
         return response($msg, 200);
     }
 }
+
+
+
+

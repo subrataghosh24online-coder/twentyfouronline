@@ -1,7 +1,7 @@
 # RRDCached
 
 Install/Setup:
-For Install/Setup Local Librenms RRDCached: Please see [RRDCached](../RRDCached.md)
+For Install/Setup Local twentyfouronline RRDCached: Please see [RRDCached](../RRDCached.md)
 
 Will collect stats by:
 1. Connecting directly to the associated device on port 42217
@@ -14,7 +14,7 @@ SNMP extend script to monitor your (remote) RRDCached via snmp
 
 1. Download the script onto the desired host
 ```
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/rrdcached -O /etc/snmp/rrdcached
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/rrdcached -O /etc/snmp/rrdcached
 ```
 
 2. Make the script executable
@@ -26,3 +26,7 @@ chmod +x /etc/snmp/rrdcached
 ```
 extend rrdcached /etc/snmp/rrdcached
 ```
+
+
+
+

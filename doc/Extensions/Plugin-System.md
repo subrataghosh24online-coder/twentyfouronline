@@ -1,30 +1,30 @@
 # Developing for the Plugin System
 
-With plugins you can extend LibreNMS with special functions that are
+With plugins you can extend twentyfouronline with special functions that are
 specific to your setup or are not relevant or interesting for all community members.
 
 You are able to intervene in defined places in the behavior of
 the website, without it coming to problems with future updates.
 
 This documentation will give you a basis for writing a plugin for
-LibreNMS.
+twentyfouronline.
 
 ## Distribution
 
 There are two ways to create a plugin.
 
- 1. Local plugin: Within LibreNMS under the app/Plugins directory. This is approriate for plugins that are
-    intended to run only on your instance. A local plugin may ONLY use plugin hooks to augment LibreNMS.
+ 1. Local plugin: Within twentyfouronline under the app/Plugins directory. This is approriate for plugins that are
+    intended to run only on your instance. A local plugin may ONLY use plugin hooks to augment twentyfouronline.
  3. Plugin package: A php package that can be distributed via composer/packagist.org.  This is approriate
     for plugins that are intended to be installed by many people. A plugin package can publish multiple
-    routes, views, database migrations and more in addition to using hooks to augment specific parts of LibreNMS.
+    routes, views, database migrations and more in addition to using hooks to augment specific parts of twentyfouronline.
 
 ### Plugin package
 
 Create a package according to the Laravel documentation [https://laravel.com/docs/packages](https://laravel.com/docs/packages)
-To tie in to specific parts of LibreNMS such as the Menu, Device Overview or a Port Tab, use Plugin Hooks.
+To tie in to specific parts of twentyfouronline such as the Menu, Device Overview or a Port Tab, use Plugin Hooks.
 
-You can see an example plugin here: [example plugin repository](https://github.com/murrant/librenms-example-plugin).
+You can see an example plugin here: [example plugin repository](https://github.com/murrant/twentyfouronline-example-plugin).
 
 > Please come to discord and share any expriences and update this documentation!
 
@@ -93,7 +93,7 @@ class in 'app/Plugins/PluginName' and overload the hook methods.
 
 - menu.blade.php :: For a menu entry
 
-- page.blade.pho :: Here is a good place to add a own LibreNMS page without dependence with a device. A good place to create your own lists with special requirements and behavior.
+- page.blade.pho :: Here is a good place to add a own twentyfouronline page without dependence with a device. A good place to create your own lists with special requirements and behavior.
 
 - settings.blade.php :: If you need your own settings and variables, you can have a look in the ExamplePlugin.
 
@@ -143,3 +143,7 @@ class DeviceOverview extends DeviceOverviewHook
     }
 }
 ```
+
+
+
+

@@ -3400,3 +3400,7 @@ zxr10UAS10600SysID OBJECT-IDENTITY
     ::= { zxr10-objectID 5000 }
           
 END
+
+
+
+

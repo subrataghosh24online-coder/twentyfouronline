@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Transceiver extends PortRelatedModel implements Keyable
 {
@@ -45,3 +45,7 @@ class Transceiver extends PortRelatedModel implements Keyable
         return $this->index;
     }
 }
+
+
+
+

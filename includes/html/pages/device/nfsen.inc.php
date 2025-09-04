@@ -14,7 +14,7 @@ echo generate_link('Stats', $link_array, ['nfsen' => 'stats']);
 
 $printedChannel = false;
 $nfsen_hostname = nfsen_hostname($device['hostname']);
-foreach (\App\Facades\LibrenmsConfig::get('nfsen_rrds') as $nfsenDir) {
+foreach (\App\Facades\twentyfouronlineConfig::get('nfsen_rrds') as $nfsenDir) {
     $hostDir = $nfsenDir . '/' . $nfsen_hostname . '/';
     if (is_dir($hostDir)) {
         $nfsenRRDchannelGlob = $hostDir . '*.rrd';
@@ -50,3 +50,7 @@ if (is_file('includes/html/pages/device/nfsen/' . $vars['nfsen'] . '.inc.php')) 
 }
 
 $pagetitle[] = 'Netflow';
+
+
+
+

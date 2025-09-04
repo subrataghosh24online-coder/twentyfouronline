@@ -13,3 +13,7 @@ You need a token you can find on your personnal space.
 | API Method | POST |
 | API URL | http://api.smsmode.com/http/1.6/sendSMS.do |
 | Options | accessToken=_PUT_HERE_YOUR_TOKEN_<br/> numero=_PUT_HERE_DESTS_NUMBER_COMMA_SEPARATED_<br />message={{ $msg }} |
+
+
+
+

@@ -43,3 +43,7 @@ discovery:
 bad_iftype:
     - macSecControlledIF
     - macSecUncontrolledIF
+
+
+
+

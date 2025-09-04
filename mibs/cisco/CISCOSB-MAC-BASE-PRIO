@@ -270,3 +270,7 @@ rlMacBasePrioSADATCRowStatus OBJECT-TYPE
     ::= { rlMacBasePrioSADATCEntry 4 }
 
 END
+
+
+
+

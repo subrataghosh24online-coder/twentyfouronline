@@ -1,5 +1,5 @@
 First we define our graphs in `resources/definitions/config_definitions.json` to share
-our work and contribute in the development of LibreNMS. :-)
+our work and contribute in the development of twentyfouronline. :-)
 
 ```json
         "graph_types.device.pulse_users": {
@@ -37,7 +37,7 @@ please speak to one of the core devs in
 Let's update our example file to add additional polling:
 
 ```bash
-LibreNMS/OS/Pulse.php
+twentyfouronline/OS/Pulse.php
 ```
 
 We declare two specific graphs for users and sessions numbers. Theses
@@ -47,14 +47,14 @@ as it was written in the definition include file.
 ```php
 <?php
 
-namespace LibreNMS\OS;
+namespace twentyfouronline\OS;
 
-use LibreNMS\Interfaces\Data\DataStorageInterface;
-use LibreNMS\Interfaces\Polling\OSPolling;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Interfaces\Data\DataStorageInterface;
+use twentyfouronline\Interfaces\Polling\OSPolling;
+use twentyfouronline\RRD\RrdDefinition;
 use SnmpQuery;
 
-class Pulse extends \LibreNMS\OS implements OSPolling
+class Pulse extends \twentyfouronline\OS implements OSPolling
 {
     public function pollOS(DataStorageInterface $datastore): void
     {
@@ -109,3 +109,7 @@ require 'includes/html/graphs/generic_simplex.inc.php';
 
 That should be it, after data has started to be collected graph
 should appear in the WebUI.
+
+
+
+

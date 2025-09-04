@@ -1,23 +1,23 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\Sensor;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Exceptions\JsonAppBase64DecodeException;
-use LibreNMS\Exceptions\JsonAppBlankJsonException;
-use LibreNMS\Exceptions\JsonAppExtendErroredException;
-use LibreNMS\Exceptions\JsonAppGzipDecodeException;
-use LibreNMS\Exceptions\JsonAppMissingKeysException;
-use LibreNMS\Exceptions\JsonAppParsingFailedException;
-use LibreNMS\Exceptions\JsonAppPollingFailedException;
-use LibreNMS\Exceptions\JsonAppWrongVersionException;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Oid;
-use LibreNMS\Util\UserFuncHelper;
+use twentyfouronline\Enum\Sensor;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Exceptions\JsonAppBase64DecodeException;
+use twentyfouronline\Exceptions\JsonAppBlankJsonException;
+use twentyfouronline\Exceptions\JsonAppExtendErroredException;
+use twentyfouronline\Exceptions\JsonAppGzipDecodeException;
+use twentyfouronline\Exceptions\JsonAppMissingKeysException;
+use twentyfouronline\Exceptions\JsonAppParsingFailedException;
+use twentyfouronline\Exceptions\JsonAppPollingFailedException;
+use twentyfouronline\Exceptions\JsonAppWrongVersionException;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Oid;
+use twentyfouronline\Util\UserFuncHelper;
 
 function bulk_sensor_snmpget($device, $sensors)
 {
@@ -44,8 +44,8 @@ function bulk_sensor_snmpget($device, $sensors)
 function sensor_precache($device, $type)
 {
     $sensor_cache = [];
-    if (file_exists(LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/pre-cache/' . $device['os'] . '.inc.php')) {
-        include LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/pre-cache/' . $device['os'] . '.inc.php';
+    if (file_exists(twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/pre-cache/' . $device['os'] . '.inc.php')) {
+        include twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/pre-cache/' . $device['os'] . '.inc.php';
     }
 
     return $sensor_cache;
@@ -78,10 +78,10 @@ function poll_sensor($device, $class)
             $mibdir = null;
 
             $sensor_value = trim(str_replace('"', '', $snmp_data[$sensor['sensor_oid']] ?? ''));
-            if (file_exists(LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os'] . '.inc.php')) {
-                require LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os'] . '.inc.php';
-            } elseif (isset($device['os_group']) && file_exists(LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os_group'] . '.inc.php')) {
-                require LibrenmsConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os_group'] . '.inc.php';
+            if (file_exists(twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os'] . '.inc.php')) {
+                require twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os'] . '.inc.php';
+            } elseif (isset($device['os_group']) && file_exists(twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os_group'] . '.inc.php')) {
+                require twentyfouronlineConfig::get('install_dir') . '/includes/polling/sensors/' . $class . '/' . $device['os_group'] . '.inc.php';
             }
 
             if ($class == 'state') {
@@ -355,7 +355,7 @@ function update_application($app, $response, $metrics = [], $status = '')
  * This is to make it easier polling apps. Also to help standardize around JSON.
  *
  * If the data has is in base64, it will be converted and then gunzipped.
- * https://github.com/librenms/librenms-agent/blob/master/utils/lnms_return_optimizer
+ * https://github.com/twentyfouronline/twentyfouronline-agent/blob/master/utils/lnms_return_optimizer
  * May be used to convert output from extends to that via piping it through it.
  *
  * The required keys for the returned JSON are as below.
@@ -507,3 +507,7 @@ function data_flatten($array, $prefix = '', $joiner = '_')
 
     return $return;
 }
+
+
+
+

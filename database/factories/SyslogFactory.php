@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LibreNMS\Enum\SyslogSeverity;
+use twentyfouronline\Enum\SyslogSeverity;
 
 /** @extends Factory<\App\Models\Syslog> */
 class SyslogFactory extends Factory
@@ -28,3 +28,7 @@ class SyslogFactory extends Factory
         ];
     }
 }
+
+
+
+

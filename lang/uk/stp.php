@@ -21,3 +21,7 @@ return [
     'bridge_hello_time' => 'Час Hello Bridge (s)',
     'bridge_forward_delay' => 'Затримка перенаправлення Bridge (s)',
 ];
+
+
+
+

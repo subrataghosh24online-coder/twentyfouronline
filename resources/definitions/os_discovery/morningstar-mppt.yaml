@@ -629,3 +629,6 @@ modules:
                     descr: 'Internal Charge Kwh Total'
                     index: 'internalChargeKwhTotal10.{{ $index }}'
                     multiplier: 0.1
+
+
+

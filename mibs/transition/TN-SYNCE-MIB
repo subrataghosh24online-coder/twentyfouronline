@@ -509,3 +509,7 @@ tnSyncEActualOutFreq  OBJECT-TYPE
     DESCRIPTION "The actual output frequency in Hz. If output state is disabled set to 0"
     ::= { tnSyncEExtEntry 7 }
 END
+
+
+
+

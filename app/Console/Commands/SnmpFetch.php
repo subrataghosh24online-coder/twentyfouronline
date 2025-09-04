@@ -7,7 +7,7 @@ use App\Models\Device;
 use DeviceCache;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
-use LibreNMS\Data\Source\SnmpResponse;
+use twentyfouronline\Data\Source\SnmpResponse;
 use SnmpQuery;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -176,3 +176,7 @@ abstract class SnmpFetch extends LnmsCommand
         $this->line(str_repeat(' ', $indent) . "<fg=$color>$key</>: $data");
     }
 }
+
+
+
+

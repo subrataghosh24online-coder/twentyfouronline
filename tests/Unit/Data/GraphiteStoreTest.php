@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Data;
+namespace twentyfouronline\Tests\Unit\Data;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Carbon\Carbon;
-use LibreNMS\Data\Store\Graphite;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Data\Store\Graphite;
+use twentyfouronline\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Group;
 use Socket\Raw\Socket;
 
@@ -45,14 +45,14 @@ class GraphiteStoreTest extends TestCase
 
         // fix the date
         Carbon::setTestNow(Carbon::createFromTimestampUTC($this->timestamp));
-        LibrenmsConfig::set('graphite.enable', true);
+        twentyfouronlineConfig::set('graphite.enable', true);
     }
 
     protected function tearDown(): void
     {
         // restore Carbon:now() to normal
         Carbon::setTestNow();
-        LibrenmsConfig::set('graphite.enable', false);
+        twentyfouronlineConfig::set('graphite.enable', false);
 
         parent::tearDown();
     }
@@ -105,3 +105,7 @@ class GraphiteStoreTest extends TestCase
         return new Graphite($mockFactory);
     }
 }
+
+
+
+

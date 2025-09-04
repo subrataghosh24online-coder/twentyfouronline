@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://librenms.org
+ * @link       https://twentyfouronline.org
  *
  * @copyright  2017 Adam Bishop
  * @author     Adam Bishop <adam@omega.org.uk>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Authentication\LegacyAuth;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Authentication\LegacyAuth;
 
 use function strip_tags;
 use function strip_tags as strip_tags1;
@@ -41,14 +41,14 @@ class AuthHTTPTest extends TestCase
     {
         parent::setUp();
 
-        $this->original_auth_mech = LibrenmsConfig::get('auth_mechanism');
-        LibrenmsConfig::set('auth_mechanism', 'http-auth');
+        $this->original_auth_mech = twentyfouronlineConfig::get('auth_mechanism');
+        twentyfouronlineConfig::set('auth_mechanism', 'http-auth');
         $this->server = $_SERVER;
     }
 
     protected function tearDown(): void
     {
-        LibrenmsConfig::set('auth_mechanism', $this->original_auth_mech);
+        twentyfouronlineConfig::set('auth_mechanism', $this->original_auth_mech);
         $_SERVER = $this->server;
         parent::tearDown();
     }
@@ -81,7 +81,7 @@ class AuthHTTPTest extends TestCase
                 // Old Behaviour
                 if (isset($_SERVER['REMOTE_USER'])) {
                     $old_username = strip_tags1($_SERVER['REMOTE_USER']);
-                } elseif (isset($_SERVER['PHP_AUTH_USER']) && LibrenmsConfig::get('auth_mechanism') === 'http-auth') {
+                } elseif (isset($_SERVER['PHP_AUTH_USER']) && twentyfouronlineConfig::get('auth_mechanism') === 'http-auth') {
                     $old_username = strip_tags($_SERVER['PHP_AUTH_USER']);
                 }
 
@@ -100,3 +100,7 @@ class AuthHTTPTest extends TestCase
         }
     }
 }
+
+
+
+

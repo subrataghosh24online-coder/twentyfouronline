@@ -4,7 +4,7 @@
 /**
  * rrdstep.php
  *
- * LibreNMS Script to convert rrd files from default 300 step to user defined
+ * twentyfouronline Script to convert rrd files from default 300 step to user defined
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,13 +19,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $init_modules = [];
 require realpath(__DIR__ . '/..') . '/includes/init.php';
@@ -52,12 +52,12 @@ if (empty($hostname)) {
     exit;
 }
 
-$system_step = LibrenmsConfig::get('rrd.step', 300);
-$icmp_step = LibrenmsConfig::get('ping_rrd_step', $system_step);
-$system_heartbeat = LibrenmsConfig::get('rrd.heartbeat', $system_step * 2);
-$rrdtool = LibrenmsConfig::get('rrdtool', 'rrdtool');
-$tmp_path = LibrenmsConfig::get('temp_dir', '/tmp');
-$rrd_dir = LibrenmsConfig::get('rrd_dir', LibrenmsConfig::get('install_dir') . '/rrd');
+$system_step = twentyfouronlineConfig::get('rrd.step', 300);
+$icmp_step = twentyfouronlineConfig::get('ping_rrd_step', $system_step);
+$system_heartbeat = twentyfouronlineConfig::get('rrd.heartbeat', $system_step * 2);
+$rrdtool = twentyfouronlineConfig::get('rrdtool', 'rrdtool');
+$tmp_path = twentyfouronlineConfig::get('temp_dir', '/tmp');
+$rrd_dir = twentyfouronlineConfig::get('rrd_dir', twentyfouronlineConfig::get('install_dir') . '/rrd');
 
 $files = [];
 if ($hostname === 'all') {
@@ -120,3 +120,7 @@ foreach ($files as $file) {
 }
 
 echo "Converted: $converted  Failed: $failed  Skipped: $skipped\n";
+
+
+
+

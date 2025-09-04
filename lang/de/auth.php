@@ -17,3 +17,7 @@ return [
     'throttle' => 'Zu viele Loginversuche. Versuchen Sie es in :seconds Sekunden noch einmal.',
 
 ];
+
+
+
+

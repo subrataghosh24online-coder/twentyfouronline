@@ -34,3 +34,7 @@ return new class extends Migration
         Schema::drop('ipv6_addresses');
     }
 };
+
+
+
+

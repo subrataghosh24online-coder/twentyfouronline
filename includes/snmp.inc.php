@@ -1,12 +1,12 @@
 <?php
 
 /*
- * LibreNMS - SNMP Functions
+ * twentyfouronline - SNMP Functions
  *
  * Original Observium code by: Adam Armstrong, Tom Laermans
  * Copyright (c) 2010-2012 Adam Armstrong.
  *
- * Additions for LibreNMS by Paul Gear
+ * Additions for twentyfouronline by Paul Gear
  * Copyright (c) 2014-2015 Gear Consulting Pty Ltd <http://libertysys.com.au/>
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -16,7 +16,7 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Polling\Measure\Measurement;
 use Illuminate\Support\Str;
@@ -30,7 +30,7 @@ function prep_snmp_setting($device, $setting)
         return $device[$setting];
     }
 
-    return LibrenmsConfig::get("snmp.$setting");
+    return twentyfouronlineConfig::get("snmp.$setting");
 }//end prep_snmp_setting()
 
 /**
@@ -43,26 +43,26 @@ function get_mib_dir($device)
 {
     $dirs = [];
 
-    if (isset($device['os']) && file_exists(LibrenmsConfig::get('mib_dir') . '/' . $device['os'])) {
-        $dirs[] = LibrenmsConfig::get('mib_dir') . '/' . $device['os'];
+    if (isset($device['os']) && file_exists(twentyfouronlineConfig::get('mib_dir') . '/' . $device['os'])) {
+        $dirs[] = twentyfouronlineConfig::get('mib_dir') . '/' . $device['os'];
     }
 
     if (isset($device['os_group'])) {
-        if (file_exists(LibrenmsConfig::get('mib_dir') . '/' . $device['os_group'])) {
-            $dirs[] = LibrenmsConfig::get('mib_dir') . '/' . $device['os_group'];
+        if (file_exists(twentyfouronlineConfig::get('mib_dir') . '/' . $device['os_group'])) {
+            $dirs[] = twentyfouronlineConfig::get('mib_dir') . '/' . $device['os_group'];
         }
 
-        if ($group_mibdir = LibrenmsConfig::get("os_groups.{$device['os_group']}.mib_dir")) {
+        if ($group_mibdir = twentyfouronlineConfig::get("os_groups.{$device['os_group']}.mib_dir")) {
             if (is_array($group_mibdir)) {
                 foreach ($group_mibdir as $k => $dir) {
-                    $dirs[] = LibrenmsConfig::get('mib_dir') . '/' . $dir;
+                    $dirs[] = twentyfouronlineConfig::get('mib_dir') . '/' . $dir;
                 }
             }
         }
     }
 
-    if (isset($device['os']) && ($os_mibdir = LibrenmsConfig::get("os.{$device['os']}.mib_dir"))) {
-        $dirs[] = LibrenmsConfig::get('mib_dir') . '/' . $os_mibdir;
+    if (isset($device['os']) && ($os_mibdir = twentyfouronlineConfig::get("os.{$device['os']}.mib_dir"))) {
+        $dirs[] = twentyfouronlineConfig::get('mib_dir') . '/' . $os_mibdir;
     }
 
     return $dirs;
@@ -73,7 +73,7 @@ function get_mib_dir($device)
  * If null return the default mib dir
  * If $mibdir is empty '', return an empty string
  *
- * @param  string  $mibdir  should be the name of the directory within \App\Facades\LibrenmsConfig::get('mib_dir')
+ * @param  string  $mibdir  should be the name of the directory within \App\Facades\twentyfouronlineConfig::get('mib_dir')
  * @param  array|null  $device
  * @return string The option string starting with -M
  *
@@ -83,7 +83,7 @@ function mibdir($mibdir = null, $device = null)
 {
     $dirs = is_array($device) ? get_mib_dir($device) : [];
 
-    $base = LibrenmsConfig::get('mib_dir');
+    $base = twentyfouronlineConfig::get('mib_dir');
     $dirs[] = "$base/$mibdir";
 
     // make sure base directory is included first
@@ -111,7 +111,7 @@ function mibdir($mibdir = null, $device = null)
  */
 function gen_snmpget_cmd($device, $oids, $options = null, $mib = null, $mibdir = null)
 {
-    $snmpcmd = [LibrenmsConfig::get('snmpget')];
+    $snmpcmd = [twentyfouronlineConfig::get('snmpget')];
 
     return gen_snmp_cmd($snmpcmd, $device, $oids, $options, $mib, $mibdir);
 } // end gen_snmpget_cmd()
@@ -133,12 +133,12 @@ function gen_snmpwalk_cmd($device, $oids, $options = null, $mib = null, $mibdir 
     $oids = Arr::wrap($oids);
 
     if ($device['snmpver'] == 'v1'
-        || (isset($device['os']) && (LibrenmsConfig::getOsSetting($device['os'], 'snmp_bulk', true) == false
-                || ! empty(array_intersect($oids, LibrenmsConfig::getCombined($device['os'], 'oids.no_bulk', 'snmp.'))))) // skip for oids that do not work with bulk
+        || (isset($device['os']) && (twentyfouronlineConfig::getOsSetting($device['os'], 'snmp_bulk', true) == false
+                || ! empty(array_intersect($oids, twentyfouronlineConfig::getCombined($device['os'], 'oids.no_bulk', 'snmp.'))))) // skip for oids that do not work with bulk
     ) {
-        $snmpcmd = [LibrenmsConfig::get('snmpwalk')];
+        $snmpcmd = [twentyfouronlineConfig::get('snmpwalk')];
     } else {
-        $snmpcmd = [LibrenmsConfig::get('snmpbulkwalk')];
+        $snmpcmd = [twentyfouronlineConfig::get('snmpbulkwalk')];
         $max_repeaters = get_device_max_repeaters($device);
         if ($max_repeaters > 0) {
             $snmpcmd[] = "-Cr$max_repeaters";
@@ -146,7 +146,7 @@ function gen_snmpwalk_cmd($device, $oids, $options = null, $mib = null, $mibdir 
     }
 
     // allow unordered responses for specific oids
-    if (! empty(array_intersect($oids, LibrenmsConfig::getCombined($device['os'], 'oids.unordered', 'snmp.')))) {
+    if (! empty(array_intersect($oids, twentyfouronlineConfig::getCombined($device['os'], 'oids.unordered', 'snmp.')))) {
         $snmpcmd[] = '-Cc';
     }
 
@@ -189,7 +189,7 @@ function gen_snmp_cmd($cmd, $device, $oids, $options = null, $mib = null, $mibdi
         array_push($cmd, '-r', $retries);
     }
 
-    $pollertarget = \LibreNMS\Util\Rewrite::addIpv6Brackets(Device::pollerTarget($device));
+    $pollertarget = \twentyfouronline\Util\Rewrite::addIpv6Brackets(Device::pollerTarget($device));
     $cmd[] = $device['transport'] . ':' . $pollertarget . ':' . $device['port'];
     $cmd = array_merge($cmd, (array) $oids);
 
@@ -342,7 +342,7 @@ function snmp_getnext($device, $oid, $options = null, $mib = null, $mibdir = nul
 {
     $measure = Measurement::start('snmpgetnext');
 
-    $snmpcmd = [LibrenmsConfig::get('snmpgetnext', 'snmpgetnext')];
+    $snmpcmd = [twentyfouronlineConfig::get('snmpgetnext', 'snmpgetnext')];
     $cmd = gen_snmp_cmd($snmpcmd, $device, $oid, $options, $mib, $mibdir);
     $data = trim(external_exec($cmd), "\" \n\r");
 
@@ -704,5 +704,9 @@ function get_device_max_repeaters($device)
 {
     $attrib = DeviceCache::get($device['device_id'] ?? null)->getAttrib('snmp_max_repeaters');
 
-    return $attrib ?? LibrenmsConfig::getOsSetting($device['os'], 'snmp.max_repeaters', LibrenmsConfig::get('snmp.max_repeaters', false));
+    return $attrib ?? twentyfouronlineConfig::getOsSetting($device['os'], 'snmp.max_repeaters', twentyfouronlineConfig::get('snmp.max_repeaters', false));
 }
+
+
+
+

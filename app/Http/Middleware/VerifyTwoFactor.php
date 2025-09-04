@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\UserPref;
 use Closure;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class VerifyTwoFactor
     public function handle(Request $request, Closure $next): Response
     {
         // check twofactor
-        if (auth()->check() && LibrenmsConfig::get('twofactor') === true) {
+        if (auth()->check() && twentyfouronlineConfig::get('twofactor') === true) {
             // don't apply on 2fa checking routes
             $route_name = $request->route()->getName();
             if ($route_name && Str::startsWith($route_name, '2fa.')) {
@@ -41,3 +41,7 @@ class VerifyTwoFactor
         return $next($request);
     }
 }
+
+
+
+

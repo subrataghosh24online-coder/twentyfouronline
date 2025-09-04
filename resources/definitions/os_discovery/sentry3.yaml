@@ -109,3 +109,7 @@ modules:
                             oid: Sentry3-MIB::tempHumidSensorTempScale
                             op: '!='
                             value: '1'
+
+
+
+

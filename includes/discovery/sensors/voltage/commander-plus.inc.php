@@ -3,7 +3,7 @@
 /**
  * commander-plus.inc.php
  *
- * LibreNMS voltage discovery module for Commander Plus
+ * twentyfouronline voltage discovery module for Commander Plus
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -31,3 +31,7 @@ $limit_low = 24;
 $limit = 57;
 $current = snmp_get($device, 'rectifierFloatVoltage.0', '-Oqv', 'CCPOWER-MIB');
 discover_sensor(null, 'voltage', $device, $oid, 'rectifierFloatVoltage', 'commander-plus', $descr, $divisor, $multiplier, $limit_low, null, null, $limit, $current);
+
+
+
+

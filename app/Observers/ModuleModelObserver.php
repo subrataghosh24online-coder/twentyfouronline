@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -28,7 +28,7 @@ namespace App\Observers;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 use Psr\Log\LoggerInterface;
 
 class ModuleModelObserver
@@ -116,3 +116,7 @@ class ModuleModelObserver
         $this->logger->info('-', ['nlb' => true]);
     }
 }
+
+
+
+

@@ -24,3 +24,7 @@ $nototal = 1;
 $unit_text = 'Errors';
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

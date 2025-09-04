@@ -50,3 +50,7 @@ MOXA-GENERAL-MIB DEFINITIONS ::= BEGIN
     deviceDiagnostics       OBJECT IDENTIFIER ::= { general 8 }
 
 END
+
+
+
+

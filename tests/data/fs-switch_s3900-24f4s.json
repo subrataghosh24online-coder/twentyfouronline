@@ -12095,7 +12095,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValuesCurrent",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValuesCurrent",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12120,7 +12120,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12145,7 +12145,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12245,7 +12245,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12295,7 +12295,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 }
@@ -12410,7 +12410,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": 0.03009,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValuesCurrent",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValuesCurrent",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12435,7 +12435,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12460,7 +12460,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12560,7 +12560,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 },
@@ -12610,7 +12610,7 @@
                     "entPhysicalIndex": "28",
                     "entPhysicalIndex_measured": "ports",
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\FsSwitch::normalizeTransceiverValues",
+                    "user_func": "\\twentyfouronline\\OS\\FsSwitch::normalizeTransceiverValues",
                     "rrd_type": "GAUGE",
                     "state_name": null
                 }
@@ -14392,3 +14392,7 @@
         }
     }
 }
+
+
+
+

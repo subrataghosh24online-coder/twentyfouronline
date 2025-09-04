@@ -2,7 +2,7 @@
 
 [LINE Messaging API Docs](https://developers.line.biz/en/docs/messaging-api/overview/)
 
-Here is the step for setup a LINE bot and using it in LibreNMS.
+Here is the step for setup a LINE bot and using it in twentyfouronline.
 
 1. Use your real LINE account register in [developer protal](https://developers.line.biz/).
 
@@ -11,11 +11,11 @@ Here is the step for setup a LINE bot and using it in LibreNMS.
 1. Go to "Messaging API" tab of your channel, here listing some important value.
 
 	- `Bot basic ID` and `QR code` is your LINE bot's ID and QR code.
-	- `Channel access token (long-lived)`, will use it in LibreNMS, keep it safe.
+	- `Channel access token (long-lived)`, will use it in twentyfouronline, keep it safe.
 
 1. Use your real Line account add your LINE bot as a friend.
 
-1. Recipient ID can be `groupID`, `userID` or `roomID`, it will be used in LibreNMS to send message to a group or a user. Use the following NodeJS program and `ngrok` for temporally https webhook to listen it.
+1. Recipient ID can be `groupID`, `userID` or `roomID`, it will be used in twentyfouronline to send message to a group or a user. Use the following NodeJS program and `ngrok` for temporally https webhook to listen it.
 
 	[LINE-bot-RecipientFetcher](https://github.com/j796160836/LINE-bot-RecipientFetcher)
 
@@ -56,3 +56,7 @@ Here is the step for setup a LINE bot and using it in LibreNMS.
 | ------ | ------- |
 | Access token | fhJ9vH2fsxxxxxxxxxxxxxxxxxxxxlFU= |
 | Recipient (groupID, userID or roomID) | Ce51xxxxxxxxxxxxxxxxxxxxxxxxxx6ef |
+
+
+
+

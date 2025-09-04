@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,10 +26,10 @@
 
 namespace App\Http\Controllers\Widgets;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use LibreNMS\Util\ObjectCache;
+use twentyfouronline\Util\ObjectCache;
 
 abstract class DeviceSummaryController extends WidgetController
 {
@@ -39,9 +39,9 @@ abstract class DeviceSummaryController extends WidgetController
     {
         // init defaults we need to check config, so do it in construct
         $this->defaults = [
-            'show_services' => (int) LibrenmsConfig::get('show_services', 1),
-            'show_sensors' => (int) LibrenmsConfig::get('show_sensors', 1),
-            'summary_errors' => (int) LibrenmsConfig::get('summary_errors', 0),
+            'show_services' => (int) twentyfouronlineConfig::get('show_services', 1),
+            'show_sensors' => (int) twentyfouronlineConfig::get('show_sensors', 1),
+            'summary_errors' => (int) twentyfouronlineConfig::get('summary_errors', 0),
         ];
     }
 
@@ -71,3 +71,7 @@ abstract class DeviceSummaryController extends WidgetController
         return $data;
     }
 }
+
+
+
+

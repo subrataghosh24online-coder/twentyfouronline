@@ -596,3 +596,7 @@ prvtRapsSvcInstSubRingSwitchoverAlarm NOTIFICATION-TYPE
     ::= { prvtRapsSvcMIBNotifications 2 }
 
 END -- end of module PRVT-RAPS-SVC-MIB.
+
+
+
+

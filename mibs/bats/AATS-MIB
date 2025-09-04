@@ -1296,3 +1296,7 @@ aatsSnmpGroup OBJECT-GROUP
 	::= { aatsMIBGroups 8 }
 END
 
+
+
+
+

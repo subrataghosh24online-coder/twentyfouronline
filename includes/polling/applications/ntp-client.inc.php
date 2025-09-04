@@ -1,8 +1,8 @@
 <?php
 
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\Exceptions\JsonAppParsingFailedException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\Exceptions\JsonAppParsingFailedException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'ntp-client';
 
@@ -47,3 +47,7 @@ $tags = [
 ];
 app('Datastore')->put($device, 'app', $tags, $fields);
 update_application($app, 'OK', $fields);
+
+
+
+

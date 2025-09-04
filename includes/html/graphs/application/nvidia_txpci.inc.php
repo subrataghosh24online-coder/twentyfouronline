@@ -8,3 +8,7 @@ $smalldescrlen = 8;
 $rrdVar = 'txpci';
 
 require 'nvidia-common.inc.php';
+
+
+
+

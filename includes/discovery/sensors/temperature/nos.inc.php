@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module for Brocade NOS temperature sensor
+ * twentyfouronline module for Brocade NOS temperature sensor
  *
  * Copyright (c) 2016 Maxence POULAIN <maxence.poulain@bsonetwork.com>
  *
@@ -32,3 +32,7 @@ if ($oids = snmp_walk($device, '.1.3.6.1.4.1.1588.2.1.1.1.1.22.1.2', '-Osqn')) {
         }
     }
 }
+
+
+
+

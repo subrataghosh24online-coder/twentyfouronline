@@ -123,3 +123,7 @@ begemotHrPkgDir OBJECT-TYPE
     ::= { begemotHostresObjects 7 }
 
 END
+
+
+
+

@@ -68,3 +68,7 @@ const fetchCsrf = async () => {
     const response = await fetch('/push/token')
     self.csrf = await response.text();
 }
+
+
+
+

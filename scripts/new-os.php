@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Modules\Core;
-use LibreNMS\Util\Debug;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Modules\Core;
+use twentyfouronline\Util\Debug;
 
 $init_modules = [''];
 require __DIR__ . '/../includes/init.php';
@@ -19,7 +19,7 @@ if ($options['h'] && $options['o'] && $options['t'] && $options['v']) {
     $device = device_by_id_cache($device_id);
     $definition_file = resource_path("definitions/os_detection/{$options['o']}.yaml");
     $discovery_file = resource_path("definitions/os_discovery/{$options['o']}.yaml");
-    $test_file = LibrenmsConfig::get('install_dir') . "/tests/snmpsim/{$options['o']}.snmprec";
+    $test_file = twentyfouronlineConfig::get('install_dir') . "/tests/snmpsim/{$options['o']}.snmprec";
     if (file_exists($definition_file)) {
         c_echo("The OS {$options['o']} appears to exist already, skipping to sensors support\n");
     } else {
@@ -47,14 +47,14 @@ sysObjectID: $full_sysObjectID
 
             if (filter_var($icon, FILTER_VALIDATE_URL)) {
                 $icon_data = file_get_contents($icon);
-                file_put_contents(LibrenmsConfig::get('temp_dir') . "/{$options['o']}", $icon_data);
-                $file_info = mime_content_type(LibrenmsConfig::get('temp_dir') . "/{$options['o']}");
+                file_put_contents(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}", $icon_data);
+                $file_info = mime_content_type(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}");
                 if ($file_info === 'image/png') {
                     $ext = '.png';
                 } elseif ($file_info === 'image/svg+xml') {
                     $ext = '.svg';
                 }
-                rename(LibrenmsConfig::get('temp_dir') . "/{$options['o']}", LibrenmsConfig::get('install_dir') . "/html/images/os/$vendor$ext");
+                rename(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}", twentyfouronlineConfig::get('install_dir') . "/html/images/os/$vendor$ext");
                 $icon = $vendor;
             }
 
@@ -89,30 +89,30 @@ discovery:
 
     if (filter_var($mib_name, FILTER_VALIDATE_URL)) {
         $mib_data = file_get_contents($mib_name);
-        file_put_contents(LibrenmsConfig::get('temp_dir') . "/{$options['o']}.mib", $mib_data);
-        $file_info = mime_content_type(LibrenmsConfig::get('temp_dir') . "/{$options['o']}.mib");
+        file_put_contents(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}.mib", $mib_data);
+        $file_info = mime_content_type(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}.mib");
         if ($file_info !== 'text/plain') {
             c_echo("That mib file isn't a plain text file and is instead $file_info so we aren't using it");
             exit(1);
         }
         preg_match('/(.* DEFINITIONS ::)/', $mib_data, $matches);
         [$mib_name] = explode(' ', $matches[0], 2);
-        if (file_exists(LibrenmsConfig::get('install_dir') . "/mibs/$vendor/") == false) {
-            mkdir(LibrenmsConfig::get('install_dir') . "/mibs/$vendor/");
+        if (file_exists(twentyfouronlineConfig::get('install_dir') . "/mibs/$vendor/") == false) {
+            mkdir(twentyfouronlineConfig::get('install_dir') . "/mibs/$vendor/");
         }
-        rename(LibrenmsConfig::get('temp_dir') . "/{$options['o']}.mib", LibrenmsConfig::get('install_dir') . "/mibs/$vendor/$mib_name");
+        rename(twentyfouronlineConfig::get('temp_dir') . "/{$options['o']}.mib", twentyfouronlineConfig::get('install_dir') . "/mibs/$vendor/$mib_name");
     } elseif ($mib_name) {
         $tmp_mib = explode('/', $mib_name);
         $mib_name = array_pop($tmp_mib);
     }
 
-    $translate_cmd = LibrenmsConfig::get('snmptranslate') . ' -M ' . LibrenmsConfig::get('mib_dir') . ':' . LibrenmsConfig::get('mib_dir') . "/$vendor -m $mib_name -TB '.*Table$' -Os";
+    $translate_cmd = twentyfouronlineConfig::get('snmptranslate') . ' -M ' . twentyfouronlineConfig::get('mib_dir') . ':' . twentyfouronlineConfig::get('mib_dir') . "/$vendor -m $mib_name -TB '.*Table$' -Os";
     $tables = shell_exec($translate_cmd);
     foreach (explode(PHP_EOL, $tables) as $table_name) {
         if ($table_name) {
             $continue = get_user_input("Do you want to add $table_name? (y/N)");
             if ($continue === 'y' || $continue === 'Y') {
-                $mib2c_cmd = 'env MIBDIRS=' . LibrenmsConfig::get('mib_dir') . ':' . LibrenmsConfig::get('mib_dir') . "/$vendor/ env MIBS=\"$mib_name\" mib2c -q -c misc/mib2c.conf $table_name";
+                $mib2c_cmd = 'env MIBDIRS=' . twentyfouronlineConfig::get('mib_dir') . ':' . twentyfouronlineConfig::get('mib_dir') . "/$vendor/ env MIBS=\"$mib_name\" mib2c -q -c misc/mib2c.conf $table_name";
                 $tmp_info = shell_exec($mib2c_cmd);
                 $table_info = Symfony\Component\Yaml\Yaml::parse($tmp_info);
                 $type = get_user_input('Enter the sensor type, i.e temperature, voltage, etc:');
@@ -169,7 +169,7 @@ modules:
 Info:
     You can use to build the yaml files for a new OS.
 Usage:
-    -h Is the device ID or hostname of the device in LibreNMS detected as generic
+    -h Is the device ID or hostname of the device in twentyfouronline detected as generic
     -o This is the OS name, i.e ios, nxos, eos
     -t This is the OS type, i.e network, power, etc
     -v The vendor name in lower case, i.e cisco, arista
@@ -189,3 +189,7 @@ function get_user_input($msg)
 
     return trim($line);
 }
+
+
+
+

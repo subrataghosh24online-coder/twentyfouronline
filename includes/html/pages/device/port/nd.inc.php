@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\IPv6;
+use twentyfouronline\Util\IPv6;
 
 $no_refresh = true;
 ?>
@@ -8,7 +8,7 @@ $no_refresh = true;
     <thead>
         <tr>
             <th data-column-id="mac_address" data-formatter="tooltip">MAC address</th>
-            <th data-column-id="mac_oui" data-sortable="false" data-width="" data-visible="<?php echo \App\Facades\LibrenmsConfig::get('mac_oui.enabled') ? 'true' : 'false' ?>" data-formatter="tooltip">Vendor</th>
+            <th data-column-id="mac_oui" data-sortable="false" data-width="" data-visible="<?php echo \App\Facades\twentyfouronlineConfig::get('mac_oui.enabled') ? 'true' : 'false' ?>" data-formatter="tooltip">Vendor</th>
             <th data-column-id="ipv6_address" data-formatter="tooltip">IPv6 address</th>
             <th data-column-id="remote_device" data-sortable="false">Remote device</th>
             <th data-column-id="remote_interface" data-sortable="false">Remote interface</th>
@@ -18,7 +18,7 @@ $no_refresh = true;
     <?php
 
     foreach($port->nd as $nd) {
-        $vendor = \LibreNMS\Util\Mac::parse($nd->mac_address)->vendor();
+        $vendor = \twentyfouronline\Util\Mac::parse($nd->mac_address)->vendor();
         $ipv6 = IPv6::parse($nd->ipv6_address, true);
         $port = PortCache::getByIp($ipv6);
         $device = $port?->device;
@@ -28,3 +28,7 @@ $no_refresh = true;
     ?>
     </tbody>
 </table>
+
+
+
+

@@ -805,3 +805,7 @@ arubaWiredPoePethPseModuleTableGroup OBJECT-GROUP
                    information about each module on switch."
       ::= { arubaWiredPoeGroups 4 }
 END
+
+
+
+

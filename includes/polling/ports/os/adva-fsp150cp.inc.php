@@ -3,7 +3,7 @@
 /**
  * adva-fsp150cp.inc.php
  *
- * LibreNMS ADVA port poller include
+ * twentyfouronline ADVA port poller include
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,3 +35,7 @@ foreach ($advaports as $index => $entry) {
         }
     }
 }
+
+
+
+

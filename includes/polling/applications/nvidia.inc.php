@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'nvidia';
 $options = '-Oqv';
@@ -76,3 +76,7 @@ foreach ($gpuArray as $index => $gpu) {
 $sm_average = ($sm_total ? ($sm_total / count($gpuArray)) : 0);
 
 update_application($app, $gpus, $metrics, $sm_average);
+
+
+
+

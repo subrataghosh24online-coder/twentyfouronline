@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Rewrite;
 
 $fabosSfpRxPower = snmpwalk_array_num($device, '.1.3.6.1.4.1.1588.2.1.1.1.28.1.1.4'); // FA-EXT-MIB::swSfpRxPower
 $fabosSfpTxPower = snmpwalk_array_num($device, '.1.3.6.1.4.1.1588.2.1.1.1.28.1.1.5'); // FA-EXT-MIB::swSfpTxPower
@@ -70,3 +70,7 @@ foreach ($fabosSfpTxPower as $oid => $entry) {
         }
     }
 }
+
+
+
+

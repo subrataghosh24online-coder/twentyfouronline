@@ -5,7 +5,7 @@ bad_snmpEngineTime: true
 mib_dir: raisecom
 oids:
   unordered:
-    # Tell LibreNMS to call snmpwalk with the -Cc flag for these entries
+    # Tell twentyfouronline to call snmpwalk with the -Cc flag for these entries
     - ifEntry
     - ifXEntry
     - ifDescr
@@ -31,3 +31,7 @@ discovery:
             oid: ROSMGMT-VERSION-MIB::rosMgmtRosVersion.0
             op: '!='
             value: false
+
+
+
+

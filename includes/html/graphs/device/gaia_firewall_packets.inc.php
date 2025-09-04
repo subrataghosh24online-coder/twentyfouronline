@@ -47,3 +47,7 @@ $current_pad = str_pad('', $filler, ' ', STR_PAD_LEFT);
 $rrd_options .= " 'GPRINT:total:LAST:" . $current_pad . "Current\:%8.0lf'";
 $rrd_options .= " 'GPRINT:total:AVERAGE:Average\:%8.0lf'";
 $rrd_options .= " 'GPRINT:total:MAX:Maximum\:%8.0lf\\n'";
+
+
+
+

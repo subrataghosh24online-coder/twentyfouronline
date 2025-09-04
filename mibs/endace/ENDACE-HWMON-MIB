@@ -196,3 +196,7 @@ hwmonNotifyGroup NOTIFICATION-GROUP
     ::= { hwmonConformance 2 }
 
 END
+
+
+
+

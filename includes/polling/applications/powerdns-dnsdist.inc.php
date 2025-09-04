@@ -14,13 +14,13 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
-* @copyright  2017 LibreNMS
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
+* @copyright  2017 twentyfouronline
 * @author     Cercel Valentin <crc@nuamchefazi.ro>
 */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'powerdns-dnsdist';
 $options = '-Oqv';
@@ -102,3 +102,7 @@ if (is_string($powerdns_dnsdist)) {
     update_application($app, $powerdns_dnsdist, $fields);
 }
 unset($powerdns_dnsdist);
+
+
+
+

@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Facades\DeviceCache;
 use App\Models\Device;
 use Illuminate\View\Component;
-use LibreNMS\Util\Graph;
+use twentyfouronline\Util\Graph;
 
 class DeviceLinkMap extends Component
 {
@@ -44,3 +44,7 @@ class DeviceLinkMap extends Component
         ]);
     }
 }
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * voss.inc.php
  *
- * LibreNMS Fan and Power Supply state Discovery module for Extreme/Avaya
+ * twentyfouronline Fan and Power Supply state Discovery module for Extreme/Avaya
  * VOSS(VSP Operating System Software)
  *
  * Copyright (c) 2017 Daniel Cox <danielcoxman@gmail.com>
@@ -93,3 +93,7 @@ if (is_array($power_supply)) {
         discover_sensor(null, 'state', $device, $current_oid, "rcChasPowerSupplyOperStatus.$index", $state_name, $descr, 1, 1, null, null, 4, 4, $state);
     }
 }
+
+
+
+

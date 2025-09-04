@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display Cisco Class-Based QoS Details
+ * twentyfouronline module to display Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -16,3 +16,7 @@ $cbqos_parameter_name = 'bufferdrops';
 $cbqos_operator = '*';
 $cbqos_operator_param = '1';
 include 'includes/html/graphs/port/qos_cisco_cbqos_generic.inc.php';
+
+
+
+

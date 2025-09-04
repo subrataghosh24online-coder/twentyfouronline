@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -64,3 +64,7 @@ if ($graph_params->visible('previous')) {
     $rrd_options .= ' GPRINT:pingX:AVERAGE:%6.2lf';
     $rrd_options .= " GPRINT:pingX:MAX:%6.2lf  'GPRINT:pingX:AVERAGE:%6.2lf\\n'";
 }
+
+
+
+

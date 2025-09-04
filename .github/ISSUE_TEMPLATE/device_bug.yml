@@ -6,8 +6,8 @@ body:
       value: |
         This issue form is for reporting device ***_BUGS_*** only!
 
-        * [Add Device request here](https://community.librenms.org/c/device-requests/12)
-        * [I have a question or need support](https://www.librenms.org/#support)
+        * [Add Device request here](https://community.twentyfouronline.org/c/device-requests/12)
+        * [I have a question or need support](https://www.twentyfouronline.org/#support)
 
   - type: textarea
     validations:
@@ -30,12 +30,12 @@ body:
     attributes:
       label: Output of ./validate.php
       description: |
-        Please post the output of running: /opt/librenms/validate.php
+        Please post the output of running: /opt/twentyfouronline/validate.php
       render: txt
 
   - type: input
     attributes:
-      label: What was the last working version of LibreNMS?
+      label: What was the last working version of twentyfouronline?
       placeholder: 21.7.0
       description: >
         If known, otherwise leave blank.

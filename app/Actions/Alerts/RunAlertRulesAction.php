@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       http://librenms.org
+ * @link       http://twentyfouronline.org
  *
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,7 +27,7 @@
 namespace App\Actions\Alerts;
 
 use App\Models\Device;
-use LibreNMS\Alert\AlertRules;
+use twentyfouronline\Alert\AlertRules;
 
 class RunAlertRulesAction
 {
@@ -54,3 +54,7 @@ class RunAlertRulesAction
         $this->rules->runRules($this->device->device_id);
     }
 }
+
+
+
+

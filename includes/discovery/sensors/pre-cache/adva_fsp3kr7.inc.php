@@ -1,14 +1,14 @@
 <?php
 
 /**
- * LibreNMS - ADVA device support - Pre-Cache for Sensors
+ * twentyfouronline - ADVA device support - Pre-Cache for Sensors
  *
  * @category   Network_Monitoring
  *
  * @author     Christoph Zilian <czilian@hotmail.com>
  * @license    https://gnu.org/copyleft/gpl.html GNU GPL
  *
- * @link       https://github.com/librenms/librenms/
+ * @link       https://github.com/twentyfouronline/twentyfouronline/
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -38,3 +38,7 @@ $pre_cache['adva_fsp3kr7_Card'] = snmpwalk_cache_multi_oid($device, 'eqptPhysIns
 $pre_cache['adva_fsp3kr7_Card'] = snmpwalk_cache_multi_oid($device, 'optMuxPhysInstValueTable', $pre_cache['adva_fsp3kr7_Card'], 'ADVA-FSPR7-PM-MIB', null, '-OQUbs');
 $pre_cache['adva_fsp3kr7_Card'] = snmpwalk_cache_multi_oid($device, 'entityMtosiSlotsAidString', $pre_cache['adva_fsp3kr7_Card'], 'ADVA-FSPR7-PM-MIB', null, '-OQUbs');
 $pre_cache['adva_fsp3kr7_Card'] = snmpwalk_cache_multi_oid($device, 'eqptPhysThresholdEntry', $pre_cache['adva_fsp3kr7_Card'], 'ADVA-FSPR7-PM-MIB', null, '-OQUbs');
+
+
+
+

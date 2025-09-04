@@ -518,3 +518,7 @@ ruckusZDAPLBSVenue5GMode OBJECT-TYPE
     ::= { ruckusZDAPLBSVenueEntry 6 }    
     
 END
+
+
+
+

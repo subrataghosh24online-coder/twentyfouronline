@@ -122,3 +122,7 @@ nsUACGlobalStatus OBJECT-TYPE
         "To indicate whether there is at least one heathy IC-IE connection"
     ::= { netscreenUAC 3 }
 END
+
+
+
+

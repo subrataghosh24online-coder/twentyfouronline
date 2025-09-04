@@ -17,3 +17,7 @@ if (is_array($oids)) {
         discover_sensor(null, 'temperature', $device, $oid, $index, 'zyxel-ies', $descr, '1', '1', null, $entry['accessSwitchSysTempHighThresh'], null, null, $current);
     }
 }
+
+
+
+

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class PortVdsl extends PortRelatedModel implements Keyable
 {
@@ -27,3 +27,7 @@ class PortVdsl extends PortRelatedModel implements Keyable
         return $this->port_id;
     }
 }
+
+
+
+

@@ -72,3 +72,7 @@ modules:
                         - { descr: offline, graph: 0, value: 1, generic: 2 }
                         - { descr: online, graph: 0, value: 2, generic: 0 }
                         - { descr: power-on, graph: 0, value: 3, generic: 0 }
+
+
+
+

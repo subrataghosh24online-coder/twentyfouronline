@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Cisco wireless controller temperature monitoring module
+ * twentyfouronline Cisco wireless controller temperature monitoring module
  *
  * Copyright (c) 2016 Tuomas Riihimäki <tuomari@iudex.fi>
  * This program is free software: you can redistribute it and/or modify it
@@ -25,3 +25,7 @@ if (is_array($temp)) {
         discover_sensor(null, 'temperature', $device, $cur_oid . $index, $index, 'wlc', $descr, '1', '1', null, $low[$index]['bsnTemperatureAlarmLowLimit'], $high[$index]['bsnTemperatureAlarmHighLimit'], null, $temp[$index]['bsnSensorTemperature'], 'snmp', $index);
     }
 }
+
+
+
+

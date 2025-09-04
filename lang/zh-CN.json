@@ -22,12 +22,12 @@
     "See the <a href=\":url\">list of contributors</a> on GitHub.": "至 GitHub 观看<a href=\":url\">贡献者名单</a>。",
     "Docs": "文件",
     "Close": "关闭",
-    "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS 是个以 PHP/MySQL 为基底的自动探索网络监控系统",
+    "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline 是个以 PHP/MySQL 为基底的自动探索网络监控系统",
     "Packages": "软件包",
     "Version": "版本",
     "Database Schema": "数据库纲要",
     "Web Server": "Web 服务器",
-    "LibreNMS is a community-based project": "LibreNMS 是建基于社群开发的项目",
+    "twentyfouronline is a community-based project": "twentyfouronline 是建基于社群开发的项目",
     "Please feel free to join us and contribute code, documentation, and bug reports:": "您随时都可以加入社群贡献您的程序代码、文件以及问题回报：",
     "Web site": "官方网站",
     "Bug tracker": "问题追踪",
@@ -36,7 +36,7 @@
     "Local git log": "本机 Git 记录",
     "Contributors": "贡献者",
     "Acknowledgements": "特别感谢",
-    "Opt in to send anonymous usage statistics to LibreNMS?": "您要选择以匿名方式提供使用统计数据给 LibreNMS 吗？",
+    "Opt in to send anonymous usage statistics to twentyfouronline?": "您要选择以匿名方式提供使用统计数据给 twentyfouronline 吗？",
     "Online stats:": "在线统计资料",
     "Clear remote stats": "清除远程统计资料",
     "IPv4 Addresses": "IPv4 地址",
@@ -200,7 +200,7 @@
     "The user could not be deleted": "这个用户无法删除",
     "Whoops, the web server could not write required files to the filesystem.": "噢，Web Server 无法写入档案到档案系统。",
     "Running the following commands will fix the issue most of the time:": "Running the following commands will fix the issue most of the time:",
-    "Whoops, looks like something went wrong. Check your librenms.log.": "噢，看起来发生了一些错误。请您查阅 librenms.log。",
+    "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "噢，看起来发生了一些错误。请您查阅 twentyfouronline.log。",
     "Public Devices": "公开设备",
     "System Status": "系统装态",
     "Logon": "登入",
@@ -385,3 +385,7 @@
     "Performance": "性能",
     "History": "历史"
 }
+
+
+
+

@@ -13,3 +13,7 @@ if (isset($vars['sinstance'])) {
 }
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * infinera-groove.inc.php
  *
- * LibreNMS ports poller module for Infinera Groove
+ * twentyfouronline ports poller module for Infinera Groove
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Nick Hilliard
  * @author     Nick Hilliard <nick@foobar.org>
  */
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 echo 'Port types:';
 
@@ -70,7 +70,7 @@ foreach (['eth100g', 'eth40g', 'eth10g', 'fc16g', 'fc8g'] as $infineratype) {
             $descr .= '.' . $indexids[4];
         }
 
-        // librenms expects the index to be bigint(20) => we grab 3 decimal
+        // twentyfouronline expects the index to be bigint(20) => we grab 3 decimal
         // spaces per indexid to make a numeric ifindex.  This is hacky.
         $lindex = '';
         for ($i = 0; $i <= 4; $i++) {
@@ -93,3 +93,7 @@ foreach (['eth100g', 'eth40g', 'eth10g', 'fc16g', 'fc8g'] as $infineratype) {
         }
     }
 }
+
+
+
+

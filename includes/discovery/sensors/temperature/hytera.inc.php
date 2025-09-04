@@ -21,3 +21,7 @@ foreach (explode("\n", $oids) as $data) {
         discover_sensor(null, 'temperature', $device, $oid, $index, $type, $descr, $divisor, '1', 0, 0, 70, 75, $temperature);
     }
 }
+
+
+
+

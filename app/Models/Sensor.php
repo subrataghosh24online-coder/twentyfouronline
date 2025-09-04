@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Traits\HasThresholds;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use LibreNMS\Interfaces\Models\Keyable;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Time;
+use twentyfouronline\Interfaces\Models\Keyable;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Time;
 
 class Sensor extends DeviceRelatedModel implements Keyable
 {
@@ -102,7 +102,7 @@ class Sensor extends DeviceRelatedModel implements Keyable
 
         if (in_array($this->rrd_type, ['COUNTER', 'DERIVE', 'DCOUNTER', 'DDERIVE'])) {
             //compute and display an approx rate for this sensor
-            $value = Number::formatSi(max(0, $value - $this->sensor_prev) / LibrenmsConfig::get('rrd.step', 300), 2, 3, '');
+            $value = Number::formatSi(max(0, $value - $this->sensor_prev) / twentyfouronlineConfig::get('rrd.step', 300), 2, 3, '');
         }
 
         /** @var ?User $user */
@@ -201,3 +201,7 @@ class Sensor extends DeviceRelatedModel implements Keyable
         return implode(', ', $data);
     }
 }
+
+
+
+

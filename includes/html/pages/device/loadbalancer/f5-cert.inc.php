@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to Display data from F5 BigIP LTM Devices
+ * twentyfouronline module to Display data from F5 BigIP LTM Devices
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -11,7 +11,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['filter' => ['disabled' => ['=', 0]]]);
 
 // We only care about our device id.
@@ -80,4 +80,8 @@ $components = $keep;
         },
     })
 </script>
+
+
+
+
 

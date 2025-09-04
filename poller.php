@@ -31,7 +31,7 @@ $options = getopt('h:rfpdvm:q');
 
 c_echo('%RWarning: poller.php is deprecated!%n Use %9lnms device:poll%n instead.' . PHP_EOL . PHP_EOL);
 
-$scheduler = \App\Facades\LibrenmsConfig::get('schedule_type.poller');
+$scheduler = \App\Facades\twentyfouronlineConfig::get('schedule_type.poller');
 if ($scheduler != 'legacy' && $scheduler != 'cron') {
     exit(0); // message above is sufficient
 }
@@ -74,3 +74,7 @@ if (isset($options['r']) || isset($options['f']) || isset($options['p'])) {
 $return = Artisan::call('device:poll', $arguments);
 
 exit($return);
+
+
+
+

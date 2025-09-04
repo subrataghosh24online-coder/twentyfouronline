@@ -2,8 +2,8 @@
 
 // This is a workaround to avoid duplicate SI metrics like kkWh.
 
-use LibreNMS\Data\Store\Rrd;
-use LibreNMS\Util\Number;
+use twentyfouronline\Data\Store\Rrd;
+use twentyfouronline\Util\Number;
 
 $sensor['sensor_descr_fixed'] = Rrd::fixedSafeDescr($sensor->sensor_descr, 25);
 
@@ -41,3 +41,7 @@ if ($to > time()) {
     $rrd_options .= ' CDEF:ilsl=sensor_max,POP,islope,COUNT,*,icons,+ ';
     $rrd_options .= " LINE2:ilsl#44aa55:'Linear Prediction\\n':dashes=8";
 }
+
+
+
+

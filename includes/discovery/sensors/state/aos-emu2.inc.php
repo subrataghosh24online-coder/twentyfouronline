@@ -3,7 +3,7 @@
 /**
  * aos-emu2.inc.php
  *
- * LibreNMS sensors state discovery module for APC EMU2
+ * twentyfouronline sensors state discovery module for APC EMU2
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Ben Gibbons
  * @author     Ben Gibbons <axemann@gmail.com>
@@ -168,3 +168,7 @@ foreach ($oids as $id => $outlet) {
         'group' => null,
     ]));
 }
+
+
+
+

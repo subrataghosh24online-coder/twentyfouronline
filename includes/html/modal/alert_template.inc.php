@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -22,7 +22,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="Create">Alert Template :: <a target="_blank" href="https://docs.librenms.org/Alerting/Templates/"><i class="fa fa-book fa-1x"></i> Docs</a></h4>
+                <h4 class="modal-title" id="Create">Alert Template :: <a target="_blank" href="https://docs.twentyfouronline.org/Alerting/Templates/"><i class="fa fa-book fa-1x"></i> Docs</a></h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -114,7 +114,7 @@ $('#alert-template').on('show.bs.modal', function (event) {
             }).val(selected_rules).trigger("change");
             //FIXME remove Deprecated template
             if(output['template'].indexOf("{/if}")>=0){
-                toastr.info('The old template syntax is no longer supported. Please see https://docs.librenms.org/Alerting/Old_Templates/');
+                toastr.info('The old template syntax is no longer supported. Please see https://docs.twentyfouronline.org/Alerting/Old_Templates/');
                 $('#convert-template').show();
             }
         }
@@ -216,3 +216,7 @@ function alertTemplateAjaxOps(template, name, template_id, title, title_rec, rul
     });
 }
 </script>
+
+
+
+

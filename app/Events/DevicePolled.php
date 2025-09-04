@@ -25,3 +25,7 @@ class DevicePolled
         $this->device = $device;
     }
 }
+
+
+
+

@@ -78,3 +78,7 @@ modules:
                         - { value: 2, descr: out Sync, graph: 1, generic: 2 }
                         - { value: 3, descr: in Sync, graph: 1, generic: 0 }
 
+
+
+
+

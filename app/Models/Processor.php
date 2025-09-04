@@ -33,3 +33,7 @@ class Processor extends DeviceRelatedModel
         return $descr;
     }
 }
+
+
+
+

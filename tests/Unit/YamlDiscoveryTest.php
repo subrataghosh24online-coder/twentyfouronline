@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
-use LibreNMS\Discovery\Yaml\OidField;
-use LibreNMS\Discovery\Yaml\YamlDiscoveryField;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Discovery\Yaml\OidField;
+use twentyfouronline\Discovery\Yaml\YamlDiscoveryField;
+use twentyfouronline\Tests\TestCase;
 
 class YamlDiscoveryTest extends TestCase
 {
@@ -78,3 +78,7 @@ class YamlDiscoveryTest extends TestCase
         $this->assertSame(null, $field->value);
     }
 }
+
+
+
+

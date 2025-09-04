@@ -5,3 +5,7 @@ $table = 'sensors';
 $ajax_prefix = 'sensor';
 
 include 'sensors-common.php';
+
+
+
+

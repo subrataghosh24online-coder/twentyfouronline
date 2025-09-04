@@ -7,13 +7,13 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 /*
  * Check if port has one of the counters ('cieIfInRuntsErrs') from CISCO-IF-EXTENSION MIB
@@ -51,3 +51,7 @@ if (isset($this_port['cieIfInRuntsErrs'])) {
     $tags = ['ifName' => $ifName, 'rrd_name' => $rrd_name, 'rrd_def' => $rrd_def];
     app('Datastore')->put($device, 'drops', $tags, $rrd_data);
 }
+
+
+
+

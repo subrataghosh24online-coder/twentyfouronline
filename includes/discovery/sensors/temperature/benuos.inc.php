@@ -18,3 +18,7 @@ for ($index = 1; $index <= 3; $index++) { //Benu Temp Sensors are index 1 thru 3
     discover_sensor(null, 'temperature', $device, $sensor_oid, $sensor_index, 'benuos', $descr, '1', '1', null, null, null, null, $current);
     $sensor_index++;
 }//end loop
+
+
+
+

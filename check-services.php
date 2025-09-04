@@ -2,7 +2,7 @@
 <?php
 
 /*
- * LibreNMS module to poll Nagios Services
+ * twentyfouronline module to poll Nagios Services
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -13,10 +13,10 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Data\Store\Datastore;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Debug;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Data\Store\Datastore;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Debug;
 
 $init_modules = [];
 require __DIR__ . '/includes/init.php';
@@ -49,7 +49,7 @@ if (isset($options['h'])) {
         }
     }
 } else {
-    $scheduler = LibrenmsConfig::get('schedule_type.services');
+    $scheduler = twentyfouronlineConfig::get('schedule_type.services');
     if ($scheduler != 'legacy' && $scheduler != 'cron') {
         if (Debug::isEnabled()) {
             echo "Services are not enabled for cron scheduling\n";
@@ -94,8 +94,12 @@ $poller_end = microtime(true);
 $poller_run = ($poller_end - $poller_start);
 $poller_time = substr($poller_run, 0, 5);
 
-$string = $argv[0] . ' ' . date(\App\Facades\LibrenmsConfig::get('dateformat.compact'))
+$string = $argv[0] . ' ' . date(\App\Facades\twentyfouronlineConfig::get('dateformat.compact'))
     . " - $polled_services services polled in $poller_time secs";
 d_echo("$string\n");
 
 app('Datastore')->terminate();
+
+
+
+

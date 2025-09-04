@@ -50,3 +50,7 @@ for ($i = 1; $i <= $numPhase; $i++) {
 
     discover_sensor(null, 'voltage', $device, $volt_oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current);
 }
+
+
+
+

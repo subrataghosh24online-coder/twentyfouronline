@@ -19,13 +19,13 @@
 /*
  * TinyDNS Statistics
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2015 f0o, LibreNMS
+ * @copyright 2015 f0o, twentyfouronline
  * @license GPL
- * @package LibreNMS
+ * @package twentyfouronline
  * @subpackage Polling
  */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'tinydns';
 
@@ -90,3 +90,7 @@ if (! empty($agent_data['app'][$name]) && $app->app_id > 0) {
     app('Datastore')->put($device, 'app', $tags, $fields);
     update_application($app, $name, $fields);
 }//end if
+
+
+
+

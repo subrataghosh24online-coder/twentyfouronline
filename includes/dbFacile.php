@@ -23,8 +23,8 @@
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Event;
-use LibreNMS\DB\Eloquent;
-use LibreNMS\Util\Laravel;
+use twentyfouronline\DB\Eloquent;
+use twentyfouronline\Util\Laravel;
 
 /**
  * Performs a query using the given string.
@@ -460,3 +460,7 @@ function dbSyncRelationship($table, $target_column = null, $target = null, $list
 
     return [$inserted, $deleted];
 }
+
+
+
+

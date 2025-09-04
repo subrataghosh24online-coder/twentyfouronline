@@ -395,3 +395,7 @@ lgpEventRcpLoadRemoved NOTIFICATION-TYPE
         receptacle power OFF."
     ::= { lgpEventNotifications 24 }
 END
+
+
+
+

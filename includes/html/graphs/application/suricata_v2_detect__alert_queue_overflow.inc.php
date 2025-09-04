@@ -26,3 +26,7 @@ if (Rrd::checkRrdExists($detect__alert_queue_overflow_rrd_filename)) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

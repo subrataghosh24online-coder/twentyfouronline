@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
     <div class="container-fluid">
@@ -15,10 +15,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h5>Powered by <a href="{{ \App\Facades\LibrenmsConfig::get('project_home') }}" target="_blank" rel="noopener" class="red">{{ \App\Facades\LibrenmsConfig::get('project_name') }}</a>.</h5>
+                    <h5>Powered by <a href="{{ \App\Facades\twentyfouronlineConfig::get('project_home') }}" target="_blank" rel="noopener" class="red">{{ \App\Facades\twentyfouronlineConfig::get('project_name') }}</a>.</h5>
                 </div>
             </div>
         </div>
     </nav>
     @endconfig
 @endsection
+
+
+
+

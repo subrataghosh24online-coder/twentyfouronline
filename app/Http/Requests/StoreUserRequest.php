@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use LibreNMS\Authentication\LegacyAuth;
+use twentyfouronline\Authentication\LegacyAuth;
 use Spatie\Permission\Models\Role;
 
 class StoreUserRequest extends FormRequest
@@ -48,8 +48,12 @@ class StoreUserRequest extends FormRequest
             'descr' => 'nullable|max:30|alpha_space',
             'roles' => 'array',
             'roles.*' => 'exists:roles,name',
-            'new_password' => 'required|confirmed|min:' . LibrenmsConfig::get('password.min_length', 8),
+            'new_password' => 'required|confirmed|min:' . twentyfouronlineConfig::get('password.min_length', 8),
             'dashboard' => 'int',
         ];
     }
 }
+
+
+
+

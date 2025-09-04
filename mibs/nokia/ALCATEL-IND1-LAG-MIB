@@ -2078,3 +2078,7 @@ lnkaggPortReserve NOTIFICATION-TYPE
 		goes to reserved state."
 	::= { lnkaggTraps 0 6 }
 	END
+
+
+
+

@@ -26,3 +26,7 @@ if (preg_match('/(Linux).+(ntc)/', $device['sysDescr'])) {
         discover_sensor(null, 'current', $device, $oid . $current, $current, $sensor_type, $descr, '1', '1', $lowlimit, $lowwarnlimit, $warnlimit, $limit, $value);
     }
 }
+
+
+
+

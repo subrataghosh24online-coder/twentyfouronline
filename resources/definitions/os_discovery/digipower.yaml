@@ -38,3 +38,7 @@ modules:
           index: 0
           descr: 'Power'
           multiplier: 'DigiPower-PDU-MIB::pdu01Voltage'
+
+
+
+

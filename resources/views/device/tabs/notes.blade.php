@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
 <x-device.page :device="$device">
@@ -14,3 +14,7 @@
     </x-panel>
 </x-device.page>
 @endsection
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS discovery module for Eltex-MES24xx SFP Lost of signal
+ * twentyfouronline discovery module for Eltex-MES24xx SFP Lost of signal
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Peca Nesovanovic
  * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
  */
 
-use LibreNMS\Util\Oid;
+use twentyfouronline\Util\Oid;
 
 echo 'eltexPhyTransceiverDiagnosticTable' . PHP_EOL;
 $snmpData = SnmpQuery::cache()->hideMib()->walk('ELTEX-PHY-MIB::eltexPhyTransceiverDiagnosticTable')->table(3);
@@ -78,3 +78,7 @@ if (isset($eltexPhyTransceiverDiagnosticTable['lossOfSignal'])) {
         ]));
     }
 }
+
+
+
+

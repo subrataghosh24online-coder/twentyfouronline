@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Console;
 use Illuminate\Console\Command;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Output\OutputInterface;
 use Validator;
@@ -201,3 +201,7 @@ abstract class LnmsCommand extends Command
         };
     }
 }
+
+
+
+

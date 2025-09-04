@@ -25,3 +25,7 @@ discovery:
           oid: PRIMEKEY-APPLIANCE-MIB::pkAVersion
           op: "contains"
           value: "PrimeKey"
+
+
+
+

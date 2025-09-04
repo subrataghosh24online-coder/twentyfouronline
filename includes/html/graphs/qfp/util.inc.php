@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 $scale_min = '0';
@@ -26,3 +26,7 @@ $unit_text = 'Utilization';
 $line_text = $components['name'];
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

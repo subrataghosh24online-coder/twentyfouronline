@@ -19,9 +19,9 @@
 /*
  * Bind9 Query Graph
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2015 f0o, LibreNMS
+ * @copyright 2015 f0o, twentyfouronline
  * @license GPL
- * @package LibreNMS
+ * @package twentyfouronline
  * @subpackage Graphs
  */
 
@@ -56,7 +56,7 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         ];
     }
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 $rrd_filename = Rrd::name($device['hostname'], ['app', 'bind', $app->app_id, 'incoming']);
@@ -103,3 +103,7 @@ foreach ($array as $ds) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

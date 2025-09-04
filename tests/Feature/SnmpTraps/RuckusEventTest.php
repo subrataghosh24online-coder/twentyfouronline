@@ -20,13 +20,13 @@
  *
  * Tests generic Ruckus Wireless event trap handlers.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Heath Barnhart
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 class RuckusEventTest extends SnmpTrapTestCase
 {
@@ -72,3 +72,7 @@ TRAP,
         );
     }
 }
+
+
+
+

@@ -18,15 +18,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
 namespace App\Http\Controllers\Ajax;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -41,7 +41,7 @@ abstract class SearchController
         }
 
         $query = $this->buildQuery($search, $request)
-            ->limit((int) LibrenmsConfig::get('webui.global_search_result_limit'));
+            ->limit((int) twentyfouronlineConfig::get('webui.global_search_result_limit'));
 
         return response()->json($query->get()->map([$this, 'formatItem']));
     }
@@ -54,3 +54,7 @@ abstract class SearchController
      */
     abstract public function formatItem($item): array;
 }
+
+
+
+

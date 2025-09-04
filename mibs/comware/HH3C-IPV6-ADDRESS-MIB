@@ -311,3 +311,7 @@ HH3C-IPV6-ADDRESS-MIB DEFINITIONS ::= BEGIN
             'global': global scope. "
         ::= { hh3cIpv6AddrReadEntry 6 }
 END
+
+
+
+

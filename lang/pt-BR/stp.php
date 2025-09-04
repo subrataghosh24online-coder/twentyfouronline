@@ -21,3 +21,7 @@ return [
     'bridge_hello_time' => 'Tempo de hello da bridge (s)',
     'bridge_forward_delay' => 'Atraso de encaminhamento da bridge (s)',
 ];
+
+
+
+

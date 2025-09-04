@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Rewrite;
 use Permissions;
 
 class Port extends DeviceRelatedModel
@@ -71,27 +71,27 @@ class Port extends DeviceRelatedModel
     {
         $os = $this->device?->os;
 
-        if (\App\Facades\LibrenmsConfig::getOsSetting($os, 'ifname')) {
+        if (\App\Facades\twentyfouronlineConfig::getOsSetting($os, 'ifname')) {
             $label = $this->ifName;
-        } elseif (\App\Facades\LibrenmsConfig::getOsSetting($os, 'ifalias')) {
+        } elseif (\App\Facades\twentyfouronlineConfig::getOsSetting($os, 'ifalias')) {
             $label = $this->ifAlias;
         }
 
         if (empty($label)) {
             $label = $this->ifDescr;
 
-            if (\App\Facades\LibrenmsConfig::getOsSetting($os, 'ifindex')) {
+            if (\App\Facades\twentyfouronlineConfig::getOsSetting($os, 'ifindex')) {
                 $label .= " $this->ifIndex";
             }
         }
 
-        foreach ((array) \App\Facades\LibrenmsConfig::get('rewrite_if', []) as $src => $val) {
+        foreach ((array) \App\Facades\twentyfouronlineConfig::get('rewrite_if', []) as $src => $val) {
             if (Str::contains(strtolower($label), strtolower($src))) {
                 $label = $val;
             }
         }
 
-        foreach ((array) \App\Facades\LibrenmsConfig::get('rewrite_if_regexp', []) as $reg => $val) {
+        foreach ((array) \App\Facades\twentyfouronlineConfig::get('rewrite_if_regexp', []) as $reg => $val) {
             $label = preg_replace($reg . 'i', $val, $label);
         }
 
@@ -570,3 +570,7 @@ class Port extends DeviceRelatedModel
         return $this->hasOne(Vrf::class, 'vrf_id', 'ifVrf');
     }
 }
+
+
+
+

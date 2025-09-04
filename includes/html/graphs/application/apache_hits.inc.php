@@ -18,3 +18,7 @@ $graph_max = 1;
 $unit_text = 'Hits/sec';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

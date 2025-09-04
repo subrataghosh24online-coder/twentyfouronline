@@ -51,3 +51,7 @@ $current_pad = str_pad('', $filler, ' ', STR_PAD_LEFT);
 $rrd_options .= " 'GPRINT:cdeftotal:LAST:" . $current_pad . "Current\:%8.0lf'";
 $rrd_options .= " 'GPRINT:cdeftotal:AVERAGE:Average\:%8.0lf'";
 $rrd_options .= " 'GPRINT:cdeftotal:MAX:Maximum\:%8.0lf\\n'";
+
+
+
+

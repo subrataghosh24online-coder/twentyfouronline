@@ -30,3 +30,7 @@ return new class extends Migration
         Schema::drop('service_templates_device');
     }
 };
+
+
+
+

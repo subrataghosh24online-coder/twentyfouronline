@@ -1,7 +1,7 @@
 <?php
 
 /**
- * LibreNMS PeeringDB Integration
+ * twentyfouronline PeeringDB Integration
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -59,7 +59,7 @@ foreach (dbFetchRows($sql, $params) as $ix) {
     $ix_id = $ix['ix_id'];
     $response[] = [
         'exchange' => $ix['name'],
-        'action' => "<a class='btn btn-sm btn-primary' href='" . \LibreNMS\Util\Url::generate(['page' => 'peering', 'section' => 'ix-peers', 'asn' => $asn, 'ixid' => $ix['ix_id']]) . "' role='button'>Show Peers</a>",
+        'action' => "<a class='btn btn-sm btn-primary' href='" . \twentyfouronline\Util\Url::generate(['page' => 'peering', 'section' => 'ix-peers', 'asn' => $asn, 'ixid' => $ix['ix_id']]) . "' role='button'>Show Peers</a>",
         'links' => "<a href='https://peeringdb.com/ix/$ix_id' target='_blank'><i class='fa fa-database'></i></a>",
     ];
 }
@@ -71,3 +71,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

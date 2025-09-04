@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,11 +27,11 @@
 namespace App\Http\Controllers\Device\Tabs;
 
 use App\Facades\DeviceCache;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class ShowConfigController extends Controller implements DeviceTab
 {
@@ -72,11 +72,11 @@ class ShowConfigController extends Controller implements DeviceTab
 
     private function oxidizedEnabled(Device $device)
     {
-        return LibrenmsConfig::get('oxidized.enabled') === true
-                && LibrenmsConfig::has('oxidized.url')
+        return twentyfouronlineConfig::get('oxidized.enabled') === true
+                && twentyfouronlineConfig::has('oxidized.url')
                 && $device->getAttrib('override_Oxidized_disable') !== 'true'
-                && ! in_array($device->type, LibrenmsConfig::get('oxidized.ignore_types', []))
-                && ! in_array($device->os, LibrenmsConfig::get('oxidized.ignore_os', []));
+                && ! in_array($device->type, twentyfouronlineConfig::get('oxidized.ignore_types', []))
+                && ! in_array($device->os, twentyfouronlineConfig::get('oxidized.ignore_os', []));
     }
 
     private function getRancidPath()
@@ -99,13 +99,13 @@ class ShowConfigController extends Controller implements DeviceTab
 
     private function findRancidConfigFile()
     {
-        if (LibrenmsConfig::has('rancid_configs') && ! is_array(LibrenmsConfig::get('rancid_configs'))) {
-            LibrenmsConfig::set('rancid_configs', (array) LibrenmsConfig::get('rancid_configs', []));
+        if (twentyfouronlineConfig::has('rancid_configs') && ! is_array(twentyfouronlineConfig::get('rancid_configs'))) {
+            twentyfouronlineConfig::set('rancid_configs', (array) twentyfouronlineConfig::get('rancid_configs', []));
         }
 
-        if (LibrenmsConfig::has('rancid_configs.0')) {
+        if (twentyfouronlineConfig::has('rancid_configs.0')) {
             $device = DeviceCache::getPrimary();
-            foreach (LibrenmsConfig::get('rancid_configs') as $configs) {
+            foreach (twentyfouronlineConfig::get('rancid_configs') as $configs) {
                 if ($configs[strlen($configs) - 1] != '/') {
                     $configs .= '/';
                 }
@@ -119,11 +119,11 @@ class ShowConfigController extends Controller implements DeviceTab
 
                     return $configs . strtok($device['hostname'], '.');
                 } else {
-                    if (! empty(LibrenmsConfig::get('mydomain'))) { // Try with domain name if set
-                        if (is_file($configs . $device['hostname'] . '.' . LibrenmsConfig::get('mydomain'))) {
+                    if (! empty(twentyfouronlineConfig::get('mydomain'))) { // Try with domain name if set
+                        if (is_file($configs . $device['hostname'] . '.' . twentyfouronlineConfig::get('mydomain'))) {
                             $this->rancidPath = $configs;
 
-                            return $configs . $device['hostname'] . '.' . LibrenmsConfig::get('mydomain');
+                            return $configs . $device['hostname'] . '.' . twentyfouronlineConfig::get('mydomain');
                         }
                     }
                 }
@@ -133,3 +133,7 @@ class ShowConfigController extends Controller implements DeviceTab
         return false;
     }
 }
+
+
+
+

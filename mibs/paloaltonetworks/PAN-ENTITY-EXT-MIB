@@ -291,3 +291,7 @@ PAN-ENTITY-EXT-MIB DEFINITIONS ::= BEGIN
     ::= { panEntityMIBGroups 4 }
 
 END
+
+
+
+

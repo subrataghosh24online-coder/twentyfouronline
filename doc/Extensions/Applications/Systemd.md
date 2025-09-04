@@ -7,7 +7,7 @@ The systemd application polls systemd and scrapes systemd units' load, activatio
 1. Copy the python script, systemd.py, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/systemd.py -O /etc/snmp/systemd.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/systemd.py -O /etc/snmp/systemd.py
     ```
 
 2. Make the script executable
@@ -62,3 +62,7 @@ semodule -i snmpd_systemctl.pp
     ```bash
     sudo systemctl restart snmpd
     ```
+
+
+
+

@@ -202,3 +202,7 @@ PAN-LC-MIB DEFINITIONS ::= BEGIN
             "True value indicates this Log Collector is part of a Collector Group with Redundancy is enabled"
         ::= { panM-100 2 }
 END
+
+
+
+

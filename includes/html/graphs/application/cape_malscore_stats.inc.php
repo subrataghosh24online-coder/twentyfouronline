@@ -20,3 +20,7 @@ $descr = 'Mean';
 $ds = 's3malscore';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

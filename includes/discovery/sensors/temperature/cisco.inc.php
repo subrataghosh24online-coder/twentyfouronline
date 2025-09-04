@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -33,3 +33,7 @@ if (is_array($temp)) {
         discover_sensor(null, 'temperature', $device, $cur_oid . $index, $index, 'cisco', $descr, '1', '1', null, null, null, $temp[$index]['ciscoEnvMonTemperatureThreshold'] ?? null, $temp[$index]['c3gModemTemperature'], 'snmp', $index);
     }
 }
+
+
+
+

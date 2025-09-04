@@ -728,3 +728,7 @@ modules:
                         - { descr: 'Not Supply', graph: 1, value: 2, generic: 2 }
                         - { descr: 'Sleep', graph: 1, value: 3, generic: 1 }
                         - { descr: 'Unknown', graph: 1, value: 4, generic: 3 }
+
+
+
+

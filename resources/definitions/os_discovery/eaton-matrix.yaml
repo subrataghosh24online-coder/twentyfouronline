@@ -159,3 +159,7 @@ modules:
                         - { value: 1, generic: 0, graph: 0, descr: "Inverter" }
                         - { value: 2, generic: 0, graph: 0, descr: "Mains" }
                         - { value: 3, generic: 2, graph: 0, descr: "No Output" }
+
+
+
+

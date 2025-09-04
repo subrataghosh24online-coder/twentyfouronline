@@ -285,3 +285,7 @@ poeFanControlTable OBJECT-TYPE
         "the temperture of the switch"
        ::= { poeFanControlEntry 8 } 
 END
+
+
+
+

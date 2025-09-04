@@ -3,7 +3,7 @@
 [SmokePing](https://oss.oetiker.ch/smokeping/) is a tool which lets us keep
 track of network latency, and visualise this through RRD graphs.
 
-LibreNMS has support for both new and pre-existing SmokePing installations.
+twentyfouronline has support for both new and pre-existing SmokePing installations.
 
 For new installations, we can use the `lnms` cli to generate a Smokeping
 configuration file.
@@ -11,7 +11,7 @@ configuration file.
 ## Pre-Existing Smokeping Installation
 
 If you have an existing smokeping server, follow the instructions, you only need
-to look at [Configure LibreNMS - All Operating Systems](#configure-librenms-all-operating-systems).
+to look at [Configure twentyfouronline - All Operating Systems](#configure-twentyfouronline-all-operating-systems).
 
 ## New Installation
 
@@ -20,7 +20,7 @@ smokeping setup, you'll need to adapt these steps somewhat.
 
 ### Install and integrate Smokeping Backend - RHEL, CentOS and alike
 
-Smokeping is available via EPEL, which if you're running LibreNMS, you probably
+Smokeping is available via EPEL, which if you're running twentyfouronline, you probably
 already have. If you want to do something like run Smokeping on a seperate host
 and ship data via RRCached though, here's the install command:
 
@@ -30,12 +30,12 @@ sudo yum install smokeping
 ```
 
 Once installed, you should need a cron script installed to make sure that the
-configuration file is updated. You can find an example in `misc/librenms-smokeping-rhel.example`.
+configuration file is updated. You can find an example in `misc/twentyfouronline-smokeping-rhel.example`.
 Put this into /etc/cron.d/hourly, and mark it executable:
 
 ```
-sudo cp /opt/librenms/misc/smokeping-rhel.example /etc/cron.hourly/librenms-smokeping
-sudo chmod +x /etc/cron.hourly/librenms-smokeping
+sudo cp /opt/twentyfouronline/misc/smokeping-rhel.example /etc/cron.hourly/twentyfouronline-smokeping
+sudo chmod +x /etc/cron.hourly/twentyfouronline-smokeping
 ```
 
 Finally, update the default configuration. Strip *everything* from the
@@ -44,7 +44,7 @@ Finally, update the default configuration. Strip *everything* from the
 ```
 *** Probes ***
 
-@include /etc/smokeping/librenms-probes.conf
+@include /etc/smokeping/twentyfouronline-probes.conf
 ```
 
 ```
@@ -57,14 +57,14 @@ title = Network Latency Grapher
 remark = Welcome to the SmokePing website of <b>Insert Company Name Here</b>. \
          Here you will learn all about the latency of our network.
 
-@include /etc/smokeping/librenms-targets.conf
+@include /etc/smokeping/twentyfouronline-targets.conf
 ```
 
 Note there may be other stanza's (possibly `*** Slaves ***`) between the
 `*** Probes ***` and `*** Targets ***` stanza's - leave these intact.
 
 Leave everything else untouched. If you need to add other configuration, make
-sure it comes *after* the LibreNMS configuration, and keep in mind that
+sure it comes *after* the twentyfouronline configuration, and keep in mind that
 Smokeping does not allow duplicate modules, and cares about the configuration
 file sequence.
 
@@ -72,7 +72,7 @@ Once you're happy, manually kick off the cron once, then enable and start
 smokeping:
 
 ```bash
-sudo /etc/cron.hourly/librenms-smokeping
+sudo /etc/cron.hourly/twentyfouronline-smokeping
 sudo systemctl enable --now smokeping
 ```
 
@@ -85,12 +85,12 @@ sudo apt-get install smokeping
 ```
 
 Once installed, you should need a cron script installed to make sure that the
-configuration file is updated. You can find an example in `misc/librenms-smokeping-debian.example`.
+configuration file is updated. You can find an example in `misc/twentyfouronline-smokeping-debian.example`.
 Put this into /etc/cron.d/hourly, and mark it executable:
 
 ```
-sudo cp /opt/librenms/misc/smokeping-debian.example /etc/cron.hourly/librenms-smokeping
-sudo chmod +x /etc/cron.hourly/librenms-smokeping
+sudo cp /opt/twentyfouronline/misc/smokeping-debian.example /etc/cron.hourly/twentyfouronline-smokeping
+sudo chmod +x /etc/cron.hourly/twentyfouronline-smokeping
 ```
 
 Finally, update the default configuration. Strip *everything* from
@@ -99,7 +99,7 @@ Finally, update the default configuration. Strip *everything* from
 ```
 *** Probes ***
 
-@include /etc/smokeping/config.d/librenms-probes.conf
+@include /etc/smokeping/config.d/twentyfouronline-probes.conf
 ```
 
 Strip *everything* from `/etc/smokeping/config.d/Targets` and replace with:
@@ -114,15 +114,15 @@ title = Network Latency Grapher
 remark = Welcome to the SmokePing website of <b>Insert Company Name Here</b>. \
          Here you will learn all about the latency of our network.
 
-@include /etc/smokeping/config.d/librenms-targets.conf
+@include /etc/smokeping/config.d/twentyfouronline-targets.conf
 ```
 
 Leave everything else untouched. If you need to add other configuration, make
-sure it comes *after* the LibreNMS configuration, and keep in mind that
+sure it comes *after* the twentyfouronline configuration, and keep in mind that
 Smokeping does not allow duplicate modules, and cares about the configuration
 file sequence.
 
-## Configure LibreNMS - All Operating Systems
+## Configure twentyfouronline - All Operating Systems
 
 !!! setting "external/smokeping"
     ```bash
@@ -144,7 +144,7 @@ These settings can also be set in the Web UI.
 This section covers the required configuration for your web server of
 choice. This covers the required configuration for either Apache or Nginx.
 
-LibreNMS does not need the Web UI - you can find the graphs in LibreNMS on the
+twentyfouronline does not need the Web UI - you can find the graphs in twentyfouronline on the
 *latency* tab.
 
 ### Apache Configuration - Ubuntu, Debian and alike
@@ -154,16 +154,16 @@ Edit the `General` configuration file's **Owner** and **contact**, and
 
 ```bash
 nano /etc/smokeping/config.d/General
-owner    = LibreNMS-Admin
+owner    = twentyfouronline-Admin
 contact  = admin@ACME.xxx
-cgiurl   = http://yourlibrenms/cgi-bin/smokeping.cgi
+cgiurl   = http://yourtwentyfouronline/cgi-bin/smokeping.cgi
 ```
 
 Smokeping should automatically install an Apache configuration file in
 `/etc/apache2/conf-available/`. Verify this using :
 
 ```bash
-librenms@librenms:~/scripts$ ls /etc/apache2/conf-available/ | grep smokeping
+twentyfouronline@twentyfouronline:~/scripts$ ls /etc/apache2/conf-available/ | grep smokeping
 smokeping.conf
 ```
 
@@ -179,8 +179,8 @@ After creating the symlink, restart Apache with `sudo systemctl apache2 restart`
 You should be able to load the Smokeping web interface at `http://yourhost/cgi-bin/smokeping.cgi`
 
 ### Nginx Configuration - RHEL, CentOS and alike
-This section assumes you have configured LibreNMS with Nginx as
-specified in [Configure Nginx](../Installation/Install-LibreNMS.md#__tabbed_5_1).
+This section assumes you have configured twentyfouronline with Nginx as
+specified in [Configure Nginx](../Installation/Install-twentyfouronline.md#__tabbed_5_1).
 
 Note, you need to install fcgiwrap for CGI wrapper interact with Nginx
 ```
@@ -225,8 +225,8 @@ Requires=fcgiwrap.socket
 [Service]
 EnvironmentFile=/etc/sysconfig/fcgiwrap
 ExecStart=/usr/sbin/fcgiwrap ${DAEMON_OPTS} -c ${DAEMON_PROCS}
-User=librenms
-Group=librenms
+User=twentyfouronline
+Group=twentyfouronline
 
 [Install]
 Also=fcgiwrap.socket
@@ -248,9 +248,9 @@ Enable fcgiwrap
 systemctl enable --now fcgiwrap
 ```
 
-Add the following configuration to your `/etc/nginx/conf.d/librenms.conf` file within `server` section.
+Add the following configuration to your `/etc/nginx/conf.d/twentyfouronline.conf` file within `server` section.
 
-The following will configure Nginx to respond to `http://yourlibrenms/smokeping`:
+The following will configure Nginx to respond to `http://yourtwentyfouronline/smokeping`:
 ```
 location = /smokeping/ {
         fastcgi_intercept_errors on;
@@ -291,20 +291,20 @@ location ^~ /smokeping/js {
         gzip off;
 }
 location ^~ /smokeping/images {
-        alias /opt/librenms/rrd/smokeping/images;
+        alias /opt/twentyfouronline/rrd/smokeping/images;
         gzip off;
 }
 ```
 After saving the configuration file, verify your Nginx configuration file syntax
 is OK with `sudo nginx -t`, then restart Nginx with `sudo systemctl restart nginx`
 
-You should be able to load the Smokeping web interface at `http://yourlibrenms/smokeping`
+You should be able to load the Smokeping web interface at `http://yourtwentyfouronline/smokeping`
 
 
 ### Nginx Configuration - Ubuntu, Debian and alike
 
-This section assumes you have configured LibreNMS with Nginx as
-specified in [Configure Nginx](../Installation/Install-LibreNMS.md#configure-web-server).
+This section assumes you have configured twentyfouronline with Nginx as
+specified in [Configure Nginx](../Installation/Install-twentyfouronline.md#configure-web-server).
 
 Note, you need to install fcgiwrap for CGI wrapper interact with Nginx
 
@@ -317,12 +317,12 @@ Then configure Nginx with the default configuration
 cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
 ```
 
-Add the following configuration to your `/etc/nginx/conf.d/librenms.conf` file within `server` section.
+Add the following configuration to your `/etc/nginx/conf.d/twentyfouronline.conf` file within `server` section.
 
-The following will configure Nginx to respond to `http://yourlibrenms/smokeping`:
+The following will configure Nginx to respond to `http://yourtwentyfouronline/smokeping`:
 
 ```
-# Browsing to `http://yourlibrenms/smokeping/` should bring up the smokeping web interface
+# Browsing to `http://yourtwentyfouronline/smokeping/` should bring up the smokeping web interface
 
 location = /smokeping/ {
         fastcgi_intercept_errors on;
@@ -358,7 +358,7 @@ location ^~ /smokeping/ {
 After saving the configuration file, verify your Nginx configuration file syntax
 is OK with `sudo nginx -t`, then restart Nginx with `sudo systemctl restart nginx`
 
-You should be able to load the Smokeping web interface at `http://yourlibrenms/smokeping`
+You should be able to load the Smokeping web interface at `http://yourtwentyfouronline/smokeping`
 
 #### Nginx Password Authentication
 
@@ -398,7 +398,7 @@ Then you just need to add to your config `auth_basic` parameters
 
 ### RRDs::update ERROR: opening ... Permission denied
 There is a problem writing to the RRD directory. This is somewhat out of scope
-of LibreNMS, but make sure that file permissions and SELinux labels allow the
+of twentyfouronline, but make sure that file permissions and SELinux labels allow the
 smokeping user to write to the directory.
 
 If you're using RRDCacheD, make sure that the permissions are correct there too,
@@ -407,20 +407,20 @@ directory; update the smokeping rrd directory if required.
 
 It's not recommended to run RRDCachedD without the -B switch.
 
-#### Share RRDCached with LibreNMS
+#### Share RRDCached with twentyfouronline
 
-Move the RRD's and give smokeping access rights to the LibreNMS RRD directory:
+Move the RRD's and give smokeping access rights to the twentyfouronline RRD directory:
 ```bash
 sudo systemctl stop smokeping
-sudo mv /var/lib/smokeping /opt/librenms/rrd/
-sudo usermod -a -G librenms smokeping
+sudo mv /var/lib/smokeping /opt/twentyfouronline/rrd/
+sudo usermod -a -G twentyfouronline smokeping
 ```
 
 Update data directory in */etc/smokeping*:
 
 ```
-datadir = /opt/librenms/rrd/smokeping
-dyndir = /opt/librenms/rrd/smokeping/__cgi
+datadir = /opt/twentyfouronline/rrd/smokeping
+dyndir = /opt/twentyfouronline/rrd/smokeping/__cgi
 ```
 
 If you have SELinux on, see next section before starting smokeping.
@@ -432,12 +432,12 @@ sudo systemctl start smokeping
 
 Remember to update your config with the new locations.
 
-#### Configure SELinux to allow smokeping to write in LibreNMS directory on Centos / RHEL
-If you are using RRDCached with the -B switch and smokeping RRD's inside the LibreNMS RRD base directory, you can install this SELinux profile:
+#### Configure SELinux to allow smokeping to write in twentyfouronline directory on Centos / RHEL
+If you are using RRDCached with the -B switch and smokeping RRD's inside the twentyfouronline RRD base directory, you can install this SELinux profile:
 
 ```
-cat > smokeping_librenms.te << EOF
-module smokeping_librenms 1.0;
+cat > smokeping_twentyfouronline.te << EOF
+module smokeping_twentyfouronline 1.0;
  
 require {
 type httpd_t;
@@ -459,9 +459,9 @@ allow httpd_t var_run_t:file { read write };
 allow smokeping_t httpd_sys_rw_content_t:dir { add_name create getattr remove_name search write };
 allow smokeping_t httpd_sys_rw_content_t:file { create getattr ioctl lock open read rename setattr unlink write };
 EOF
-checkmodule -M -m -o smokeping_librenms.mod smokeping_librenms.te
-semodule_package -o smokeping_librenms.pp -m smokeping_librenms.mod
-semodule -i smokeping_librenms.pp
+checkmodule -M -m -o smokeping_twentyfouronline.mod smokeping_twentyfouronline.te
+semodule_package -o smokeping_twentyfouronline.pp -m smokeping_twentyfouronline.mod
+semodule -i smokeping_twentyfouronline.pp
 ```
 
 ### Probe FPing missing missing from the probes section
@@ -473,13 +473,13 @@ configuration.
 
 Most likely, content wasn't fully removed from the `*** Probes ***`
 `*** Targets***` stanza's as instructed.
-If you're trying to integrate LibreNMS, smokeping *and* another source of
+If you're trying to integrate twentyfouronline, smokeping *and* another source of
 configuration, you're probably trying to redefine a module (e.g. '+ FPing' more
 than once) or stanza. Otherwise, look again at the instructions.
 
 ### Mandatory variable 'probe' not defined
 The target block must have a default probe. If you follow the instructions you
-will have one. If you're trying to integrate LibreNMS, smokeping *and* another
+will have one. If you're trying to integrate twentyfouronline, smokeping *and* another
 source of configuration, you need to make sure there are no duplicate or missing
 definitions.
 
@@ -492,3 +492,7 @@ comment out the sendmail entry in the configuration:
 -sendmail = /usr/sbin/sendmail
 +#sendmail = /usr/sbin/sendmail
 ```
+
+
+
+

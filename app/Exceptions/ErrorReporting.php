@@ -1,69 +1,60 @@
 <?php
 
-/**
- * ErrorReporting.php
- *
- * -Description-
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * @link       https://www.librenms.org
- *
- * @copyright  2025 Tony Murray
- * @author     Tony Murray <murraytony@gmail.com>
- */
-
 namespace App\Exceptions;
 
-use App\Facades\LibrenmsConfig;
+use Illuminate\Support\Facades\App;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Foundation\Application;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
-use LibreNMS\Util\Git;
 use Spatie\LaravelIgnition\Facades\Flare;
 use Throwable;
+use twentyfouronline\Util\Git;
 
 class ErrorReporting
 {
     private const MAX_PROD_ERRORS = 4;
     private int $errorCount = 0;
     private ?bool $reportingEnabled = null;
+
     protected array $upgradable = [
-        \LibreNMS\Exceptions\FilePermissionsException::class,
-        \LibreNMS\Exceptions\DatabaseConnectException::class,
-        \LibreNMS\Exceptions\DuskUnsafeException::class,
-        \LibreNMS\Exceptions\UnserializableRouteCache::class,
-        \LibreNMS\Exceptions\MaximumExecutionTimeExceeded::class,
-        \LibreNMS\Exceptions\DatabaseInconsistentException::class,
+        \twentyfouronline\Exceptions\FilePermissionsException::class,
+        \twentyfouronline\Exceptions\DatabaseConnectException::class,
+        \twentyfouronline\Exceptions\DuskUnsafeException::class,
+        \twentyfouronline\Exceptions\UnserializableRouteCache::class,
+        \twentyfouronline\Exceptions\MaximumExecutionTimeExceeded::class,
+        \twentyfouronline\Exceptions\DatabaseInconsistentException::class,
     ];
 
-    public function __construct(Exceptions $exceptions)
-    {
-        $this->adjustErrorHandlingForAppEnv(app()->environment());
+    public function __construct(ExceptionHandler $exceptions, Application $app)
+{
+   app()->booted(function () {
+    $this->adjustErrorHandlingForAppEnv(app()->environment());
+});
 
-        $exceptions->dontReportDuplicates();
-        $exceptions->throttle(fn (Throwable $e) => Limit::perMinute(LibrenmsConfig::get('reporting.throttle', 30)));
-        $exceptions->reportable([$this, 'reportable']);
-        $exceptions->report([$this, 'report']);
-        $exceptions->render([$this, 'render']);
 
-        Flare::determineVersionUsing(function () {
-            return \LibreNMS\Util\Version::VERSION;
-        });
+
+    if (!method_exists($exceptions, 'dontReportDuplicates')) {
+        \Log::warning('Custom exception handler does not support dontReportDuplicates()');
+        return;
     }
+
+    $exceptions->dontReportDuplicates();
+    //$exceptions->throttle(fn (Throwable $e) => Limit::perMinute(twentyfouronlineConfig::get('reporting.throttle', 30)));
+    $exceptions->reportable([$this, 'reportable']);
+     $exceptions->reportable([$this, 'report']);
+
+    $exceptions->render([$this, 'render']);
+
+    Flare::determineVersionUsing(function () {
+        return \twentyfouronline\Util\Version::VERSION;
+    });
+}
+
+
 
     public function reportable(Throwable $e): bool
     {
@@ -83,10 +74,9 @@ class ErrorReporting
 
     public function render(Throwable $exception, Request $request): ?Response
     {
-        // try to upgrade generic exceptions to more specific ones
         if (! config('app.debug')) {
             if ($exception instanceof \Illuminate\View\ViewException || $exception instanceof \Spatie\LaravelIgnition\Exceptions\ViewException) {
-                $base = $exception->getPrevious(); // get real exception
+                $base = $exception->getPrevious();
             }
 
             foreach ($this->upgradable as $class) {
@@ -96,58 +86,48 @@ class ErrorReporting
             }
         }
 
-        return null; // use default rendering
+        return null;
     }
 
-    /**
-     * Checks the state of the config and current install to determine if reporting should be enabled
-     * The primary factor is the setting reporting.error
-     */
     public function isReportingEnabled(): bool
     {
         if ($this->reportingEnabled !== null) {
             return $this->reportingEnabled;
         }
 
-        // safety check so we don't leak early reports (but reporting should not be loaded before the config is)
-        if (! app()->bound('librenms-config')) {
+        if (! app()->bound('twentyfouronline-config')) {
             return false;
         }
 
-        $this->reportingEnabled = false; // don't cache before config is loaded
+        $this->reportingEnabled = false;
 
-        // check the user setting
-        if (LibrenmsConfig::get('reporting.error') !== true) {
+        if (twentyfouronlineConfig::get('reporting.error') !== true) {
             \Log::debug('Reporting disabled by user setting');
-
             return false;
         }
 
-        // Only run in production
         if (! app()->isProduction()) {
             \Log::debug('Reporting disabled because app is not in production mode');
-
             return false;
         }
 
-        // Check git
         $git = Git::make(180);
         if ($git->isAvailable()) {
-            if (! Str::contains($git->remoteUrl(), ['git@github.com:librenms/librenms.git', 'https://github.com/librenms/librenms.git'])) {
-                \Log::debug('Reporting disabled because LibreNMS is not from the official repository');
-
+            if (! Str::contains($git->remoteUrl(), [
+                'git@github.com:twentyfouronline/twentyfouronline.git',
+                'https://github.com/twentyfouronline/twentyfouronline.git'
+            ])) {
+                \Log::debug('Reporting disabled because twentyfouronline is not from the official repository');
                 return false;
             }
 
             if ($git->hasChanges()) {
-                \Log::debug('Reporting disabled because LibreNMS is not from the official repository');
-
+                \Log::debug('Reporting disabled because twentyfouronline is not from the official repository');
                 return false;
             }
 
             if (! $git->isOfficialCommits()) {
                 \Log::debug('Reporting disabled due to local modifications');
-
                 return false;
             }
         }
@@ -159,8 +139,7 @@ class ErrorReporting
 
     private function adjustErrorHandlingForAppEnv(string $environment): void
     {
-        // throw exceptions and deprecations in testing and non-prod when APP_DEBUG is set.
-        if ($environment == 'testing' || ($environment !== 'production' && config('app.debug'))) {
+        if ($environment === 'testing' || ($environment !== 'production' && config('app.debug'))) {
             app()->booted(function () {
                 config([
                     'logging.deprecations.channel' => 'deprecations_channel',
@@ -168,44 +147,36 @@ class ErrorReporting
                 ]);
             });
 
-            return; // do not override error handler below
+            return;
         }
 
-        // in production, don't halt execution on non-fatal errors
         set_error_handler(function ($severity, $message, $file, $line) {
-            // If file is from a package, find the first non-vendor frame
             if (self::isUndesirableTracePath($file)) {
-                // add vendor file to message
                 $message .= ' from ' . strstr($file, 'vendor') . ':' . $line;
                 [$file, $line] = self::findFirstNonVendorFrame();
             }
 
-            if ((error_reporting() & $severity) !== 0) { // this check primarily allows @ to suppress errors
+            if ((error_reporting() & $severity) !== 0) {
                 if ($this->errorCount++ < self::MAX_PROD_ERRORS) {
-                    // limit reported errors so php-fpm headers don't get too large
                     $max_errors = $this->errorCount == self::MAX_PROD_ERRORS ? ' (max reported errors reached)' : '';
-
                     error_log("\e[31mPHP Error($severity)\e[0m: $message in $file:$line$max_errors");
                 }
             }
 
-            // For notices and warnings, prevent conversion to exceptions
             if (($severity & (E_NOTICE | E_WARNING | E_USER_NOTICE | E_USER_WARNING | E_DEPRECATED)) !== 0) {
-                return true; // Prevent the standard error handler from running
+                return true;
             }
 
-            return false; // For other errors, let Laravel handle them
+            return false;
         });
     }
 
     private static function findFirstNonVendorFrame(): array
     {
         foreach (debug_backtrace() as $trace) {
-            // not vendor frames
             if (isset($trace['file']) && self::isUndesirableTracePath($trace['file'])) {
                 continue;
             }
-            // not this class
             if (isset($trace['class']) && $trace['class'] === self::class) {
                 continue;
             }

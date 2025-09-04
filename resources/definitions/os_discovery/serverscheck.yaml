@@ -4,3 +4,7 @@ modules:
         hardware_regex: '/Sensor Gateway: (?<hardware>.*)/'
         version: ServersCheck::product.productversion.0
         version_regex: '/Release (?<version>.*)/'
+
+
+
+

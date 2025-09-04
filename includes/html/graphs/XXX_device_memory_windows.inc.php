@@ -62,3 +62,7 @@ $rrd_options .= ' GPRINT:usedswap:AVERAGE:%7.2lf%sB';
 $rrd_options .= ' GPRINT:usedswap:MAX:%7.2lf%sB\\\\n';
 $rrd_options .= ' LINE1:totalreal#050505:total';
 $rrd_options .= ' GPRINT:totalreal:AVERAGE:\ \ %7.2lf%sB';
+
+
+
+

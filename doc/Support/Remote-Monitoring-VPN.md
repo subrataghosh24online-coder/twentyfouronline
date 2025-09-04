@@ -3,7 +3,7 @@
 This article describes how to use tinc to connect several remote sites
 and their subnets to your central monitoring server. This will let you
 connect to devices on remote private IP ranges through one gateway on
-each site, routing them securely back to your LibreNMS installation.
+each site, routing them securely back to your twentyfouronline installation.
 
 ## Configuring the monitoring server
 
@@ -154,7 +154,7 @@ These steps can basically be repeated for every remote site just
  the host configurations including the public keys to each device that
  will actively connect back.
 
-Now you can add all devices you want to monitor in LibreNMS using
+Now you can add all devices you want to monitor in twentyfouronline using
 their internal IP address on the remote subnets or using some form of
 name resolution. I opted to declare the most important devices in my
 `/etc/hosts` file on the monitoring server.
@@ -162,3 +162,7 @@ name resolution. I opted to declare the most important devices in my
 As an added bonus tinc is a mesh VPN, so in theory you could specify
 several "ConnectTo" on each device and they should hold connections
 even if one network path goes down.
+
+
+
+

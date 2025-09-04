@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,10 +28,10 @@
  * @param  array  $modules  Which modules to initialize
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Authentication\LegacyAuth;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Laravel;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Authentication\LegacyAuth;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Laravel;
 
 global $vars, $console_color;
 
@@ -85,21 +85,21 @@ if (module_selected('web', $init_modules)) {
 Debug::set($debug ?? false); // override laravel configured settings (hides legacy errors too)
 
 if (! module_selected('nodb', $init_modules)) {
-    if (! \LibreNMS\DB\Eloquent::isConnected()) {
-        echo "Could not connect to database, check logs/librenms.log.\n";
+    if (! \twentyfouronline\DB\Eloquent::isConnected()) {
+        echo "Could not connect to database, check logs/twentyfouronline.log.\n";
 
         if (! extension_loaded('mysqlnd') || ! extension_loaded('pdo_mysql')) {
             echo "\nYour PHP is missing required mysql extension(s), please install and enable.\n";
-            echo "Check the install docs for more info: https://docs.librenms.org/Installation/\n";
+            echo "Check the install docs for more info: https://docs.twentyfouronline.org/Installation/\n";
         }
 
         exit(1);
     }
 }
-\LibreNMS\DB\Eloquent::setStrictMode(false); // disable strict mode for legacy code...
+\twentyfouronline\DB\Eloquent::setStrictMode(false); // disable strict mode for legacy code...
 
-if (is_numeric(LibrenmsConfig::get('php_memory_limit')) && LibrenmsConfig::get('php_memory_limit') > 128) {
-    ini_set('memory_limit', LibrenmsConfig::get('php_memory_limit') . 'M');
+if (is_numeric(twentyfouronlineConfig::get('php_memory_limit')) && twentyfouronlineConfig::get('php_memory_limit') > 128) {
+    ini_set('memory_limit', twentyfouronlineConfig::get('php_memory_limit') . 'M');
 }
 
 try {
@@ -115,3 +115,7 @@ if (module_selected('web', $init_modules)) {
 }
 
 $console_color = new Console_Color2();
+
+
+
+

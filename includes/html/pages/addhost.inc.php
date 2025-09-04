@@ -1,10 +1,10 @@
 <?php
 
 use App\Actions\Device\ValidateDeviceAndCreate;
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Enum\PortAssociationMode;
-use LibreNMS\Exceptions\HostUnreachableException;
-use LibreNMS\Util\IP;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Enum\PortAssociationMode;
+use twentyfouronline\Exceptions\HostUnreachableException;
+use twentyfouronline\Util\IP;
 
 $no_refresh = true;
 
@@ -24,7 +24,7 @@ $snmp_enabled = ! isset($_POST['hostname']) || isset($_POST['snmp']);
 
 if (! empty($_POST['hostname'])) {
     $hostname = strip_tags($_POST['hostname']);
-    if (! \LibreNMS\Util\Validate::hostname($hostname) && ! IP::isValid($hostname)) {
+    if (! \twentyfouronline\Util\Validate::hostname($hostname) && ! IP::isValid($hostname)) {
         print_error("Invalid hostname or IP: $hostname");
     } else {
         $new_device = new \App\Models\Device(['hostname' => $hostname]);
@@ -47,7 +47,7 @@ if (! empty($_POST['hostname'])) {
                 $new_device->sysName = strip_tags($_POST['sysName']);
             } elseif ($_POST['snmpver'] === 'v2c' || $_POST['snmpver'] === 'v1') {
                 $new_device->snmpver = strip_tags($_POST['snmpver']);
-                $communities = LibrenmsConfig::get('snmp.community');
+                $communities = twentyfouronlineConfig::get('snmp.community');
                 if ($_POST['community']) {
                     $new_device->community = $_POST['community'];
                     $communities = [$_POST['community']];
@@ -75,7 +75,7 @@ if (! empty($_POST['hostname'])) {
                 $result = (new ValidateDeviceAndCreate($new_device, $force_add))->execute();
 
                 if ($result) {
-                    $link = \LibreNMS\Util\Url::deviceUrl($new_device->device_id);
+                    $link = \twentyfouronline\Util\Url::deviceUrl($new_device->device_id);
                     print_message("Device added <a href='$link'>$hostname ($new_device->device_id)</a>");
                 }
             } catch (HostUnreachableException $e) {
@@ -148,7 +148,7 @@ $pagetitle[] = 'Add host';
           <div class="col-sm-3">
             <select name="snmpver" id="snmpver" class="form-control input-sm" onChange="changeForm();">
                 <?php
-                $snmpver_pref = LibrenmsConfig::get('snmp.version.0', 'v2c');
+                $snmpver_pref = twentyfouronlineConfig::get('snmp.version.0', 'v2c');
                 $snmpver_list = ['v1', 'v2c', 'v3'];
                 foreach ($snmpver_list as $snmpver_item) {
                     echo "<option value=\"" . $snmpver_item ."\"" . ($snmpver_item == $snmpver_pref ? ' selected' : '') . ">" . $snmpver_item. "</option>";
@@ -162,9 +162,9 @@ $pagetitle[] = 'Add host';
           <div class="col-sm-3">
             <select name="transport" id="transport" class="form-control input-sm">
 <?php
-var_dump(LibrenmsConfig::get('snmp.transports', ['udp']));
-foreach (LibrenmsConfig::get('snmp.transports', 'udp') as $transport) {
-    echo '<option value="' . $transport . '"'. (LibrenmsConfig::get('snmp.transports.0') == $transport ? ' selected' : '') . '>' . $transport . '</option>';
+var_dump(twentyfouronlineConfig::get('snmp.transports', ['udp']));
+foreach (twentyfouronlineConfig::get('snmp.transports', 'udp') as $transport) {
+    echo '<option value="' . $transport . '"'. (twentyfouronlineConfig::get('snmp.transports.0') == $transport ? ' selected' : '') . '>' . $transport . '</option>';
 }
 ?>
             </select>
@@ -177,7 +177,7 @@ foreach (LibrenmsConfig::get('snmp.transports', 'udp') as $transport) {
 <?php
 
 foreach (PortAssociationMode::getModes() as $mode) {
-    $selected = $mode == LibrenmsConfig::get('default_port_association_mode') ? ' selected' : '';
+    $selected = $mode == twentyfouronlineConfig::get('default_port_association_mode') ? ' selected' : '';
     echo "              <option value=\"$mode\"$selected>$mode</option>\n";
 }
 
@@ -210,7 +210,7 @@ foreach (PortAssociationMode::getModes() as $mode) {
               <select name="authlevel" id="authlevel" class="form-control input-sm">
                   <?php
                   $authlevel_list = [ "noAuthNoPriv", "authNoPriv", "authPriv" ];
-                  $authlevel_pref = LibrenmsConfig::get('snmp.v3.0.authlevel', 'noAuthNoPriv');
+                  $authlevel_pref = twentyfouronlineConfig::get('snmp.v3.0.authlevel', 'noAuthNoPriv');
                   foreach ($authlevel_list as $authlevel_item) {
                       echo "<option value=\"" . $authlevel_item. '"' . ($authlevel_item == $authlevel_pref ? ' selected' : '') . ">" . $authlevel_item. "</option>";
                   }
@@ -235,14 +235,14 @@ foreach (PortAssociationMode::getModes() as $mode) {
             <div class="col-sm-9">
               <select name="authalgo" id="authalgo" class="form-control input-sm">
                   <?php
-                  $algo_pref = LibrenmsConfig::get('snmp.v3.0.authalgo');
-                  foreach (\LibreNMS\SNMPCapabilities::authAlgorithms() as $algo => $enabled) {
+                  $algo_pref = twentyfouronlineConfig::get('snmp.v3.0.authalgo');
+                  foreach (\twentyfouronline\SNMPCapabilities::authAlgorithms() as $algo => $enabled) {
                       echo "<option value=\"$algo\"" . ($enabled ? '' : ' disabled') . ($algo == $algo_pref ? ' selected' : '') . ">$algo</option>";
                   }
                   ?>
               </select>
-              <?php if (! \LibreNMS\SNMPCapabilities::supportsSHA2()) {?>
-              <label class="text-left"><small>Some options are disabled. <a href="https://docs.librenms.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>
+              <?php if (! \twentyfouronline\SNMPCapabilities::supportsSHA2()) {?>
+              <label class="text-left"><small>Some options are disabled. <a href="https://docs.twentyfouronline.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>
               <?php } ?>
             </div>
           </div>
@@ -257,21 +257,21 @@ foreach (PortAssociationMode::getModes() as $mode) {
             <div class="col-sm-9">
               <select name="cryptoalgo" id="cryptoalgo" class="form-control input-sm">
                   <?php
-                  $algo_pref = LibrenmsConfig::get('snmp.v3.0.cryptoalgo');
-                  foreach (\LibreNMS\SNMPCapabilities::cryptoAlgoritms() as $algo => $enabled) {
+                  $algo_pref = twentyfouronlineConfig::get('snmp.v3.0.cryptoalgo');
+                  foreach (\twentyfouronline\SNMPCapabilities::cryptoAlgoritms() as $algo => $enabled) {
                       echo "<option value=\"$algo\"" . ($enabled ? '' : ' disabled') . ($algo == $algo_pref ? ' selected' : '') . ">$algo</option>";
                   }
                   ?>
               </select>
-              <?php if (! \LibreNMS\SNMPCapabilities::supportsAES256()) {?>
-              <label class="text-left"><small>Some options are disabled. <a href="https://docs.librenms.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>
+              <?php if (! \twentyfouronline\SNMPCapabilities::supportsAES256()) {?>
+              <label class="text-left"><small>Some options are disabled. <a href="https://docs.twentyfouronline.org/Support/FAQ/#optional-requirements-for-snmpv3-sha2-auth">Read more here</a></small></label>
               <?php } ?>
             </div>
           </div>
         </div>
       </div>
 <?php
-if (LibrenmsConfig::get('distributed_poller') === true) {
+if (twentyfouronlineConfig::get('distributed_poller') === true) {
                       echo '
           <div class="form-group">
               <label for="poller_group" class="col-sm-3 control-label">Poller Group</label>
@@ -380,3 +380,7 @@ if (! $snmp_enabled) {
 }
 ?>
 </script>
+
+
+
+

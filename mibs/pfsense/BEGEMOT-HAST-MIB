@@ -360,3 +360,7 @@ hastResourceIdleQueue OBJECT-TYPE
     ::= { hastResourceEntry 27 }
 
 END
+
+
+
+

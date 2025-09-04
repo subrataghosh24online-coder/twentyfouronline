@@ -269,3 +269,7 @@ ubiSysRscMIBNotificationObjects OBJECT IDENTIFIER 	::= { ubiSystemMIBNotificatio
                  none(0), high(1), low(2)"
         ::= { ubiSysRscMIBNotificationObjects 2 } 
  END
+
+
+
+

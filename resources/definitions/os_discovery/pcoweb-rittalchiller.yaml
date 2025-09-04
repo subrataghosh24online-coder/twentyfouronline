@@ -128,3 +128,7 @@ modules:
                     num_oid: '.1.3.6.1.4.1.9839.2.1.2.78.{{ $index }}'
                     descr: Condensation Pressure 2
                     index: 'pressione2.{{ $index }}'
+
+
+
+

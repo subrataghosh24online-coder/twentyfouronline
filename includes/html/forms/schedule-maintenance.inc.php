@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -12,11 +12,11 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\AlertSchedule;
 use App\Models\UserPref;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\MaintenanceBehavior;
+use twentyfouronline\Enum\MaintenanceBehavior;
 
 if (! Auth::user()->hasGlobalAdmin()) {
     header('Content-type: text/plain');
@@ -48,7 +48,7 @@ if ($sub_type == 'new-maintenance') {
     $end = $_POST['end'] ?? null;
     $behavior = isset($_POST['behavior'])
         ? $_POST['behavior']
-        : LibrenmsConfig::get('alert.scheduled_maintenance_default_behavior');
+        : twentyfouronlineConfig::get('alert.scheduled_maintenance_default_behavior');
     $maps = $_POST['maps'] ?? null;
 
     if (isset($duration_hour) && isset($duration_min)) {
@@ -241,3 +241,7 @@ if ($sub_type == 'new-maintenance') {
 }//end if
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

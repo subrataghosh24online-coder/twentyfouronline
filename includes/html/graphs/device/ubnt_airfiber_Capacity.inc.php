@@ -20,3 +20,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:txCapacityC:MIN:%0.2lf%s ';
     $rrd_options .= ' GPRINT:txCapacityC:MAX:%0.2lf%s\\\l ';
 }
+
+
+
+

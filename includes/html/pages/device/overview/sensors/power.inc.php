@@ -6,3 +6,7 @@ $sensor_unit = 'W';
 $sensor_type = 'Power';
 
 require 'includes/html/pages/device/overview/generic/sensor.inc.php';
+
+
+
+

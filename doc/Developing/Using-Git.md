@@ -1,24 +1,24 @@
 Git can have a bit of a steep learning curve, stick with it as it is
 worth learning the [basics][1][2] at least.
 
-If you want to help develop LibreNMS and haven't really used Git
+If you want to help develop twentyfouronline and haven't really used Git
 before then this quick primer will help you get started.
 
 Some assumptions:
 
 - Work is being done on a Linux box.
-- LibreNMS is to be installed in /opt/librenms
+- twentyfouronline is to be installed in /opt/twentyfouronline
 - You have git installed.
 - You have a [GitHub Account](https://github.com/).
 - You are using ssh to connect to GitHub (If not, replace
-  git@github.com:/yourusername/librenms.git with <https://github.com/yourusername/librenms.git>.
+  git@github.com:/yourusername/twentyfouronline.git with <https://github.com/yourusername/twentyfouronline.git>.
 
 ** Replace yourusername with your GitHub username. **
 
-#### Fork LibreNMS repo
+#### Fork twentyfouronline repo
 
 You do this directly within
-[GitHub](https://github.com/librenms/librenms/fork), click the 'Fork'
+[GitHub](https://github.com/twentyfouronline/twentyfouronline/fork), click the 'Fork'
 button near the top right.
 
 If you are associated with multiple organisations within GitHub then
@@ -41,22 +41,22 @@ your local install where you can then make the changes you need and submit them 
 
 ```bash
 cd /opt/
-git clone git@github.com:/yourusername/librenms.git
+git clone git@github.com:/yourusername/twentyfouronline.git
 ```
 
 #### Add Upstream repo
 
-To be able to pull in changes from the master LibreNMS repo you need
+To be able to pull in changes from the master twentyfouronline repo you need
 to have it setup on your system.
 
 ```bash
-git remote add upstream https://github.com/librenms/librenms.git
+git remote add upstream https://github.com/twentyfouronline/twentyfouronline.git
 ```
 
 Now you have two configured remotes:
 
 - origin: This is your repository, you can push and pull changes here.
-- upstream: This is the main LibreNMS repository and you can only pull changes.
+- upstream: This is the main twentyfouronline repository and you can only pull changes.
 
 #### Workflow guide
 
@@ -67,7 +67,7 @@ Before you start work on a new branch / feature. Make sure you are up
 to date.
 
 ```bash
-cd /opt/librenms
+cd /opt/twentyfouronline
 git checkout master
 git pull upstream master
 git push origin master
@@ -118,7 +118,7 @@ can do this when we merge but it would be helpful to do this before
 you submit your pull request.
 
 Now you will be ready to submit a pull request from within GitHub. To
-do this, go to your GitHub page for the LibreNMS repo. Now select the
+do this, go to your GitHub page for the twentyfouronline repo. Now select the
 branch you have just been working on (issue-123) from the drop down to
 the left and then click 'Pull Request'. Fill in the details to
 describe the work you have done and click 'Create pull request'.
@@ -153,3 +153,7 @@ For more tips take a look at [Oh shit, git!](http://ohshitgit.com/)
 
 [1]: http://gitready.com
 [2]: http://git-scm.com/book
+
+
+
+

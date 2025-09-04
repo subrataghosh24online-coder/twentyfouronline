@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 require 'includes/html/graphs/common.inc.php';
 
@@ -33,7 +33,7 @@ $array = [
 $colours = 'merged';
 $rrd_list = [];
 
-LibrenmsConfig::set('graph_colours.merged', array_merge(LibrenmsConfig::get('graph_colours.greens'), LibrenmsConfig::get('graph_colours.blues')));
+twentyfouronlineConfig::set('graph_colours.merged', array_merge(twentyfouronlineConfig::get('graph_colours.greens'), twentyfouronlineConfig::get('graph_colours.blues')));
 
 foreach ($array as $ds) {
     $rrd_list[$i]['filename'] = $rrd_filename;
@@ -42,3 +42,7 @@ foreach ($array as $ds) {
     $i++;
 }
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

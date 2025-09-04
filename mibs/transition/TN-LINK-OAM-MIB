@@ -713,3 +713,7 @@ tnLinkOamTotalEventSecondsSummaryEventTotal       OBJECT-TYPE
      unsigned integer."
   ::= { tnLinkOamLinkEventStatusEntry 26 }
 END
+
+
+
+

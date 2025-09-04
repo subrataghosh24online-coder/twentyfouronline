@@ -54,3 +54,7 @@ modules:
                         - { value: 0, graph: 0, generic: 2, descr: Off }
                         - { value: 1, graph: 0, generic: 0, descr: On }
                         - { value: 2, graph: 0, generic: 1, descr: Emergency/Boost }
+
+
+
+

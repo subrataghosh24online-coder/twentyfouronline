@@ -1,16 +1,16 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('settings.title'))
 
 @section('content')
     <div class="container-fluid">
         <div id="app">
-            <librenms-settings
+            <twentyfouronline-settings
                 prefix="{{ url('settings') }}"
                 initial-tab="{{ $active_tab }}"
                 initial-section="{{ $active_section }}"
                 :tabs="{{ $groups }}"
-            ></librenms-settings>
+            ></twentyfouronline-settings>
         </div>
     </div>
 @endsection
@@ -19,3 +19,7 @@
     @routes
     @vuei18n
 @endpush
+
+
+
+

@@ -1,7 +1,7 @@
 # SNMP trap handling
 
-Currently, LibreNMS supports a lot of trap handlers. You can check them on
-GitHub [here](https://github.com/librenms/librenms/tree/master/LibreNMS/Snmptrap/Handlers).
+Currently, twentyfouronline supports a lot of trap handlers. You can check them on
+GitHub [here](https://github.com/twentyfouronline/twentyfouronline/tree/master/twentyfouronline/Snmptrap/Handlers).
 To add more see [Adding new SNMP Trap handlers](../Developing/SNMP-Traps.md). Traps are handled via snmptrapd.
 
 snmptrapd is an SNMP application that receives and logs SNMP TRAP and INFORM messages.
@@ -23,7 +23,7 @@ In `/etc/snmp/snmptrapd.conf`, add :
 ```text
 disableAuthorization yes
 authCommunity log,execute,net COMMUNITYSTRING
-traphandle default /opt/librenms/snmptrap.php
+traphandle default /opt/twentyfouronline/snmptrap.php
 ```
 
 To enable snmptrapd to properly parse traps, we will need to add MIBs to service.
@@ -40,13 +40,13 @@ directories are defined, and only IF-MIB is loaded.
 
 ```ini
 [Service]
-Environment=MIBDIRS=+/opt/librenms/mibs:/opt/librenms/mibs/cisco
+Environment=MIBDIRS=+/opt/twentyfouronline/mibs:/opt/twentyfouronline/mibs/cisco
 Environment=MIBS=+IF-MIB
 ```
 
 For non-systemd systems, you can edit TRAPDOPTS in the init script in /etc/init.d/snmptrapd.
 
-`TRAPDOPTS="-Lsd  -M /opt/librenms/mibs -m IF-MIB -f -p $TRAPD_PID"`
+`TRAPDOPTS="-Lsd  -M /opt/twentyfouronline/mibs -m IF-MIB -f -p $TRAPD_PID"`
 
 Along with any necessary configuration to receive the traps from your
 devices (community, etc.)
@@ -64,9 +64,9 @@ After=network.target
 ConditionPathExists=/etc/snmp/snmptrapd.conf
 
 [Service]
-Environment="MIBSDIR=/opt/librenms/mibs"
+Environment="MIBSDIR=/opt/twentyfouronline/mibs"
 Type=simple
-ExecStart=/usr/sbin/snmptrapd -f -m IF-MIB -M /opt/librenms/mibs
+ExecStart=/usr/sbin/snmptrapd -f -m IF-MIB -M /opt/twentyfouronline/mibs
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
@@ -82,7 +82,7 @@ Here is a list of snmptrapd options:
 |   -f   | Do not fork from the shell                                                                       |
 |   -n   | Use numeric addresses instead of attempting hostname lookups (no DNS) [OPTIONAL]                 |
 |   -m   | MIBLIST: use MIBLIST (`FILE1-MIB:FILE2-MIB`). `ALL` = Load all MIBS in DIRLIST. (usually fails) |
-|   -M   | DIRLIST: use DIRLIST as the list of locations to look for MIBs. Option is not recursive, so you need to specify each DIR individually, separated by `:`. (For example: /opt/librenms/mibs:/opt/librenms/mibs/cisco:/opt/librenms/mibs/edgecos)|
+|   -M   | DIRLIST: use DIRLIST as the list of locations to look for MIBs. Option is not recursive, so you need to specify each DIR individually, separated by `:`. (For example: /opt/twentyfouronline/mibs:/opt/twentyfouronline/mibs/cisco:/opt/twentyfouronline/mibs/edgecos)|
 
 Good practice is to avoid `-m ALL` because then it will try to load all the MIBs in DIRLIST, which
 will typically fail (snmptrapd cannot load that many mibs). Better is to specify the
@@ -98,14 +98,14 @@ sudo mkdir /var/log/snmptrap
 
 ```
 
-Add the following config to your snmptrapd.service after `ExecStart=/usr/sbin/snmptrapd -f -m ALL -M /opt/librenms/mibs`
+Add the following config to your snmptrapd.service after `ExecStart=/usr/sbin/snmptrapd -f -m ALL -M /opt/twentyfouronline/mibs`
 
 ```
 -tLf /var/log/snmptrap/traps.log
 
 ```
 
-On SELinux, you need to configure SELinux for SNMPd to communicate to LibreNMS:
+On SELinux, you need to configure SELinux for SNMPd to communicate to twentyfouronline:
 
 ```
 cat > snmptrap.te << EOF
@@ -141,7 +141,7 @@ sudo systemctl restart snmptrapd
 The easiest test is to generate a trap from your device. Usually, changing the configuration on a network device, or
 plugging/unplugging a network cable (LinkUp, LinkDown) will generate a trap. You can confirm it using a with `tcpdump`, `tshark` or `wireshark`.
 
-You can also generate a trap using the `snmptrap` command from the LibreNMS server itself (if and only if the LibreNMS server is monitored).
+You can also generate a trap using the `snmptrap` command from the twentyfouronline server itself (if and only if the twentyfouronline server is monitored).
 
 ### How to send SNMP v2 Trap
 
@@ -164,7 +164,7 @@ If you have configured logging of traps to ```/var/log/snmptrap/traps.log``` the
 SNMPv2-MIB::sysUpTime.0 = Timeticks: (149721964) 17 days, 7:53:39.64    SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.8072.2.3.0.1   SNMPv2-SMI::enterprises.8072.2.3.2.1 = INTEGER: 123456
 ```
 
-and in LibreNMS your localhost device eventlog like:
+and in twentyfouronline your localhost device eventlog like:
 
 ```
 2020-03-09 16:22:59             SNMP trap received: SNMPv2-SMI::enterprises.8072.2.3.0.1
@@ -198,3 +198,7 @@ Valid options are:
 - `unhandled` only unhandled traps will be logged (default value)
 - `all` log all traps
 - `none` no traps will create a generic event log (handled traps may still log events)
+
+
+
+

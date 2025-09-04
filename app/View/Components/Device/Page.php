@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,13 +26,13 @@
 
 namespace App\View\Components\Device;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Vminfo;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use LibreNMS\Util\Graph;
+use twentyfouronline\Util\Graph;
 
 class Page extends Component
 {
@@ -82,7 +82,7 @@ class Page extends Component
 
     private function populateTypeFields(): void
     {
-        foreach (LibrenmsConfig::get('device_types', []) as $type) {
+        foreach (twentyfouronlineConfig::get('device_types', []) as $type) {
             if (isset($type['type']) && $type['type'] == $this->device->type) {
                 $this->typeIcon = $type['icon'] ?? null;
                 $this->typeText = $type['text'] ?? $this->device->type;
@@ -91,3 +91,7 @@ class Page extends Component
         }
     }
 }
+
+
+
+

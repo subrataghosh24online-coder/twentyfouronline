@@ -971,3 +971,6 @@ tnPtpPortConfRowStatus OBJECT-TYPE
        "
    ::= { tnPtpPortConfEntry 16 }
 END
+
+
+

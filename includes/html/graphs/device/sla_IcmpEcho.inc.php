@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to Graph Juniper RPM IcmpEcho metrics
+ * twentyfouronline module to Graph Juniper RPM IcmpEcho metrics
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -33,3 +33,7 @@ if (Rrd::checkRrdExists($rrd_filename)) {
     $rrd_options .= ' GPRINT:PercentageLoss:MIN:%6.1lf%% ';
     $rrd_options .= ' GPRINT:PercentageLoss:MAX:%6.1lf%%\\l ';
 }
+
+
+
+

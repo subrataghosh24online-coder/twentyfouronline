@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -32,7 +32,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 class PortNacController extends TableController
 {
@@ -194,3 +194,7 @@ class PortNacController extends TableController
         return $query; // Return the query builder instance
     }
 }
+
+
+
+

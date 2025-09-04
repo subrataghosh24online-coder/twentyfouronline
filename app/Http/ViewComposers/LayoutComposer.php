@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,7 +27,7 @@
 namespace App\Http\ViewComposers;
 
 use App\Checks;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\UserPref;
 use Illuminate\View\View;
 
@@ -46,15 +46,15 @@ class LayoutComposer
             // short sections escape the html entities, reverse that
             $title = html_entity_decode(trim($view->getFactory()->getSection('title')), ENT_QUOTES);
             $title = str_replace('    ', ' : ', $title);
-            $title .= ' | ' . LibrenmsConfig::get('page_title_suffix');
+            $title .= ' | ' . twentyfouronlineConfig::get('page_title_suffix');
         } else {
-            $title = LibrenmsConfig::get('page_title_suffix');
+            $title = twentyfouronlineConfig::get('page_title_suffix');
         }
 
         Checks::postAuth();
 
         $show_menu = auth()->check();
-        if ($show_menu && LibrenmsConfig::get('twofactor') && ! session('twofactor')) {
+        if ($show_menu && twentyfouronlineConfig::get('twofactor') && ! session('twofactor')) {
             $show_menu = empty(UserPref::getPref(auth()->user(), 'twofactor'));
         }
 
@@ -62,3 +62,7 @@ class LayoutComposer
             ->with('show_menu', $show_menu);
     }
 }
+
+
+
+

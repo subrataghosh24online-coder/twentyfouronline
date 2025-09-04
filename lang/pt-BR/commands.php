@@ -37,7 +37,7 @@ return [
         'existing_config' => 'O banco de dados contém configurações existentes. Continuar?',
     ],
     'dev:check' => [
-        'description' => 'Verificações de código do LibreNMS. Executar sem opções executa todas as verificações',
+        'description' => 'Verificações de código do twentyfouronline. Executar sem opções executa todas as verificações',
         'arguments' => [
             'check' => 'Executar a verificação especificada :checks',
         ],
@@ -56,7 +56,7 @@ return [
     'dev:simulate' => [
         'description' => 'Simular dispositivos usando dados de teste',
         'arguments' => [
-            'file' => 'O nome do arquivo (apenas o nome base) do arquivo snmprec para atualizar ou adicionar ao LibreNMS. Se o arquivo não for especificado, nenhum dispositivo será adicionado ou atualizado.',
+            'file' => 'O nome do arquivo (apenas o nome base) do arquivo snmprec para atualizar ou adicionar ao twentyfouronline. Se o arquivo não for especificado, nenhum dispositivo será adicionado ou atualizado.',
         ],
         'options' => [
             'multiple' => 'Usar nome da comunidade para o nome do host em vez de snmpsim',
@@ -136,7 +136,7 @@ return [
         ],
         'options' => [
             'generate-new-key' => 'Se você não tiver a nova chave definida em .env, use a APP_KEY de .env para descriptografar os dados, gerar uma nova chave e defini-la em .env',
-            'forgot-key' => 'Se você não tiver a chave antiga, deve excluir todos os dados criptografados para poder continuar a usar certos recursos do LibreNMS',
+            'forgot-key' => 'Se você não tiver a chave antiga, deve excluir todos os dados criptografados para poder continuar a usar certos recursos do twentyfouronline',
         ],
         'destroy' => 'Destruir todos os dados de configuração criptografados?',
         'destroy_confirm' => 'Destrua todos os dados criptografados apenas se não conseguir encontrar a antiga APP_KEY!',
@@ -219,7 +219,7 @@ return [
         'description' => 'Gerar uma configuração adequada para uso com smokeping',
         'header-first' => 'Este arquivo foi gerado automaticamente por "lnms smokeping:generate',
         'header-second' => 'Alterações locais podem ser sobrescritas sem aviso ou backups sendo feitos',
-        'header-third' => 'Para mais informações, veja https://docs.librenms.org/Extensions/Smokeping/"',
+        'header-third' => 'Para mais informações, veja https://docs.twentyfouronline.org/Extensions/Smokeping/"',
         'no-devices' => 'Nenhum dispositivo elegível encontrado - dispositivos não devem estar desativados.',
         'no-probes' => 'Pelo menos um probe é necessário.',
         'options' => [
@@ -272,3 +272,7 @@ return [
         'description' => 'Limpeza do banco de dados para remover itens órfãos.',
     ],
 ];
+
+
+
+

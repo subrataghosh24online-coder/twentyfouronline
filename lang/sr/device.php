@@ -13,3 +13,7 @@ return [
         'type' => 'Tip uređaja',
     ],
 ];
+
+
+
+

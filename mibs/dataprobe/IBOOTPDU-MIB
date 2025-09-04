@@ -667,3 +667,7 @@ outletChange  NOTIFICATION-TYPE
 		"This trap is sent when ever an outlet changes state.  It contains the name of the outlet."
 	::= { notifications 1 }
 END
+
+
+
+

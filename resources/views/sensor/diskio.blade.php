@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', $title)
 
@@ -43,3 +43,7 @@
     </script>
 
 @endsection
+
+
+
+

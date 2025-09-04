@@ -1,6 +1,6 @@
 ### `system`
 
-Display Librenms instance information.
+Display twentyfouronline instance information.
 
 Route: `/api/v0/system`
 
@@ -11,7 +11,7 @@ Input:
 Example:
 
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/system
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://twentyfouronline.org/api/v0/system
 ```
 
 Output:
@@ -35,3 +35,7 @@ Output:
     "count": 1
 }
 ```
+
+
+
+

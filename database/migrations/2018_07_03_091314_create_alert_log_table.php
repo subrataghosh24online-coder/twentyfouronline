@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('time_logged')->useCurrent()->index();
         });
 
-        if (LibreNMS\DB\Eloquent::getDriver() == 'mysql') {
+        if (twentyfouronline\DB\Eloquent::getDriver() == 'mysql') {
             DB::statement('ALTER TABLE `alert_log` CHANGE `details` `details` longblob NULL ;');
         }
     }
@@ -36,3 +36,7 @@ return new class extends Migration
         Schema::drop('alert_log');
     }
 };
+
+
+
+

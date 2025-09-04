@@ -19,3 +19,7 @@ $descr = 'Average';
 $ds = 's3running_processes';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

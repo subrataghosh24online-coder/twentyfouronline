@@ -4,15 +4,15 @@ namespace App\Console\Commands;
 
 use App\Actions\Device\ValidateDeviceAndCreate;
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\PollerGroup;
 use Exception;
 use Illuminate\Validation\Rule;
-use LibreNMS\Enum\PortAssociationMode;
-use LibreNMS\Exceptions\HostExistsException;
-use LibreNMS\Exceptions\HostnameExistsException;
-use LibreNMS\Exceptions\HostUnreachableException;
+use twentyfouronline\Enum\PortAssociationMode;
+use twentyfouronline\Exceptions\HostExistsException;
+use twentyfouronline\Exceptions\HostnameExistsException;
+use twentyfouronline\Exceptions\HostUnreachableException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -37,22 +37,22 @@ class DeviceAdd extends LnmsCommand
         $this->optionValues = [
             'transport' => ['udp', 'udp6', 'tcp', 'tcp6'],
             'port-association-mode' => [PortAssociationMode::class, 'getModes'],
-            'auth-protocol' => [\LibreNMS\SNMPCapabilities::class, 'supportedAuthAlgorithms'],
-            'privacy-protocol' => [\LibreNMS\SNMPCapabilities::class, 'supportedCryptoAlgorithms'],
+            'auth-protocol' => [\twentyfouronline\SNMPCapabilities::class, 'supportedAuthAlgorithms'],
+            'privacy-protocol' => [\twentyfouronline\SNMPCapabilities::class, 'supportedCryptoAlgorithms'],
         ];
 
         $this->optionDefaults = [
             'port' => function () {
-                return LibrenmsConfig::get('snmp.port', 161);
+                return twentyfouronlineConfig::get('snmp.port', 161);
             },
             'transport' => function () {
-                return LibrenmsConfig::get('snmp.transports.0', 'udp');
+                return twentyfouronlineConfig::get('snmp.transports.0', 'udp');
             },
             'poller-group' => function () {
-                return LibrenmsConfig::get('default_poller_group');
+                return twentyfouronlineConfig::get('default_poller_group');
             },
             'port-association-mode' => function () {
-                return LibrenmsConfig::get('default_port_association_mode');
+                return twentyfouronlineConfig::get('default_port_association_mode');
             },
 
         ];
@@ -155,3 +155,7 @@ class DeviceAdd extends LnmsCommand
         }
     }
 }
+
+
+
+

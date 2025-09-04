@@ -78,3 +78,7 @@ if ($oids) {
 
     discover_sensor(null, 'runtime', $device, $cur_oid . $index, 'airIRRP100UnitRunHoursCompressor.' . $index, $sensorType, $descr, '1', $multiplier, null, null, null, $service_interval, $current);
 }
+
+
+
+

@@ -1408,3 +1408,7 @@ powerSupplyStatusB    OBJECT-TYPE
     DESCRIPTION       "Returns the operating status of power supply B."
     ::= { oaIdent 33 }
 END
+
+
+
+

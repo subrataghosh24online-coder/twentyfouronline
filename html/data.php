@@ -1,16 +1,16 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
 $init_modules = ['web', 'auth'];
 require realpath(__DIR__ . '/..') . '/includes/init.php';
 
-if (is_numeric($_GET['id']) && (\App\Facades\LibrenmsConfig::get('allow_unauth_graphs') || port_permitted($_GET['id']))) {
+if (is_numeric($_GET['id']) && (\App\Facades\twentyfouronlineConfig::get('allow_unauth_graphs') || port_permitted($_GET['id']))) {
     $port = cleanPort(get_port_by_id($_GET['id']));
     $device = device_by_id_cache($port['device_id']);
     $title = generate_device_link($device);
@@ -31,3 +31,7 @@ if (is_numeric($_GET['id']) && (\App\Facades\LibrenmsConfig::get('allow_unauth_g
 
     printf("%lf|%s|%s\n", $time, $in, $out);
 }
+
+
+
+

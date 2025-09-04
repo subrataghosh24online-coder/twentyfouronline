@@ -2,9 +2,9 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
@@ -25,3 +25,7 @@ if ($argv[1]) {
 } else {
     echo "Host Removal Tool\nUsage: ./delhost.php <hostname>\n";
 }
+
+
+
+

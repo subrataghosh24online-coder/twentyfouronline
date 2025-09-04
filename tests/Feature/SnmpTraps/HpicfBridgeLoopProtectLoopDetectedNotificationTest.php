@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\Device;
 use App\Models\Port;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 class HpicfBridgeLoopProtectLoopDetectedNotificationTest extends SnmpTrapTestCase
 {
@@ -59,3 +59,7 @@ HP-ICF-BRIDGE::hpicfBridgeLoopProtectPortReceiverAction disableTx",
         );
     }
 }
+
+
+
+

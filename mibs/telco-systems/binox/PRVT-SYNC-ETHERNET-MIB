@@ -622,3 +622,7 @@ syncEthernetDPLLLockFailed NOTIFICATION-TYPE
     ::= { prvtSyncEthernetMIBNotifications 6 }
 
 END -- end of module PRVT-SYNC-ETHERNET-MIB.
+
+
+
+

@@ -53,3 +53,7 @@ $rrd_options .= " 'LINE1:TOTAL#000000FF:Total         '";
 $rrd_options .= " 'GPRINT:TOTAL:LAST:%8.2lf'";
 $rrd_options .= " 'GPRINT:TOTAL:AVERAGE: %8.2lf'";
 $rrd_options .= " 'GPRINT:TOTAL:MAX: %8.2lf\\\\n'";
+
+
+
+

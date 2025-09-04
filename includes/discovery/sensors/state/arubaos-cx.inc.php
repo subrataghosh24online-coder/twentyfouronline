@@ -3,14 +3,14 @@
 /**
  * arubaos-cx.inc.php
  *
- * LibreNMS state sensor and translation/discovery module for ArubaOS-CX Switches
+ * twentyfouronline state sensor and translation/discovery module for ArubaOS-CX Switches
  *
  * ArubaOS-CX switches return certain operational status values as strings,
- * such as the VSF operational and member status. LibreNMS expects numeric
+ * such as the VSF operational and member status. twentyfouronline expects numeric
  * values.
  *
  * This discovery modules translates the string status representation to a
- * numerical value, so that LibreNMS can properly store and display it's value
+ * numerical value, so that twentyfouronline can properly store and display it's value
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 CTNET BV
  * @author     Rudy Broersma <tozz@kijkt.tv>
@@ -90,3 +90,7 @@ if (is_array($temp)) {
         discover_sensor(null, 'state', $device, $oid, $index, $state_name, $descr, 1, 1, null, null, null, null, $sensor_value, 'snmp', null, null, null, 'VSF');
     }
 }
+
+
+
+

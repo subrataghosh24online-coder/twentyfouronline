@@ -88,3 +88,7 @@ nwRtrSoftReset  OBJECT-TYPE
                 ::= { nwRtrTemp2 1 }
 
 END
+
+
+
+

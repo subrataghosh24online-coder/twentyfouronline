@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class MplsLsp extends Model implements Keyable
 {
@@ -55,3 +55,7 @@ class MplsLsp extends Model implements Keyable
         return $this->hasMany(MplsLspPath::class, 'lsp_id');
     }
 }
+
+
+
+

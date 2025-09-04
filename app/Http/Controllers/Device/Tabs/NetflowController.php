@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,25 +26,25 @@
 
 namespace App\Http\Controllers\Device\Tabs;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use LibreNMS\Interfaces\UI\DeviceTab;
+use twentyfouronline\Interfaces\UI\DeviceTab;
 
 class NetflowController implements DeviceTab
 {
     public function visible(Device $device): bool
     {
-        if (LibrenmsConfig::get('nfsen_enable')) {
-            foreach ((array) LibrenmsConfig::get('nfsen_rrds', []) as $nfsenrrds) {
+        if (twentyfouronlineConfig::get('nfsen_enable')) {
+            foreach ((array) twentyfouronlineConfig::get('nfsen_rrds', []) as $nfsenrrds) {
                 if ($nfsenrrds[strlen($nfsenrrds) - 1] != '/') {
                     $nfsenrrds .= '/';
                 }
 
-                $nfsensuffix = LibrenmsConfig::get('nfsen_suffix', '');
+                $nfsensuffix = twentyfouronlineConfig::get('nfsen_suffix', '');
 
-                if (LibrenmsConfig::get('nfsen_split_char')) {
-                    $basefilename_underscored = preg_replace('/\./', LibrenmsConfig::get('nfsen_split_char'), $device->hostname);
+                if (twentyfouronlineConfig::get('nfsen_split_char')) {
+                    $basefilename_underscored = preg_replace('/\./', twentyfouronlineConfig::get('nfsen_split_char'), $device->hostname);
                 } else {
                     $basefilename_underscored = $device->hostname;
                 }
@@ -81,3 +81,7 @@ class NetflowController implements DeviceTab
         ];
     }
 }
+
+
+
+

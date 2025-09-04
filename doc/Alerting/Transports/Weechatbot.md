@@ -13,4 +13,8 @@ This transport should also be compatible with Gozerbot. Gozerbot does not have t
 | Weechat Bot port | 47774 |
 | UDP listener Password | s00p3rzeeKRiT! |
 | IRC server | IRCnet |
-| IRC channel | #librenms |
+| IRC channel | #twentyfouronline |
+
+
+
+

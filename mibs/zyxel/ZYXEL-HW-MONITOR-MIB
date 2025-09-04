@@ -517,3 +517,7 @@ ZYXEL-HW-MONITOR-MIB DEFINITIONS ::= BEGIN
         ::= { zyxelHwMonitorTrapInfoObject 1 }  
   END
 
+
+
+
+

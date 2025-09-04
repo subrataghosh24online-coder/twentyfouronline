@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $pagetitle[] = 'Services';
@@ -92,7 +92,7 @@ if (count($services) > '0') {
         echo '<td class="col-sm-1 text-muted">' . nl2br(htmlentities($service['service_ip'])) . '</td>';
         echo '<td class="col-sm-4">' . nl2br(htmlentities(trim($service['service_message']))) . '</td>';
         echo '<td class="col-sm-2 text-muted">' . htmlentities($service['service_desc']) . '</td>';
-        echo '<td class="col-sm-1 text-muted">' . \LibreNMS\Util\Time::formatInterval(time() - $service['service_changed']) . '</td>';
+        echo '<td class="col-sm-1 text-muted">' . \twentyfouronline\Util\Time::formatInterval(time() - $service['service_changed']) . '</td>';
         echo '<td class="col-sm-1">';
         if (Auth::user()->hasGlobalAdmin()) {
             echo '<div class="pull-right">';
@@ -106,7 +106,7 @@ if (count($services) > '0') {
         if ($vars['view'] == 'details') {
             // if we have a script for this check, use it.
             $check_ds = null;
-            $check_script = \App\Facades\LibrenmsConfig::get('install_dir') . '/includes/services/check_' . strtolower($service['service_type']) . '.inc.php';
+            $check_script = \App\Facades\twentyfouronlineConfig::get('install_dir') . '/includes/services/check_' . strtolower($service['service_type']) . '.inc.php';
             if (is_file($check_script)) {
                 include $check_script;
 
@@ -139,3 +139,7 @@ if (count($services) > '0') {
 }
 
 echo '</div>';
+
+
+
+

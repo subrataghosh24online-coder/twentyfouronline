@@ -3,7 +3,7 @@
 /**
  * liebert.inc.php
  *
- * LibreNMS sensors (current) discovery module for Liebert PDUs
+ * twentyfouronline sensors (current) discovery module for Liebert PDUs
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Spencer Butler
  * @author     Spencer Butler <github@crooked.app>
@@ -162,3 +162,7 @@ foreach (array_keys($rb_data) as $index) {
     );
 }
 unset($rb_data);
+
+
+
+

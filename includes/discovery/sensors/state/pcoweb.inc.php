@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -28,3 +28,7 @@ foreach ($compressors as $compressor_oid) {
     $descr = 'Compressor ' . $number;
     discover_sensor(null, 'state', $device, $compressor_oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current);
 }
+
+
+
+

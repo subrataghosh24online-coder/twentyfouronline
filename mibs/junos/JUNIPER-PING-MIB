@@ -1494,3 +1494,7 @@ jnxPingLastTestResultTime OBJECT-TYPE
             set in jnxPingCtlTrapGeneration."
         ::= { jnxPingNotificationPrefix 10 }
 END
+
+
+
+

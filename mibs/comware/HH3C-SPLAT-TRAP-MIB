@@ -1030,3 +1030,7 @@ IMPORTS
             "The trap indicates that the remaining power of the chassis is not enouth."
       ::= { hh3csLswTRAPMibObjectV2Prefix 43 }
 END
+
+
+
+

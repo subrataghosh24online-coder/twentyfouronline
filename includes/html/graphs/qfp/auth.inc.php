@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 
@@ -17,7 +17,7 @@
  * Get a single module component with specified ID
  */
 if (isset($vars['id'])) {
-    $component = new LibreNMS\Component();
+    $component = new twentyfouronline\Component();
     $filter = [
         'filter' => [
             'type' => ['=', 'cisco-qfp'],
@@ -60,3 +60,7 @@ if (isset($vars['id'])) {
         $auth = true;
     }
 }
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use LibreNMS\Alerting\QueryBuilderFluentParser;
+use twentyfouronline\Alerting\QueryBuilderFluentParser;
 use Permissions;
 
 class DeviceGroup extends BaseModel
@@ -166,3 +166,7 @@ class DeviceGroup extends BaseModel
         return $this->belongsToMany(ServiceTemplate::class, 'service_templates_device_group', 'device_group_id', 'service_template_id');
     }
 }
+
+
+
+

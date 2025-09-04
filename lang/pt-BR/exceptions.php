@@ -44,3 +44,7 @@ return [
         'message' => 'Versão SNMP não suportada ":snmpver". Deve ser v1, v2c ou v3',
     ],
 ];
+
+
+
+

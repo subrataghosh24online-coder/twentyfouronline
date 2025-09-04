@@ -18,3 +18,7 @@ $graph_max = 1;
 $unit_text = 'Connections';
 
 require 'includes/html/graphs/generic_duplex.inc.php';
+
+
+
+

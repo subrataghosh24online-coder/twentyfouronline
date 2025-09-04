@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Bill;
-use LibreNMS\Billing;
-use LibreNMS\Util\Number;
+use twentyfouronline\Billing;
+use twentyfouronline\Util\Number;
 
 $bill_id = $vars['bill_id'];
 
@@ -52,8 +52,8 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
         $bill_color = '#0000cc';
     }
 
-    $fromtext = dbFetchCell("SELECT DATE_FORMAT($datefrom, '" . \App\Facades\LibrenmsConfig::get('dateformat.mysql.date') . "')");
-    $totext = dbFetchCell("SELECT DATE_FORMAT($dateto, '" . \App\Facades\LibrenmsConfig::get('dateformat.mysql.date') . "')");
+    $fromtext = dbFetchCell("SELECT DATE_FORMAT($datefrom, '" . \App\Facades\twentyfouronlineConfig::get('dateformat.mysql.date') . "')");
+    $totext = dbFetchCell("SELECT DATE_FORMAT($dateto, '" . \App\Facades\twentyfouronlineConfig::get('dateformat.mysql.date') . "')");
     $unixfrom = dbFetchCell("SELECT UNIX_TIMESTAMP('$datefrom')");
     $unixto = dbFetchCell("SELECT UNIX_TIMESTAMP('$dateto')");
 
@@ -123,7 +123,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
         $sep = ' | ';
     }
 
-    echo '<div style="font-weight: bold; float: right;"><a href="' . \LibreNMS\Util\Url::generate(['page' => 'bills']) . '/"><i class="fa fa-arrow-left fa-lg icon-theme" aria-hidden="true"></i> Back to Bills</a></div>';
+    echo '<div style="font-weight: bold; float: right;"><a href="' . \twentyfouronline\Util\Url::generate(['page' => 'bills']) . '/"><i class="fa fa-arrow-left fa-lg icon-theme" aria-hidden="true"></i> Back to Bills</a></div>';
 
     print_optionbar_end();
 
@@ -168,7 +168,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
             $percent = Number::calculatePercent($total_data, $bill_data['bill_quota']);
             $unit = 'MB';
             $total_data = round($total_data, 2);
-            $background = \LibreNMS\Util\Color::percentage($percent, null);
+            $background = \twentyfouronline\Util\Color::percentage($percent, null);
             $type = '&amp;ave=yes'; ?>
         <td>
             <?php echo Billing::formatBytes($total_data) ?> of <?php echo Billing::formatBytes($bill_data['bill_quota']) . ' (' . $percent . '%)' ?>
@@ -188,7 +188,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
             $cdr = $bill_data['bill_cdr'];
             $rate_95th = round($rate_95th, 2);
             $percent = Number::calculatePercent($rate_95th, $cdr);
-            $background = \LibreNMS\Util\Color::percentage($percent, null);
+            $background = \twentyfouronline\Util\Color::percentage($percent, null);
             $type = '&amp;95th=yes'; ?>
         <td>
             <?php echo Number::formatSi($rate_95th, 2, 0, '') . 'bps' ?> of <?php echo Number::formatSi($cdr, 2, 0, '') . 'bps (' . $percent . '%)' ?> (95th%ile)
@@ -229,7 +229,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
             $li .= "$type'>";
 
             $di = "<img src='billing-graph.php?bill_id=" . $bill_id . '&amp;bill_code=' . htmlspecialchars($_GET['bill_code']);
-            $di .= '&amp;from=' . \App\Facades\LibrenmsConfig::get('time.day') . '&amp;to=' . \App\Facades\LibrenmsConfig::get('time.now');
+            $di .= '&amp;from=' . \App\Facades\twentyfouronlineConfig::get('time.day') . '&amp;to=' . \App\Facades\twentyfouronlineConfig::get('time.now');
             $di .= '&amp;x=1190&amp;y=250';
             $di .= "$type'>";
 
@@ -247,7 +247,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
             $li .= '&amp;width=1000&amp;height=200&amp;total=1&amp;dir=' . $dir_95th . "'>";
 
             $di = "<img src='graph.php?type=bill_bits&amp;id=" . $bill_id;
-            $di .= '&amp;from=' . \App\Facades\LibrenmsConfig::get('time.day') . '&amp;to=' . \App\Facades\LibrenmsConfig::get('time.now');
+            $di .= '&amp;from=' . \App\Facades\twentyfouronlineConfig::get('time.day') . '&amp;to=' . \App\Facades\twentyfouronlineConfig::get('time.now');
             $di .= '&amp;width=1000&amp;height=200&amp;total=1&amp;dir=' . $dir_95th . "'>";
 
             $mi = "<img src='graph.php?type=bill_bits&amp;id=" . $bill_id;
@@ -282,3 +282,7 @@ if (!Bill::where('bill_id', $bill_id)->exists()) {
     include 'includes/html/error-no-perm.inc.php';
 }//end if
 ?>
+
+
+
+

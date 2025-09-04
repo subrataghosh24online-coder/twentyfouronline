@@ -17,3 +17,7 @@
                 {{ $attributes->class(['tw:lg:w-1/4 tw:sm:w-1/2 tw:w-full' => $responsive]) }}></x-graph>
     @endforeach
 </div>
+
+
+
+

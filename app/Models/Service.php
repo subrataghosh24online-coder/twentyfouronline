@@ -99,3 +99,7 @@ class Service extends DeviceRelatedModel
         return $query->where('service_disabled', 1);
     }
 }
+
+
+
+

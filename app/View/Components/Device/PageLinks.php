@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\View\Components\Device;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -48,7 +48,7 @@ class PageLinks extends Component
         public readonly array $dropdownLinks = [],
     ) {
         $this->deviceLinks = $this->deviceLinkMenu($device, $currentTab);
-        $primary_device_link_name = LibrenmsConfig::get('html.device.primary_link', 'edit');
+        $primary_device_link_name = twentyfouronlineConfig::get('html.device.primary_link', 'edit');
         if (! isset($this->deviceLinks[$primary_device_link_name])) {
             $primary_device_link_name = array_key_first($this->deviceLinks);
         }
@@ -91,7 +91,7 @@ class PageLinks extends Component
         }
 
         // User defined device links
-        foreach (array_values(Arr::wrap(LibrenmsConfig::get('html.device.links'))) as $index => $link) {
+        foreach (array_values(Arr::wrap(twentyfouronlineConfig::get('html.device.links'))) as $index => $link) {
             $device_links['custom' . ($index + 1)] = [
                 'icon' => $link['icon'] ?? 'fa-external-link',
                 'url' => Blade::render($link['url'], ['device' => $device]),
@@ -123,8 +123,8 @@ class PageLinks extends Component
 
         // SSH
         $ssh_port = $device->attribs->firstWhere('attrib_type', 'override_device_ssh_port') ? ':' . $device->attribs->firstWhere('attrib_type', 'override_device_ssh_port')->attrib_value : '';
-        $ssh_url = LibrenmsConfig::get('gateone.server')
-            ? LibrenmsConfig::get('gateone.server') . '?ssh=ssh://' . (LibrenmsConfig::get('gateone.use_librenms_user') ? Auth::user()->username . '@' : '') . $device['hostname'] . '&location=' . $device['hostname']
+        $ssh_url = twentyfouronlineConfig::get('gateone.server')
+            ? twentyfouronlineConfig::get('gateone.server') . '?ssh=ssh://' . (twentyfouronlineConfig::get('gateone.use_twentyfouronline_user') ? Auth::user()->username . '@' : '') . $device['hostname'] . '&location=' . $device['hostname']
             : 'ssh://' . $device->hostname . $ssh_port;
         $device_links['ssh'] = [
             'icon' => 'fa-lock',
@@ -169,3 +169,7 @@ class PageLinks extends Component
         return view('components.device.page-links');
     }
 }
+
+
+
+

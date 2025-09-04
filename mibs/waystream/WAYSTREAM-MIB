@@ -2115,3 +2115,7 @@ wsIbosFanOutVoltLow NOTIFICATION-TYPE
                 ::= { wsIbosEnvironmentNotifications 6 }
 
 END
+
+
+
+

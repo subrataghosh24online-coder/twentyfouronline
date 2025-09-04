@@ -3,7 +3,7 @@
 /**
  * ict-psu.inc.php
  *
- * LibreNMS current sensor discovery module for ICT Digital Series Power Supply
+ * twentyfouronline current sensor discovery module for ICT Digital Series Power Supply
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Lorenzo Zafra
  * @author     Lorenzo Zafra<zafra@ualberta.ca>
@@ -38,3 +38,7 @@ if (! empty($outputCurrent)) {
 
     discover_sensor(null, 'current', $device, $oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $currentValue);
 }
+
+
+
+

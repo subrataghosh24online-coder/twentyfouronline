@@ -18,11 +18,11 @@ $hostname = gethostbyid($storage['device_id']);
 $colour = 'CC0000';
 $colour_area = 'ffaaaa';
 
-$descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($storage['storage_descr'], 16);
+$descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($storage['storage_descr'], 16);
 
 $percentage = round($storage['storage_perc'], 0);
 
-$background = \LibreNMS\Util\Color::percentage($percentage, $storage['storage_perc_warn']);
+$background = \twentyfouronline\Util\Color::percentage($percentage, $storage['storage_perc_warn']);
 
 $rrd_options .= " DEF:used=$rrd_filename:used:AVERAGE";
 $rrd_options .= " DEF:free=$rrd_filename:free:AVERAGE";
@@ -35,7 +35,7 @@ $rrd_options .= ' GPRINT:free:LAST:%6.2lf%sB';
 $rrd_options .= ' GPRINT:perc:LAST:%5.2lf%%\\n';
 
 if ($previous) {
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('Prev ' . $storage['storage_descr'], 16);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('Prev ' . $storage['storage_descr'], 16);
 
     $colour = '99999999';
     $colour_area = '66666666';
@@ -52,3 +52,7 @@ if ($previous) {
     $rrd_options .= ' GPRINT:freeX:LAST:%6.2lf%sB';
     $rrd_options .= ' GPRINT:percX:LAST:%5.2lf%%\\n';
 }
+
+
+
+

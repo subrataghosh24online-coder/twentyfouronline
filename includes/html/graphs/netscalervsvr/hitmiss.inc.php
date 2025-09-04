@@ -21,3 +21,7 @@ $unit_text = '';
 $simple_rrd = 1;
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

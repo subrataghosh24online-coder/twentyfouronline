@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,16 +26,16 @@
 
 namespace App\Http\Controllers\Table;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\Location;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Util\Rewrite;
-use LibreNMS\Util\Time;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Rewrite;
+use twentyfouronline\Util\Time;
+use twentyfouronline\Util\Url;
 
 class DeviceController extends TableController
 {
@@ -196,7 +196,7 @@ class DeviceController extends TableController
         } elseif ($device->status == 0) {
             return 'label-danger';
         } else {
-            $warning_time = LibrenmsConfig::get('uptime_warning', 86400);
+            $warning_time = twentyfouronlineConfig::get('uptime_warning', 86400);
             if ($device->uptime < $warning_time && $device->uptime != 0) {
                 return 'label-warning';
             }
@@ -224,7 +224,7 @@ class DeviceController extends TableController
      */
     private function getOsText($device)
     {
-        $os_text = htmlspecialchars(LibrenmsConfig::getOsSetting($device->os, 'text'));
+        $os_text = htmlspecialchars(twentyfouronlineConfig::getOsSetting($device->os, 'text'));
 
         if ($this->isDetailed()) {
             $os_text .= '<br />' . htmlspecialchars($device->version . ($device->features ? " ($device->features)" : ''));
@@ -327,8 +327,8 @@ class DeviceController extends TableController
         ];
 
         $ssh_href = 'ssh://' . $device->hostname;
-        if ($server = LibrenmsConfig::get('gateone.server')) {
-            $ssh_href = LibrenmsConfig::get('gateone.use_librenms_user')
+        if ($server = twentyfouronlineConfig::get('gateone.server')) {
+            $ssh_href = twentyfouronlineConfig::get('gateone.use_twentyfouronline_user')
                 ? $server . '?ssh=ssh://' . Auth::user()->username . '@' . $device->hostname . '&location=' . $device->hostname
                 : $server . '?ssh=ssh://' . $device->hostname . '&location=' . $device->hostname;
         }
@@ -346,7 +346,7 @@ class DeviceController extends TableController
             'icon' => 'fa-globe',
         ];
 
-        foreach (array_values(Arr::wrap(LibrenmsConfig::get('html.device.links'))) as $index => $custom) {
+        foreach (array_values(Arr::wrap(twentyfouronlineConfig::get('html.device.links'))) as $index => $custom) {
             if ($custom['action'] ?? false) {
                 $row = $this->isDetailed() ? $index % 2 : 0;
                 $custom['href'] = Blade::render($custom['url'], ['device' => $device]);
@@ -402,7 +402,7 @@ class DeviceController extends TableController
             'hostname' => $device->displayName(),
             'ip' => $device->ip,
             'hardware' => Rewrite::ciscoHardware($device),
-            'os' => LibrenmsConfig::getOsSetting($device->os, 'text', $device->os),
+            'os' => twentyfouronlineConfig::getOsSetting($device->os, 'text', $device->os),
             'version' => $device->version,
             'features' => $device->features,
             'location' => $location,
@@ -413,3 +413,7 @@ class DeviceController extends TableController
         ];
     }
 }
+
+
+
+

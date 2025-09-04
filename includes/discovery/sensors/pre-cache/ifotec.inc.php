@@ -18,9 +18,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  LibreNMS contributors
+ * @copyright  twentyfouronline contributors
  * @author     Cedric MARMONIER
  */
 if (Str::startsWith($device['sysObjectID'], '.1.3.6.1.4.1.21362.100.')) {
@@ -66,3 +66,7 @@ if (Str::startsWith($device['sysObjectID'], '.1.3.6.1.4.1.21362.100.')) {
     }
 }
 unset($data);
+
+
+
+

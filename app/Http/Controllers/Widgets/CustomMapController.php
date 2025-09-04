@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Widgets;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\CustomMap;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -53,7 +53,7 @@ class CustomMapController extends WidgetController
         if (! $data['map']) {
             return __('map.custom.widget.not_found');
         }
-        $data['base_url'] = LibrenmsConfig::get('base_url');
+        $data['base_url'] = twentyfouronlineConfig::get('base_url');
         $data['background_config'] = $data['map']->getBackgroundConfig();
         $data['map_conf'] = $data['map']->options;
 
@@ -72,3 +72,7 @@ class CustomMapController extends WidgetController
         return view('widgets.settings.custom-map', $data);
     }
 }
+
+
+
+

@@ -2540,3 +2540,7 @@ wireless_sensors:
     wireless_sensors_sensor_type_index: { Name: wireless_sensors_sensor_type_index, Columns: [sensor_type], Unique: false, Type: BTREE }
   Constraints:
     wireless_sensors_device_id_foreign: { name: wireless_sensors_device_id_foreign, foreign_key: device_id, table: devices, key: device_id, extra: 'ON DELETE CASCADE' }
+
+
+
+

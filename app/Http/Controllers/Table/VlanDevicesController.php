@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Table;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Url;
 
 class VlanDevicesController extends TableController
 {
@@ -67,3 +67,7 @@ class VlanDevicesController extends TableController
         ];
     }
 }
+
+
+
+

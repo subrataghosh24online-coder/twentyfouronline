@@ -1,20 +1,20 @@
 <?php
 
 use App\Models\Location;
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Util\Clean;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Time;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Util\Clean;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Time;
 
 echo "<div class='row'>
       <div class='col-md-12'>
           <div class='panel panel-default panel-condensed device-overview'>
             <div class='panel-heading'>";
 
-if (LibrenmsConfig::get('overview_show_sysDescr')) {
+if (twentyfouronlineConfig::get('overview_show_sysDescr')) {
     echo '<i class="fa fa-id-card fa-lg icon-theme" aria-hidden="true"></i> <strong>';
-    echo LibrenmsConfig::get('overview_show_sysDescr', true) ? Clean::html($device['sysDescr'], []) : 'System';
+    echo twentyfouronlineConfig::get('overview_show_sysDescr', true) ? Clean::html($device['sysDescr'], []) : 'System';
     echo '</strong>';
 }
 
@@ -26,14 +26,14 @@ echo '<script src="js/leaflet.markercluster.js"></script>';
 echo '<script src="js/leaflet.awesome-markers.min.js"></script>';
 
 if ($device['os'] == 'ios' || $device['os'] == 'iosxe') {
-    \LibreNMS\Util\Rewrite::ciscoHardware($device, false);
+    \twentyfouronline\Util\Rewrite::ciscoHardware($device, false);
 }
 
 if ($device['features']) {
     $device['features'] = '(' . $device['features'] . ')';
 }
 
-$device['os_text'] = LibrenmsConfig::getOsSetting($device['os'], 'text');
+$device['os_text'] = twentyfouronlineConfig::getOsSetting($device['os'], 'text');
 
 echo '<div class="row">
         <div class="col-sm-4">System Name</div>
@@ -133,8 +133,8 @@ if ($uptime) {
 }
 
 if ($device['location_id'] && $location = Location::find($device['location_id'])) {
-    $maps_api = LibrenmsConfig::get('geoloc.api_key');
-    $maps_engine = $maps_api ? LibrenmsConfig::get('geoloc.engine') : '';
+    $maps_api = twentyfouronlineConfig::get('geoloc.api_key');
+    $maps_engine = $maps_api ? twentyfouronlineConfig::get('geoloc.engine') : '';
     $location_valid = ($location && $location->coordinatesValid());
     $location_coords = $location_valid ? $location->lat . ', ' . $location->lng : 'N/A';
 
@@ -186,7 +186,7 @@ if ($device['location_id'] && $location = Location::find($device['location_id'])
              if (device_map == null) {
                 device_location = new L.LatLng(' . (float) $location->lat . ', ' . (float) $location->lng . ');
                 var config = {
-                    "tile_url": "' . LibrenmsConfig::get('leaflet.tile_url', '{s}.tile.openstreetmap.org') . '",
+                    "tile_url": "' . twentyfouronlineConfig::get('leaflet.tile_url', '{s}.tile.openstreetmap.org') . '",
                     "engine": "' . $maps_engine . '",
                     "api_key": "' . $maps_api . '"
                 };
@@ -199,11 +199,11 @@ if ($device['location_id'] && $location = Location::find($device['location_id'])
                 ';
 
     # If we are configured to show all devices on map
-    if (LibrenmsConfig::get('device_location_map_show_devices')) {
+    if (twentyfouronlineConfig::get('device_location_map_show_devices')) {
         // Get a list of devices we have access to and add them to the map
         echo'
                 device_marker_cluster = L.markerClusterGroup({
-                    maxClusterRadius: ' . LibrenmsConfig::get('leaflet.group_radius', 80) . ',
+                    maxClusterRadius: ' . twentyfouronlineConfig::get('leaflet.group_radius', 80) . ',
                     iconCreateFunction: function (cluster) {
                         var markers = cluster.getAllChildMarkers();
                         var n = 0;
@@ -252,7 +252,7 @@ if ($device['location_id'] && $location = Location::find($device['location_id'])
                         device_marker_cluster.addLayer(marker);
         ';
         # If we are configured to show dependencies
-        if (LibrenmsConfig::get('device_location_map_show_device_dependencies')) {
+        if (twentyfouronlineConfig::get('device_location_map_show_device_dependencies')) {
             echo'
                         $.each( device["parents"], function( parent_idx, parent_id ) {
                             if (parent_id in data && (data[parent_id]["lat"] != device["lat"] || data[parent_id]["lng"] != device["lng"])) {
@@ -299,7 +299,7 @@ if ($device['location_id'] && $location = Location::find($device['location_id'])
             $("#toggle-map-button").find(".fa").removeClass("fa-map-o").addClass("fa-map");
             $("#toggle-map-button span").text("View")
         });';
-    if (LibrenmsConfig::get('device_location_map_open')) {
+    if (twentyfouronlineConfig::get('device_location_map_open')) {
         echo '$("#toggle-map").collapse("show");';
     }
     echo '</script>
@@ -310,3 +310,7 @@ if ($device['location_id'] && $location = Location::find($device['location_id'])
     </div>
   </div>
 </div>
+
+
+
+

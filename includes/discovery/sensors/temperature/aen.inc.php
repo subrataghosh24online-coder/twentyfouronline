@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Accedian MetroNID Temperature Sensor Discovery module
+ * twentyfouronline Accedian MetroNID Temperature Sensor Discovery module
  *
  * Copyright (c) 2016 Chris A. Evans <thecityofguanyu@outlook.com>
  *
@@ -29,3 +29,7 @@ $value = snmp_get($device, $valueoid, '-Oqv');
 if (is_numeric($value)) {
     discover_sensor(null, 'temperature', $device, $valueoid, 1, 'metronid', $descr, '1', '1', $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $value);
 }
+
+
+
+

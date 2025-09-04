@@ -194,7 +194,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::alarmStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::alarmStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaAlarmStatus"
                 },
@@ -219,7 +219,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::cec7CommAlarmStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::cec7CommAlarmStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaCec7AlarmStatus"
                 },
@@ -244,7 +244,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::cec7CommStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::cec7CommStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaCec7CommStatus"
                 },
@@ -269,7 +269,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::cec7ModeStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::cec7ModeStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaCec7ModeStatus"
                 },
@@ -294,7 +294,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::commStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::commStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaCommStatus"
                 },
@@ -319,7 +319,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::modeStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::modeStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaModeStatus"
                 },
@@ -344,7 +344,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::motorStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::motorStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaMotorStatus"
                 },
@@ -369,7 +369,7 @@
                     "entPhysicalIndex": null,
                     "entPhysicalIndex_measured": null,
                     "sensor_prev": null,
-                    "user_func": "\\LibreNMS\\OS\\HimoinsaGensets::transferPumpStatus",
+                    "user_func": "\\twentyfouronline\\OS\\HimoinsaGensets::transferPumpStatus",
                     "rrd_type": "GAUGE",
                     "state_name": "HimoinsaTransferPumpStatus"
                 },
@@ -855,3 +855,7 @@
         "poller": "matches discovery"
     }
 }
+
+
+
+

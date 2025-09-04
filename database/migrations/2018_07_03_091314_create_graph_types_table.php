@@ -32,3 +32,7 @@ return new class extends Migration
         Schema::drop('graph_types');
     }
 };
+
+
+
+

@@ -29,3 +29,7 @@ return new class extends Migration
         Schema::drop('ipv4_networks');
     }
 };
+
+
+
+

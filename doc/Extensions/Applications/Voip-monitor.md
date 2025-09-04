@@ -7,7 +7,7 @@ Shell script that reports cpu-load/memory/open-files files stats of Voip Monitor
 1.  Download the script onto the desired host
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/voipmon-stats.sh -O /etc/snmp/voipmon-stats.sh
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/voipmon-stats.sh -O /etc/snmp/voipmon-stats.sh
     ```
 
 2.  Make the script executable
@@ -21,3 +21,7 @@ Shell script that reports cpu-load/memory/open-files files stats of Voip Monitor
     ```bash
     extend voipmon /etc/snmp/voipmon-stats.sh
     ```
+
+
+
+

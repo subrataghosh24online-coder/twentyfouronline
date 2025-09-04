@@ -28,3 +28,7 @@ and copy the `tinydns` script to `/usr/lib/check_mk_agent/local/`
    
 !!! note 
     Some say `svc -t /service/dns` is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.
+
+
+
+

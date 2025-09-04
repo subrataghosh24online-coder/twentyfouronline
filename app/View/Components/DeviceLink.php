@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Facades\DeviceCache;
 use App\Models\Device;
 use Illuminate\View\Component;
-use LibreNMS\Util\Graph;
+use twentyfouronline\Util\Graph;
 
 class DeviceLink extends Component
 {
@@ -71,3 +71,7 @@ class DeviceLink extends Component
         return $this->device->status ? 'up' : ($this->device->ignore ? 'disabled' : 'down');
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Powervault state
+ * twentyfouronline Powervault state
  *
  * Copyright (c) 2017 Dave Bell <me@geordish.org>
  * This program is free software: you can redistribute it and/or modify it
@@ -28,3 +28,7 @@ if (is_numeric($value)) {
 
     discover_sensor(null, 'state', $device, $oid, 1, $state_name, $descr, 1, 1);
 }
+
+
+
+

@@ -18,3 +18,7 @@ $graph_max = 1000000;
 $unit_text = 'Open files';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

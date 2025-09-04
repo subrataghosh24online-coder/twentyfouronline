@@ -6360,3 +6360,7 @@ juniAtmVcClassGroup  OBJECT-GROUP
 		Juniper product."                                       -- JUNOSe7.3
 	::= { juniAtmGroups 32 }  		
 END
+
+
+
+

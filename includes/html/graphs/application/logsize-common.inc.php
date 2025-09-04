@@ -9,3 +9,7 @@ if (isset($vars['log_set']) && isset($vars['log_file'])) {
 } else {
     $rrd_filename = Rrd::name($device['hostname'], ['app', $name, $app->app_id]);
 }
+
+
+
+

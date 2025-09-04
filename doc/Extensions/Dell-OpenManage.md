@@ -24,7 +24,7 @@ Ensure that srvadmin is started, this is usually done by executing:
 /opt/dell/srvadmin/sbin/srvadmin-services.sh start
 ```
 
-Once this has been done, add the device to LibreNMS as normal and you
+Once this has been done, add the device to twentyfouronline as normal and you
 will start to receive Temperatures and Fan speed data.
 
 ## Windows
@@ -33,6 +33,10 @@ Download OpenManage from Dell's support page
 [Link](http://www.dell.com/support/contents/us/en/04/article/product-support/self-support-knowledgebase/enterprise-resource-center/systemsmanagement/OMSA)
 and install OpenManage on your windows server. Make sure you have [SNMP](../Support/SNMP-Configuration-Examples.md#windows-server-2012-r2-and-newer)
 setup and running on your windows server.
+
+
+
+
 
 
 

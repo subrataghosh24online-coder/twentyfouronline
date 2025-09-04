@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -12,11 +12,11 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Enum\MaintenanceBehavior;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Enum\MaintenanceBehavior;
 
 if (\Auth::user()->hasGlobalAdmin()) {
-    $default_behavior = MaintenanceBehavior::tryFrom((int) LibrenmsConfig::get('alert.scheduled_maintenance_default_behavior'));
+    $default_behavior = MaintenanceBehavior::tryFrom((int) twentyfouronlineConfig::get('alert.scheduled_maintenance_default_behavior'));
     ?>
 
 <div class="modal fade bs-example-modal-sm" id="schedule-maintenance" tabindex="-1" role="dialog" aria-labelledby="Create" aria-hidden="true">
@@ -435,3 +435,7 @@ $("[name='recurring']").bootstrapSwitch();
 </script>
     <?php
 }
+
+
+
+

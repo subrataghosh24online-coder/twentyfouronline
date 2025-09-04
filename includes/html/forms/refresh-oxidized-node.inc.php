@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2018 PipoCanaja <pipocanaja@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -15,7 +15,7 @@ header('Content-type: application/json');
 
 $device_hostname = strip_tags($_POST['device_hostname']);
 if (Auth::user()->hasGlobalAdmin() && isset($device_hostname)) {
-    if ((new \App\ApiClients\Oxidized())->updateNode($device_hostname, 'LibreNMS GUI refresh', Auth::user()->username)) {
+    if ((new \App\ApiClients\Oxidized())->updateNode($device_hostname, 'twentyfouronline GUI refresh', Auth::user()->username)) {
         $status = 'ok';
         $message = 'Queued refresh in oxidized for device ' . $device_hostname;
     } else {
@@ -34,3 +34,7 @@ $output = [
 
 header('Content-type: application/json');
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

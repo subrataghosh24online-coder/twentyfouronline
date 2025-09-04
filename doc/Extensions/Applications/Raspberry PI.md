@@ -7,7 +7,7 @@ SNMP extend script to get your PI data into your host.
 1. Download the script onto the desired host
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/raspberry.sh -O /etc/snmp/raspberry.sh
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/raspberry.sh -O /etc/snmp/raspberry.sh
     ```
 
 2. Make the script executable
@@ -32,3 +32,7 @@ SNMP extend script to get your PI data into your host.
     If you are using Raspian, the default user is `Debian-snmp`. Change `snmp` above to `Debian-snmp`. You can verify the user snmpd is using with `ps aux | grep snmpd`
 
 5. Restart snmpd on PI host
+
+
+
+

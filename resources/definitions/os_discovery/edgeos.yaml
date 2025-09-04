@@ -3,3 +3,7 @@ modules:
         sysDescr_regex: '/v(?<version>\d+\.\d+\.\d+)/'
         hardware: UBNT-EdgeMAX-MIB::ubntModel.0
         version: UBNT-EdgeMAX-MIB::ubntVersion.0
+
+
+
+

@@ -32,7 +32,7 @@ Artisan::command('device:rename
 
 Artisan::command('update', function () {
     (new Process([base_path('daily.sh')]))->setTimeout(null)->setIdleTimeout(null)->setTty(true)->run();
-})->purpose(__('Update LibreNMS and run maintenance routines'));
+})->purpose(__('Update twentyfouronline and run maintenance routines'));
 
 Artisan::command('poller:ping
     {groups?* : ' . __('Optional List of distributed poller groups to poll') . '}
@@ -120,7 +120,7 @@ Artisan::command('poller:services
         }
     }
     (new Process($command))->setTimeout(null)->setIdleTimeout(null)->setTty(true)->run();
-})->purpose(__('Update LibreNMS and run maintenance routines'));
+})->purpose(__('Update twentyfouronline and run maintenance routines'));
 
 Artisan::command('poller:billing-calculate
     {--c|clear-history : ' . __('Delete all billing history') . '}
@@ -144,7 +144,7 @@ Artisan::command('scan
     /** @var Illuminate\Console\Command $this */
     $command = [base_path('snmp-scan.py')];
 
-    if (empty($this->argument('network')) && ! \App\Facades\LibrenmsConfig::has('nets')) {
+    if (empty($this->argument('network')) && ! \App\Facades\twentyfouronlineConfig::has('nets')) {
         $this->error(__('Network is required if \'nets\' is not set in the config'));
 
         return 1;
@@ -190,7 +190,7 @@ Artisan::command('scan
     }
 
     return $scan_process->getExitCode();
-})->purpose(__('Scan the network for hosts and try to add them to LibreNMS'));
+})->purpose(__('Scan the network for hosts and try to add them to twentyfouronline'));
 
 // mark schedule working
 Schedule::call(function () {
@@ -208,3 +208,7 @@ Schedule::command(MaintenanceCleanupNetworks::class, [])
     ->weeklyOn(0, '2:00')
     ->onOneServer()
     ->appendOutputTo($maintenance_log_file);
+
+
+
+

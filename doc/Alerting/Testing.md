@@ -35,3 +35,7 @@ running rule ID 2 then you would run:
 If the rule is currently alerting for localhost then you will get the
 full template as expected to see on email, if it's not then you will
 just see the template without any fault information.
+
+
+
+

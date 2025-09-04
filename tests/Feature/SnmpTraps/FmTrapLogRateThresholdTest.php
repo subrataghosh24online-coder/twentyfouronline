@@ -18,15 +18,15 @@
  *
  * Unit tests for Fortigate FmTrapLogRateThreshold.php
  *
- * @package    LibreNMS
- * @link       https://www.librenms.org
+ * @package    twentyfouronline
+ * @link       https://www.twentyfouronline.org
  * @copyright  2019 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class FmTrapLogRateThresholdTest extends SnmpTrapTestCase
 {
@@ -48,3 +48,7 @@ TRAP,
         );
     }
 }
+
+
+
+

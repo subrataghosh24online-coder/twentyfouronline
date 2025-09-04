@@ -1,9 +1,13 @@
 <?php
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (empty($os) || ! $os instanceof OS) {
     $os = OS::make($device);
 }
 
-(new \LibreNMS\Modules\HrDevice())->discover($os);
+(new \twentyfouronline\Modules\HrDevice())->discover($os);
+
+
+
+

@@ -1,17 +1,17 @@
 <?php
 
-namespace LibreNMS\Tests\Browser;
+namespace twentyfouronline\Tests\Browser;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\User;
 use App\Models\UserPref;
 use Hash;
 use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
-use LibreNMS\Tests\Browser\Pages\DashboardPage;
-use LibreNMS\Tests\Browser\Pages\LoginPage;
-use LibreNMS\Tests\Browser\Pages\TwoFactorPage;
-use LibreNMS\Tests\DuskTestCase;
+use twentyfouronline\Tests\Browser\Pages\DashboardPage;
+use twentyfouronline\Tests\Browser\Pages\LoginPage;
+use twentyfouronline\Tests\Browser\Pages\TwoFactorPage;
+use twentyfouronline\Tests\DuskTestCase;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -65,7 +65,7 @@ class LoginTest extends DuskTestCase
             $user = User::factory()->create([
                 'password' => Hash::make($password),
             ]); /** @var User $user */
-            LibrenmsConfig::persist('twofactor', true); // set to db
+            twentyfouronlineConfig::persist('twofactor', true); // set to db
             UserPref::setPref($user, 'twofactor', [
                 'key' => '5P3FLXBX7NU3ZBFOTWZL2GL5MKFEWBOA', // known key: 634456, 613687, 064292
                 'fails' => 0,
@@ -91,3 +91,7 @@ class LoginTest extends DuskTestCase
         });
     }
 }
+
+
+
+

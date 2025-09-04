@@ -3,3 +3,7 @@
 $class = 'frequency';
 
 require 'sensors.inc.php';
+
+
+
+

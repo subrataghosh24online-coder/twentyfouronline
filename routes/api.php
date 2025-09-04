@@ -184,3 +184,7 @@ Route::prefix('v0')->group(function () {
     // Route not found
     Route::any('/{path?}', [App\Api\Controllers\LegacyApiController::class, 'api_not_found'])->where('path', '.*');
 });
+
+
+
+

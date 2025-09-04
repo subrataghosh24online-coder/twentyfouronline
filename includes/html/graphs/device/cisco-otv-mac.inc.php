@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display Cisco Class-Based QoS Details
+ * twentyfouronline module to display Cisco Class-Based QoS Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options['filter']['type'] = ['=', 'Cisco-OTV'];
 $components = $component->getComponents($device['device_id'], $options);
 
@@ -37,7 +37,7 @@ foreach ($components as $id => $array) {
             }
 
             // Grab a color from the array.
-            $color = \App\Facades\LibrenmsConfig::get("graph_colours.mixed.$count", \App\Facades\LibrenmsConfig::get('graph_colours.oranges.' . ($count - 7)));
+            $color = \App\Facades\twentyfouronlineConfig::get("graph_colours.mixed.$count", \App\Facades\twentyfouronlineConfig::get('graph_colours.oranges.' . ($count - 7)));
 
             $rrd_additions .= ' DEF:DS' . $count . '=' . $rrd_filename . ':count:AVERAGE ';
             $rrd_additions .= ' AREA:DS' . $count . '#' . $color . ":'" . str_pad(substr($components[$id]['endpoint'], 0, 15), 15) . "'" . $stack;
@@ -54,3 +54,7 @@ if ($rrd_additions == '') {
 } else {
     $rrd_options .= $rrd_additions;
 }
+
+
+
+

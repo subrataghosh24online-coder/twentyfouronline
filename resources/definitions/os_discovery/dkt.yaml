@@ -24,3 +24,7 @@ modules:
                     states:
                         - { descr: Powered, graph: 0, value: 1, generic: 0 }
                         - { descr: Not powered, graph: 0, value: 0, generic: 3 }
+
+
+
+

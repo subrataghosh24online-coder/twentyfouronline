@@ -5,8 +5,8 @@ namespace App\Observers;
 use App\Models\Eventlog;
 use App\Models\Ipv4Mac;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Mac;
 
 class Ipv4MacObserver
 {
@@ -20,3 +20,7 @@ class Ipv4MacObserver
         }
     }
 }
+
+
+
+

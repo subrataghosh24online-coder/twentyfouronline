@@ -114,3 +114,7 @@ tnLOAMIfPARState OBJECT-TYPE
         "The status of interface's Parser state."
     ::= { tnLOAMIfMgmtEntry 4 }    
 END    
+
+
+
+

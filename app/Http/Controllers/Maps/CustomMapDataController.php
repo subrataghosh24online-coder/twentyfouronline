@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2023 Steven Wilton
  * @author     Steven Wilton <swilton@fluentit.com.au>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Maps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\CustomMap;
 use App\Models\CustomMapEdge;
@@ -36,7 +36,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 class CustomMapDataController extends Controller
 {
@@ -195,7 +195,7 @@ class CustomMapDataController extends Controller
 
             // set up linked device and status
             if ($node->device) {
-                $warning_time = LibrenmsConfig::get('uptime_warning', 86400);
+                $warning_time = twentyfouronlineConfig::get('uptime_warning', 86400);
 
                 $nodes[$nodeid]['device_name'] = $node->device->hostname . '(' . $node->device->sysName . ')';
                 $nodes[$nodeid]['device_image'] = $node->device->icon;
@@ -391,14 +391,14 @@ class CustomMapDataController extends Controller
 
     protected function setNodeDisabledStyle(array &$node_data_array): void
     {
-        $node_data_array['colour_bg_view'] = LibrenmsConfig::get('network_map_legend.di.border');
-        $node_data_array['colour_bdr_view'] = LibrenmsConfig::get('network_map_legend.di.node');
+        $node_data_array['colour_bg_view'] = twentyfouronlineConfig::get('network_map_legend.di.border');
+        $node_data_array['colour_bdr_view'] = twentyfouronlineConfig::get('network_map_legend.di.node');
     }
 
     protected function setNodeWarningStyle(array &$node_data_array, Request $request): void
     {
-        $node_data_array['colour_bg_view'] = LibrenmsConfig::get('network_map_legend.wn.node');
-        $node_data_array['colour_bdr_view'] = LibrenmsConfig::get('network_map_legend.wn.border');
+        $node_data_array['colour_bg_view'] = twentyfouronlineConfig::get('network_map_legend.wn.node');
+        $node_data_array['colour_bdr_view'] = twentyfouronlineConfig::get('network_map_legend.wn.border');
         // Change the text colour as long as we have not been requested by the editor
         if ($request->headers->get('referer') && ! str_ends_with(parse_url($request->headers->get('referer'), PHP_URL_PATH), '/edit')) {
             $node_data_array['text_colour'] = 'darkorange';
@@ -407,8 +407,8 @@ class CustomMapDataController extends Controller
 
     protected function setNodeDownStyle(array &$node_data_array, Request $request): void
     {
-        $node_data_array['colour_bg_view'] = LibrenmsConfig::get('network_map_legend.dn.node');
-        $node_data_array['colour_bdr_view'] = LibrenmsConfig::get('network_map_legend.dn.border');
+        $node_data_array['colour_bg_view'] = twentyfouronlineConfig::get('network_map_legend.dn.node');
+        $node_data_array['colour_bdr_view'] = twentyfouronlineConfig::get('network_map_legend.dn.border');
         // Change the text colour as long as we have not been requested by the editor
         if ($request->headers->get('referer') && ! str_ends_with(parse_url($request->headers->get('referer'), PHP_URL_PATH), '/edit')) {
             $node_data_array['text_colour'] = 'darkred';
@@ -421,3 +421,7 @@ class CustomMapDataController extends Controller
         $node_data_array['colour_bdr_view'] = $node->colour_bdr;
     }
 }
+
+
+
+

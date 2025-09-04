@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Observium to LibreNMS conversion
+# Observium to twentyfouronline conversion
 
 ####################### SCRIPT DESCRIPTION ########################
-# First we SSH to LibreNMS and create necessary directories with  #
+# First we SSH to twentyfouronline and create necessary directories with  #
 # the mkdir script. Then the script enters each Observium RRD dir #
 # converts the RRDs to XML and SCPs the XML files to the correct  #
-# directory on LibreNMS. After that we add all of the devices to  #
-# to LibreNMS using the destwork script.                          #
+# directory on twentyfouronline. After that we add all of the devices to  #
+# to twentyfouronline using the destwork script.                          #
 ###################################################################
 
 ########################### DIRECTIONS ############################
@@ -18,14 +18,14 @@
 ###################################################################
 
 ############################# CREDITS #############################
-# LibreNMS work is done by a great group - https://www.librenms.org    #
+# twentyfouronline work is done by a great group - https://www.twentyfouronline.org    #
 # Script Written by - Dan Brown - http://vlan50.com               #
 ###################################################################
 
-# Enter LibreNMS IP or hostname here
+# Enter twentyfouronline IP or hostname here
 DEST=10.0.253.35
-# Enter LibreNMS RRD path here
-L_RRDPATH=/opt/librenms/rrd/
+# Enter twentyfouronline RRD path here
+L_RRDPATH=/opt/twentyfouronline/rrd/
 # Enter Observium RRD path here
 O_RRDPATH=/opt/observium/rrd/
 # Enter path to mkdir script here
@@ -35,7 +35,7 @@ DESTSCRIPT=/tmp/destwork.sh
 # Enter path to nodelist text file
 NODELIST=/tmp/nodelist.txt
 
-# This line SSHs to LibreNMS server and makes directories based on node list text file
+# This line SSHs to twentyfouronline server and makes directories based on node list text file
 ssh root@$DEST 'bash -s' < $MKDIR
 
 # Conversion and transfer loop
@@ -44,7 +44,7 @@ while read line;
 	do cd $O_RRDPATH"${line%/*}"
 		# Convert each RRD to XML
 		for f in *.rrd; do rrdtool dump ${f} > ${f}.xml; done
-		# Transfer XML file to LibreNMS Server
+		# Transfer XML file to twentyfouronline Server
 		scp *.xml root@$DEST:$L_RRDPATH"${line%/*}"/
 		# Remove leftover XML files
 		rm *.xml
@@ -52,5 +52,9 @@ while read line;
 		cd ..
 	done < $NODELIST
 
-# This line SSHs to LibreNMS server and runs the destwork script to finish conversion
+# This line SSHs to twentyfouronline server and runs the destwork script to finish conversion
 ssh root@$DEST 'bash -s' < $DESTSCRIPT
+
+
+
+

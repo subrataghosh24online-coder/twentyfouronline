@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -13,7 +13,7 @@
 */
 
 use App\Models\Port;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 header('Content-type: application/json');
 
@@ -37,7 +37,7 @@ if ($port) {
             $device_tune = $port->device->getAttrib('override_rrdtool_tune');
             if ($port_tune == 'true' ||
                 ($device_tune == 'true' && $port_tune != 'false') ||
-                (\App\Facades\LibrenmsConfig::get('rrdtool_tune') == 'true' && $port_tune != 'false' && $device_tune != 'false')) {
+                (\App\Facades\twentyfouronlineConfig::get('rrdtool_tune') == 'true' && $port_tune != 'false' && $device_tune != 'false')) {
                 $rrdfile = get_port_rrdfile_path($port->device->hostname, $port_id);
                 Rrd::tune('port', $rrdfile, $speed);
             }
@@ -52,3 +52,7 @@ $response = [
     'status' => $status,
 ];
 echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class Ipv4Address extends PortRelatedModel implements Keyable
 {
@@ -58,3 +58,7 @@ class Ipv4Address extends PortRelatedModel implements Keyable
         return "$this->ipv4_address-$this->ipv4_prefixlen-$this->port_id-$this->context_name";
     }
 }
+
+
+
+

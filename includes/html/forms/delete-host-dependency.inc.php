@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2017 Aldemir Akpinar <https://github.com/aldemira/>
  *
@@ -44,3 +44,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
 
 header('Content-Type: application/json');
 echo json_encode($status);
+
+
+
+

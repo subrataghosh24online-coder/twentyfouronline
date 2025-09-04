@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use LibreNMS\Device\YamlDiscovery;
-use LibreNMS\Enum\IntegerType;
-use LibreNMS\Util\Number;
+use twentyfouronline\Device\YamlDiscovery;
+use twentyfouronline\Enum\IntegerType;
+use twentyfouronline\Util\Number;
 
 class FunctionsTest extends TestCase
 {
@@ -126,3 +126,7 @@ class FunctionsTest extends TestCase
         Number::constrainInteger(4294967296, IntegerType::int16);
     }
 }
+
+
+
+

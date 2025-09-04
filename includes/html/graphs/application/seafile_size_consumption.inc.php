@@ -10,3 +10,7 @@ $category = 'acc';
 $rrdVar = 'size_consumption';
 
 require 'seafile-common.inc.php';
+
+
+
+

@@ -848,3 +848,7 @@ dsStpPortForwardTransitions OBJECT-TYPE
 	      from the Learning state to the Forwarding state."
       ::= { dsStpPortEntry 10 }
 END
+
+
+
+

@@ -13,14 +13,14 @@ sudo apt-get install wiringpi
 2: Download the script to your Raspberry Pi. 
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/rpigpiomonitor.php
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/rpigpiomonitor.php
     -O /etc/snmp/rpigpiomonitor.php
     ```
 
 3: (optional) Download the example configuration to your Raspberry Pi. 
    
     ```bash 
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/rpigpiomonitor.ini
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/rpigpiomonitor.ini
     -O /etc/snmp/rpigpiomonitor.ini
     ```
 
@@ -40,5 +40,9 @@ sudo apt-get install wiringpi
     extend rpigpiomonitor /etc/snmp/rpigpiomonitor.php
     ```
 
-8: Restart snmpd on your Raspberry Pi and, if your Raspberry Pi is already present in LibreNMS, perform a manual rediscover.
+8: Restart snmpd on your Raspberry Pi and, if your Raspberry Pi is already present in twentyfouronline, perform a manual rediscover.
+
+
+
+
 

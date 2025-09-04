@@ -230,3 +230,7 @@ tnPortPowerControl                      OBJECT-TYPE
         "
     ::= { tnPortConfigEntry 7 }
 END
+
+
+
+

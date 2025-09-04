@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use App\Models\Device;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Tests\TestCase;
 
 class SnmpTranslateTest extends TestCase
 {
@@ -148,3 +148,7 @@ class SnmpTranslateTest extends TestCase
         $this->assertEquals('.1.3.6.1.4.1.171.14.5.1.4.1.4.1.1', $actual);
     }
 }
+
+
+
+

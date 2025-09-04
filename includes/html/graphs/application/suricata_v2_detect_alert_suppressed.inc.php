@@ -40,3 +40,7 @@ if (Rrd::checkRrdExists($detect__alerts_suppressed_rrd_filename)) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

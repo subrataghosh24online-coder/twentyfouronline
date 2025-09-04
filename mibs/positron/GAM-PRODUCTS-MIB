@@ -62,3 +62,7 @@ gam8MRXLBE   OBJECT IDENTIFIER ::= { gamProductsMIB 26 }
 gam12MLBE   OBJECT IDENTIFIER ::= { gamProductsMIB 27 }
 
 END
+
+
+
+

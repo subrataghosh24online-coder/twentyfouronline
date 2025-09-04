@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $tempTable = SnmpQuery::walk('FS-SWITCH-V2-MIB::transTemperinformationTable')->table(1);
 $ifIndexToName = SnmpQuery::cache()->walk('IF-MIB::ifName')->pluck();
@@ -36,3 +36,7 @@ foreach ($tempTable as $ifIndex => $current) {
 }
 
 unset($tempTable, $current);
+
+
+
+

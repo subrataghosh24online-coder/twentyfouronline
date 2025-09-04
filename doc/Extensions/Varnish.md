@@ -1,6 +1,6 @@
 # Varnish Installation Guide
 
-This document explains how to install Varnish Reverse Proxy for LibreNMS.
+This document explains how to install Varnish Reverse Proxy for twentyfouronline.
 
 Varnish is caching software that sits logically between an HTTP client
 and an HTTP server. Varnish caches HTTP responses from the HTTP
@@ -19,7 +19,7 @@ Simplified block diagram of an Apache HTTP server with Varnish 4.0 Reverse Proxy
 
 In this example we will assume your Apache 2.4.X HTTP server is working and
 configured to process HTTP requests on port 80.  If not, please see
-[Installing LibreNMS](../Installation/Install-LibreNMS.md)
+[Installing twentyfouronline](../Installation/Install-twentyfouronline.md)
 
 ## Install Varnish 4.0 RPM
 
@@ -93,7 +93,7 @@ cache size to 512MB.
 ```vcl
 VARNISH_LISTEN_ADDRESS=192.168.1.10
 VARNISH_LISTEN_PORT=80
-VARNISH_VCL_CONF=/etc/varnish/librenms.vcl
+VARNISH_VCL_CONF=/etc/varnish/twentyfouronline.vcl
 VARNISH_STORAGE="malloc,512M"
 ```
 
@@ -104,7 +104,7 @@ Example varnish.params:
 RELOAD_VCL=1
 
 # Main configuration file. You probably want to change it.
-VARNISH_VCL_CONF=/etc/varnish/librenms.vcl
+VARNISH_VCL_CONF=/etc/varnish/twentyfouronline.vcl
 
 # Default address and port to bind to. Blank address means all IPv4
 # and IPv6 interfaces, otherwise specify a host name, an IPv4 dotted
@@ -136,12 +136,12 @@ DAEMON_OPTS="-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_timeout=
 
 ## Configure Apache for Varnish
 
-Edit librenms.conf and modify the Apache Virtual Host listening port.
+Edit twentyfouronline.conf and modify the Apache Virtual Host listening port.
 
 - Modify: `<VirtualHost *:80>` to `<VirtualHost *:8080>`
 
 ```bash
-vim /etc/httpd/conf.d/librenms.conf
+vim /etc/httpd/conf.d/twentyfouronline.conf
 ```
 
 Varnish can not share a port with Apache. Change the Apache listening port to 8080.
@@ -152,11 +152,11 @@ Varnish can not share a port with Apache. Change the Apache listening port to 80
 vim /etc/httpd/conf/httpd.conf
 ```
 
-- Create the librenms.vcl
+- Create the twentyfouronline.vcl
 
 ```bash
 cd /etc/varnish
-touch librenms.vcl
+touch twentyfouronline.vcl
 ```
 
 - Set ownership and permissions for Varnish files.
@@ -166,10 +166,10 @@ chown varnish:varnish default.vcl varnish.params secret
 chmod 644 default.vcl varnish.params secret
 ```
 
-Edit the librenms.vcl.
+Edit the twentyfouronline.vcl.
 
 ```bash
-vim librenms.vcl
+vim twentyfouronline.vcl
 ```
 
 Paste example VCL config, read config comments for more information.
@@ -190,7 +190,7 @@ Paste example VCL config, read config comments for more information.
 vcl 4.0;
 
 # Default backend definition. Set this to point to your Apache server.
-backend librenms {
+backend twentyfouronline {
     .host = "127.0.0.1";
     .port = "8080";
 }
@@ -200,15 +200,15 @@ backend librenms {
 
 sub vcl_recv {
     # HTTP requests from client web browser.
-    # Here we remove any cookie HTTP requests for the 'librenms.domain.net' host
+    # Here we remove any cookie HTTP requests for the 'twentyfouronline.domain.net' host
     # containing the matching file extensions. We don't have to match by host if you
-    # only have LibreNMS running on Apache.
+    # only have twentyfouronline running on Apache.
     # If the cookies are not removed from the HTTP request then Varnish will not cache
     # the files. 'else' function is set to 'pass', or don't cache anything that doesn't
     # match.
 
-    if (req.http.host ~ "^librenms.domain.net") {
-        set req.backend_hint = librenms;
+    if (req.http.host ~ "^twentyfouronline.domain.net") {
+        set req.backend_hint = twentyfouronline;
         if (req.url ~ "\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$") {
             unset req.http.Cookie;
         }
@@ -225,13 +225,13 @@ sub vcl_backend_response {
     # This function happens after we read the response headers from the backend (Apache).
     # First function 'if (bereq.url ~ "\' removes cookies from the Apache HTTP responses
     # that match the file extensions that are between the quotes, and cache the files for 24 hours.
-    # This assumes you update LibreNMS once a day, otherwise restart Varnish to clear cache.
+    # This assumes you update twentyfouronline once a day, otherwise restart Varnish to clear cache.
     # Second function 'if (bereq.url ~ "^/' removes the Pragma no-cache statements and sets the age
     # of how long the client browser will cache the matching urls.
-    # LibreNMS graphs are updated every 300 seconds, 'max-age=300' is set to match this behavior.
+    # twentyfouronline graphs are updated every 300 seconds, 'max-age=300' is set to match this behavior.
     # We could cache these URLs in Varnish but it would add to the complexity of the config.
 
-    if (bereq.http.host ~ "^librenms.domain.net") {
+    if (bereq.http.host ~ "^twentyfouronline.domain.net") {
         if (bereq.url ~ "\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$") {
             unset beresp.http.Set-cookie;
             set beresp.ttl = 24h;
@@ -260,7 +260,7 @@ firewall-cmd --reload
 ```
 
 Varnish caching does not take effect immediately.  You will need to
-browse the LibreNMS website to build up the cache.
+browse the twentyfouronline website to build up the cache.
 
 Use the command `varnishstat` to monitor Varnish caching.  Over time
 you should see 'MAIN.cache_hit' and 'MAIN.client_req' increase.  With
@@ -269,3 +269,7 @@ the above VCL the hit to request ratio is approximately 84%.
 - Session based VCL (coming soon)
 
 - Testing and debugging VCL (coming soon)
+
+
+
+

@@ -8,3 +8,7 @@ return [
     'part' => '零件',
     'all_parts' => '所有零件',
 ];
+
+
+
+

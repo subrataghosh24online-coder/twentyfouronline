@@ -34,7 +34,7 @@ debug  8192 # Non-fatal errors
 
 1. Download the extend and make sure it is executable.
 ```
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/privoxy -O /etc/snmp/privoxy
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/privoxy -O /etc/snmp/privoxy
 chmod +x /etc/snmp/privoxy
 ```
 
@@ -61,7 +61,7 @@ then it can be ran via cron like below. `-w` can be used to write it
 out and `-o` can be used to control where it is written to. See
 `--help` for more information.
 
-Add the following to your `/etc/crontab.d/librenms_privoxy`: 
+Add the following to your `/etc/crontab.d/twentyfouronline_privoxy`: 
 
 ```bash
 */5 * * * * root /etc/snmp/privoxy -w > /dev/null
@@ -73,3 +73,7 @@ Add/Change the following to your `/etc/snmp/snmpd.conf`:
 ```bash
 extend privoxy /bin/cat /var/cache/privoxy_extend.json.snmp
 ```
+
+
+
+

@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
     <x-device.page :device="$device" :dropdown-links="$data['dropdownLinks'] ?? []">
@@ -10,3 +10,7 @@
 
     </x-device.page>
 @endsection
+
+
+
+

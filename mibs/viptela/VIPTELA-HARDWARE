@@ -579,3 +579,7 @@ hardwarePoePdClass OBJECT-TYPE
     DESCRIPTION "PoE powered device class"
     ::= { hardwarePoeEntry 6 }
 END
+
+
+
+

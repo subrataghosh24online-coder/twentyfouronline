@@ -34,7 +34,7 @@ return [
         'existing_config' => '数据库中存在现有设置。继续吗？',
     ],
     'dev:check' => [
-        'description' => 'LibreNMS代码检查。不带选项运行时运行所有检查',
+        'description' => 'twentyfouronline代码检查。不带选项运行时运行所有检查',
         'arguments' => [
             'check' => '运行指定的检查:checks',
         ],
@@ -53,7 +53,7 @@ return [
     'dev:simulate' => [
         'description' => '使用测试数据模拟设备',
         'arguments' => [
-            'file' => '要更新或添加到LibreNMS的snmprec文件的基本文件名。如果没有指定文件，则不会添加或更新设备。',
+            'file' => '要更新或添加到twentyfouronline的snmprec文件的基本文件名。如果没有指定文件，则不会添加或更新设备。',
         ],
         'options' => [
             'multiple' => '使用社区名称作为主机名，而不是snmpsim',
@@ -132,7 +132,7 @@ return [
         ],
         'options' => [
             'generate-new-key' => '如果您没有在.env中设置新密钥，请使用.env中的APP_KEY解密数据并生成新密钥并设置到.env中',
-            'forgot-key' => '如果您没有旧密钥，您必须删除所有加密数据才能继续使用LibreNMS的某些功能',
+            'forgot-key' => '如果您没有旧密钥，您必须删除所有加密数据才能继续使用twentyfouronline的某些功能',
         ],
         'destroy' => '是否销毁所有加密的配置数据？',
         'destroy_confirm' => '仅在找不到旧APP_KEY时才销毁所有加密数据！',
@@ -215,7 +215,7 @@ return [
         'description' => '生成适用于smokeping的配置文件',
         'header-first' => '此文件由 "lnms smokeping:generate" 自动生成',
         'header-second' => '本地更改可能会在未通知或未备份的情况下被覆盖',
-        'header-third' => '更多信息请参见 https://docs.librenms.org/Extensions/Smokeping/"',
+        'header-third' => '更多信息请参见 https://docs.twentyfouronline.org/Extensions/Smokeping/"',
         'no-devices' => '未找到符合条件的设备 - 设备不能被禁用。',
         'no-probes' => '至少需要一个探测器。',
         'options' => [
@@ -263,3 +263,7 @@ return [
         'wrong-auth' => '警告！由于您未使用MySQL身份验证，您将无法使用此用户登录',
     ],
 ];
+
+
+
+

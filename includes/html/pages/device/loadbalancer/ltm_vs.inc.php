@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to Display data from F5 BigIP LTM Devices
+ * twentyfouronline module to Display data from F5 BigIP LTM Devices
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['filter' => ['disabled' => ['=', 0]]]);
 
 // We only care about our device id.
@@ -36,3 +36,7 @@ if (is_file("includes/html/pages/device/loadbalancer/$subtype.inc.php")) {
 } else {
     include 'includes/html/pages/device/loadbalancer/ltm_vs_all.inc.php';
 }//end if
+
+
+
+

@@ -63,7 +63,7 @@ return new class extends Migration
             $table->integer('max_depth')->default(0);
         });
 
-        if (LibreNMS\DB\Eloquent::getDriver() == 'mysql') {
+        if (twentyfouronline\DB\Eloquent::getDriver() == 'mysql') {
             DB::statement('ALTER TABLE `devices` CHANGE `ip` `ip` varbinary(16) NULL ;');
         }
     }
@@ -78,3 +78,7 @@ return new class extends Migration
         Schema::drop('devices');
     }
 };
+
+
+
+

@@ -8,3 +8,7 @@ class PortStatistic extends PortRelatedModel
     protected $primaryKey = 'port_id';
     public $timestamps = false;
 }
+
+
+
+

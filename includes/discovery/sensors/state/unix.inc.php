@@ -3,7 +3,7 @@
 /**
  * unix.inc.php
  *
- * LibreNMS state sensor discovery module for UNIX based OS
+ * twentyfouronline state sensor discovery module for UNIX based OS
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +18,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
  */
 
-use LibreNMS\Util\Oid;
+use twentyfouronline\Util\Oid;
 
 $snmpData = SnmpQuery::cache()->hideMib()->walk('NET-SNMP-EXTEND-MIB::nsExtendOutLine."ups-nut"')->table(3);
 if (! empty($snmpData)) {
@@ -65,3 +65,7 @@ if (! empty($snmpData)) {
         }
     }
 }
+
+
+
+

@@ -2549,3 +2549,7 @@ jnxIfOtnNotificationOperStatus NOTIFICATION-TYPE
         ::= { jnxIfOtnNotificationPrefix 2 }
 
 END
+
+
+
+

@@ -6,3 +6,7 @@ $sensor_unit = '';
 $sensor_type = 'power_factor';
 
 require 'includes/html/pages/device/overview/generic/sensor.inc.php';
+
+
+
+

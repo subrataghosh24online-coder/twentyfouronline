@@ -33,18 +33,18 @@ foreach ($rrd_list as $rrd) {
     if ($rrd['colour']) {
         $colour = $rrd['colour'];
     } else {
-        if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$colour_iter")) {
+        if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$colour_iter")) {
             $colour_iter = 0;
         }
 
-        $colour = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$colour_iter");
+        $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$colour_iter");
         $colour_iter++;
     }
 
     $ds = $rrd['ds'];
     $filename = $rrd['filename'];
 
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($rrd['descr'], $descr_len);
     $id = 'ds' . $i;
 
     $rrd_options .= ' DEF:' . $rrd['ds'] . $i . '=' . $rrd['filename'] . ':' . $rrd['ds'] . ':AVERAGE ';
@@ -117,3 +117,7 @@ if ($graph_params->visible('previous')) {
     }
     $rrd_options .= ' HRULE:0#555555';
 }
+
+
+
+

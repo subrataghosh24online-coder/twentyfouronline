@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 
@@ -46,3 +46,7 @@ $colours_out = 'oranges';
 $nototal = 1;
 
 include 'includes/html/graphs/generic_multi_seperated.inc.php';
+
+
+
+

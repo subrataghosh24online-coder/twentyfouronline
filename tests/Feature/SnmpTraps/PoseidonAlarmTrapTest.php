@@ -16,15 +16,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2024 Transitiv Technologies Ltd. <info@transitiv.co.uk>
  * @author     Adam Sweet <adam.sweet@transitiv.co.uk>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class PoseidonAlarmTrapTest extends SnmpTrapTestCase
 {
@@ -77,3 +77,7 @@ POSEIDON-MIB::tsAlarmDescr.0 temperatureOutOfRange',
         );
     }
 }
+
+
+
+

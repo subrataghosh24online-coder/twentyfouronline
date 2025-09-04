@@ -92,3 +92,7 @@ modules:
                     descr: "{{ $portName }}"
                     index: "ddmDiagnosisTXPower.{{ $index }}"
                     group: "Optical TX"
+
+
+
+

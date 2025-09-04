@@ -1,13 +1,13 @@
 {
     "Docs": "Dokumentation",
     "Close": "Schließen",
-    "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS ist ein selbstdetektierendes PHP/MySQL basierendes Netzwerkmonitoring System",
+    "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline ist ein selbstdetektierendes PHP/MySQL basierendes Netzwerkmonitoring System",
     "Packages": "Pakete",
     "Disabled": "Gesperrt",
     "Version": "Version",
     "Database Schema": "Datenbank Schema",
     "Web Server": "Webserver",
-    "LibreNMS is a community-based project": "LibreNMS ist ein Open Source Projekt",
+    "twentyfouronline is a community-based project": "twentyfouronline ist ein Open Source Projekt",
     "Please feel free to join us and contribute code, documentation, and bug reports:": "Sie sind herzlich dazu eingeladen, Quellcode, Dokumentation und Bugreports hinzuzufügen",
     "Web site": "Webseite",
     "Bug tracker": "Bugtracker",
@@ -16,7 +16,7 @@
     "Local git log": "Lokales Git-Log",
     "Contributors": "Mitwirkende",
     "Acknowledgements": "Anerkennungen",
-    "Opt in to send anonymous usage statistics to LibreNMS?": "Anonyme Statistiken an LibreNMS senden?",
+    "Opt in to send anonymous usage statistics to twentyfouronline?": "Anonyme Statistiken an twentyfouronline senden?",
     "Online stats:": "Online-Statistiken",
     "Clear remote stats": "Remote-Statistiken löschen",
     "IPv4 Addresses": "IPv4-Adressen",
@@ -179,7 +179,7 @@
     "The user could not be deleted": "Der Benutzer konnte nicht gelöscht werden",
     "Whoops, the web server could not write required files to the filesystem.": "Warnung: Der Webserver konnte die benötigten Dateien nicht auf das Dateisystem schreiben",
     "Running the following commands will fix the issue most of the time:": "Das Ausführen der folgenden Befehle wird die meisten der Probleme lösen:",
-    "Whoops, looks like something went wrong. Check your librenms.log.": "Warnung: Offenbar ist etwas schief gegangen. Bitte prüfen Sie das Log (librenms.log)",
+    "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "Warnung: Offenbar ist etwas schief gegangen. Bitte prüfen Sie das Log (twentyfouronline.log)",
     "Public Devices": "Öffentlich sichtbare Geräte",
     "System Status": "Systemstatus",
     "Logon": "Anmeldung",
@@ -367,3 +367,7 @@
     "Status, Hostname": "Status, Hostname",
     "Status, Display Name": "Status, Anzeigename"
 }
+
+
+
+

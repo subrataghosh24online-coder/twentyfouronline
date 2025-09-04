@@ -11,3 +11,7 @@
     @endforeach
     <x-device.page-links :device="$device" :current-tab="$currentTab" :dropdown-links="$dropdownLinks"/>
 </ul>
+
+
+
+

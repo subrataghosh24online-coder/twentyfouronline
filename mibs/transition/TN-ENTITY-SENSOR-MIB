@@ -358,3 +358,7 @@ tnEntSensorThresholdNotification NOTIFICATION-TYPE
     ::= { tnEntitySensorMIBNotifications 1 }
          
 END
+
+
+
+

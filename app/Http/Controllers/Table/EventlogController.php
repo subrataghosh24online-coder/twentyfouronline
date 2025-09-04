@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,12 +26,12 @@
 
 namespace App\Http\Controllers\Table;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Url;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Url;
 
 class EventlogController extends TableController
 {
@@ -102,7 +102,7 @@ class EventlogController extends TableController
             }
         } elseif ($eventlog->type == 'stp') {
             return Blade::render('<x-device-link :device="$device" tab="stp">stp</x-device-link>', ['device' => $eventlog->device]);
-        } elseif (in_array($eventlog->type, \LibreNMS\Enum\Sensor::values())) {
+        } elseif (in_array($eventlog->type, \twentyfouronline\Enum\Sensor::values())) {
             if (is_numeric($eventlog->reference)) {
                 $sensor = $eventlog->related;
                 if (isset($sensor)) {
@@ -119,7 +119,7 @@ class EventlogController extends TableController
         $output = "<span class='alert-status ";
         $output .= $this->severityLabel($eventlog->severity);
         $output .= " eventlog-status'></span>";
-        $output .= (new Carbon($eventlog->datetime))->setTimezone(session('preferences.timezone'))->format(LibrenmsConfig::get('dateformat.compact'));
+        $output .= (new Carbon($eventlog->datetime))->setTimezone(session('preferences.timezone'))->format(twentyfouronlineConfig::get('dateformat.compact'));
 
         return $output;
     }
@@ -140,3 +140,7 @@ class EventlogController extends TableController
         };
     }
 }
+
+
+
+

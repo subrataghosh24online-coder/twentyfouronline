@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Oid;
+use twentyfouronline\Util\Oid;
 
 echo ' NetScaler ';
 
@@ -46,3 +46,7 @@ foreach ($ns_sensor_array as $descr => $data) {
 }
 
 unset($ns_sensor_array);
+
+
+
+

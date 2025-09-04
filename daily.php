@@ -3,17 +3,17 @@
 
 /*
  * Daily Task Checks
- * (c) 2013 LibreNMS Contributors
+ * (c) 2013 twentyfouronline Contributors
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use App\Models\DeviceGroup;
 use Illuminate\Database\Eloquent\Collection;
-use LibreNMS\Alerting\QueryBuilderParser;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Notifications;
-use LibreNMS\Validations\Php;
+use twentyfouronline\Alerting\QueryBuilderParser;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Notifications;
+use twentyfouronline\Validations\Php;
 
 $options = getopt('df:o:t:r:');
 $options['f'] = isset($options['f']) ? $options['f'] : '';
@@ -48,13 +48,13 @@ if (isset($options['d'])) {
 }
 
 if ($options['f'] === 'update') {
-    if (! LibrenmsConfig::get('update')) {
+    if (! twentyfouronlineConfig::get('update')) {
         exit(0);
     }
 
-    if (LibrenmsConfig::get('update_channel') == 'master') {
+    if (twentyfouronlineConfig::get('update_channel') == 'master') {
         exit(1);
-    } elseif (LibrenmsConfig::get('update_channel') == 'release') {
+    } elseif (twentyfouronlineConfig::get('update_channel') == 'release') {
         exit(3);
     }
     exit(0);
@@ -63,8 +63,8 @@ if ($options['f'] === 'update') {
 if ($options['f'] === 'rrd_purge') {
     $lock = Cache::lock('rrd_purge', 86000);
     if ($lock->get()) {
-        $rrd_purge = LibrenmsConfig::get('rrd_purge');
-        $rrd_dir = LibrenmsConfig::get('rrd_dir');
+        $rrd_purge = twentyfouronlineConfig::get('rrd_purge');
+        $rrd_dir = twentyfouronlineConfig::get('rrd_dir');
 
         if (is_numeric($rrd_purge) && $rrd_purge > 0) {
             $cmd = "find $rrd_dir -name .gitignore -prune -o -type f -mtime +$rrd_purge -print -exec rm -f {} +";
@@ -81,7 +81,7 @@ if ($options['f'] === 'rrd_purge') {
 if ($options['f'] === 'syslog') {
     $lock = Cache::lock('syslog_purge', 86000);
     if ($lock->get()) {
-        $syslog_purge = LibrenmsConfig::get('syslog_purge');
+        $syslog_purge = twentyfouronlineConfig::get('syslog_purge');
 
         if (is_numeric($syslog_purge)) {
             $rows = (int) dbFetchCell('SELECT MIN(seq) FROM syslog');
@@ -134,11 +134,11 @@ if ($options['f'] === 'authlog') {
 }
 
 if ($options['f'] === 'callback') {
-    \LibreNMS\Util\Stats::submit();
+    \twentyfouronline\Util\Stats::submit();
 }
 
 if ($options['f'] === 'ports_purge') {
-    if (LibrenmsConfig::get('ports_purge')) {
+    if (twentyfouronlineConfig::get('ports_purge')) {
         $lock = Cache::lock('ports_purge', 86000);
         if ($lock->get()) {
             \App\Models\Port::query()->with(['device' => function ($query) {
@@ -157,7 +157,7 @@ if ($options['f'] === 'ports_purge') {
 if ($options['f'] === 'handle_notifiable') {
     if ($options['t'] === 'update') {
         $title = 'Error: Daily update failed';
-        $poller_name = LibrenmsConfig::get('distributed_poller_name');
+        $poller_name = twentyfouronlineConfig::get('distributed_poller_name');
 
         if ($options['r']) {
             // result was a success (1), remove the notification
@@ -166,7 +166,7 @@ if ($options['f'] === 'handle_notifiable') {
             // result was a failure (0), create the notification
             Notifications::create($title, "The daily update script (daily.sh) has failed on $poller_name."
                 . 'Please check output by hand. If you need assistance, '
-                . 'visit the <a href="https://www.librenms.org/#support">LibreNMS Website</a> to find out how.',
+                . 'visit the <a href="https://www.twentyfouronline.org/#support">twentyfouronline Website</a> to find out how.',
                 'daily.sh',
                 2
             );
@@ -175,13 +175,13 @@ if ($options['f'] === 'handle_notifiable') {
         $error_title = 'Error: PHP version too low';
 
         // if update is not set to false and version is min or newer
-        if (LibrenmsConfig::get('update') && $options['r']) {
+        if (twentyfouronlineConfig::get('update') && $options['r']) {
             if (preg_match('/^php\d{2}/', $options['r'])) {
                 $phpver = Php::PHP_MIN_VERSION;
                 $eol_date = Php::PHP_MIN_VERSION_DATE;
 
                 Notifications::create($error_title,
-                    "PHP version $phpver is the minimum supported version as of $eol_date.  We recommend you update to PHP a supported version of PHP (" . Php::PHP_RECOMMENDED_VERSION . ' suggested) to continue to receive updates.  If you do not update PHP, LibreNMS will continue to function but stop receiving bug fixes and updates.',
+                    "PHP version $phpver is the minimum supported version as of $eol_date.  We recommend you update to PHP a supported version of PHP (" . Php::PHP_RECOMMENDED_VERSION . ' suggested) to continue to receive updates.  If you do not update PHP, twentyfouronline will continue to function but stop receiving bug fixes and updates.',
                     'daily.sh',
                     2
                 );
@@ -195,17 +195,17 @@ if ($options['f'] === 'handle_notifiable') {
         $error_title = 'Error: Python requirements not met';
 
         // if update is not set to false and version is min or newer
-        if (LibrenmsConfig::get('update') && $options['r']) {
+        if (twentyfouronlineConfig::get('update') && $options['r']) {
             if ($options['r'] === 'python3-missing') {
                 Notifications::create($error_title,
-                    'Python 3 is required to run LibreNMS as of May, 2020. You need to install Python 3 to continue to receive updates.  If you do not install Python 3 and required packages, LibreNMS will continue to function but stop receiving bug fixes and updates.',
+                    'Python 3 is required to run twentyfouronline as of May, 2020. You need to install Python 3 to continue to receive updates.  If you do not install Python 3 and required packages, twentyfouronline will continue to function but stop receiving bug fixes and updates.',
                     'daily.sh',
                     2
                 );
                 exit(1);
             } elseif ($options['r'] === 'python3-deps') {
                 Notifications::create($error_title,
-                    'Python 3 dependencies are missing. You need to install them via pip3 install -r requirements.txt or system packages to continue to receive updates.  If you do not install Python 3 and required packages, LibreNMS will continue to function but stop receiving bug fixes and updates.',
+                    'Python 3 dependencies are missing. You need to install them via pip3 install -r requirements.txt or system packages to continue to receive updates.  If you do not install Python 3 and required packages, twentyfouronline will continue to function but stop receiving bug fixes and updates.',
                     'daily.sh',
                     2
                 );
@@ -278,11 +278,11 @@ if ($options['f'] === 'purgeusers') {
     $lock = Cache::lock('purgeusers', 86000);
     if ($lock->get()) {
         $purge = 0;
-        if (is_numeric(\App\Facades\LibrenmsConfig::get('radius.users_purge')) && LibrenmsConfig::get('auth_mechanism') === 'radius') {
-            $purge = \App\Facades\LibrenmsConfig::get('radius.users_purge');
+        if (is_numeric(\App\Facades\twentyfouronlineConfig::get('radius.users_purge')) && twentyfouronlineConfig::get('auth_mechanism') === 'radius') {
+            $purge = \App\Facades\twentyfouronlineConfig::get('radius.users_purge');
         }
-        if (is_numeric(\App\Facades\LibrenmsConfig::get('active_directory.users_purge')) && LibrenmsConfig::get('auth_mechanism') === 'active_directory') {
-            $purge = \App\Facades\LibrenmsConfig::get('active_directory.users_purge');
+        if (is_numeric(\App\Facades\twentyfouronlineConfig::get('active_directory.users_purge')) && twentyfouronlineConfig::get('auth_mechanism') === 'active_directory') {
+            $purge = \App\Facades\twentyfouronlineConfig::get('active_directory.users_purge');
         }
         if ($purge > 0) {
             $users = \App\Models\AuthLog::where('datetime', '>=', \Carbon\Carbon::now()->subDays($purge))
@@ -333,9 +333,9 @@ if ($options['f'] === 'refresh_device_groups') {
 }
 
 if ($options['f'] === 'notify') {
-    if (\App\Facades\LibrenmsConfig::has('alert.default_mail')) {
+    if (\App\Facades\twentyfouronlineConfig::has('alert.default_mail')) {
         try {
-            \LibreNMS\Util\Mail::send(\App\Facades\LibrenmsConfig::get('alert.default_mail'), '[LibreNMS] Auto update has failed for ' . LibrenmsConfig::get('distributed_poller_name'), "We just attempted to update your install but failed. The information below should help you fix this.\r\n\r\n" . $options['o'], false);
+            \twentyfouronline\Util\Mail::send(\App\Facades\twentyfouronlineConfig::get('alert.default_mail'), '[twentyfouronline] Auto update has failed for ' . twentyfouronlineConfig::get('distributed_poller_name'), "We just attempted to update your install but failed. The information below should help you fix this.\r\n\r\n" . $options['o'], false);
         } catch (Exception $e) {
             echo 'Failed to send update failed email. ' . $e->getMessage();
         }
@@ -352,8 +352,8 @@ if ($options['f'] === 'peeringdb') {
 
 if ($options['f'] === 'refresh_os_cache') {
     echo 'Clearing OS cache' . PHP_EOL;
-    if (is_file(LibrenmsConfig::get('install_dir') . '/cache/os_defs.cache')) {
-        unlink(LibrenmsConfig::get('install_dir') . '/cache/os_defs.cache');
+    if (is_file(twentyfouronlineConfig::get('install_dir') . '/cache/os_defs.cache')) {
+        unlink(twentyfouronlineConfig::get('install_dir') . '/cache/os_defs.cache');
     }
 }
 
@@ -382,3 +382,7 @@ if ($options['f'] === 'recalculate_device_dependencies') {
         $lock->release();
     }
 }
+
+
+
+

@@ -1793,3 +1793,7 @@ TELDAT-MON-CommonInfo-MIB
         ::={telProdNpMonInterfStatsEntry 8}
 
 END
+
+
+
+

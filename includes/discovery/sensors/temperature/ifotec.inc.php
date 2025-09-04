@@ -18,9 +18,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  LibreNMS contributors
+ * @copyright  twentyfouronline contributors
  * @author     Cedric MARMONIER
  */
 $index = 0;
@@ -44,3 +44,7 @@ foreach ($pre_cache['ifoTemperatureTable'] ?? [] as $ifoSensor) {
 
     $index++;
 }
+
+
+
+

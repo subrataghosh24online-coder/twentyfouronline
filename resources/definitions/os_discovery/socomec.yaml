@@ -72,3 +72,7 @@ modules:
                     divisor: 10
                     descr: 'Output frequency'
                     snmp_flags: ['-ObsaQ']
+
+
+
+

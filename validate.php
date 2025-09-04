@@ -2,7 +2,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -13,9 +13,9 @@
  * the source code distribution for details.
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\ValidationResult;
-use LibreNMS\Validator;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\ValidationResult;
+use twentyfouronline\Validator;
 
 chdir(__DIR__); // cwd to the directory containing this script
 
@@ -46,7 +46,7 @@ if (isset($options['h'])) {
           - python: check that various Python modules and functions exist
           - system: checks system related items
           - updates: checks the status of git and updates
-          - user: check that the LibreNMS user is set properly
+          - user: check that the twentyfouronline user is set properly
 
         Example: ./validate.php -g mail.
 
@@ -121,7 +121,7 @@ $init_modules = ['nodb'];
 require 'includes/init.php';
 
 // make sure install_dir is set correctly, or the next includes will fail
-if (! file_exists(LibrenmsConfig::get('install_dir') . '/.env')) {
+if (! file_exists(twentyfouronlineConfig::get('install_dir') . '/.env')) {
     $suggested = realpath(__DIR__);
     print_fail('\'install_dir\' config setting is not set correctly.', "It should probably be set to: $suggested");
     exit(1);
@@ -157,7 +157,7 @@ function print_header(): void
         ob_end_clean();
     }
 
-    echo \LibreNMS\Util\Version::get()->header() . PHP_EOL;
+    echo \twentyfouronline\Util\Version::get()->header() . PHP_EOL;
     echo $output;
 }
 
@@ -174,3 +174,7 @@ function print_fail($msg, $fix = null)
     }
     echo PHP_EOL;
 }
+
+
+
+

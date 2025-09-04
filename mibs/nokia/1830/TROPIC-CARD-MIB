@@ -1456,3 +1456,7 @@ IMPORTS
         ::= { tnCardCompliances 1 }
 
 END -- DEFINITION OF TROPIC-CARD-MIB
+
+
+
+

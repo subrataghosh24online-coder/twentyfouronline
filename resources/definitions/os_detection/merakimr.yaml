@@ -11,3 +11,7 @@ discovery:
         sysDescr_regex:
             - '/^=?Meraki MR/'
             - '/^=?Meraki CW/'
+
+
+
+

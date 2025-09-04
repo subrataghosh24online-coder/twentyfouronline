@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -14,7 +14,7 @@
 
 use App\Models\ApiToken;
 use App\Models\User;
-use LibreNMS\Authentication\LegacyAuth;
+use twentyfouronline\Authentication\LegacyAuth;
 
 if (Auth::user()->hasGlobalAdmin()) {
 ?>
@@ -233,3 +233,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 } else {
         include 'includes/html/error-no-perm.inc.php';
     }//end if
+
+
+
+

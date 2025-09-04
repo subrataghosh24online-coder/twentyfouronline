@@ -17,3 +17,7 @@ $descr = 'Snaps';
 $ds = 'snaps';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

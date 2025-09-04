@@ -2007,3 +2007,7 @@ jnxGdoiGmTekStatus OBJECT-TYPE
     ::= { jnxGdoiGmTekPolicyEntry 11 }
 END
 
+
+
+
+

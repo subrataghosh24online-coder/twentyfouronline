@@ -30,3 +30,7 @@ if (Rrd::checkRrdExists($rrd_filename)) {
 }
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

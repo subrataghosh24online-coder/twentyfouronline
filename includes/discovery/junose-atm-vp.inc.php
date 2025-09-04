@@ -3,9 +3,9 @@
 // We're discovering this MIB
 // snmpwalk -v2c -c <community> <hostname> -M mibs/junose/ -m Juniper-UNI-ATM-MIB juniAtmVpStatsEntry
 // JunOSe ATM vps
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
-if ($device['os'] == 'junose' && LibrenmsConfig::get('enable_ports_junoseatmvp')) {
+if ($device['os'] == 'junose' && twentyfouronlineConfig::get('enable_ports_junoseatmvp')) {
     $vp_array = snmpwalk_cache_multi_oid($device, 'juniAtmVpStatsInCells', $vp_array, 'Juniper-UNI-ATM-MIB', 'junose');
     $valid_vp = [];
     d_echo($vp_array);
@@ -46,3 +46,7 @@ if ($device['os'] == 'junose' && LibrenmsConfig::get('enable_ports_junoseatmvp')
     unset($valid_vp);
     echo "\n";
 }//end if
+
+
+
+

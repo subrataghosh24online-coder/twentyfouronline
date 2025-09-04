@@ -14,3 +14,7 @@ $graph_max = 1;
 $unit_text = 'Searches';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

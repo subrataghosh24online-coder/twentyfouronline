@@ -67,3 +67,7 @@ modules:
                     value: dcpLinkviewLocalPower
                     descr: '{{ $dcpLinkviewLocalName }} - {{ $dcpLinkviewRemoteName }} - Local Power'
                     index: 'dcpLinkviewLocalPower.{{ $index }}'
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['ignore'] = ['=', 0];
 $options['type'] = 'Cisco-OTV';
@@ -59,7 +59,7 @@ $graph_array = [];
 $graph_array['device'] = $device['device_id'];
 $graph_array['height'] = '100';
 $graph_array['width'] = '215';
-$graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+$graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
 $graph_array['type'] = 'device_cisco-otv-vlan';
 require 'includes/html/print-graphrow.inc.php';
 
@@ -78,10 +78,14 @@ $graph_array = [];
 $graph_array['device'] = $device['device_id'];
 $graph_array['height'] = '100';
 $graph_array['width'] = '215';
-$graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+$graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
 $graph_array['type'] = 'device_cisco-otv-mac';
 require 'includes/html/print-graphrow.inc.php';
 
 ?>
     </div>
 </div>
+
+
+
+

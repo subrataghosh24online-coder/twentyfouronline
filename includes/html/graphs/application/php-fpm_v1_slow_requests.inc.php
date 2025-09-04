@@ -7,3 +7,7 @@ $unit_text = 'Requests/S';
 require 'php-fpm-include.php';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

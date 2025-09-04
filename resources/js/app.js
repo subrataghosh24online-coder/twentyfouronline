@@ -74,3 +74,7 @@ Alpine.data('deviceLink', deviceLink);
 
 Alpine.start();
 window.Alpine = Alpine;
+
+
+
+

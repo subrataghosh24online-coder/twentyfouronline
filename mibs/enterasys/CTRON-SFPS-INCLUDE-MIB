@@ -492,3 +492,7 @@ vlanSpanningTreePort    OBJECT IDENTIFIER ::= { vlanSpanning 1 }
 vlanSpanningTreeSwitch  OBJECT IDENTIFIER ::= { vlanSpanning 2 } 
 
 END
+
+
+
+

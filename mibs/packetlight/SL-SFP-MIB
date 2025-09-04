@@ -2589,3 +2589,7 @@ sfpConfigChangeTrap NOTIFICATION-TYPE
 	::= { sfpTraps 1 }
 
 END
+
+
+
+

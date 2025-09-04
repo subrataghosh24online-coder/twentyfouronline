@@ -1053,3 +1053,7 @@ HUAWEI-SECSTAT-MIB DEFINITIONS ::= BEGIN
         ::= { hwSecStatMibGroups 2 }
 
 END
+
+
+
+

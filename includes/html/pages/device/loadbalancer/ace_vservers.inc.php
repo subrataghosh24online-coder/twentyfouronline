@@ -17,7 +17,7 @@ foreach ($menu_options as $option => $text) {
         echo "<span class='pagemenu-selected'>";
     }
 
-    echo '<a href="' . \LibreNMS\Util\Url::generate($vars, ['type' => $option]) . '">' . $text . '</a>';
+    echo '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['type' => $option]) . '">' . $text . '</a>';
     if ($_GET['type'] == $option) {
         echo '</span>';
     }
@@ -42,7 +42,7 @@ foreach ($graph_types as $type => $descr) {
     }
 
     echo '<a href="device/device=' . $device['device_id'] . '/tab=routing/type=loadbalancer_vservers/graphs/' . $type . '/">' . $descr . '</a>';
-    echo '<a href="' . \LibreNMS\Util\Url::generate($vars, ['type' => 'loadbalancer_ace_vservers']) . '">' . $text . '</a>';
+    echo '<a href="' . \twentyfouronline\Util\Url::generate($vars, ['type' => 'loadbalancer_ace_vservers']) . '">' . $text . '</a>';
     if ($_GET['opte'] == $type) {
         echo '</span>';
     }
@@ -56,9 +56,9 @@ echo "<div style='margin: 5px;'><table border=0 cellspacing=0 cellpadding=0 widt
 $i = '0';
 foreach (dbFetchRows('SELECT * FROM `loadbalancer_vservers` WHERE `device_id` = ? ORDER BY `classmap`', [$device['device_id']]) as $vserver) {
     if (is_integer($i / 2)) {
-        $bg_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+        $bg_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
     } else {
-        $bg_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+        $bg_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
     }
 
     if ($vserver['serverstate'] == 'inService') {
@@ -80,7 +80,7 @@ foreach (dbFetchRows('SELECT * FROM `loadbalancer_vservers` WHERE `device_id` = 
 
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['id'] = $vserver['classmap_id'];
         $graph_array['type'] = $graph_type;
 
@@ -98,3 +98,7 @@ foreach (dbFetchRows('SELECT * FROM `loadbalancer_vservers` WHERE `device_id` = 
 }//end foreach
 
 echo '</table></div>';
+
+
+
+

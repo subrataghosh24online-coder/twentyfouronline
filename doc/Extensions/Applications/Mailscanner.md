@@ -4,7 +4,7 @@
 
 1. Download the script onto the desired host.
 ```
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailscanner.php -O /etc/snmp/mailscanner.php
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/mailscanner.php -O /etc/snmp/mailscanner.php
 ```
 
 2. Make the script executable
@@ -24,3 +24,7 @@ wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mails
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

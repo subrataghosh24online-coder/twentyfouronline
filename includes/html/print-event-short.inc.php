@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -9,11 +9,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 use App\Models\Port;
@@ -29,9 +29,13 @@ echo '<td>' . $entry['humandate'] . '</td>';
 echo '<td style="white-space: nowrap;max-width: 100px;overflow: hidden;text-overflow: ellipsis;">';
 
 if ($entry['type'] == 'interface') {
-    echo '<b>' . \LibreNMS\Util\Url::portLink(Port::find($entry['reference'])) . '</b>';
+    echo '<b>' . \twentyfouronline\Util\Url::portLink(Port::find($entry['reference'])) . '</b>';
 }
 
 echo '</td><td>' . htmlspecialchars($entry['message']) . '</td>';
 
 echo '</tr>';
+
+
+
+

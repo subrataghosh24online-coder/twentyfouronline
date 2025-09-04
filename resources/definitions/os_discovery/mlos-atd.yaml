@@ -153,3 +153,7 @@ modules:
                     states:
                         - { value: 0, generic: 2, graph: 0, descr: Bad }
                         - { value: 1, generic: 0, graph: 0, descr: Good } 
+
+
+
+

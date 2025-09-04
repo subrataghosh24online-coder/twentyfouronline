@@ -20,3 +20,7 @@ modules:
                 descr: '{{ ZHONE-CARD-RESOURCES-MIB::cardIdentification }} ({{ $index }})'
                 precision: 1024
 
+
+
+
+

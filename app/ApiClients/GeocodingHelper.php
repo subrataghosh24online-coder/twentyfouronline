@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -25,7 +25,7 @@
 
 namespace App\ApiClients;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Exception;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
@@ -44,7 +44,7 @@ trait GeocodingHelper
      */
     public function getCoordinates($address)
     {
-        if (! LibrenmsConfig::get('geoloc.latlng', true)) {
+        if (! twentyfouronlineConfig::get('geoloc.latlng', true)) {
             Log::debug('Geocoding disabled');
 
             return [];
@@ -93,3 +93,7 @@ trait GeocodingHelper
      */
     abstract protected function buildGeocodingOptions(string $address): array;
 }
+
+
+
+

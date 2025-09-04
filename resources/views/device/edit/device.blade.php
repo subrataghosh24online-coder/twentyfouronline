@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
     <x-device.page :device="$device">
@@ -22,7 +22,7 @@
                     <button type="submit" class="btn btn-danger" name="Submit"><i class="fa fa-trash"></i> {{ __('device.edit.delete_device') }}</button>
                 </form>
 
-                @if(LibrenmsConfig::get('enable_clear_discovery') && ! $device->snmp_disable)
+                @if(twentyfouronlineConfig::get('enable_clear_discovery') && ! $device->snmp_disable)
                     <button type="submit" id="rediscover" data-device_id="{{ $device->device_id }}"
                             class="btn btn-primary" name="rediscover" title="{{ __('device.edit.rediscover_title') }}">
                         <i class="fa fa-retweet"></i> {{ __('device.edit.rediscover') }}
@@ -240,3 +240,7 @@
     </script>
     @vuei18n
 @endpush
+
+
+
+

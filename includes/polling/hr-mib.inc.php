@@ -4,7 +4,7 @@
 // Generic System Statistics
 
 use App\Models\HrSystem;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $oid_list = ['hrSystemMaxProcesses.0', 'hrSystemProcesses.0', 'hrSystemNumUsers.0'];
 $hrSystem = snmp_get_multi($device, $oid_list, '-OUQs', 'HOST-RESOURCES-MIB');
@@ -50,3 +50,7 @@ if (is_numeric($hrSystemNumUsers)) {
 echo "\n";
 
 unset($oid_list, $hrSystem, $hrSystemProcesses, $hrSystemMaxProcesses, $hrSystemNumUsers);
+
+
+
+

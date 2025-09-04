@@ -29,7 +29,7 @@ A small shell script that reports the status of PHP-FPM (FastCGI Process Manager
     1. Copy the shell script, phpfpmsp, to the desired host
 
         ```bash
-        wget https://github.com/librenms/librenms-agent/raw/master/snmp/php-fpm -O /etc/snmp/php-fpm
+        wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/php-fpm -O /etc/snmp/php-fpm
         ```
 
     2. Make the script executable
@@ -69,3 +69,7 @@ A small shell script that reports the status of PHP-FPM (FastCGI Process Manager
 
     [Install the agent](../Agent-Setup.md) on this device if it isn't already
     and copy the `phpfpmsp` script to `/usr/lib/check_mk_agent/local/`
+
+
+
+

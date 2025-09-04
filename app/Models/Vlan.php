@@ -27,3 +27,7 @@ class Vlan extends DeviceRelatedModel
         return $this->vlan_vlan . '-' . $this->vlan_domain;
     }
 }
+
+
+
+

@@ -2,7 +2,7 @@
 
 /*
 
-LibreNMS Application for monitoring power consumption
+twentyfouronline Application for monitoring power consumption
 
 @link       https://www.upaya.net.au/
 @copyright  2021 Ben Carbery
@@ -85,7 +85,7 @@ foreach ($ds_list as $ds_item) {
     $vname = $ds_item['vname'];
     $ds = $ds_item['ds'];
     $filename = $ds_item['filename'];
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($ds_item['descr'], $pad_to);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($ds_item['descr'], $pad_to);
 
     // CF to use
     $use_cf_last = ['nothing', 'nothing'];
@@ -116,10 +116,10 @@ foreach ($ds_list as $ds_item) {
     if (isset($ds_item['colour'])) {
         $colour = $ds_item['colour'];
     } else {
-        if (! \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$i")) {
+        if (! \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$i")) {
             $i = 0;
         }
-        $colour = \App\Facades\LibrenmsConfig::get("graph_colours.$colours.$i");
+        $colour = \App\Facades\twentyfouronlineConfig::get("graph_colours.$colours.$i");
         $i++;
     }
 
@@ -151,7 +151,7 @@ foreach ($ds_list as $ds_item) {
         $units_text = ' kWh';
         $float_precision = 2;
         $descr = '  Total Consumed';
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($descr, $pad_to + 2);
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($descr, $pad_to + 2);
         $rrd_options .= " COMMENT:'{$descr}'";
         $rrd_options .= ' CDEF:series_a=watts,3600000,/';
         $rrd_options .= ' VDEF:kilowatthours=series_a,TOTAL';
@@ -159,7 +159,7 @@ foreach ($ds_list as $ds_item) {
     } elseif ($vname == 'rate') {
         // Consumption Charge
         $float_precision = 2;
-        $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($descr, $pad_to + 7);
+        $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($descr, $pad_to + 7);
         $rrd_options .= " COMMENT:'{$descr}{$currency_symbol}'";
         $rrd_options .= " CDEF:series_b=watts,{$vname},*,3600000,/";
         $rrd_options .= ' VDEF:total_cost=series_b,TOTAL';
@@ -168,3 +168,7 @@ foreach ($ds_list as $ds_item) {
         $rrd_options .= " GPRINT:average_rate:%0.6lf' per kWh\l'";
     }
 }
+
+
+
+

@@ -32,18 +32,18 @@ with the values we expect to see the data in:
 | utilization | %           | WirelessUtilizationDiscovery | The % of utilization compared to the current rate                                               |
 
 You will need to create a new OS class for your os if one doesn't exist
-under `LibreNMS/OS`.  The name of this file should be the os name in
+under `twentyfouronline/OS`.  The name of this file should be the os name in
 camel case for example `airos -> Airos`, `ios-wlc -> IosWlc`.
 
-Your new OS class should extend LibreNMS\OS and implement the
+Your new OS class should extend twentyfouronline\OS and implement the
 interfaces for the sensors your os supports.
 
 ```php
-namespace LibreNMS\OS;
+namespace twentyfouronline\OS;
 
-use LibreNMS\Device\WirelessSensor;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
-use LibreNMS\OS;
+use twentyfouronline\Device\WirelessSensor;
+use twentyfouronline\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
+use twentyfouronline\OS;
 
 class Airos extends OS implements WirelessClientsDiscovery
 {
@@ -99,8 +99,12 @@ All discovery interfaces will require you to return an array of WirelessSensor o
 
 Polling is done automatically based on the discovered data.  If for
 some reason you need to override polling, you can implement the
-required polling interface in `LibreNMS/Interfaces/Polling/Sensors`.
+required polling interface in `twentyfouronline/Interfaces/Polling/Sensors`.
 Using the polling interfaces should be avoided if possible.
 
 Graphing is performed automatically for wireless sensors, no custom
 graphing is required or supported.
+
+
+
+

@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (LibreNMS\DB\Eloquent::getDriver() !== 'sqlite') {
+        if (twentyfouronline\DB\Eloquent::getDriver() !== 'sqlite') {
             DB::statement("SET TIME_ZONE='+00:00'"); // force UTC for default timestamp value
         }
 
@@ -44,3 +44,7 @@ return new class extends Migration
         Schema::drop('users');
     }
 };
+
+
+
+

@@ -13,3 +13,7 @@
         <input class="form-control" name="top_device_group_count" id="top_device_group_count-{{ $id }}" value="{{ $top_device_group_count }}">
     </div>
 @endsection
+
+
+
+

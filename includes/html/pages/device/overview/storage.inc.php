@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $graph_type = 'storage_usage';
 
@@ -22,7 +22,7 @@ if (count($drives)) {
         $skipdrive = 0;
 
         if ($device['os'] == 'junos') {
-            foreach (\App\Facades\LibrenmsConfig::get('ignore_junos_os_drives', []) as $jdrive) {
+            foreach (\App\Facades\twentyfouronlineConfig::get('ignore_junos_os_drives', []) as $jdrive) {
                 if (preg_match($jdrive, $drive['storage_descr'])) {
                     $skipdrive = 1;
                 }
@@ -32,7 +32,7 @@ if (count($drives)) {
         }
 
         if ($device['os'] == 'freebsd') {
-            foreach (\App\Facades\LibrenmsConfig::get('ignore_bsd_os_drives', []) as $jdrive) {
+            foreach (\App\Facades\twentyfouronlineConfig::get('ignore_bsd_os_drives', []) as $jdrive) {
                 if (preg_match($jdrive, $drive['storage_descr'])) {
                     $skipdrive = 1;
                 }
@@ -47,21 +47,21 @@ if (count($drives)) {
         $total = Number::formatBi($drive['storage_size']);
         $free = Number::formatBi($drive['storage_free']);
         $used = Number::formatBi($drive['storage_used']);
-        $background = \LibreNMS\Util\Color::percentage($percent, $drive['storage_perc_warn']);
+        $background = \twentyfouronline\Util\Color::percentage($percent, $drive['storage_perc_warn']);
 
         $graph_array = [];
         $graph_array['height'] = '100';
         $graph_array['width'] = '210';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['id'] = $drive['storage_id'];
         $graph_array['type'] = $graph_type;
-        $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+        $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
         $graph_array['legend'] = 'no';
 
         $link_array = $graph_array;
         $link_array['page'] = 'graphs';
         unset($link_array['height'], $link_array['width'], $link_array['legend']);
-        $link = \LibreNMS\Util\Url::generate($link_array);
+        $link = \twentyfouronline\Util\Url::generate($link_array);
 
         $drive['storage_descr'] = Str::limit($drive['storage_descr'], 50);
 
@@ -71,12 +71,12 @@ if (count($drives)) {
         $graph_array['height'] = 20;
         $graph_array['bg'] = 'ffffff00';
         // the 00 at the end makes the area transparent.
-        $minigraph = \LibreNMS\Util\Url::lazyGraphTag($graph_array);
+        $minigraph = \twentyfouronline\Util\Url::lazyGraphTag($graph_array);
 
         echo '<tr>
-           <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $drive['storage_descr'], $overlib_content) . '</td>
-           <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
-           <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, print_percentage_bar(400, 20, $percent, "$used / $total ($percent%)", 'ffffff', $background['left'], $free, 'ffffff', $background['right']), $overlib_content) . '
+           <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $drive['storage_descr'], $overlib_content) . '</td>
+           <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
+           <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, print_percentage_bar(400, 20, $percent, "$used / $total ($percent%)", 'ffffff', $background['left'], $free, 'ffffff', $background['right']), $overlib_content) . '
            </a></td>
          </tr>';
     }//end foreach
@@ -88,3 +88,7 @@ if (count($drives)) {
 }//end if
 
 unset($drive_rows);
+
+
+
+

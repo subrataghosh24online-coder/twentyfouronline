@@ -6,11 +6,11 @@ use App\Models\PrinterSupply;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Util\Color;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\StringHelpers;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Color;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\StringHelpers;
+use twentyfouronline\Util\Url;
 
 class PrinterSupplyController extends TableController
 {
@@ -94,3 +94,7 @@ class PrinterSupplyController extends TableController
         ];
     }
 }
+
+
+
+

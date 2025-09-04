@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\Mac;
 
 $vtpdomains = snmpwalk_group($device, 'managementDomainName', 'CISCO-VTP-MIB');
 $vlans = snmpwalk_group($device, 'vtpVlanEntry', 'CISCO-VTP-MIB', 2);
@@ -44,3 +44,7 @@ foreach ($vtpdomains as $vtpdomain_id => $vtpdomain) {
     } // end for each vlan
     echo PHP_EOL;
 } // end for each vlan domain
+
+
+
+

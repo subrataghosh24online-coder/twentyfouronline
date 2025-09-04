@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Select;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -49,7 +49,7 @@ class GraphAggregateController extends Controller
             'core',
         ];
 
-        foreach ((array) LibrenmsConfig::get('custom_descr', []) as $custom) {
+        foreach ((array) twentyfouronlineConfig::get('custom_descr', []) as $custom) {
             $custom = is_array($custom) ? $custom[0] : $custom;
             if ($custom) {
                 $types[] = $custom;
@@ -75,3 +75,7 @@ class GraphAggregateController extends Controller
         ]);
     }
 }
+
+
+
+

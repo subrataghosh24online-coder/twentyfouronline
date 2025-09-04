@@ -46,3 +46,7 @@ class Link extends Model
         return $this->hasOne(Port::class, 'port_id', 'remote_port_id');
     }
 }
+
+
+
+

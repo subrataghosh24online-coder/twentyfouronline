@@ -6,14 +6,14 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
 
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  * @copyright  2018 PipoCanaja <pipocanaja@gmail.com>
  * @author     PipoCanaja <pipocanaja@gmail.com>
  */
 
-use LibreNMS\Interfaces\Plugins\Hooks\PortTabHook;
+use twentyfouronline\Interfaces\Plugins\Hooks\PortTabHook;
 
 $pagetitle[] = 'Plugins';
 $no_refresh = true;
@@ -22,7 +22,11 @@ $no_refresh = true;
 <h3>Plugins</h3>
 <hr>
 <?php
-echo \LibreNMS\Plugins::call('port_container', [$device, $port]);
+echo \twentyfouronline\Plugins::call('port_container', [$device, $port]);
 foreach (PluginManager::call(PortTabHook::class, ['port' => $port]) as $view) {
     echo $view;
 };
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -13,7 +13,7 @@
  */
 
 use App\Actions\Device\ValidateDeviceAndCreate;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Availability;
 use App\Models\Device;
 use App\Models\DeviceGroup;
@@ -45,17 +45,17 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use LibreNMS\Alerting\QueryBuilderParser;
-use LibreNMS\Billing;
-use LibreNMS\Enum\MaintenanceBehavior;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\Exceptions\InvalidTableColumnException;
-use LibreNMS\Util\Graph;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\IPv4;
-use LibreNMS\Util\Mac;
-use LibreNMS\Util\Number;
+use twentyfouronline\Alerting\QueryBuilderParser;
+use twentyfouronline\Billing;
+use twentyfouronline\Enum\MaintenanceBehavior;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\Exceptions\InvalidTableColumnException;
+use twentyfouronline\Util\Graph;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\IPv4;
+use twentyfouronline\Util\Mac;
+use twentyfouronline\Util\Number;
 
 function api_success($result, $result_name, $message = null, $code = 200, $count = null, $extra = null): JsonResponse
 {
@@ -136,7 +136,7 @@ function api_get_graph(Request $request, array $additional = [])
         }
 
         return response($graph->data, 200, ['Content-Type' => $graph->contentType()]);
-    } catch (\LibreNMS\Exceptions\RrdGraphException $e) {
+    } catch (\twentyfouronline\Exceptions\RrdGraphException $e) {
         return api_error(500, $e->getMessage());
     }
 }
@@ -527,7 +527,7 @@ function maintenance_device(Illuminate\Http\Request $request)
     empty($data['notes']) ? $notes = '' : $notes = $data['notes'];
     $title = $data['title'] ?? $device->displayName();
     $behavior = MaintenanceBehavior::tryFrom((int) ($data['behavior'] ?? -1))
-        ?? LibrenmsConfig::get('alert.scheduled_maintenance_default_behavior');
+        ?? twentyfouronlineConfig::get('alert.scheduled_maintenance_default_behavior');
 
     $alert_schedule = new \App\Models\AlertSchedule([
         'title' => $title,
@@ -921,7 +921,7 @@ function get_components(Illuminate\Http\Request $request)
     $device_id = ctype_digit($hostname) ? $hostname : getidbyname($hostname);
 
     return check_device_permission($device_id, function ($device_id) use ($options) {
-        $COMPONENT = new LibreNMS\Component();
+        $COMPONENT = new twentyfouronline\Component();
         $components = $COMPONENT->getComponents($device_id, $options);
 
         return api_success($components[$device_id], 'components');
@@ -935,7 +935,7 @@ function add_components(Illuminate\Http\Request $request)
 
     // use hostname as device_id if it's all digits
     $device_id = ctype_digit($hostname) ? $hostname : getidbyname($hostname);
-    $COMPONENT = new LibreNMS\Component();
+    $COMPONENT = new twentyfouronline\Component();
     $component = $COMPONENT->createComponent($device_id, $ctype);
 
     return api_success($component, 'components');
@@ -948,7 +948,7 @@ function edit_components(Illuminate\Http\Request $request)
 
     // use hostname as device_id if it's all digits
     $device_id = ctype_digit($hostname) ? $hostname : getidbyname($hostname);
-    $COMPONENT = new LibreNMS\Component();
+    $COMPONENT = new twentyfouronline\Component();
 
     if (! $COMPONENT->setComponentPrefs($device_id, $data)) {
         return api_error(500, 'Components could not be edited.');
@@ -961,7 +961,7 @@ function delete_components(Illuminate\Http\Request $request)
 {
     $cid = $request->route('component');
 
-    $COMPONENT = new LibreNMS\Component();
+    $COMPONENT = new twentyfouronline\Component();
     if ($COMPONENT->deleteComponent($cid)) {
         return api_success_noresult(200);
     } else {
@@ -987,7 +987,7 @@ function get_graphs(Illuminate\Http\Request $request)
             'name' => 'device_icmp_perf',
         ];
         foreach (dbFetchRows('SELECT * FROM device_graphs WHERE device_id = ? ORDER BY graph', [$device_id]) as $graph) {
-            $desc = LibrenmsConfig::get("graph_types.device.{$graph['graph']}.descr");
+            $desc = twentyfouronlineConfig::get("graph_types.device.{$graph['graph']}.descr");
             $graphs[] = [
                 'desc' => $desc,
                 'name' => 'device_' . $graph['graph'],
@@ -1115,7 +1115,7 @@ function list_available_wireless_graphs(Illuminate\Http\Request $request)
 }
 
 /**
- * @throws \LibreNMS\Exceptions\ApiException
+ * @throws \twentyfouronline\Exceptions\ApiException
  */
 function get_port_graphs(Illuminate\Http\Request $request): JsonResponse
 {
@@ -1277,7 +1277,7 @@ function get_port_description(Illuminate\Http\Request $request)
 }
 
 /**
- * @throws \LibreNMS\Exceptions\ApiException
+ * @throws \twentyfouronline\Exceptions\ApiException
  */
 function search_ports(Illuminate\Http\Request $request): JsonResponse
 {
@@ -1310,7 +1310,7 @@ function search_ports(Illuminate\Http\Request $request): JsonResponse
 }
 
 /**
- * @throws \LibreNMS\Exceptions\ApiException
+ * @throws \twentyfouronline\Exceptions\ApiException
  */
 function get_all_ports(Illuminate\Http\Request $request): JsonResponse
 {
@@ -1369,7 +1369,7 @@ function list_alert_rules(Illuminate\Http\Request $request)
 }
 
 /**
- * @throws \LibreNMS\Exceptions\ApiException
+ * @throws \twentyfouronline\Exceptions\ApiException
  */
 function list_alerts(Illuminate\Http\Request $request): JsonResponse
 {
@@ -1561,7 +1561,7 @@ function ack_alert(Illuminate\Http\Request $request)
     if (! empty($note)) {
         $note .= PHP_EOL;
     }
-    $note .= date(LibrenmsConfig::get('dateformat.long')) . ' - Ack (' . Auth::user()->username . ") {$data['note']}";
+    $note .= date(twentyfouronlineConfig::get('dateformat.long')) . ' - Ack (' . Auth::user()->username . ") {$data['note']}";
     $info['until_clear'] = $data['until_clear'];
     $info = json_encode($info);
 
@@ -1587,7 +1587,7 @@ function unmute_alert(Illuminate\Http\Request $request)
     if (! empty($note)) {
         $note .= PHP_EOL;
     }
-    $note .= date(LibrenmsConfig::get('dateformat.long')) . ' - Ack (' . Auth::user()->username . ") {$data['note']}";
+    $note .= date(twentyfouronlineConfig::get('dateformat.long')) . ' - Ack (' . Auth::user()->username . ") {$data['note']}";
 
     if (dbUpdate(['state' => 1, 'note' => $note], 'alerts', '`id` = ? LIMIT 1', [$alert_id])) {
         return api_success_noresult(200, 'Alert has been unmuted');
@@ -1677,8 +1677,8 @@ function list_oxidized(Illuminate\Http\Request $request)
              ->when($request->route('hostname'), function ($query, $hostname) {
                  return $query->where('hostname', $hostname);
              })
-             ->whereNotIn('type', LibrenmsConfig::get('oxidized.ignore_types', []))
-             ->whereNotIn('os', LibrenmsConfig::get('oxidized.ignore_os', []))
+             ->whereNotIn('type', twentyfouronlineConfig::get('oxidized.ignore_types', []))
+             ->whereNotIn('os', twentyfouronlineConfig::get('oxidized.ignore_os', []))
              ->whereAttributeDisabled('override_Oxidized_disable')
              ->select(['devices.device_id', 'hostname', 'sysName', 'sysDescr', 'sysObjectID', 'hardware', 'os', 'ip', 'location_id', 'purpose', 'notes', 'poller_group'])
              ->get();
@@ -1699,13 +1699,13 @@ function list_oxidized(Illuminate\Http\Request $request)
             $output['telnet_port'] = $custom_telnet_port;
         }
         // Pre-populate the group with the default
-        if (LibrenmsConfig::get('oxidized.group_support') === true && ! empty(LibrenmsConfig::get('oxidized.default_group'))) {
-            $output['group'] = LibrenmsConfig::get('oxidized.default_group');
+        if (twentyfouronlineConfig::get('oxidized.group_support') === true && ! empty(twentyfouronlineConfig::get('oxidized.default_group'))) {
+            $output['group'] = twentyfouronlineConfig::get('oxidized.default_group');
         }
 
-        foreach (LibrenmsConfig::get('oxidized.maps') as $maps_column => $maps) {
+        foreach (twentyfouronlineConfig::get('oxidized.maps') as $maps_column => $maps) {
             // Based on Oxidized group support we can apply groups by setting group_support to true
-            if ($maps_column == 'group' && LibrenmsConfig::get('oxidized.group_support', true) !== true) {
+            if ($maps_column == 'group' && twentyfouronlineConfig::get('oxidized.group_support', true) !== true) {
                 continue;
             }
 
@@ -1730,7 +1730,7 @@ function list_oxidized(Illuminate\Http\Request $request)
             }
         }
         //Exclude groups from being sent to Oxidized
-        if (in_array($output['group'], LibrenmsConfig::get('oxidized.ignore_groups'))) {
+        if (in_array($output['group'], twentyfouronlineConfig::get('oxidized.ignore_groups'))) {
             continue;
         }
 
@@ -2544,7 +2544,7 @@ function maintenance_devicegroup(Illuminate\Http\Request $request)
     $notes = $data['notes'] ?? '';
     $title = $data['title'] ?? $device_group->name;
     $behavior = MaintenanceBehavior::tryFrom((int) ($data['behavior'] ?? -1))
-        ?? LibrenmsConfig::get('alert.scheduled_maintenance_default_behavior');
+        ?? twentyfouronlineConfig::get('alert.scheduled_maintenance_default_behavior');
 
     $alert_schedule = new \App\Models\AlertSchedule([
         'title' => $title,
@@ -3130,7 +3130,7 @@ function list_logs(Illuminate\Http\Request $request, Router $router)
 }
 
 /**
- * @throws \LibreNMS\Exceptions\ApiException
+ * @throws \twentyfouronline\Exceptions\ApiException
  */
 function validate_column_list(?string $columns, string $table, array $default = []): array
 {
@@ -3140,7 +3140,7 @@ function validate_column_list(?string $columns, string $table, array $default = 
 
     static $schema;
     if (is_null($schema)) {
-        $schema = new \LibreNMS\DB\Schema();
+        $schema = new \twentyfouronline\DB\Schema();
     }
 
     $column_names = is_array($columns) ? $columns : explode(',', $columns);
@@ -3460,7 +3460,7 @@ function edit_service_for_host(Illuminate\Http\Request $request)
 }
 
 /**
- * recieve syslog messages via json https://github.com/librenms/librenms/pull/14424
+ * recieve syslog messages via json https://github.com/twentyfouronline/twentyfouronline/pull/14424
  */
 function post_syslogsink(Illuminate\Http\Request $request)
 {
@@ -3480,11 +3480,11 @@ function post_syslogsink(Illuminate\Http\Request $request)
 }
 
 /**
- * Display Librenms Instance Info
+ * Display twentyfouronline Instance Info
  */
 function server_info()
 {
-    $version = \LibreNMS\Util\Version::get();
+    $version = \twentyfouronline\Util\Version::get();
 
     $versions = [
         'local_ver' => $version->name(),
@@ -3503,3 +3503,7 @@ function server_info()
         $versions,
     ], 'system');
 }
+
+
+
+

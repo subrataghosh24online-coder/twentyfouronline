@@ -13,7 +13,7 @@
 1. Copy the extend into place
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/poudriere -O /usr/local/etc/snmp/poudriere
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/poudriere -O /usr/local/etc/snmp/poudriere
     ```
 
 2. Make it executable.
@@ -31,3 +31,7 @@
     ```
     extend poudriere cat /var/cache/poudriere.json.snmp
     ```
+
+
+
+

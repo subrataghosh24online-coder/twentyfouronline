@@ -2,9 +2,9 @@
 
 ## Have a look in resources/definitions/config_definitions.json for examples of settings you can set here. DO NOT EDIT config_definitions.json!
 
-// This is the user LibreNMS will run as
+// This is the user twentyfouronline will run as
 //Please ensure this user is created and has the correct permissions to your install
-#$config['user'] = 'librenms';
+#$config['user'] = 'twentyfouronline';
 
 ### This should *only* be set if you want to *force* a particular hostname/port
 ### It will prevent the web interface being usable from any other hostname
@@ -43,3 +43,7 @@
 
 # Enable the in-built services support (Nagios plugins)
 #$config['show_services'] = 1;
+
+
+
+

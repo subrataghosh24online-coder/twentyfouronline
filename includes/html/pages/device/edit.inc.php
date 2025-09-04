@@ -19,7 +19,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
         $panes['routing'] = 'Routing';
     }
 
-    if (count(\App\Facades\LibrenmsConfig::get("os.{$device['os']}.icons", []))) {
+    if (count(\App\Facades\twentyfouronlineConfig::get("os.{$device['os']}.icons", []))) {
         $panes['icon'] = 'Icon';
     }
 
@@ -31,7 +31,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
         $panes['modules'] = 'Modules';
     }
 
-    if (\App\Facades\LibrenmsConfig::get('show_services')) {
+    if (\App\Facades\twentyfouronlineConfig::get('show_services')) {
         $panes['services'] = 'Services';
     }
 
@@ -90,3 +90,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
 }
 
 $pagetitle[] = 'Settings';
+
+
+
+

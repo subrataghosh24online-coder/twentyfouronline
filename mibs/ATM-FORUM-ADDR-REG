@@ -286,3 +286,7 @@ atmfAddressRegistrationAdminStatus OBJECT-TYPE
                 Interface does not support address registration."
         ::= { atmfAddressRegistrationAdminEntry 2 }
 END
+
+
+
+

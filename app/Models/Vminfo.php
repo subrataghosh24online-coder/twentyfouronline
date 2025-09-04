@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
-use LibreNMS\Interfaces\Models\Keyable;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Number;
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Interfaces\Models\Keyable;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\Rewrite;
 
 class Vminfo extends DeviceRelatedModel implements Keyable
 {
@@ -75,3 +75,7 @@ class Vminfo extends DeviceRelatedModel implements Keyable
         return $this->vm_type . $this->vmwVmVMID;
     }
 }
+
+
+
+

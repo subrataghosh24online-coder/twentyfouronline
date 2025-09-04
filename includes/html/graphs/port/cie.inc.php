@@ -7,9 +7,9 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 $cisco_if_extension_ds = [
@@ -41,3 +41,7 @@ $unit_text = 'Errors/sec';
 $simple_rrd = 1;
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

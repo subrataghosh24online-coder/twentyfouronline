@@ -29,3 +29,7 @@ class NotificationAttrib extends Model
         return $this->belongsTo(Notification::class, 'notifications_id');
     }
 }
+
+
+
+

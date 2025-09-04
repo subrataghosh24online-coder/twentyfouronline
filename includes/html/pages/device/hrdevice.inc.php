@@ -12,21 +12,21 @@ foreach (dbFetchRows('SELECT * FROM `hrDevice` WHERE `device_id` = ? ORDER BY `h
         $proc_id = dbFetchCell("SELECT processor_id FROM processors WHERE device_id = '" . $device['device_id'] . "' AND hrDeviceIndex = '" . $hrdevice['hrDeviceIndex'] . "'");
         $proc_url = 'device/device=' . $device['device_id'] . '/tab=health/metric=processor/';
         $proc_popup = "onmouseover=\"return overlib('<div class=list-large>" . $device['hostname'] . ' - ' . $hrdevice['hrDeviceDescr'];
-        $proc_popup .= "</div><img src=\'graph.php?id=" . $proc_id . '&amp;type=processor_usage&amp;from=' . \App\Facades\LibrenmsConfig::get('time.month') . '&amp;to=' . \App\Facades\LibrenmsConfig::get('time.now') . "&amp;width=400&amp;height=125\'>";
-        $proc_popup .= "', RIGHT" . \App\Facades\LibrenmsConfig::get('overlib_defaults') . ');" onmouseout="return nd();"';
+        $proc_popup .= "</div><img src=\'graph.php?id=" . $proc_id . '&amp;type=processor_usage&amp;from=' . \App\Facades\twentyfouronlineConfig::get('time.month') . '&amp;to=' . \App\Facades\twentyfouronlineConfig::get('time.now') . "&amp;width=400&amp;height=125\'>";
+        $proc_popup .= "', RIGHT" . \App\Facades\twentyfouronlineConfig::get('overlib_defaults') . ');" onmouseout="return nd();"';
         echo "<td><a href='$proc_url' $proc_popup>" . $hrdevice['hrDeviceDescr'] . '</a></td>';
 
         $graph_array['height'] = '20';
         $graph_array['width'] = '100';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['id'] = $proc_id;
         $graph_array['type'] = 'processor_usage';
-        $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+        $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
         $graph_array_zoom = $graph_array;
         $graph_array_zoom['height'] = '150';
         $graph_array_zoom['width'] = '400';
 
-        $mini_graph = \LibreNMS\Util\Url::overlibLink($proc_url, \LibreNMS\Util\Url::lazyGraphTag($graph_array), \LibreNMS\Util\Url::graphTag($graph_array_zoom));
+        $mini_graph = \twentyfouronline\Util\Url::overlibLink($proc_url, \twentyfouronline\Util\Url::lazyGraphTag($graph_array), \twentyfouronline\Util\Url::graphTag($graph_array_zoom));
 
         echo '<td>' . $mini_graph . '</td>';
     } elseif ($hrdevice['hrDeviceType'] == 'hrDeviceNetwork') {
@@ -43,15 +43,15 @@ foreach (dbFetchRows('SELECT * FROM `hrDevice` WHERE `device_id` = ? ORDER BY `h
 
             $graph_array['height'] = '20';
             $graph_array['width'] = '100';
-            $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+            $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
             $graph_array['id'] = $interface['port_id'];
             $graph_array['type'] = 'port_bits';
-            $graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+            $graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
             $graph_array_zoom = $graph_array;
             $graph_array_zoom['height'] = '150';
             $graph_array_zoom['width'] = '400';
 
-            $mini_graph = \LibreNMS\Util\Url::overlibLink(generate_port_url($interface), \LibreNMS\Util\Url::lazyGraphTag($graph_array), \LibreNMS\Util\Url::graphTag($graph_array_zoom));
+            $mini_graph = \twentyfouronline\Util\Url::overlibLink(generate_port_url($interface), \twentyfouronline\Util\Url::lazyGraphTag($graph_array), \twentyfouronline\Util\Url::graphTag($graph_array_zoom));
 
             echo "<td>$mini_graph</td>";
         } else {
@@ -71,3 +71,7 @@ foreach (dbFetchRows('SELECT * FROM `hrDevice` WHERE `device_id` = ? ORDER BY `h
 echo '</table>';
 
 $pagetitle[] = 'Inventory';
+
+
+
+

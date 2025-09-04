@@ -1,6 +1,6 @@
 # Dependency Map
 
-LibreNMS has the ability to show you a dynamic network map based on
+twentyfouronline has the ability to show you a dynamic network map based on
 device dependencies that have been configure. These maps are accessed
 through the following menu options:
 
@@ -9,3 +9,7 @@ through the following menu options:
 
 ## Settings
 The map display can be configured by altering the [Vis JS Options](VisJS-Config.md)
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * junos.inc.php
  *
- * LibreNMS Junos VirtualChassis Ports include
+ * twentyfouronline Junos VirtualChassis Ports include
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Ruslan Magomedov
  * @author     Ruslan Magomedov <rmagomedov.iam@yahoo.com>
@@ -58,3 +58,7 @@ foreach ($junos_vcp_stats as $index => $vcp_stats) {
         $port_stats[$nms_index]['ifOperStatus'] = $vcp_stats['jnxVirtualChassisPortOperStatus'];
     }
 }
+
+
+
+

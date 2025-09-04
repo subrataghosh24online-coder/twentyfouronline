@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Ajax;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -46,19 +46,19 @@ class NetCommand extends Controller
 
         switch ($request->get('cmd')) {
             case 'whois':
-                $cmd = [LibrenmsConfig::get('whois', 'whois'), $request->get('query')];
+                $cmd = [twentyfouronlineConfig::get('whois', 'whois'), $request->get('query')];
                 break;
             case 'ping':
-                $cmd = [LibrenmsConfig::get('ping', 'ping'), '-c', '5', $request->get('query')];
+                $cmd = [twentyfouronlineConfig::get('ping', 'ping'), '-c', '5', $request->get('query')];
                 break;
             case 'tracert':
-                $cmd = [LibrenmsConfig::get('mtr', 'mtr'), '-r', '-c', '5', $request->get('query')];
+                $cmd = [twentyfouronlineConfig::get('mtr', 'mtr'), '-r', '-c', '5', $request->get('query')];
                 break;
             case 'nmap':
                 if (! $request->user()->isAdmin()) {
                     return response('Insufficient privileges');
                 } else {
-                    $cmd = [LibrenmsConfig::get('nmap', 'nmap'), $request->get('query')];
+                    $cmd = [twentyfouronlineConfig::get('nmap', 'nmap'), $request->get('query')];
                 }
                 break;
             default:
@@ -95,3 +95,7 @@ class NetCommand extends Controller
         ))->send();
     }
 }
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Rewrite;
 
 /*
  * This program is free software: you can redistribute it and/or modify it
@@ -9,11 +9,11 @@ use LibreNMS\Util\Rewrite;
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage webui
- * @link       https://www.librenms.org
- * @copyright  2018 LibreNMS
- * @author     LibreNMS Contributors
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2018 twentyfouronline
+ * @author     twentyfouronline Contributors
 */
 
 $where = '1';
@@ -71,7 +71,7 @@ if ($rowCount != -1) {
     $sql .= " LIMIT $limit_low,$limit_high";
 }
 
-$sql = "SELECT `E`.*,DATE_FORMAT(datetime, '" . \App\Facades\LibrenmsConfig::get('dateformat.mysql.compact') . "') as humandate,severity $sql";
+$sql = "SELECT `E`.*,DATE_FORMAT(datetime, '" . \App\Facades\twentyfouronlineConfig::get('dateformat.mysql.compact') . "') as humandate,severity $sql";
 
 foreach (dbFetchRows($sql, $param) as $eventlog) {
     $dev = device_by_id_cache($eventlog['device_id']);
@@ -103,3 +103,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

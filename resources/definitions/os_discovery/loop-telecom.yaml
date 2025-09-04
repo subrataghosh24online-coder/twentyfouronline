@@ -146,3 +146,7 @@ modules:
           num_oid: '.1.3.6.1.4.1.823.34441.1.10.24.{{ $index }}'
           descr:  DWMP Chanel 3 current
           index: 'dpwmCH3Current.{{ $index }}'
+
+
+
+

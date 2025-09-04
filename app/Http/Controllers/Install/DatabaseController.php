@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,12 +29,12 @@ namespace App\Http\Controllers\Install;
 use App\StreamedOutput;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use LibreNMS\DB\Eloquent;
-use LibreNMS\DB\Schema;
-use LibreNMS\Interfaces\InstallerStep;
-use LibreNMS\ValidationResult;
-use LibreNMS\Validations\Database;
-use LibreNMS\Validator;
+use twentyfouronline\DB\Eloquent;
+use twentyfouronline\DB\Schema;
+use twentyfouronline\Interfaces\InstallerStep;
+use twentyfouronline\ValidationResult;
+use twentyfouronline\Validations\Database;
+use twentyfouronline\Validator;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DatabaseController extends InstallationController implements InstallerStep
@@ -60,9 +60,9 @@ class DatabaseController extends InstallationController implements InstallerStep
         Eloquent::setConnection(
             'setup',
             $request->get('host', 'localhost'),
-            $request->get('username', 'librenms'),
+            $request->get('username', 'twentyfouronline'),
             $request->get('password', ''),
-            $request->get('database', 'librenms'),
+            $request->get('database', 'twentyfouronline'),
             $request->get('port', 3306),
             $request->get('unix_socket')
         );
@@ -148,3 +148,7 @@ class DatabaseController extends InstallationController implements InstallerStep
         return 'fa-solid fa-database';
     }
 }
+
+
+
+

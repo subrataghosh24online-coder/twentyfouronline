@@ -261,11 +261,11 @@ Description: Ports that have an xDP (lldp, cdp, etc) neighbour.
 
 Source: `(macros.port && links.local_port_id = ports.port_id)`
 
-#### Port has xDP neighbour already known in LibreNMS (Boolean)
+#### Port has xDP neighbour already known in twentyfouronline (Boolean)
 
 Entity: `macros.port_has_xdp_neighbours_device`
 
-Description: Ports that have an xDP (lldp, cdp, etc) neighbour that is already known in LibreNMS.
+Description: Ports that have an xDP (lldp, cdp, etc) neighbour that is already known in twentyfouronline.
 
 Source: `(macros.port_has_xdp_neighbours && links.remote_port_id IS NOT NULL)`
 
@@ -357,3 +357,7 @@ Entity: `macros.sensor_change_perc`
 Description: Returns the percent change of a sensor.
 
 Source: `ABS((CAST(sensors.sensor_current as double) - sensors.sensor_prev)/sensors.sensor_current * 100)`
+
+
+
+

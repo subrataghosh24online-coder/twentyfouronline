@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -28,8 +28,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class StateTranslation extends Model implements Keyable
 {
@@ -66,3 +66,7 @@ class StateTranslation extends Model implements Keyable
         return $this->state_value;
     }
 }
+
+
+
+

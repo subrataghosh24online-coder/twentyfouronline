@@ -15,3 +15,7 @@ if (device_permitted($entry['device_id'])) {
 
     $syslog_output .= '</tr>';
 }
+
+
+
+

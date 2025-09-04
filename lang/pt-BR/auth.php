@@ -19,3 +19,7 @@ return [
     'throttle' => 'Muitas tentativas de login. Por favor, tente novamente em :seconds segundos.',
     'disabled' => 'Sua conta está desativada, por favor, entre em contato com o administrador.',
 ];
+
+
+
+

@@ -11,3 +11,7 @@ if (Rrd::checkRrdExists(Rrd::name($device['hostname'], 'netstats-ip'))) {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

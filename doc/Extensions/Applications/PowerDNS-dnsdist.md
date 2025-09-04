@@ -4,7 +4,7 @@
 
 1. Copy the BASH script to the desired host.
 ```
-wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist
+wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist
 ```
 
 2. Make the script executable
@@ -22,3 +22,7 @@ extend powerdns-dnsdist /etc/snmp/powerdns-dnsdist
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

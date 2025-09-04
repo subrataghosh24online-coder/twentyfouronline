@@ -11,3 +11,7 @@ class EntityState extends DeviceRelatedModel
     protected $primaryKey = 'entity_state_id';
     public $timestamps = false;
 }
+
+
+
+

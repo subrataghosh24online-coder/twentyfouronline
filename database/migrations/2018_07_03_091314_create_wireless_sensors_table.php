@@ -49,3 +49,7 @@ return new class extends Migration
         Schema::drop('wireless_sensors');
     }
 };
+
+
+
+

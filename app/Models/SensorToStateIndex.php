@@ -28,3 +28,7 @@ class SensorToStateIndex extends Model
         return $this->hasOne(StateIndex::class, 'state_index_id', 'state_index_id');
     }
 }
+
+
+
+

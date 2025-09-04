@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2015 Vitali Kari <vitali.kari@gmail.com>
  *
@@ -15,10 +15,14 @@
  * needs RSTP-MIB
  */
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! $os instanceof OS) {
     $os = OS::make($device);
 }
 
-(new \LibreNMS\Modules\Stp())->discover($os);
+(new \twentyfouronline\Modules\Stp())->discover($os);
+
+
+
+

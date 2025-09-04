@@ -18,8 +18,8 @@
         <tr>
             <td><x-port-link :port="PortCache::get($nd->port_id)" /></td>
             <td>{{ $nd->mac_address }}</td>
-            <td>{{ \LibreNMS\Util\Mac::parse($nd->mac_address)->vendor() }}</td>
-            <td>{{ \LibreNMS\Util\IPv6::parse($nd->ipv6_address, true)->compressed() }}</td>
+            <td>{{ \twentyfouronline\Util\Mac::parse($nd->mac_address)->vendor() }}</td>
+            <td>{{ \twentyfouronline\Util\IPv6::parse($nd->ipv6_address, true)->compressed() }}</td>
             <td><x-device-link :device="$port?->device" /></td>
             <td>@if($port)<x-port-link :port="PortCache::getByIp($nd->ipv6_address)" />@endif</td>
         </tr>
@@ -27,3 +27,7 @@
         </tbody>
     </table>
 </x-panel>
+
+
+
+

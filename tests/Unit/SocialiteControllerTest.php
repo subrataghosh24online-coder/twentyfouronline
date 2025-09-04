@@ -18,18 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Peter Childs
  * @author     Peter Childs <pjchilds@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Models\User;
 use Laravel\Socialite\AbstractUser;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Tests\TestCase;
 
 class SocialiteControllerTest extends TestCase
 {
@@ -51,9 +51,9 @@ class SocialiteControllerTest extends TestCase
         array $scopes = ['groups']
     ): bool {
         // Inject scopes & claims.
-        \App\Facades\LibrenmsConfig::set('auth.socialite.scopes', $scopes);
-        \App\Facades\LibrenmsConfig::set('auth.socialite.claims', $claimMap);
-        \App\Facades\LibrenmsConfig::set('auth.socialite.debug', false);
+        \App\Facades\twentyfouronlineConfig::set('auth.socialite.scopes', $scopes);
+        \App\Facades\twentyfouronlineConfig::set('auth.socialite.claims', $claimMap);
+        \App\Facades\twentyfouronlineConfig::set('auth.socialite.debug', false);
 
         // Stub the Socialite user.
         $socialiteUserStub = $this->createMock(AbstractUser::class);
@@ -150,7 +150,7 @@ class SocialiteControllerTest extends TestCase
 
             public function getAllAttributeValues(): array
             {
-                return ['G_librenms_admins'];
+                return ['G_twentyfouronline_admins'];
             }
         };
 
@@ -159,8 +159,8 @@ class SocialiteControllerTest extends TestCase
             [$attr],
             ['admin'],
             [
-                'G_librenms_admins' => ['roles' => ['admin']],
-                'G_librenms_users' => ['roles' => ['global-read']],
+                'G_twentyfouronline_admins' => ['roles' => ['admin']],
+                'G_twentyfouronline_users' => ['roles' => ['global-read']],
             ]
         );
         $this->assertTrue($result);
@@ -178,7 +178,7 @@ class SocialiteControllerTest extends TestCase
 
             public function getAllAttributeValues(): array
             {
-                return ['G_librenms_users'];
+                return ['G_twentyfouronline_users'];
             }
         };
 
@@ -187,10 +187,14 @@ class SocialiteControllerTest extends TestCase
             [$attr],
             ['global-read'],
             [
-                'G_librenms_admins' => ['roles' => ['admin']],
-                'G_librenms_users' => ['roles' => ['global-read']],
+                'G_twentyfouronline_admins' => ['roles' => ['admin']],
+                'G_twentyfouronline_users' => ['roles' => ['global-read']],
             ]
         );
         $this->assertTrue($result);
     }
 }
+
+
+
+

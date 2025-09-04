@@ -21,3 +21,7 @@ for ($i = 1; $i != 7; $i++) {
         discover_sensor(null, 'state', $device, $fan_oid, 'fanstatus' . $i, 'snmp', 'Fan ' . $i . ' Status', 1, 1, '1', null, null, '3', $fan_status);
     }
 }
+
+
+
+

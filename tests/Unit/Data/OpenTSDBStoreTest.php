@@ -18,20 +18,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Data;
+namespace twentyfouronline\Tests\Unit\Data;
 
 use App\Facades\DeviceCache;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Carbon\Carbon;
-use LibreNMS\Data\Store\OpenTSDB;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Data\Store\OpenTSDB;
+use twentyfouronline\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('datastores')]
@@ -45,14 +45,14 @@ class OpenTSDBStoreTest extends TestCase
 
         // fix the date
         Carbon::setTestNow(Carbon::createFromTimestampUTC($this->timestamp));
-        LibrenmsConfig::set('opentsdb.enable', true);
+        twentyfouronlineConfig::set('opentsdb.enable', true);
     }
 
     protected function tearDown(): void
     {
         // restore Carbon:now() to normal
         Carbon::setTestNow();
-        LibrenmsConfig::set('opentsdb.enable', false);
+        twentyfouronlineConfig::set('opentsdb.enable', false);
 
         parent::tearDown();
     }
@@ -131,3 +131,7 @@ class OpenTSDBStoreTest extends TestCase
         return new OpenTSDB($mockFactory);
     }
 }
+
+
+
+

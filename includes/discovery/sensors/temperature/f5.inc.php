@@ -36,3 +36,7 @@ if (is_array($f5cpu)) {
         discover_sensor(null, 'temperature', $device, $oid, $index, $sensorType, $descr, '1', '1', null, null, null, null, $current);
     }
 }
+
+
+
+

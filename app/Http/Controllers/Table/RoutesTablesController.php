@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 PipoCanaja
  * @author     PipoCanaja
@@ -31,8 +31,8 @@ use App\Models\Route;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Url;
 
 class RoutesTablesController extends TableController
 {
@@ -226,3 +226,7 @@ class RoutesTablesController extends TableController
         return $item;
     }
 }
+
+
+
+

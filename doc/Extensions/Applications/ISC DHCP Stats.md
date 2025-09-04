@@ -32,7 +32,7 @@ modules.
 1.  Copy the shell script to the desired host.
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp -O /etc/snmp/dhcp
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/dhcp -O /etc/snmp/dhcp
     ```
 
 2.  Make the script executable
@@ -60,7 +60,7 @@ modules.
         extend dhcpstats /etc/snmp/dhcp -Z -w /var/cache/dhcp_extend
         ```
 
-        Setup cronjob to run every 5 minutes. add the following to cron `\etc/crontab.d/librenms_dhcp`:
+        Setup cronjob to run every 5 minutes. add the following to cron `\etc/crontab.d/twentyfouronline_dhcp`:
 
         ```bash
         */5 * * * * /etc/snmp/dhcp -Z -w /var/cache/dhcp_extend
@@ -81,3 +81,7 @@ modules.
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

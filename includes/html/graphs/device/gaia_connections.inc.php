@@ -11,3 +11,7 @@ $rrd_options .= " LINE1.5:connections#cc0000:'" . Rrd::safeDescr('Active connect
 $rrd_options .= " 'GPRINT:connections:LAST:Current\:%4.0lf'";
 $rrd_options .= " 'GPRINT:connections:AVERAGE:Average\:%4.0lf'";
 $rrd_options .= " 'GPRINT:connections:MAX:Max\:%4.0lf\l'";
+
+
+
+

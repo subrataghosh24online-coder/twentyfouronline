@@ -17,3 +17,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:rxPower1:MIN:%3.2lf ';
     $rrd_options .= ' GPRINT:rxPower1:MAX:%3.2lf\\\l ';
 }
+
+
+
+

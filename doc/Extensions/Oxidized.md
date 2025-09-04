@@ -1,6 +1,6 @@
 # Oxidized
 
-Integrating LibreNMS with
+Integrating twentyfouronline with
 [Oxidized](https://github.com/ytti/oxidized-web) brings the following
 benefits:
 
@@ -11,17 +11,17 @@ benefits:
 
 First you will need to [install Oxidized following their documentation](https://github.com/ytti/oxidized#installation).
 
-Then you can procede to the LibreNMS Web UI and go to Oxidized
+Then you can procede to the twentyfouronline Web UI and go to Oxidized
 Settings in the External Settings section of Global Settings. Enable
 it and enter the url to your oxidized instance.
 
 To have devices automatically added, you will need to configure
-oxidized to pull them from LibreNMS [Feeding
+oxidized to pull them from twentyfouronline [Feeding
 Oxidized](#feeding-oxidized) Note: this means devices will be controlled by
-the LibreNMS API, and not router.db, passwords will still need to be in the
+the twentyfouronline API, and not router.db, passwords will still need to be in the
 oxidized config file.
 
-LibreNMS will automatically map the OS to the Oxidized model name if
+twentyfouronline will automatically map the OS to the Oxidized model name if
 they don't match. this means you shouldn't need to use the model_map
 config option within Oxidized.
 
@@ -38,7 +38,7 @@ to enable the display of device configs within the device page itself:
     lnms config:set oxidized.url http://127.0.0.1:8888
     ```
 
-LibreNMS supports config versioning if Oxidized does.  This is known
+twentyfouronline supports config versioning if Oxidized does.  This is known
 to work with the git output module.
 
 !!! setting "external/oxidized"
@@ -48,7 +48,7 @@ to work with the git output module.
 
 Oxidized supports various ways to utilise credentials to login to
 devices, you can specify global username/password within Oxidized,
-Group level username/password or per device. LibreNMS currently
+Group level username/password or per device. twentyfouronline currently
 supports sending groups back to Oxidized so that you can then define
 group credentials within Oxidized. To enable this support please
 switch on 'Enable the return of groups to Oxidized':
@@ -95,11 +95,11 @@ setsebool -P httpd_can_network_connect 1
 ----
 
 Oxidized has support for feeding devices into it via an API call,
-support for Oxidized has been added to the LibreNMS API. A sample
+support for Oxidized has been added to the twentyfouronline API. A sample
 config for Oxidized is provided below.
 
 You will need to configure default credentials for your devices in the
-Oxidized config, LibreNMS doesn't provide login credentials at this
+Oxidized config, twentyfouronline doesn't provide login credentials at this
 time.
 
 ```bash
@@ -107,7 +107,7 @@ time.
         default: http
         debug: false
         http:
-          url: https://librenms/api/v0/oxidized
+          url: https://twentyfouronline/api/v0/oxidized
           map:
             name: hostname
             model: os
@@ -116,8 +116,8 @@ time.
             X-Auth-Token: '01582bf94c03104ecb7953dsadsadwed'
 ```
 
-LibreNMS is able to reload the Oxidized list of nodes, each time a
-device is added to LibreNMS. To do so, edit the option in Global
+twentyfouronline is able to reload the Oxidized list of nodes, each time a
+device is added to twentyfouronline. To do so, edit the option in Global
 Settings>External Settings>Oxidized Integration or add the following
 to your config.
 
@@ -130,7 +130,7 @@ to your config.
 
 To return an override to Oxidized you can do this by providing the
 override key, followed by matching a lookup for a host (or hosts), and
-finally by defining the overriding value itself. LibreNMS does not
+finally by defining the overriding value itself. twentyfouronline does not
 check for the validity of these attributes but will deliver them to
 Oxidized as defined.
 
@@ -225,7 +225,7 @@ for any configured and enabled "routeros" device.
 Verify the return of groups by querying the API:
 
 ```
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://twentyfouronline.org/api/v0/oxidized
 ```
 
 If you need to, you can specify credentials for groups by using the
@@ -300,8 +300,8 @@ ensure they are used in the correct location.
 
 ## Accessing configuration of a disabled/removed device
 
-When you're disabling or removing a device from LibreNMS, the
-configuration will no longer be available via the LibreNMS web interface.  
+When you're disabling or removing a device from twentyfouronline, the
+configuration will no longer be available via the twentyfouronline web interface.  
 You can gain access to these configurations directly in the Git repository of
 Oxidized (if using Git for version control).
 
@@ -326,8 +326,12 @@ git cat-file -p <object id>
 ```
 
 ## Remove disabled/removed device
-If you want to purge saved config of a device that is not in LibreNMS anymore, you can run the following command:
+If you want to purge saved config of a device that is not in twentyfouronline anymore, you can run the following command:
 
 ```
 git rm --cached <object id>
 ```
+
+
+
+

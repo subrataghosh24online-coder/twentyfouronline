@@ -142,3 +142,7 @@ saMtaEndPntStateLogical  OBJECT-TYPE
          4: endpoint is in data mode (fax/modem) call"
     ::= {  saMtaEndPointEntry 7 } 
 END
+
+
+
+

@@ -1,6 +1,6 @@
 ## JIRA
 
-You can have LibreNMS create issues on a Jira instance for critical and warning
+You can have twentyfouronline create issues on a Jira instance for critical and warning
  alerts using either the Jira REST API or webhooks. 
 Custom fields allow you to add any required fields beyond summary and description
  fields in case mandatory fields are required by your Jira project/issue type 
@@ -9,7 +9,7 @@ Custom fields allow you to add any required fields beyond summary and descriptio
  mandatory fields are required by your Jira project/issue type configuration. 
  Custom fields are defined in JSON format. Currently http authentication is used 
  to access Jira and Jira username and password will be stored as cleartext in the 
- LibreNMS database.
+ twentyfouronline database.
 
 ### REST API
 The config fields that need to set for Jira REST API are: Jira Open URL, Jira username, 
@@ -43,3 +43,7 @@ The config fields that need to set for webhooks are: Jira Open URL, Jira Close U
 | Enable webhook | ON/OFF |
 | Webhook ID | alert_id |
 | Custom Fileds | {"components":[{"id":"00001"}], "source": "LibrenNMS"} |
+
+
+
+

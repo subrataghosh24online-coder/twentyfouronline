@@ -1,0 +1,13 @@
+[Unit]
+Description=twentyfouronline Scheduler
+
+[Timer]
+OnCalendar=minutely
+AccuracySec=1second
+
+[Install]
+WantedBy=timers.target
+
+
+
+

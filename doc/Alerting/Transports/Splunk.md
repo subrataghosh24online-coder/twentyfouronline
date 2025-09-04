@@ -1,6 +1,6 @@
 ## Splunk
 
-LibreNMS can send alerts to a Splunk instance and provide all device
+twentyfouronline can send alerts to a Splunk instance and provide all device
 and alert details.
 
 Example output:
@@ -43,3 +43,7 @@ Each alert will be sent as a separate message.
 | ------ | ------- |
 | Host | 127.0.0.1 |
 | UDP Port | 514 |
+
+
+
+

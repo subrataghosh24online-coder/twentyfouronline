@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
 <div class="container">
@@ -12,3 +12,7 @@
     @endif
 </div>
 @endsection
+
+
+
+

@@ -1852,3 +1852,7 @@ NPT-SYSTEM-MIB	DEFINITIONS ::= BEGIN
 		DESCRIPTION	"Low Warn Threshold.Unit:0.1 C"
 		::=	{ nptCardTemperatureEntry 8 }
 END
+
+
+
+

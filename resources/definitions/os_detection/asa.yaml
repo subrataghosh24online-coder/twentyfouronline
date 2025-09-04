@@ -33,3 +33,7 @@ discovery:
     -
         sysDescr_regex:
             - '/^Cisco (Adaptive|Industrial) Security Appliance/'
+
+
+
+

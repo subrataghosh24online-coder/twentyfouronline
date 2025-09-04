@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
  */
 
-use LibreNMS\Alert\AlertUtil;
-use LibreNMS\Alerting\QueryBuilderParser;
+use twentyfouronline\Alert\AlertUtil;
+use twentyfouronline\Alerting\QueryBuilderParser;
 
 if (! Auth::user()->hasGlobalAdmin()) {
     echo 'Insufficient Privileges';
@@ -72,7 +72,7 @@ switch ($type) {
             $output .= 'Alert query: ' . $rule['query'] . PHP_EOL;
             $output .= 'Rule match: ' . $response . PHP_EOL . PHP_EOL;
         }
-        if (\App\Facades\LibrenmsConfig::get('alert.transports.mail') === true) {
+        if (\App\Facades\twentyfouronlineConfig::get('alert.transports.mail') === true) {
             $contacts = AlertUtil::getContacts($results);
             if (count($contacts) > 0) {
                 $output .= 'Found ' . count($contacts) . ' contacts to send alerts to.' . PHP_EOL;
@@ -84,8 +84,8 @@ switch ($type) {
         }
         $transports = '';
         $x = 0;
-        foreach (\App\Facades\LibrenmsConfig::get('alert.transports') as $name => $v) {
-            if (\App\Facades\LibrenmsConfig::get("alert.transports.$name") === true) {
+        foreach (\App\Facades\twentyfouronlineConfig::get('alert.transports') as $name => $v) {
+            if (\App\Facades\twentyfouronlineConfig::get("alert.transports.$name") === true) {
                 $transports .= 'Transport: ' . $name . PHP_EOL;
                 $x++;
             }
@@ -110,3 +110,7 @@ if ($_GET['format'] == 'text') {
 } elseif ($_GET['format'] == 'download') {
     file_download($filename, $output);
 }
+
+
+
+

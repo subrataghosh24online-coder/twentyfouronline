@@ -59,3 +59,7 @@ modules:
                         - { value: 5, generic: 3, graph: 0, descr: nopower }
                         - { value: 6, generic: 3, graph: 0, descr: notpowering }
                         - { value: 7, generic: 1, graph: 0, descr: incompatible }
+
+
+
+

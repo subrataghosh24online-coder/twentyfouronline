@@ -2,17 +2,17 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Billing;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Number;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Billing;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Number;
 
 $init_modules = [];
 require __DIR__ . '/includes/init.php';
@@ -26,7 +26,7 @@ if (isset($options['r'])) {
 
 Debug::set(isset($options['d']));
 
-$scheduler = LibrenmsConfig::get('schedule_type.billing');
+$scheduler = twentyfouronlineConfig::get('schedule_type.billing');
 if (! isset($options['f']) && $scheduler != 'legacy' && $scheduler != 'cron') {
     if (Debug::isEnabled()) {
         echo "Billing is not enabled for cron scheduling.  Add the -f command ar
@@ -156,3 +156,7 @@ foreach (dbFetchRows('SELECT * FROM `bills` ORDER BY `bill_id`') as $bill) {
         $i++;
     } //end while
 }//end foreach
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace LibreNMS\Tests\Browser\Pages;
+namespace twentyfouronline\Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 
@@ -39,3 +39,7 @@ class LoginPage extends Page
         ];
     }
 }
+
+
+
+

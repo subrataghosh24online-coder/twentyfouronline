@@ -15,3 +15,7 @@ $descr = 'failed_reporting';
 $ds = 'failed_reporting';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

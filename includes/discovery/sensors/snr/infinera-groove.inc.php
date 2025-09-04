@@ -3,7 +3,7 @@
 /**
  * infinera-groove.inc.php
  *
- * LibreNMS snr discovery module for Infinera Groove
+ * twentyfouronline snr discovery module for Infinera Groove
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Nick Hilliard
  * @author     Nick Hilliard <nick@foobar.org>
@@ -31,3 +31,7 @@ foreach ($pre_cache['infineragroove_portTable'] as $index => $data) {
         discover_sensor(null, 'snr', $device, $oid, 'ochOsOSNR.' . $index, 'infinera-groove', $descr, null, '1', null, null, null, null, $value);
     }
 }
+
+
+
+

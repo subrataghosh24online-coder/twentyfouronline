@@ -17,3 +17,7 @@ modules:
         serial: FORCEPOINT-NGFW-ENGINE-MIB::nodeHardwareSerialNumber.0
         version: FORCEPOINT-NGFW-ENGINE-MIB::fwSoftwareVersion.0
         hardware: FORCEPOINT-NGFW-ENGINE-MIB::nodeApplianceModel.0
+
+
+
+

@@ -5,7 +5,7 @@ changes with your devices before raising an alert.
 
 [Creating alert rules](Rules.md)
 
-After that you also need to tell LibreNMS how to notify you when an
+After that you also need to tell twentyfouronline how to notify you when an
 alert is raised, this is done using `Alert Transports`.
 
 [Configuring alert transports](Transports.md)
@@ -44,3 +44,7 @@ alerts will resume. Click this icon to un-acknowledge the alert.
 
 ![alert notes](img/notes.png) This column will allow you access to the
 acknowledge/unacknowledge notes for this alert.
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * sitemonitor.inc.php
  *
- * LibreNMS state discovery module for Packetflux SiteMonitor Base II
+ * twentyfouronline state discovery module for Packetflux SiteMonitor Base II
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Josh Baird
  * @author     Josh Baird <joshbaird@gmail.com>
@@ -51,3 +51,7 @@ if ($switch) {
         null
     );
 }
+
+
+
+

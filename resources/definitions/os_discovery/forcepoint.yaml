@@ -26,3 +26,7 @@ modules:
         version: STONESOFT-SMI-MIB::stonesoftFirewall.1.1.0
         version_regex: '/Forcepoint NGFW version (?<version>[0-9\.]+)/'
         hardware: STONESOFT-NETNODE-MIB::nodeApplianceModel.0
+
+
+
+

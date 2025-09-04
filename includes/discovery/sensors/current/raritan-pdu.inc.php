@@ -3,7 +3,7 @@
 /**
  * raritan.inc.php
  *
- * LibreNMS current sensor discovery module for Raritan
+ * twentyfouronline current sensor discovery module for Raritan
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -69,3 +69,7 @@ foreach ($pre_cache['raritan_inletTable'] as $index => $raritan_data) {
         discover_sensor(null, 'current', $device, $oid, $tmp_index, 'raritan', $descr, $divisor, 1, $low_limit, $low_warn_limit, $warn_limit, $high_limit, $current);
     }
 }
+
+
+
+

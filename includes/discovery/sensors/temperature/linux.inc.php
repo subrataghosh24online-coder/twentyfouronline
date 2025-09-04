@@ -2,10 +2,10 @@
 
 /*
  * cpu temp for raspberry pi
- * requires snmp extend agent script from librenms-agent
+ * requires snmp extend agent script from twentyfouronline-agent
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Str;
 
 $sensor_oid = '.1.3.6.1.4.1.8072.1.3.2.4.1.2.9.114.97.115.112.98.101.114.114.121.1';
@@ -59,4 +59,8 @@ if (preg_match('/(Linux).+(ntc)/', $device['sysDescr'])) {
     }
 }
 
-include LibrenmsConfig::get('install_dir') . '/includes/discovery/sensors/temperature/supermicro.inc.php';
+include twentyfouronlineConfig::get('install_dir') . '/includes/discovery/sensors/temperature/supermicro.inc.php';
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Widgets;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Application;
 use App\Models\Bill;
 use App\Models\Device;
@@ -36,8 +36,8 @@ use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use LibreNMS\Util\Graph;
-use LibreNMS\Util\Time;
+use twentyfouronline\Util\Graph;
+use twentyfouronline\Util\Time;
 
 class GraphController extends WidgetController
 {
@@ -200,8 +200,8 @@ class GraphController extends WidgetController
             } else {
                 $port_types = collect((array) $aggregate_type)->map(function ($type) {
                     // check for config definitions
-                    if (LibrenmsConfig::has("{$type}_descr")) {
-                        return LibrenmsConfig::get("{$type}_descr", []);
+                    if (twentyfouronlineConfig::has("{$type}_descr")) {
+                        return twentyfouronlineConfig::get("{$type}_descr", []);
                     }
 
                     return $type;
@@ -299,3 +299,7 @@ class GraphController extends WidgetController
         return $setting;
     }
 }
+
+
+
+

@@ -1,11 +1,11 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\Rewrite;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\Rewrite;
 
 // Generate a list of ports and then call the multi_bits grapher to generate from the list
 
-$cust_descrs = (array) LibrenmsConfig::get('customers_descr', ['cust']);
+$cust_descrs = (array) twentyfouronlineConfig::get('customers_descr', ['cust']);
 
 $sql = 'SELECT * FROM `ports` AS I, `devices` AS D WHERE `port_descr_descr` = ? AND D.device_id = I.device_id AND `port_descr_type` IN ' . dbGenPlaceholders(count($cust_descrs));
 $param = $cust_descrs;
@@ -36,3 +36,7 @@ $ds_in = 'INOCTETS';
 $ds_out = 'OUTOCTETS';
 
 require 'includes/html/graphs/generic_multi_bits_separated.inc.php';
+
+
+
+

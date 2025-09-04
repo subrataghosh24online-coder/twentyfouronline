@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Create Device Group'))
 
@@ -29,3 +29,7 @@
     <script src="{{ asset('js/query-builder.standalone.min.js') }}"></script>
     <script src="{{ asset('js/interact.min.js') }}"></script>
 @endsection
+
+
+
+

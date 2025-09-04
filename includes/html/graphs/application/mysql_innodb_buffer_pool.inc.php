@@ -25,7 +25,7 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         $i++;
     }
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 $colours = 'mixed';
@@ -33,3 +33,7 @@ $nototal = 1;
 $unit_text = 'Commands';
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

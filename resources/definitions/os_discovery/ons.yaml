@@ -28,3 +28,7 @@ modules:
                     index: 'cerentEnvMonTemperatureStats.{{ $index }}'
                     descr: '{{ $entPhysicalDescr }} - {{ $cerentEnvMonTemperatureStatsDescr }}'
                     high_limit: cerentEnvMonTemperatureStatsThresholdHigh
+
+
+
+

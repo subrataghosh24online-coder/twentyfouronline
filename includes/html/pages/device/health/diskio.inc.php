@@ -4,9 +4,9 @@ $row = 1;
 
 foreach (dbFetchRows('SELECT * FROM `ucd_diskio` WHERE device_id = ? ORDER BY diskio_descr', [$device['device_id']]) as $drive) {
     if (is_integer($row / 2)) {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
     } else {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
     }
 
     $fs_url = 'device/device=' . $device['device_id'] . '/tab=health/metric=diskio/';
@@ -15,10 +15,10 @@ foreach (dbFetchRows('SELECT * FROM `ucd_diskio` WHERE device_id = ? ORDER BY di
     $graph_array_zoom['type'] = 'diskio_ops';
     $graph_array_zoom['width'] = '400';
     $graph_array_zoom['height'] = '125';
-    $graph_array_zoom['from'] = \App\Facades\LibrenmsConfig::get('time.twoday');
-    $graph_array_zoom['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+    $graph_array_zoom['from'] = \App\Facades\twentyfouronlineConfig::get('time.twoday');
+    $graph_array_zoom['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
 
-    $overlib_link = \LibreNMS\Util\Url::overlibLink($fs_url, $drive['diskio_descr'], \LibreNMS\Util\Url::graphTag($graph_array_zoom));
+    $overlib_link = \twentyfouronline\Util\Url::overlibLink($fs_url, $drive['diskio_descr'], \twentyfouronline\Util\Url::graphTag($graph_array_zoom));
 
     $types = [
         'diskio_bits',
@@ -46,3 +46,7 @@ foreach (dbFetchRows('SELECT * FROM `ucd_diskio` WHERE device_id = ? ORDER BY di
 
     $row++;
 }
+
+
+
+

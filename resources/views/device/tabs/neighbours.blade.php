@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('content')
 <x-device.page :device="$device">
@@ -116,3 +116,7 @@ network.on('click', function (properties) {
     <script src="{{ url('js/vis-data.min.js') }}"></script>
 @endif
 @endsection
+
+
+
+

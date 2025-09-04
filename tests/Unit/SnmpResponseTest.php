@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit;
+namespace twentyfouronline\Tests\Unit;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Data\Source\SnmpResponse;
-use LibreNMS\Tests\TestCase;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Data\Source\SnmpResponse;
+use twentyfouronline\Tests\TestCase;
 
 class SnmpResponseTest extends TestCase
 {
@@ -54,7 +54,7 @@ class SnmpResponseTest extends TestCase
         $response = new SnmpResponse("Q-BRIDGE-MIB::dot1qVlanStaticName[1] = \"\\default\\\"\nQ-BRIDGE-MIB::dot1qVlanStaticName[6] = \\single\\\nQ-BRIDGE-MIB::dot1qVlanStaticName[9] = \\\\double\\\\\n");
         $this->assertTrue($response->isValid());
         $this->assertEquals('default', $response->value());
-        LibrenmsConfig::set('snmp.unescape', false);
+        twentyfouronlineConfig::set('snmp.unescape', false);
         $this->assertEquals([
             'Q-BRIDGE-MIB::dot1qVlanStaticName[1]' => 'default',
             'Q-BRIDGE-MIB::dot1qVlanStaticName[6]' => '\\single\\',
@@ -66,7 +66,7 @@ class SnmpResponseTest extends TestCase
             9 => '\\\\double\\\\',
         ]], $response->table());
 
-        LibrenmsConfig::set('snmp.unescape', true); // for buggy versions of net-snmp
+        twentyfouronlineConfig::set('snmp.unescape', true); // for buggy versions of net-snmp
         $response = new SnmpResponse("Q-BRIDGE-MIB::dot1qVlanStaticName[1] = \"\\default\\\"\nQ-BRIDGE-MIB::dot1qVlanStaticName[6] = \\single\\\nQ-BRIDGE-MIB::dot1qVlanStaticName[9] = \\\\double\\\\\n");
         $this->assertEquals([
             'Q-BRIDGE-MIB::dot1qVlanStaticName[1]' => 'default',
@@ -358,3 +358,7 @@ HOST-RESOURCES-MIB::hrStorageUsed.36 = 127044934
         });
     }
 }
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers\Widgets;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -38,11 +38,11 @@ class WorldMapController extends WidgetController
     {
         $this->defaults = [
             'title' => null,
-            'init_lat' => LibrenmsConfig::get('leaflet.default_lat'),
-            'init_lng' => LibrenmsConfig::get('leaflet.default_lng'),
-            'init_zoom' => LibrenmsConfig::get('leaflet.default_zoom'),
-            'init_layer' => LibrenmsConfig::get('geoloc.layer'),
-            'group_radius' => LibrenmsConfig::get('leaflet.group_radius'),
+            'init_lat' => twentyfouronlineConfig::get('leaflet.default_lat'),
+            'init_lng' => twentyfouronlineConfig::get('leaflet.default_lng'),
+            'init_zoom' => twentyfouronlineConfig::get('leaflet.default_zoom'),
+            'init_layer' => twentyfouronlineConfig::get('geoloc.layer'),
+            'group_radius' => twentyfouronlineConfig::get('leaflet.group_radius'),
             'status' => '0,1',
             'device_group' => null,
         ];
@@ -54,9 +54,9 @@ class WorldMapController extends WidgetController
         $settings['dimensions'] = $request->get('dimensions');
         $settings['status'] = array_map('intval', explode(',', $settings['status']));
         $settings['map_config'] = [
-            'engine' => LibrenmsConfig::get('geoloc.engine'),
-            'api_key' => LibrenmsConfig::get('geoloc.api_key'),
-            'tile_url' => LibrenmsConfig::get('leaflet.tile_url'),
+            'engine' => twentyfouronlineConfig::get('geoloc.engine'),
+            'api_key' => twentyfouronlineConfig::get('geoloc.api_key'),
+            'tile_url' => twentyfouronlineConfig::get('leaflet.tile_url'),
             'lat' => $settings['init_lat'],
             'lng' => $settings['init_lng'],
             'zoom' => $settings['init_zoom'],
@@ -66,3 +66,7 @@ class WorldMapController extends WidgetController
         return view('widgets.world-map', $settings);
     }
 }
+
+
+
+

@@ -3,7 +3,7 @@
 /**
  * fs-net-pdu.inc.php
  *
- * LibreNMS current discovery module for FS.com NET-PDU
+ * twentyfouronline current discovery module for FS.com NET-PDU
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
@@ -28,3 +28,7 @@ $voltage = snmp_get($device, $oid, '-Oqv');
 if ($voltage > 0) {
     discover_sensor(null, 'voltage', $device, $oid, 0, 'PDU L1', 'Voltage', 1, 1, null, null, null, null, $voltage);
 }
+
+
+
+

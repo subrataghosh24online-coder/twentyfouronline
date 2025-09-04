@@ -18,17 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 abstract class DBTestCase extends TestCase
 {
     use RequiresDatabase;
 }
+
+
+
+

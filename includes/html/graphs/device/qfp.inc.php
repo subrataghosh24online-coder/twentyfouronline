@@ -7,16 +7,16 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 
 /*
  * Get module's components for a device
  */
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $components = $component->getComponents($device['device_id'], ['type' => 'cisco-qfp']);
 $components = $components[$device['device_id']];
 
@@ -50,3 +50,7 @@ $scale_max = '100';
 $nototal = 1;
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

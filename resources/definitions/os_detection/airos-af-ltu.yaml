@@ -16,3 +16,7 @@ discovery:
             oid: UBNT-AFLTU-MIB::afLTUFirmwareVersion.0
             op: '!='
             value: false
+
+
+
+

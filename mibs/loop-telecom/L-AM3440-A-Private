@@ -101728,3 +101728,7 @@ loop-AM3440-CCPB-A 	OBJECT IDENTIFIER ::= { loopTelecom 34441 }
                 "Total cards of CLKa"
             ::= { clka-card 100 }
 END
+
+
+
+

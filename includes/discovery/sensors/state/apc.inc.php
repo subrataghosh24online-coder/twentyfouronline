@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2016 Søren Friis Rosiak <sorenrosiak@gmail.com>
  * This program is free software: you can redistribute it and/or modify it
@@ -163,7 +163,7 @@ if (isset($apcContactData['uioInputContactStatusTableSize']) && $apcContactData[
             $severity = $apcContactData[$index]['uioInputContactStatusAlarmStatus'];
 
             // APC normal (1), warning (2), critical (3), notaplicable (4)
-            // LibreNMS warning (1), critical (2)
+            // twentyfouronline warning (1), critical (2)
 
             $state_name = $apcContactData[$index]['uioInputContactStatusContactName'];
             $states = [
@@ -200,7 +200,7 @@ if (isset($apcContactData['uioInputContactStatusTableSize']) && $apcContactData[
             $severity = $apcContactData[$index]['iemConfigContactSeverity'];
 
             // APC critical (1), warning (2)
-            // LibreNMS warning (1), critical (2)
+            // twentyfouronline warning (1), critical (2)
             $faultGeneric = 1;
             if ($severity == 1) {
                 $faultGeneric = 2;
@@ -220,3 +220,7 @@ if (isset($apcContactData['uioInputContactStatusTableSize']) && $apcContactData[
         }
     }
 }
+
+
+
+

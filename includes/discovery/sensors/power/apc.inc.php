@@ -3,7 +3,7 @@
 /**
  * apc.inc.php
  *
- * LibreNMS os sensor power module for APC
+ * twentyfouronline os sensor power module for APC
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Neil Lathwood
  * @author     Neil Lathwood <neil@lathwood.co.uk>
@@ -32,3 +32,7 @@ foreach ($pre_cache['cooling_unit_analog'] as $index => $data) {
         discover_sensor(null, 'power', $device, $cur_oid, $cur_oid, 'apc', $descr, $scale, 1, null, null, null, null, $value);
     }
 }
+
+
+
+

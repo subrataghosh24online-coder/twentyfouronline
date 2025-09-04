@@ -4,8 +4,8 @@ use App\Models\Application;
 
 $graph_array['height'] = '100';
 $graph_array['width'] = '218';
-$graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
-$graph_array['from'] = \App\Facades\LibrenmsConfig::get('time.day');
+$graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
+$graph_array['from'] = \App\Facades\twentyfouronlineConfig::get('time.day');
 $graph_array_zoom = $graph_array;
 $graph_array_zoom['height'] = '150';
 $graph_array_zoom['width'] = '400';
@@ -32,7 +32,7 @@ foreach (Application::query()->hasAccess(Auth::user())->with('device')->get()->s
 
         $overlib_url = route('device', [$app->device_id, 'apps', "app=$app->app_type"]);
 
-        $app_state = \LibreNMS\Util\Html::appStateIcon($app->app_state);
+        $app_state = \twentyfouronline\Util\Html::appStateIcon($app->app_state);
         $app_state_info = '<font color="' . $app_state['color'] . '"><i title="' . $app_state['hover_text'] . '" class="fa ' . $app_state['icon'] . ' fa-fw fa-lg" aria-hidden="true"></i></font>';
 
         $content_add = '';
@@ -43,13 +43,17 @@ foreach (Application::query()->hasAccess(Auth::user())->with('device')->get()->s
         }
 
         $overlib_link .= '<br/>';
-        $overlib_link .= \LibreNMS\Util\Url::graphTag($graph_array);
+        $overlib_link .= \twentyfouronline\Util\Url::graphTag($graph_array);
         $overlib_content = generate_overlib_content($graph_array, htmlentities($app->device?->shortDisplayName() ?? '') . ' - ' . htmlentities($app->displayName()) . $content_add);
 
         echo "<div style='display: block; padding: 1px; padding-top: 3px; margin: 2px; min-height:165px; max-height:165px;
                       text-align: center; float: left;'>";
-        echo \LibreNMS\Util\Url::overlibLink($overlib_url, $overlib_link, $overlib_content);
+        echo \twentyfouronline\Util\Url::overlibLink($overlib_url, $overlib_link, $overlib_content);
         echo '</div>';
     } //end foreach
     echo '</div>';
 }//end foreach
+
+
+
+

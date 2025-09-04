@@ -2,7 +2,7 @@
 /**
  * alert_rule_list.inc.php
  *
- * LibreNMS alert_rule_list modal
+ * twentyfouronline alert_rule_list modal
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
  */
 
-use LibreNMS\Alerting\QueryBuilderParser;
+use twentyfouronline\Alerting\QueryBuilderParser;
 
 if (! Auth::user()->hasGlobalAdmin()) {
     exit('ERROR: You need to be admin');
@@ -118,3 +118,7 @@ if (! Auth::user()->hasGlobalAdmin()) {
         $("#rule_display").html('');
     });
 </script>
+
+
+
+

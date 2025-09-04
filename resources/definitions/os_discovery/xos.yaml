@@ -46,3 +46,7 @@ modules:
                     descr: 'Fan Speed {{ $EXTREME-SYSTEM-MIB::extremeFanNumber }}'
                     index: '{{ $index }}'
                     divisor: 1
+
+
+
+

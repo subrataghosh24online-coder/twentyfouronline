@@ -9,3 +9,7 @@ discovery:
         snmpget:
             oid: 'UPS-MIB::upsIdentAgentSoftwareVersion.0'
             value: RemotEye4
+
+
+
+

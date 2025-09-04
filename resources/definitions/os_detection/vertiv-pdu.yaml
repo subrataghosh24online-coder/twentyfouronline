@@ -11,3 +11,7 @@ over:
     - { graph: device_power, text: 'Power' }
     - { graph: device_current, text: 'Current' }
     - { graph: device_voltage, text: 'Voltage' }
+
+
+
+

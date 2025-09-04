@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -27,7 +27,7 @@
 
 namespace App\Http\Controllers\Maps;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Controllers\Controller;
 use App\Models\AlertSchedule;
 use App\Models\Device;
@@ -383,7 +383,7 @@ class MapDataController extends Controller
             $link_pct = 0;
         }
 
-        return LibrenmsConfig::get("network_map_legend.$link_pct", '#000000');
+        return twentyfouronlineConfig::get("network_map_legend.$link_pct", '#000000');
     }
 
     protected function nodeDisabledStyle(): array
@@ -391,10 +391,10 @@ class MapDataController extends Controller
         return [
             'color' => [
                 'highlight' => [
-                    'background' => LibrenmsConfig::get('network_map_legend.di.node'),
+                    'background' => twentyfouronlineConfig::get('network_map_legend.di.node'),
                 ],
-                'border' => LibrenmsConfig::get('network_map_legend.di.border'),
-                'background' => LibrenmsConfig::get('network_map_legend.di.node'),
+                'border' => twentyfouronlineConfig::get('network_map_legend.di.border'),
+                'background' => twentyfouronlineConfig::get('network_map_legend.di.node'),
             ],
             'borderWidth' => null,
         ];
@@ -405,11 +405,11 @@ class MapDataController extends Controller
         return [
             'color' => [
                 'highlight' => [
-                    'border' => LibrenmsConfig::get('network_map_legend.highlight.border'),
+                    'border' => twentyfouronlineConfig::get('network_map_legend.highlight.border'),
                 ],
-                'border' => LibrenmsConfig::get('network_map_legend.highlight.border'),
+                'border' => twentyfouronlineConfig::get('network_map_legend.highlight.border'),
             ],
-            'borderWidth' => LibrenmsConfig::get('network_map_legend.highlight.borderWidth'),
+            'borderWidth' => twentyfouronlineConfig::get('network_map_legend.highlight.borderWidth'),
         ];
     }
 
@@ -418,11 +418,11 @@ class MapDataController extends Controller
         return [
             'color' => [
                 'highlight' => [
-                    'background' => LibrenmsConfig::get('network_map_legend.dn.node'),
-                    'border' => LibrenmsConfig::get('network_map_legend.dn.border'),
+                    'background' => twentyfouronlineConfig::get('network_map_legend.dn.node'),
+                    'border' => twentyfouronlineConfig::get('network_map_legend.dn.border'),
                 ],
-                'border' => LibrenmsConfig::get('network_map_legend.dn.border'),
-                'background' => LibrenmsConfig::get('network_map_legend.dn.node'),
+                'border' => twentyfouronlineConfig::get('network_map_legend.dn.border'),
+                'background' => twentyfouronlineConfig::get('network_map_legend.dn.node'),
             ],
             'borderWidth' => null,
         ];
@@ -480,9 +480,9 @@ class MapDataController extends Controller
         $device_list = [];
         foreach (self::deviceList($request) as $device) {
             if ($device->status) {
-                $updowntime = \LibreNMS\Util\Time::formatInterval($device->uptime);
+                $updowntime = \twentyfouronline\Util\Time::formatInterval($device->uptime);
             } elseif ($device->last_polled) {
-                $updowntime = \LibreNMS\Util\Time::formatInterval(time() - strtotime($device->last_polled));
+                $updowntime = \twentyfouronline\Util\Time::formatInterval(time() - strtotime($device->last_polled));
             } else {
                 $updowntime = '';
             }
@@ -675,9 +675,9 @@ class MapDataController extends Controller
                             'dashes' => [8, 12],
                             'width' => $width,
                             'color' => [
-                                'border' => LibrenmsConfig::get('network_map_legend.dn.border'),
-                                'highlight' => LibrenmsConfig::get('network_map_legend.dn.edge'),
-                                'color' => LibrenmsConfig::get('network_map_legend.dn.edge'),
+                                'border' => twentyfouronlineConfig::get('network_map_legend.dn.border'),
+                                'highlight' => twentyfouronlineConfig::get('network_map_legend.dn.edge'),
+                                'color' => twentyfouronlineConfig::get('network_map_legend.dn.edge'),
                             ],
                         ];
                     } elseif ($port->ifOperStatus == 'down' || $remote_port->ifOperStatus == 'down') {
@@ -686,9 +686,9 @@ class MapDataController extends Controller
                             'dashes' => [8, 12],
                             'width' => $width,
                             'color' => [
-                                'border' => LibrenmsConfig::get('network_map_legend.dn.border'),
-                                'highlight' => LibrenmsConfig::get('network_map_legend.dn.edge'),
-                                'color' => LibrenmsConfig::get('network_map_legend.dn.edge'),
+                                'border' => twentyfouronlineConfig::get('network_map_legend.dn.border'),
+                                'highlight' => twentyfouronlineConfig::get('network_map_legend.dn.edge'),
+                                'color' => twentyfouronlineConfig::get('network_map_legend.dn.edge'),
                             ],
                         ];
                     } else {
@@ -777,9 +777,9 @@ class MapDataController extends Controller
         $service_list = [];
         foreach ($services->get() as $service) {
             if ($service->device->status) {
-                $updowntime = \LibreNMS\Util\Time::formatInterval($service->device->uptime);
+                $updowntime = \twentyfouronline\Util\Time::formatInterval($service->device->uptime);
             } elseif ($service->device->last_polled) {
-                $updowntime = \LibreNMS\Util\Time::formatInterval(time() - strtotime($service->device->last_polled));
+                $updowntime = \twentyfouronline\Util\Time::formatInterval(time() - strtotime($service->device->last_polled));
             } else {
                 $updowntime = '';
             }
@@ -794,11 +794,15 @@ class MapDataController extends Controller
                 'device_name' => $service->device->shortDisplayName(),
                 'url' => \Blade::render('<x-device-link-map :device="$device" />', ['device' => $service->device]),
                 'updowntime' => $updowntime,
-                'compact' => LibrenmsConfig::get('webui.availability_map_compact'),
-                'box_size' => LibrenmsConfig::get('webui.availability_map_box_size'),
+                'compact' => twentyfouronlineConfig::get('webui.availability_map_compact'),
+                'box_size' => twentyfouronlineConfig::get('webui.availability_map_box_size'),
             ];
         }
 
         return response()->json($service_list);
     }
 }
+
+
+
+

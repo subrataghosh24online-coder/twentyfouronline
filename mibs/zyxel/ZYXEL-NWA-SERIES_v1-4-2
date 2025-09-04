@@ -898,3 +898,7 @@ pwDot11TransmissionRate  OBJECT-TYPE
 			For example, timeout or wrong configuration."
 	::= { pwTFTPTraps 1 }
 END
+
+
+
+

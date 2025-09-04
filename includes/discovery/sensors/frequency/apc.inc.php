@@ -89,3 +89,7 @@ if ($oids) {
     $descr = 'Output';
     discover_sensor(null, 'frequency', $device, $oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current / $divisor);
 }
+
+
+
+

@@ -25,3 +25,7 @@ return new class extends Migration
         Schema::rename('printer_supplies', 'toner');
     }
 };
+
+
+
+

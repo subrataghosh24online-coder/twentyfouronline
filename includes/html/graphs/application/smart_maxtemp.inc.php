@@ -8,3 +8,7 @@ $smalldescrlen = 15;
 $rrdVar = 'maxtemp';
 
 require 'smart-common.inc.php';
+
+
+
+

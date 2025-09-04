@@ -15,7 +15,7 @@ Autoresolution: `{{ payload.get("raw_state", "") != 2 and payload.get("state", "
 Auto acknowledge: `{{ payload.get("raw_state", "") == 2 }}`
 
 You will also find additional information is sent as part of the payload to Grafana which 
-can be useful within the templates or routes. If you perform a test of the LibreNMS transport 
+can be useful within the templates or routes. If you perform a test of the twentyfouronline transport 
 you will be able to see the payload within the Grafana interface.
 
 customise what is sent to Grafana and override or add additional fields, you can create
@@ -26,7 +26,7 @@ a custom template which outputs the correct information via JSON. As an example:
     "message": "Severity: {{ $alert->severity }}\nTimestamp: {{ $alert->timestamp }}\nRule: {{ $alert->title }}\n @foreach ($alert->faults as $key => $value) {{ $key }}: {{ $value['string'] }}\n @endforeach",
     "number_of_processors": \App\Models\Processors::where('device_id', $alert->device_id)->count(),
     "title": "{{ $alert->title }}",
-    "link_to_upstream_details": "{{ \LibreNMS\Util\Url::deviceUrl($device) }}",
+    "link_to_upstream_details": "{{ \twentyfouronline\Util\Url::deviceUrl($device) }}",
 }
 ```
 If you are using more than one transport for an alert rule and need to customise the output per
@@ -38,7 +38,7 @@ transport then you can do the following:
   "message": "Severity: {{ $alert->severity }}\nTimestamp: {{ $alert->timestamp }}\nRule: {{ $alert->title }}\n @foreach ($alert->faults as $key => $value) {{ $key }}: {{ $value['string'] }}\n @endforeach",
   "number_of_processors": \App\Models\Processors::where('device_id', $alert->device_id)->count(),
   "title": "{{ $alert->title }}",
-  "link_to_upstream_details": "{{ \LibreNMS\Util\Url::deviceUrl($device) }}",
+  "link_to_upstream_details": "{{ \twentyfouronline\Util\Url::deviceUrl($device) }}",
 }
 @else
 {{ $alert->title }}
@@ -64,3 +64,7 @@ Alert sent to:
 | Config | Example |
 | ------ | ------- |
 | Webhook URL | https://a-prod-us-central-0.grafana.net/integrations/v1/formatted_webhook/m12xmIjOcgwH74UF8CN4dk0Dh/ |
+
+
+
+

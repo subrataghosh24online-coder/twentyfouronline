@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://librenms.org
+ * @link       https://twentyfouronline.org
  *
  * @copyright  2017 Adam Bishop
  * @author     Adam Bishop <adam@omega.org.uk>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Str;
-use LibreNMS\Authentication\LegacyAuth;
+use twentyfouronline\Authentication\LegacyAuth;
 
 class AuthSSOTest extends DBTestCase
 {
@@ -43,8 +43,8 @@ class AuthSSOTest extends DBTestCase
     {
         parent::setUp();
 
-        $this->original_auth_mech = LibrenmsConfig::get('auth_mechanism');
-        LibrenmsConfig::set('auth_mechanism', 'sso');
+        $this->original_auth_mech = twentyfouronlineConfig::get('auth_mechanism');
+        twentyfouronlineConfig::set('auth_mechanism', 'sso');
 
         $this->server = $_SERVER;
     }
@@ -52,21 +52,21 @@ class AuthSSOTest extends DBTestCase
     // Set up an SSO config for tests
     public function basicConfig()
     {
-        LibrenmsConfig::set('sso.mode', 'env');
-        LibrenmsConfig::set('sso.create_users', true);
-        LibrenmsConfig::set('sso.update_users', true);
-        LibrenmsConfig::set('sso.trusted_proxies', ['127.0.0.1', '::1']);
-        LibrenmsConfig::set('sso.user_attr', 'REMOTE_USER');
-        LibrenmsConfig::set('sso.realname_attr', 'displayName');
-        LibrenmsConfig::set('sso.email_attr', 'mail');
-        LibrenmsConfig::set('sso.descr_attr', null);
-        LibrenmsConfig::set('sso.level_attr', null);
-        LibrenmsConfig::set('sso.group_strategy', 'static');
-        LibrenmsConfig::set('sso.group_attr', 'member');
-        LibrenmsConfig::set('sso.group_filter', '/(.*)/i');
-        LibrenmsConfig::set('sso.group_delimiter', ';');
-        LibrenmsConfig::set('sso.group_level_map', null);
-        LibrenmsConfig::set('sso.static_level', -1);
+        twentyfouronlineConfig::set('sso.mode', 'env');
+        twentyfouronlineConfig::set('sso.create_users', true);
+        twentyfouronlineConfig::set('sso.update_users', true);
+        twentyfouronlineConfig::set('sso.trusted_proxies', ['127.0.0.1', '::1']);
+        twentyfouronlineConfig::set('sso.user_attr', 'REMOTE_USER');
+        twentyfouronlineConfig::set('sso.realname_attr', 'displayName');
+        twentyfouronlineConfig::set('sso.email_attr', 'mail');
+        twentyfouronlineConfig::set('sso.descr_attr', null);
+        twentyfouronlineConfig::set('sso.level_attr', null);
+        twentyfouronlineConfig::set('sso.group_strategy', 'static');
+        twentyfouronlineConfig::set('sso.group_attr', 'member');
+        twentyfouronlineConfig::set('sso.group_filter', '/(.*)/i');
+        twentyfouronlineConfig::set('sso.group_delimiter', ';');
+        twentyfouronlineConfig::set('sso.group_level_map', null);
+        twentyfouronlineConfig::set('sso.static_level', -1);
     }
 
     // Set up $_SERVER in env mode
@@ -74,7 +74,7 @@ class AuthSSOTest extends DBTestCase
     {
         unset($_SERVER);
 
-        LibrenmsConfig::set('sso.mode', 'env');
+        twentyfouronlineConfig::set('sso.mode', 'env');
 
         $_SERVER['REMOTE_ADDR'] = '::1';
         $_SERVER['REMOTE_USER'] = 'test';
@@ -88,7 +88,7 @@ class AuthSSOTest extends DBTestCase
     {
         unset($_SERVER);
 
-        LibrenmsConfig::set('sso.mode', 'header');
+        twentyfouronlineConfig::set('sso.mode', 'header');
 
         $_SERVER['REMOTE_ADDR'] = '::1';
         $_SERVER['REMOTE_USER'] = Str::random();
@@ -111,8 +111,8 @@ class AuthSSOTest extends DBTestCase
         $this->basicConfig();
         $a = LegacyAuth::reset();
 
-        LibrenmsConfig::set('sso.create_users', false);
-        LibrenmsConfig::set('sso.update_users', false);
+        twentyfouronlineConfig::set('sso.create_users', false);
+        twentyfouronlineConfig::set('sso.update_users', false);
 
         // Create a random username and store it with the defaults
         $this->basicEnvironmentEnv();
@@ -127,11 +127,11 @@ class AuthSSOTest extends DBTestCase
     public function testValidAuthCreateOnly(): void
     {
         $this->basicConfig();
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
-        LibrenmsConfig::set('sso.create_users', true);
-        LibrenmsConfig::set('sso.update_users', false);
+        twentyfouronlineConfig::set('sso.create_users', true);
+        twentyfouronlineConfig::set('sso.update_users', false);
 
         // Create a random username and store it with the defaults
         $this->basicEnvironmentEnv();
@@ -140,28 +140,28 @@ class AuthSSOTest extends DBTestCase
 
         // Retrieve it and validate
         $dbuser = User::thisAuth()->where('username', $user)->firstOrNew();
-        $this->assertSame($dbuser->realname, $a->authSSOGetAttr(LibrenmsConfig::get('sso.realname_attr')));
+        $this->assertSame($dbuser->realname, $a->authSSOGetAttr(twentyfouronlineConfig::get('sso.realname_attr')));
         $this->assertEmpty($dbuser->getRoleNames());
-        $this->assertSame($dbuser->email, $a->authSSOGetAttr(LibrenmsConfig::get('sso.email_attr')));
+        $this->assertSame($dbuser->email, $a->authSSOGetAttr(twentyfouronlineConfig::get('sso.email_attr')));
 
         // Change a few things and reauth
         $_SERVER['mail'] = 'test@example.net';
         $_SERVER['displayName'] = 'Testier User';
-        LibrenmsConfig::set('sso.static_level', 10);
+        twentyfouronlineConfig::set('sso.static_level', 10);
         $this->assertTrue($a->authenticate(['username' => $user]));
 
         // Retrieve it and validate the update was not persisted
         $dbuser = User::thisAuth()->where('username', $user)->firstOrNew();
-        $this->assertFalse($a->authSSOGetAttr(LibrenmsConfig::get('sso.realname_attr')) === $dbuser->realname);
+        $this->assertFalse($a->authSSOGetAttr(twentyfouronlineConfig::get('sso.realname_attr')) === $dbuser->realname);
         $this->assertFalse($dbuser->roles()->where('name', 'admin')->exists());
-        $this->assertFalse($a->authSSOGetAttr(LibrenmsConfig::get('sso.email_attr')) === $dbuser->email);
+        $this->assertFalse($a->authSSOGetAttr(twentyfouronlineConfig::get('sso.email_attr')) === $dbuser->email);
     }
 
     // Excercise general auth flow with updates enabled
     public function testValidAuthUpdate(): void
     {
         $this->basicConfig();
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
         // Create a random username and store it with the defaults
@@ -172,33 +172,33 @@ class AuthSSOTest extends DBTestCase
         // Change a few things and reauth
         $_SERVER['mail'] = 'test@example.net';
         $_SERVER['displayName'] = 'Testier User';
-        LibrenmsConfig::set('sso.static_level', 10);
+        twentyfouronlineConfig::set('sso.static_level', 10);
         $this->assertTrue(auth()->attempt(['username' => $user]));
 
         // Retrieve it and validate the update persisted
         $dbuser = User::thisAuth()->where('username', $user)->firstOrNew();
-        $this->assertSame($dbuser->realname, $a->authSSOGetAttr(LibrenmsConfig::get('sso.realname_attr')));
+        $this->assertSame($dbuser->realname, $a->authSSOGetAttr(twentyfouronlineConfig::get('sso.realname_attr')));
         $this->assertTrue($dbuser->roles()->where('name', 'admin')->exists());
-        $this->assertSame($dbuser->email, $a->authSSOGetAttr(LibrenmsConfig::get('sso.email_attr')));
+        $this->assertSame($dbuser->email, $a->authSSOGetAttr(twentyfouronlineConfig::get('sso.email_attr')));
     }
 
     // Check some invalid authentication modes
     public function testBadAuth(): void
     {
         $this->basicConfig();
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
         $this->basicEnvironmentEnv();
         unset($_SERVER);
 
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->authenticate([]);
 
         $this->basicEnvironmentHeader();
         unset($_SERVER);
 
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->authenticate([]);
     }
 
@@ -237,7 +237,7 @@ class AuthSSOTest extends DBTestCase
     public function testGetExternalUserName(): void
     {
         $this->basicConfig();
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
         $this->basicEnvironmentEnv();
@@ -249,42 +249,42 @@ class AuthSSOTest extends DBTestCase
         $this->basicEnvironmentEnv();
 
         // Missing pointer to attribute
-        LibrenmsConfig::forget('sso.user_attr');
+        twentyfouronlineConfig::forget('sso.user_attr');
         $this->assertNull($a->getExternalUsername());
         $this->basicEnvironmentEnv();
 
         // Non-existant attribute
-        LibrenmsConfig::set('sso.user_attr', 'foobar');
+        twentyfouronlineConfig::set('sso.user_attr', 'foobar');
         $this->assertNull($a->getExternalUsername());
         $this->basicEnvironmentEnv();
 
         // null pointer to attribute
-        LibrenmsConfig::set('sso.user_attr', null);
+        twentyfouronlineConfig::set('sso.user_attr', null);
         $this->assertNull($a->getExternalUsername());
         $this->basicEnvironmentEnv();
 
         // null attribute
-        LibrenmsConfig::set('sso.user_attr', 'REMOTE_USER');
+        twentyfouronlineConfig::set('sso.user_attr', 'REMOTE_USER');
         $_SERVER['REMOTE_USER'] = null;
         $this->assertNull($a->getExternalUsername());
     }
 
     public function testGetAttr(): void
     {
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
         $_SERVER['HTTP_VALID_ATTR'] = 'string';
         $_SERVER['alsoVALID-ATTR'] = 'otherstring';
 
-        LibrenmsConfig::set('sso.mode', 'env');
+        twentyfouronlineConfig::set('sso.mode', 'env');
         $this->assertNull($a->authSSOGetAttr('foobar'));
         $this->assertNull($a->authSSOGetAttr(null));
         $this->assertNull($a->authSSOGetAttr(1));
         $this->assertIsString($a->authSSOGetAttr('alsoVALID-ATTR'));
         $this->assertIsString($a->authSSOGetAttr('HTTP_VALID_ATTR'));
 
-        LibrenmsConfig::set('sso.mode', 'header');
+        twentyfouronlineConfig::set('sso.mode', 'header');
         $this->assertNull($a->authSSOGetAttr('foobar'));
         $this->assertNull($a->authSSOGetAttr(null));
         $this->assertNull($a->authSSOGetAttr(1));
@@ -294,10 +294,10 @@ class AuthSSOTest extends DBTestCase
 
     public function testTrustedProxies(): void
     {
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
-        LibrenmsConfig::set('sso.trusted_proxies', ['127.0.0.1', '::1', '2001:630:50::/48', '8.8.8.0/25']);
+        twentyfouronlineConfig::set('sso.trusted_proxies', ['127.0.0.1', '::1', '2001:630:50::/48', '8.8.8.0/25']);
 
         // v4 valid CIDR
         $_SERVER['REMOTE_ADDR'] = '8.8.8.8';
@@ -336,7 +336,7 @@ class AuthSSOTest extends DBTestCase
         $this->assertFalse($a->authSSOProxyTrusted());
 
         // Not a list
-        LibrenmsConfig::set('sso.trusted_proxies', '8.8.8.0/25');
+        twentyfouronlineConfig::set('sso.trusted_proxies', '8.8.8.0/25');
         $_SERVER['REMOTE_ADDR'] = '8.8.8.8';
         $this->assertFalse($a->authSSOProxyTrusted());
 
@@ -347,66 +347,66 @@ class AuthSSOTest extends DBTestCase
 
     public function testLevelCaulculationFromAttr(): void
     {
-        /** @var \LibreNMS\Authentication\SSOAuthorizer $a */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer $a */
         $a = LegacyAuth::reset();
 
-        LibrenmsConfig::set('sso.mode', 'env');
-        LibrenmsConfig::set('sso.group_strategy', 'attribute');
+        twentyfouronlineConfig::set('sso.mode', 'env');
+        twentyfouronlineConfig::set('sso.group_strategy', 'attribute');
 
         //Integer
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         $_SERVER['level'] = 5;
         $this->assertSame(['global-read'], $a->getRoles(''));
 
         //String
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         $_SERVER['level'] = '5';
         $this->assertSame(['global-read'], $a->getRoles(''));
 
         // invalid level
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         $_SERVER['level'] = 9;
         $this->assertSame([], $a->getRoles(''));
 
         //Invalid String
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         $_SERVER['level'] = 'foobar';
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->getRoles('');
 
         //null
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         $_SERVER['level'] = null;
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->getRoles('');
 
         //Unset pointer
-        LibrenmsConfig::forget('sso.level_attr');
+        twentyfouronlineConfig::forget('sso.level_attr');
         $_SERVER['level'] = '9';
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->getRoles('');
 
         //Unset attr
-        LibrenmsConfig::set('sso.level_attr', 'level');
+        twentyfouronlineConfig::set('sso.level_attr', 'level');
         unset($_SERVER['level']);
-        $this->expectException('LibreNMS\Exceptions\AuthenticationException');
+        $this->expectException('twentyfouronline\Exceptions\AuthenticationException');
         $a->getRoles('');
     }
 
     public function testGroupParsing(): void
     {
         $this->basicConfig();
-        /** @var \LibreNMS\Authentication\SSOAuthorizer */
+        /** @var \twentyfouronline\Authentication\SSOAuthorizer */
         $a = LegacyAuth::reset();
 
         $this->basicEnvironmentEnv();
 
-        LibrenmsConfig::set('sso.static_level', 0);
-        LibrenmsConfig::set('sso.group_strategy', 'map');
-        LibrenmsConfig::set('sso.group_delimiter', ';');
-        LibrenmsConfig::set('sso.group_attr', 'member');
-        LibrenmsConfig::set('sso.group_level_map', ['librenms-admins' => 10, 'librenms-readers' => 1, 'librenms-billingcontacts' => 5]);
-        $_SERVER['member'] = 'librenms-admins;librenms-readers;librenms-billingcontacts;unrelatedgroup;confluence-admins';
+        twentyfouronlineConfig::set('sso.static_level', 0);
+        twentyfouronlineConfig::set('sso.group_strategy', 'map');
+        twentyfouronlineConfig::set('sso.group_delimiter', ';');
+        twentyfouronlineConfig::set('sso.group_attr', 'member');
+        twentyfouronlineConfig::set('sso.group_level_map', ['twentyfouronline-admins' => 10, 'twentyfouronline-readers' => 1, 'twentyfouronline-billingcontacts' => 5]);
+        $_SERVER['member'] = 'twentyfouronline-admins;twentyfouronline-readers;twentyfouronline-billingcontacts;unrelatedgroup;confluence-admins';
 
         // Valid options
         $this->assertSame(10, $a->authSSOParseGroups());
@@ -424,9 +424,9 @@ class AuthSSOTest extends DBTestCase
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // Empty with default access level
-        LibrenmsConfig::set('sso.static_level', 5);
+        twentyfouronlineConfig::set('sso.static_level', 5);
         $this->assertSame(5, $a->authSSOParseGroups());
-        LibrenmsConfig::forget('sso.static_level');
+        twentyfouronlineConfig::forget('sso.static_level');
 
         // Null
         $_SERVER['member'] = null;
@@ -436,48 +436,52 @@ class AuthSSOTest extends DBTestCase
         unset($_SERVER['member']);
         $this->assertSame(0, $a->authSSOParseGroups());
 
-        $_SERVER['member'] = 'librenms-admins;librenms-readers;librenms-billingcontacts;unrelatedgroup;confluence-admins';
+        $_SERVER['member'] = 'twentyfouronline-admins;twentyfouronline-readers;twentyfouronline-billingcontacts;unrelatedgroup;confluence-admins';
 
         // Empty
-        LibrenmsConfig::set('sso.group_level_map', []);
+        twentyfouronlineConfig::set('sso.group_level_map', []);
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // Not associative
-        LibrenmsConfig::set('sso.group_level_map', ['foo', 'bar', 'librenms-admins']);
+        twentyfouronlineConfig::set('sso.group_level_map', ['foo', 'bar', 'twentyfouronline-admins']);
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // Null
-        LibrenmsConfig::set('sso.group_level_map', null);
+        twentyfouronlineConfig::set('sso.group_level_map', null);
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // Unset
-        LibrenmsConfig::forget('sso.group_level_map');
+        twentyfouronlineConfig::forget('sso.group_level_map');
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // No delimiter
-        LibrenmsConfig::forget('sso.group_delimiter');
+        twentyfouronlineConfig::forget('sso.group_delimiter');
         $this->assertSame(0, $a->authSSOParseGroups());
 
         // Test group filtering by regex
-        LibrenmsConfig::set('sso.group_filter', '/confluence-(.*)/i');
-        LibrenmsConfig::set('sso.group_delimiter', ';');
-        LibrenmsConfig::set('sso.group_level_map', ['librenms-admins' => 10, 'librenms-readers' => 1, 'librenms-billingcontacts' => 5, 'confluence-admins' => 7]);
+        twentyfouronlineConfig::set('sso.group_filter', '/confluence-(.*)/i');
+        twentyfouronlineConfig::set('sso.group_delimiter', ';');
+        twentyfouronlineConfig::set('sso.group_level_map', ['twentyfouronline-admins' => 10, 'twentyfouronline-readers' => 1, 'twentyfouronline-billingcontacts' => 5, 'confluence-admins' => 7]);
         $this->assertSame(7, $a->authSSOParseGroups());
 
         // Test group filtering by empty regex
-        LibrenmsConfig::set('sso.group_filter', '');
+        twentyfouronlineConfig::set('sso.group_filter', '');
         $this->assertSame(10, $a->authSSOParseGroups());
 
         // Test group filtering by null regex
-        LibrenmsConfig::set('sso.group_filter', null);
+        twentyfouronlineConfig::set('sso.group_filter', null);
         $this->assertSame(10, $a->authSSOParseGroups());
     }
 
     protected function tearDown(): void
     {
-        LibrenmsConfig::set('auth_mechanism', $this->original_auth_mech);
-        LibrenmsConfig::forget('sso');
+        twentyfouronlineConfig::set('auth_mechanism', $this->original_auth_mech);
+        twentyfouronlineConfig::forget('sso');
         $_SERVER = $this->server;
         parent::tearDown();
     }
 }
+
+
+
+

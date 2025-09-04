@@ -88,3 +88,7 @@ Mimosa5GHzChannelNumber ::= TEXTUAL-CONVENTION
     SYNTAX       Integer32
 
 END
+
+
+
+

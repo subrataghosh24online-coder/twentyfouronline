@@ -39,7 +39,7 @@ class WirelessSensorController
      */
     private function getMetrics(Request $request): array
     {
-        $types = \LibreNMS\Device\WirelessSensor::getTypes();
+        $types = \twentyfouronline\Device\WirelessSensor::getTypes();
 
         return WirelessSensor::distinct()->pluck('sensor_class')->flip()->map(function ($index, $class) use ($types, $request) {
             return [
@@ -50,3 +50,7 @@ class WirelessSensorController
         })->all();
     }
 }
+
+
+
+

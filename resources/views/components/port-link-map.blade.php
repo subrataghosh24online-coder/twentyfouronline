@@ -8,3 +8,7 @@
         <x-graph-row loading="lazy" :port="$port" :type="$graph['type']" :title="$graph['title']" :graphs="[['from' => '-1d']]" />
     @endforeach
 </div>
+
+
+
+

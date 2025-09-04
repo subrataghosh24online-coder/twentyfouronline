@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Traits\CompletesConfigArgument;
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Symfony\Component\Console\Input\InputArgument;
 
 class GetConfigCommand extends LnmsCommand
@@ -31,7 +31,7 @@ class GetConfigCommand extends LnmsCommand
         $setting = $this->argument('setting');
 
         if ($this->option('dump')) {
-            $this->line($setting ? json_encode(LibrenmsConfig::get($setting)) : LibrenmsConfig::toJson());
+            $this->line($setting ? json_encode(twentyfouronlineConfig::get($setting)) : twentyfouronlineConfig::toJson());
 
             return 0;
         }
@@ -40,8 +40,8 @@ class GetConfigCommand extends LnmsCommand
             throw new \RuntimeException('Not enough arguments (missing: "setting").');
         }
 
-        if (LibrenmsConfig::has($setting)) {
-            $output = LibrenmsConfig::get($setting);
+        if (twentyfouronlineConfig::has($setting)) {
+            $output = twentyfouronlineConfig::get($setting);
             if (! is_string($output)) {
                 $output = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
             }
@@ -54,3 +54,7 @@ class GetConfigCommand extends LnmsCommand
         return 1;
     }
 }
+
+
+
+

@@ -14,7 +14,7 @@ $seenPeerID = null;
 
 foreach ($bgpPeers as $bgpPeer) {
     $bgpLocalAs = \SnmpQuery::hideMib()->get("CUMULUS-BGPVRF-MIB::bgpLocalAs.{$bgpPeer['vrfId']}")->value();
-    $astext = \LibreNMS\Util\AutonomousSystem::get($bgpPeer['bgpPeerRemoteAs'])->name();
+    $astext = \twentyfouronline\Util\AutonomousSystem::get($bgpPeer['bgpPeerRemoteAs'])->name();
     echo "AS$bgpLocalAs \n";
     $bgpPeer['bgpPeerIdentifier'] = $bgpPeer['bgpPeerRemoteAddr'] ?? $bgpPeer['bgpPeerIdentifier']; // bgpPeerIdentifier is not unique.
     echo "BGP Peer {$bgpPeer['bgpPeerIdentifier']} ";
@@ -70,3 +70,7 @@ if (! is_null($seenPeerID)) {
 }
 
 unset($bgpPeers);
+
+
+
+

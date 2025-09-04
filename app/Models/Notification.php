@@ -143,3 +143,7 @@ class Notification extends Model
         return $this->hasMany(NotificationAttrib::class, 'notifications_id', 'notifications_id');
     }
 }
+
+
+
+

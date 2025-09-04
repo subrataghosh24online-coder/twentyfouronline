@@ -18,19 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Data;
+namespace twentyfouronline\Tests\Unit\Data;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use Illuminate\Support\Facades\Http as LaravelHttp;
-use LibreNMS\Data\Store\Prometheus;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Data\Store\Prometheus;
+use twentyfouronline\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('datastores')]
@@ -40,8 +40,8 @@ class PrometheusStoreTest extends TestCase
     {
         parent::setUp();
 
-        LibrenmsConfig::set('prometheus.enable', true);
-        LibrenmsConfig::set('prometheus.url', 'http://fake:9999');
+        twentyfouronlineConfig::set('prometheus.enable', true);
+        twentyfouronlineConfig::set('prometheus.url', 'http://fake:9999');
     }
 
     public function testFailWrite(): void
@@ -75,8 +75,12 @@ class PrometheusStoreTest extends TestCase
         LaravelHttp::assertSentCount(1);
         LaravelHttp::assertSent(function (\Illuminate\Http\Client\Request $request) {
             return $request->method() == 'POST' &&
-                $request->url() == 'http://fake:9999/metrics/job/librenms/instance/testhost/measurement/testmeasure/ifName/testifname/type/testtype' &&
+                $request->url() == 'http://fake:9999/metrics/job/twentyfouronline/instance/testhost/measurement/testmeasure/ifName/testifname/type/testtype' &&
                 $request->body() == "ifIn 234234\nifOut 53453\n";
         });
     }
 }
+
+
+
+

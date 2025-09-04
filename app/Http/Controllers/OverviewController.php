@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\BgpPeer;
 use App\Models\Device;
 use App\Models\Port;
@@ -19,7 +19,7 @@ class OverviewController extends Controller
      */
     public function index(Request $request)
     {
-        $view = LibrenmsConfig::get('front_page');
+        $view = twentyfouronlineConfig::get('front_page');
 
         if (view()->exists("overview.custom.$view")) {
             return view("overview.custom.$view");
@@ -45,45 +45,45 @@ class OverviewController extends Controller
 
         $devices_down = Device::hasAccess(Auth::user())
             ->isDown()
-            ->limit(LibrenmsConfig::get('front_page_down_box_limit'))
+            ->limit(twentyfouronlineConfig::get('front_page_down_box_limit'))
             ->get();
 
-        if (LibrenmsConfig::get('warn.ifdown')) {
+        if (twentyfouronlineConfig::get('warn.ifdown')) {
             $ports_down = Port::hasAccess(Auth::user())
                 ->isDown()
-                ->limit(LibrenmsConfig::get('front_page_down_box_limit'))
+                ->limit(twentyfouronlineConfig::get('front_page_down_box_limit'))
                 ->with('device')
                 ->get();
         }
 
         $services_down = Service::hasAccess(Auth::user())
             ->isCritical()
-            ->limit(LibrenmsConfig::get('front_page_down_box_limit'))
+            ->limit(twentyfouronlineConfig::get('front_page_down_box_limit'))
             ->with('device')
             ->get();
 
         // TODO: is inAlarm() equal to: bgpPeerAdminStatus != 'start' AND bgpPeerState != 'established' AND bgpPeerState != ''  ?
         $bgp_down = BgpPeer::hasAccess(Auth::user())
             ->inAlarm()
-            ->limit(LibrenmsConfig::get('front_page_down_box_limit'))
+            ->limit(twentyfouronlineConfig::get('front_page_down_box_limit'))
             ->with('device')
             ->get();
 
-        if (filter_var(LibrenmsConfig::get('uptime_warning'), FILTER_VALIDATE_FLOAT) !== false
-            && LibrenmsConfig::get('uptime_warning') > 0
+        if (filter_var(twentyfouronlineConfig::get('uptime_warning'), FILTER_VALIDATE_FLOAT) !== false
+            && twentyfouronlineConfig::get('uptime_warning') > 0
         ) {
             $devices_uptime = Device::hasAccess(Auth::user())
                 ->isUp()
-                ->whereUptime(LibrenmsConfig::get('uptime_warning'))
-                ->limit(LibrenmsConfig::get('front_page_down_box_limit'))
+                ->whereUptime(twentyfouronlineConfig::get('uptime_warning'))
+                ->limit(twentyfouronlineConfig::get('front_page_down_box_limit'))
                 ->get();
 
             $devices_uptime = $devices_uptime->reject(function ($device) {
-                return LibrenmsConfig::getOsSetting($device->os, 'bad_uptime') == true;
+                return twentyfouronlineConfig::getOsSetting($device->os, 'bad_uptime') == true;
             });
         }
 
-        if (LibrenmsConfig::get('enable_syslog')) {
+        if (twentyfouronlineConfig::get('enable_syslog')) {
             $syslog = Syslog::hasAccess(Auth::user())
                 ->orderBy('timestamp', 'desc')
                 ->limit(20)
@@ -94,3 +94,7 @@ class OverviewController extends Controller
         return view('overview.simple', ['devices_down' => $devices_down, 'ports_down' => $ports_down, 'services_down' => $services_down, 'bgp_down' => $bgp_down, 'devices_uptime' => $devices_uptime, 'syslog' => $syslog]);
     }
 }
+
+
+
+

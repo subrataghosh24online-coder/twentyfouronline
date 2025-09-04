@@ -1,12 +1,12 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 /*
- * LibreNMS per-module poller performance
+ * twentyfouronline per-module poller performance
  *
  * Copyright (c) 2016 Mike Rostermund <mike@kollegienet.dk>
- * Copyright (c) 2016 Paul D. Gear <paul@librenms.org>
+ * Copyright (c) 2016 Paul D. Gear <paul@twentyfouronline.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ $scale_min = '0';
 $device = DeviceCache::get($device['device_id']);
 
 $attribs = $device->getAttribs();
-$modules = LibrenmsConfig::get('poller_modules');
+$modules = twentyfouronlineConfig::get('poller_modules');
 ksort($modules);
 
 require 'includes/html/graphs/common.inc.php';
@@ -30,7 +30,7 @@ require 'includes/html/graphs/common.inc.php';
 foreach ($modules as $module => $module_status) {
     $rrd_filename = Rrd::name($device->hostname, ['poller-perf', $module]);
     if ($attribs['poll_' . $module] || ($module_status && ! isset($attribs['poll_' . $module])) ||
-        (LibrenmsConfig::getOsSetting($device->os, 'poller_modules.' . $module) && ! isset($attribs['poll_' . $module]))) {
+        (twentyfouronlineConfig::getOsSetting($device->os, 'poller_modules.' . $module) && ! isset($attribs['poll_' . $module]))) {
         if (Rrd::checkRrdExists($rrd_filename)) {
             $ds['ds'] = 'poller';
             $ds['descr'] = $module;
@@ -46,3 +46,7 @@ $nototal = true;
 $text_orig = true;
 $colours = 'manycolours';
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

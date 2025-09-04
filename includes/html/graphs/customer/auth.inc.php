@@ -7,3 +7,7 @@ if ($auth || Auth::user()->hasGlobalRead()) {
     $title = generate_device_link($device);
     $auth = true;
 }
+
+
+
+

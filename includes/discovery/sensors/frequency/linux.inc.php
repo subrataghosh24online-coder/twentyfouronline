@@ -2,7 +2,7 @@
 
 /*
  * raspberry pi frequencies
- * requires snmp extend agent script from librenms-agent
+ * requires snmp extend agent script from twentyfouronline-agent
  */
 if (! empty($pre_cache['raspberry_pi_sensors'])) {
     $sensor_type = 'raspberry_freq';
@@ -25,3 +25,7 @@ if (! empty($pre_cache['raspberry_pi_sensors'])) {
         }
     }
 }
+
+
+
+

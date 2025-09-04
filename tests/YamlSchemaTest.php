@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2016 Neil Lathwood
- * @author     Neil Lathwood <librenms+n@laf.io>
+ * @author     Neil Lathwood <twentyfouronline+n@laf.io>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
 use Illuminate\Support\Str;
 use JsonSchema\Constraints\Constraint;
@@ -136,3 +136,7 @@ class YamlSchemaTest extends TestCase
         $this->assertTrue($validator->isValid(), "$filename does not validate. Violations:\n$errors");
     }
 }
+
+
+
+

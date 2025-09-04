@@ -152,7 +152,7 @@ return [
     'ulid' => 'O campo :attribute deve ser um ULID válido.',
     'uuid' => 'O campo :attribute deve ser um UUID válido.',
 
-    // Específico do LibreNMS
+    // Específico do twentyfouronline
     'alpha_space' => 'O campo :attribute pode conter apenas letras, números, sublinhados e espaços.',
     'ip_or_hostname' => 'O campo :attribute deve ser um endereço IP/rede ou nome de host válido.',
     'is_regex' => 'O campo :attribute não é uma expressão regular válida',
@@ -298,3 +298,7 @@ return [
         ],
     ],
 ];
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Rewrite;
 
 echo 'Procurve ';
 
@@ -20,3 +20,7 @@ foreach (SnmpQuery::cache()->walk('HP-ICF-TRANSCEIVER-MIB::hpicfXcvrInfoTable')-
         discover_sensor(null, 'voltage', $device, $oid, 'hpicfXcvrVoltage.' . $index, 'procurve', $descr, $divisor, 1, $limit_low, $warn_limit_low, $warn_limit, $limit, $current, 'snmp', $entPhysicalIndex, $entPhysicalIndex_measured, group: 'transceiver');
     }
 }
+
+
+
+

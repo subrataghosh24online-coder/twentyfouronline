@@ -9040,3 +9040,7 @@ ZYXEL-GS2200-24-MIB DEFINITIONS ::= BEGIN
         ::= { cpuProtectionEntry 3} 
         
 END
+
+
+
+

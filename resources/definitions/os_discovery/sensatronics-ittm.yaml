@@ -115,3 +115,7 @@ modules:
                     index: 'sensor16Name.{{ $index }}'
                     descr: '{{ $sensor16Name }}'
                     skip_values: -99.9
+
+
+
+

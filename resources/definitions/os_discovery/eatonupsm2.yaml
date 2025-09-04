@@ -60,3 +60,7 @@ modules:
                     states:
                         - { value: 1, descr: Yes, graph: 1, generic: 1 }
                         - { value: 2, descr: No, graph: 1, generic: 0 }
+
+
+
+

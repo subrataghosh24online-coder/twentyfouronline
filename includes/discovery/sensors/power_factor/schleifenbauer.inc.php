@@ -34,3 +34,7 @@ if (isset($pre_cache['sdbDevOutMtPowerFactor']) && is_array($pre_cache['sdbDevOu
         discover_sensor(null, 'power_factor', $device, $power_factor_oid, $serial_input, 'schleifenbauer', $descr, $divisor, '1', '0', null, null, '1', $power_factor, 'snmp', $entPhysicalIndex);
     }
 }
+
+
+
+

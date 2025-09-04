@@ -312,3 +312,7 @@ E5-120-AS-ATM-MIB DEFINITIONS ::= BEGIN
 	::= { asChannelStatusEntry 4 }
 
 END
+
+
+
+

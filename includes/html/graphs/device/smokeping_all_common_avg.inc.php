@@ -2,7 +2,7 @@
 
 // This is my translation of Smokeping's graphing.
 // Thanks to Bill Fenner for Perl->Human translation:>
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
 $scale_min = 0;
 $scale_rigid = true;
@@ -11,7 +11,7 @@ require 'includes/html/graphs/common.inc.php';
 require 'includes/html/graphs/device/smokeping_common.inc.php';
 
 $i = 0;
-$pings = LibrenmsConfig::get('smokeping.pings');
+$pings = twentyfouronlineConfig::get('smokeping.pings');
 $iter = 0;
 $colourset = 'mixed';
 
@@ -29,15 +29,15 @@ if ($width > '500') {
 }
 
 foreach ($smokeping_files[$direction][$device['hostname']] as $source => $filename) {
-    if (! LibrenmsConfig::has("graph_colours.$colourset.$iter")) {
+    if (! twentyfouronlineConfig::has("graph_colours.$colourset.$iter")) {
         $iter = 0;
     }
 
-    $colour = LibrenmsConfig::get("graph_colours.$colourset.$iter");
+    $colour = twentyfouronlineConfig::get("graph_colours.$colourset.$iter");
     $iter++;
 
     // FIXME: $descr unused? -- PDG 2015-11-14
-    $descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr($source, $descr_len);
+    $descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($source, $descr_len);
 
     $filename = generate_smokeping_file($device, $filename);
     $rrd_options .= " DEF:median$i=" . $filename . ':median:AVERAGE ';
@@ -74,7 +74,7 @@ foreach ($smokeping_files[$direction][$device['hostname']] as $source => $filena
     $i++;
 }//end foreach
 
-$descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr('Average', $descr_len);
+$descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr('Average', $descr_len);
 
 $rrd_options .= ' CDEF:ploss_all=0' . $ploss_list . ",$i,/";
 $rrd_options .= ' CDEF:dm_all=0' . $dm_list . ",$i,/";
@@ -95,3 +95,7 @@ $rrd_options .= " GPRINT:avmed:'%5.1lf%ss'";
 $rrd_options .= " GPRINT:ploss_all:AVERAGE:'%5.1lf%%'";
 $rrd_options .= " GPRINT:avsd:'%5.1lf%Ss'";
 $rrd_options .= " GPRINT:avmsr:'%5.1lf%s\\l'";
+
+
+
+

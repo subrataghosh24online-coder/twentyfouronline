@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to capture statistics from the CISCO-NTP-MIB
+ * twentyfouronline module to capture statistics from the CISCO-NTP-MIB
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -11,7 +11,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['ignore'] = ['=', 0];
 $options['type'] = 'ntp';
@@ -100,3 +100,7 @@ print_optionbar_end();
         url: "ajax_table.php",
     });
 </script>
+
+
+
+

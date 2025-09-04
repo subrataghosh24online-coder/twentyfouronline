@@ -1002,3 +1002,7 @@ HUAWEI-DISMAN-PING-MIB DEFINITIONS ::= BEGIN
         ::= { hwPingObjects 8 }   
 
 END
+
+
+
+

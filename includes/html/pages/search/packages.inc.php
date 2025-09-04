@@ -18,7 +18,7 @@
  * Package Search
  *
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2014 f0o, LibreNMS
+ * @copyright 2014 f0o, twentyfouronline
  * @license GPL
  */
 print_optionbar_start(28);
@@ -154,7 +154,7 @@ foreach ($ordered as $name => $entry) {
     if (count($arch) > 0 && count($vers) > 0) {
         ?>
         <tr>
-            <td><a href="<?php echo \LibreNMS\Util\Url::generate(['page' => 'packages', 'name' => $name]); ?>"><?php echo $name; ?></a></td>
+            <td><a href="<?php echo \twentyfouronline\Util\Url::generate(['page' => 'packages', 'name' => $name]); ?>"><?php echo $name; ?></a></td>
             <td><?php echo implode('<br/>', $vers); ?></td>
             <td><?php echo implode('<br/>', $arch); ?></td>
             <td><?php echo implode('<br/>', $devs); ?></td>
@@ -191,3 +191,7 @@ if ((int) ($count / $results) > 0 && $count != $results) {
         $('#result_form').trigger( "submit" );
     }
 </script>
+
+
+
+

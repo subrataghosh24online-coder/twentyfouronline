@@ -1584,3 +1584,7 @@ HP-ICF-TRANSCEIVER-MIB DEFINITIONS ::= BEGIN
           ::= { hpicfXcvrCompliances 3 }
 
 END
+
+
+
+

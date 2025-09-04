@@ -38,3 +38,7 @@ if (file_exists("includes/html/pages/tools/$tools_type.inc.php")) {
 } else {
     echo 'Unknown tool type';
 }
+
+
+
+

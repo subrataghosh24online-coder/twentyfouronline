@@ -10,7 +10,7 @@ Install via the agent or extend.
     and copy the `freeswitch` script to `/usr/lib/check_mk_agent/local/`
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/freeswitch -O /usr/lib/check_mk_agent/local/freeswitch`
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/freeswitch -O /usr/lib/check_mk_agent/local/freeswitch`
     ```
 
     2. Make the script executable
@@ -30,7 +30,7 @@ Install via the agent or extend.
     1. Download the script onto the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/agent-local/freeswitch -O /etc/snmp/freeswitch
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/agent-local/freeswitch -O /etc/snmp/freeswitch
     ```
 
     2. Make the script executable
@@ -56,3 +56,7 @@ Install via the agent or extend.
     The application should be auto-discovered as described at the top of
     the page. If it is not, please follow the steps set out under `SNMP
     Extend` heading top of page.
+
+
+
+

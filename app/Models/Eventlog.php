@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -29,7 +29,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Facades\Auth;
-use LibreNMS\Enum\Severity;
+use twentyfouronline\Enum\Severity;
 
 class Eventlog extends DeviceRelatedModel
 {
@@ -39,7 +39,7 @@ class Eventlog extends DeviceRelatedModel
     protected $fillable = ['datetime', 'device_id', 'message', 'type', 'reference', 'username', 'severity'];
 
     /**
-     * @return array{severity: 'LibreNMS\Enum\Severity'}
+     * @return array{severity: 'twentyfouronline\Enum\Severity'}
      */
     protected function casts(): array
     {
@@ -98,3 +98,7 @@ class Eventlog extends DeviceRelatedModel
         return $this->morphTo('related', 'type', 'reference');
     }
 }
+
+
+
+

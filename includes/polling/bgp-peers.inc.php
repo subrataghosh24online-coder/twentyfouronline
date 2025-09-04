@@ -2,11 +2,11 @@
 
 use App\Models\Eventlog;
 use Illuminate\Support\Str;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Exceptions\InvalidIpException;
-use LibreNMS\RRD\RrdDefinition;
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Oid;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Exceptions\InvalidIpException;
+use twentyfouronline\RRD\RrdDefinition;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Oid;
 
 $peers = dbFetchRows('SELECT * FROM `bgpPeers` AS B LEFT JOIN `vrfs` AS V ON `B`.`vrf_id` = `V`.`vrf_id` WHERE `B`.`device_id` = ?', [$device['device_id']]);
 
@@ -526,8 +526,8 @@ if (! empty($peers)) {
 
         // --- Send event log notices ---
         if ($peer_data['bgpPeerFsmEstablishedTime']) {
-            if (! (is_array(\App\Facades\LibrenmsConfig::get('alerts.bgp.whitelist'))
-                    && ! in_array($peer['bgpPeerRemoteAs'], \App\Facades\LibrenmsConfig::get('alerts.bgp.whitelist')))
+            if (! (is_array(\App\Facades\twentyfouronlineConfig::get('alerts.bgp.whitelist'))
+                    && ! in_array($peer['bgpPeerRemoteAs'], \App\Facades\twentyfouronlineConfig::get('alerts.bgp.whitelist')))
                 && ($peer_data['bgpPeerFsmEstablishedTime'] < $peer['bgpPeerFsmEstablishedTime']
                     || $peer_data['bgpPeerState'] != $peer['bgpPeerState'])
             ) {
@@ -542,7 +542,7 @@ if (! empty($peers)) {
         }
 
         // --- Update rrd data ---
-        $peer_rrd_name = \LibreNMS\Data\Store\Rrd::safeName('bgp-' . $peer['bgpPeerIdentifier']);
+        $peer_rrd_name = \twentyfouronline\Data\Store\Rrd::safeName('bgp-' . $peer['bgpPeerIdentifier']);
         $peer_rrd_def = RrdDefinition::make()
             ->addDataset('bgpPeerOutUpdates', 'COUNTER', null, 100000000000)
             ->addDataset('bgpPeerInUpdates', 'COUNTER', null, 100000000000)
@@ -837,7 +837,7 @@ if (! empty($peers)) {
                     );
                 }
 
-                $cbgp_rrd_name = \LibreNMS\Data\Store\Rrd::safeName('cbgp-' . $peer['bgpPeerIdentifier'] . ".$afi.$safi");
+                $cbgp_rrd_name = \twentyfouronline\Data\Store\Rrd::safeName('cbgp-' . $peer['bgpPeerIdentifier'] . ".$afi.$safi");
                 $cbgp_rrd_def = RrdDefinition::make()
                     ->addDataset('AcceptedPrefixes', 'GAUGE', null, 100000000000)
                     ->addDataset('DeniedPrefixes', 'GAUGE', null, 100000000000)
@@ -867,3 +867,7 @@ if (! empty($peers)) {
 } //end if
 
 unset($peers, $peer_data_tmp, $j_prefixes);
+
+
+
+

@@ -8,3 +8,7 @@ $smalldescrlen = 25;
 $rrdVar = 'remaining_days';
 
 require 'certificate-common.inc.php';
+
+
+
+

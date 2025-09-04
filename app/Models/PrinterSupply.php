@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class PrinterSupply extends DeviceRelatedModel implements Keyable
 {
@@ -25,3 +25,7 @@ class PrinterSupply extends DeviceRelatedModel implements Keyable
         return "$this->supply_type-$this->supply_index";
     }
 }
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS module to Display data from F5 BigIP LTM Devices
+ * twentyfouronline module to Display data from F5 BigIP LTM Devices
  *
  * Copyright (c) 2019 Yacine BENAMSILI <https://github.com/yac01/ yacine.benamsili@homail.com>
  *
@@ -46,7 +46,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_ltm_allbwc_BitsDropped';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -63,7 +63,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_ltm_allbwc_Bitsin';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -82,7 +82,7 @@
         $graph_array['height'] = '100';
         $graph_array['width'] = '215';
         $graph_array['legend'] = 'no';
-        $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+        $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
         $graph_array['type'] = 'device_bigip_ltm_allbwc_pktsin';
         require 'includes/html/print-graphrow.inc.php';
         ?>
@@ -96,7 +96,11 @@
                 2: "danger"
             },
         }).on("click.rs.jquery.bootgrid", function (e, columns, row) {
-            var link = '<?php echo \LibreNMS\Util\Url::generate($vars, ['type' => 'ltm_bwc', 'subtype' => 'ltm_bwc_det']); ?>bwcid='+row['bwcid'];
+            var link = '<?php echo \twentyfouronline\Util\Url::generate($vars, ['type' => 'ltm_bwc', 'subtype' => 'ltm_bwc_det']); ?>bwcid='+row['bwcid'];
             window.location.href = link;
         });
     </script>
+
+
+
+

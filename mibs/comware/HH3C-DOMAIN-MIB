@@ -1766,3 +1766,7 @@ HH3C-DOMAIN-MIB DEFINITIONS ::= BEGIN
                 "
             ::= { hh3cDomainTrapsDefine 19 }
 END
+
+
+
+

@@ -18,22 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 
 $scale_min = '0';
-$colors = LibrenmsConfig::get('graph_colours.manycolours');
+$colors = twentyfouronlineConfig::get('graph_colours.manycolours');
 
 require 'includes/html/graphs/common.inc.php';
 
 $hostnames = Device::pluck('hostname');
-$modules = array_keys(LibrenmsConfig::get('poller_modules'));
+$modules = array_keys(twentyfouronlineConfig::get('poller_modules'));
 sort($modules);
 
 foreach ($modules as $module_index => $module) {
@@ -84,7 +84,7 @@ $rrd_options .= " COMMENT:'\\n'";
 
 foreach ($modules as $index => $module) {
     $color = $colors[$index % count($colors)];
-    $rrd_options .= " AREA:$module#$color:'" . \LibreNMS\Data\Store\Rrd::fixedSafeDescr($module, 16) . "':STACK";
+    $rrd_options .= " AREA:$module#$color:'" . \twentyfouronline\Data\Store\Rrd::fixedSafeDescr($module, 16) . "':STACK";
     $rrd_options .= " GPRINT:$module:LAST:%6.2lf  GPRINT:$module:MIN:%6.2lf";
     $rrd_options .= " GPRINT:$module:MAX:%6.2lf  'GPRINT:$module:AVERAGE:%6.2lf'";
     if ($graph_params->visible('previous')) {
@@ -97,3 +97,7 @@ foreach ($modules as $index => $module) {
     }
     $rrd_options .= " COMMENT:'\\n'";
 }
+
+
+
+

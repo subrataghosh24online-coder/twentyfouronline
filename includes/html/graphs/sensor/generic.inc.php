@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\Data\Store\Rrd;
-use LibreNMS\Util\Number;
+use twentyfouronline\Data\Store\Rrd;
+use twentyfouronline\Util\Number;
 
 if (empty($sensor)) {
     throw new RrdGraphException('Invalid sensor');
@@ -63,3 +63,7 @@ if ($to > time()) {
 }
 
 unset($sensor_descr_fixed, $sensor_color, $background_color, $variance_color);
+
+
+
+

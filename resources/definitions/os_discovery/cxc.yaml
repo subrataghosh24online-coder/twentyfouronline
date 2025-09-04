@@ -54,3 +54,7 @@ modules:
                     index: rectSysBatteryTemperature.{{ $index }}
                     divisor: 1000
                     descr: 'Battery Temperature'
+
+
+
+

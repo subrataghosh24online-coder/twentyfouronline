@@ -21,3 +21,7 @@ foreach (explode("\n", $temps) as $temp) {
         }
     }
 }
+
+
+
+

@@ -7,14 +7,14 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * @package    LibreNMS
+ * @package    twentyfouronline
  * @subpackage pi-hole
- * @link       https://www.librenms.org
- * @copyright  2017 LibreNMS
+ * @link       https://www.twentyfouronline.org
+ * @copyright  2017 twentyfouronline
  * @author     crcro <crc@nuamchefazi.ro>
 */
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'pi-hole';
 $options = '-Oqv';
@@ -59,3 +59,7 @@ if ($pihole) {
 }
 
 unset($pihole);
+
+
+
+

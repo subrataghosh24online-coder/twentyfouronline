@@ -18,12 +18,12 @@
  * Alert Templates
  *
  * @author f0o <f0o@devilcode.org>
- * @copyright 2014 f0o, LibreNMS
+ * @copyright 2014 f0o, twentyfouronline
  * @license GPL
  */
 
 use App\Models\Device;
-use LibreNMS\Alert\AlertData;
+use twentyfouronline\Alert\AlertData;
 
 $status = 'error';
 
@@ -118,3 +118,7 @@ try {
 $response = ['status' => htmlentities($status), 'message' => htmlentities($message), 'newid' => $template_newid ?? null];
 
 echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

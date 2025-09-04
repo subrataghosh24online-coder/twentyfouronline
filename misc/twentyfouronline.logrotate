@@ -1,0 +1,15 @@
+# /etc/logrotate.d/twentyfouronline
+/opt/twentyfouronline/logs/*log {
+    su twentyfouronline twentyfouronline
+    weekly
+    rotate 6
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 664 twentyfouronline twentyfouronline
+}
+
+
+
+

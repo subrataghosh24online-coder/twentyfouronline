@@ -162,3 +162,7 @@ ruggedcomAgentCapability OBJECT-IDENTITY
 -- ruggedcomAgentCapability.48 branch is reserved for ruggedcomRcAAAServerACModule
 	
 END
+
+
+
+

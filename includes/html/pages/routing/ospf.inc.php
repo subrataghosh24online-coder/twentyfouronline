@@ -38,7 +38,7 @@ foreach ($data as $instance) {
         <tbody>
           <tr>
             <td></td>
-            <td>' . ($instance->device ? \LibreNMS\Util\Url::deviceLink($instance->device, null, ['tab' => 'routing', 'proto' => 'ospf']) : 'unknown') . '</td>
+            <td>' . ($instance->device ? \twentyfouronline\Util\Url::deviceLink($instance->device, null, ['tab' => 'routing', 'proto' => 'ospf']) : 'unknown') . '</td>
             <td>' . $instance->ospfRouterId . '</td>
             <td><span class="label label-' . $status_color . '">' . $instance->ospfAdminStat . '</span></td>
             <td><span class="label label-' . $abr_status_color . '">' . $instance->ospfAreaBdrRtrStatus . '</span></td>
@@ -53,3 +53,7 @@ echo '</table>
     </div>
   </div>
 </div>';
+
+
+
+

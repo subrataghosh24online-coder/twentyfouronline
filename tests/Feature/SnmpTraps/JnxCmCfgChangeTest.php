@@ -20,13 +20,13 @@
  *
  * Test Juniper configuration change trap jnxCmCfgChange
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 class JnxCmCfgChangeTest extends SnmpTrapTestCase
 {
@@ -66,3 +66,7 @@ TRAP,
         );
     }
 }
+
+
+
+

@@ -23,3 +23,7 @@
 @else
     <h4>{{ __('No devices found within interval.') }}</h4>
 @endif
+
+
+
+

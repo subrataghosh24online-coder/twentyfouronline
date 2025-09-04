@@ -19,3 +19,7 @@ modules:
                     states:
                         - { descr: unavailable, graph: 1, value: 0, generic: 2 }
                         - { descr: available, graph: 1, value: 1, generic: 0 }
+
+
+
+

@@ -708,3 +708,7 @@ HH3C-RCR-MIB DEFINITIONS ::= BEGIN
             "The time which the adjusted prefix remains."
         ::= { hh3cRcrCRAdjustPrefixEntry 9 }
 END
+
+
+
+

@@ -13,3 +13,7 @@ if (isset($vars['nextcloud_user'])) {
 }
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

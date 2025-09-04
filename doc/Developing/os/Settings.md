@@ -120,7 +120,7 @@ snmp_bulk: false
 ```
 
 If only some specific OIDs fail with snmpbulkwalk. You can disable just those OIDs.
-This needs to match exactly the OID being walked by LibreNMS. MIB::oid is preferred to prevent name collisions.
+This needs to match exactly the OID being walked by twentyfouronline. MIB::oid is preferred to prevent name collisions.
 
 ```yaml
 oids:
@@ -146,3 +146,7 @@ ignore_mount_string: # substring
 ignore_mount_regexp: # regex
     - "/^\/var/"
 ```
+
+
+
+

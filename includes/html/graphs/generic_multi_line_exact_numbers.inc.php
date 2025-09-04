@@ -1,6 +1,6 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Facades\Rrd;
 
 require 'includes/html/graphs/common.inc.php';
@@ -41,11 +41,11 @@ foreach ($rrd_list as $rrd) {
     if (! empty($rrd['colour'])) {
         $colour = $rrd['colour'];
     } else {
-        if (! LibrenmsConfig::get("graph_colours.$colours.$colour_iter")) {
+        if (! twentyfouronlineConfig::get("graph_colours.$colours.$colour_iter")) {
             $colour_iter = 0;
         }
 
-        $colour = LibrenmsConfig::get("graph_colours.$colours.$colour_iter");
+        $colour = twentyfouronlineConfig::get("graph_colours.$colours.$colour_iter");
         $colour_iter++;
     }
     $i++;
@@ -120,3 +120,7 @@ if ($graph_params->visible('previous')) {
     }
     $rrd_options .= ' HRULE:0#555555';
 }
+
+
+
+

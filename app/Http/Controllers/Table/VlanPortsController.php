@@ -6,7 +6,7 @@ use App\Models\Port;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Url;
 
 class VlanPortsController extends TableController
 {
@@ -76,3 +76,7 @@ class VlanPortsController extends TableController
         ];
     }
 }
+
+
+
+

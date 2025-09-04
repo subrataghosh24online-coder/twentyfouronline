@@ -11,3 +11,7 @@ $scale_min = '0';
 $unit_text = 'Active Sessions';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

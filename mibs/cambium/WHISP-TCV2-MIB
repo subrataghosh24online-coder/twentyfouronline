@@ -67,3 +67,7 @@ EventString ::= TEXTUAL-CONVENTION
                 "The string used to display event log."
           SYNTAX        OCTET STRING(SIZE (0..2048))
 END
+
+
+
+

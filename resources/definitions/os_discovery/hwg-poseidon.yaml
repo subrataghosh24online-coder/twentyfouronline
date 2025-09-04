@@ -65,3 +65,7 @@ modules:
                         - { descr: normal, graph: 0, value: 1, generic: 0 }
                         - { descr: alarmstate, graph: 0, value: 2, generic: 2 }
                         - { descr: alarm, graph: 0, value: 3, generic: 2 }
+
+
+
+

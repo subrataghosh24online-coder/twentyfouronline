@@ -20,3 +20,7 @@ if (isset($vars['borgrepo'])) {
 $rrd_filename = Rrd::name($device['hostname'], ['app', $name, $app->app_id, $name_part]);
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

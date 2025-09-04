@@ -43,3 +43,7 @@ modules:
                     states:
                         - { value: 1, descr: OK, graph: 1, generic: 0 }
                         - { value: 2, descr: Not OK, graph: 1, generic: 2 }
+
+
+
+

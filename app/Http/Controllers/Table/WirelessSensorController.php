@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2025 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -37,7 +37,7 @@ class WirelessSensorController extends SensorsController
     {
         return [
             'view' => Rule::in(['detail', 'graphs']),
-            'class' => Rule::in(array_keys(\LibreNMS\Device\WirelessSensor::getTypes())),
+            'class' => Rule::in(array_keys(\twentyfouronline\Device\WirelessSensor::getTypes())),
         ];
     }
 
@@ -55,3 +55,7 @@ class WirelessSensorController extends SensorsController
             ->withAggregate('device', 'hostname');
     }
 }
+
+
+
+

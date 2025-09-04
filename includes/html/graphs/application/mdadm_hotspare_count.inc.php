@@ -8,3 +8,7 @@ $smalldescrlen = 15;
 $rrdVar = 'hotspare_count';
 
 require 'mdadm-common.inc.php';
+
+
+
+

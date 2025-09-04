@@ -25,7 +25,11 @@ foreach ($slugs as $index => $slug) {
 }
 
 if (count($rrd_list)) {
-    throw new \LibreNMS\Exceptions\RrdGraphException('No relevant log file RRDs found', 'No Data');
+    throw new \twentyfouronline\Exceptions\RrdGraphException('No relevant log file RRDs found', 'No Data');
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

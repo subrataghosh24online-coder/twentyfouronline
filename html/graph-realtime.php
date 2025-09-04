@@ -1,9 +1,9 @@
 <?php
 
 /**
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is included with LibreNMS. It was originally part of m0n0wall <http://www.m0n0.ch/wall/>
+ *   This file is included with twentyfouronline. It was originally part of m0n0wall <http://www.m0n0.ch/wall/>
  *
  * @author     T. Lechat <dev@lechat.org>, Manuel Kasper <mk@neon1.net>, Jonathan Watt <jwatt@jwatt.org>
  * @copyright  2004-2006 T. Lechat <dev@lechat.org>, Manuel Kasper <mk@neon1.net>, Jonathan Watt <jwatt@jwatt.org>
@@ -31,7 +31,7 @@ $ifname = $port['label']; //Interface name that will be showed on top right of g
 $hostname = shorthost($device['hostname']);
 
 if (isset($_GET['title'])) {
-    $ifname = \LibreNMS\Util\Clean::html($_GET['title'], []);
+    $ifname = \twentyfouronline\Util\Clean::html($_GET['title'], []);
 }
 
 /********* Other conf *******/
@@ -383,3 +383,7 @@ function LZ(x) {
     ]]>
   </script>
 </svg>
+
+
+
+

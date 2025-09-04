@@ -20,7 +20,7 @@ We currently support the following global message options:
 The alert template can make use of
 [Slack markdown](https://api.slack.com/reference/surfaces/formatting#basic-formatting).
 In the Slack markdown dialect, custom links are denoted with HTML angled
-brackets, but LibreNMS strips these out. To support embedding custom links in alerts,
+brackets, but twentyfouronline strips these out. To support embedding custom links in alerts,
 use the bracket/parentheses markdown syntax for links.  For example if you would
 typically use this for a Slack link:
 
@@ -36,5 +36,9 @@ Use this in your alert template:
 | ------ | ------- |
 | Webhook URL | <https://slack.com/url/somehook> |
 | Channel | network-alerts |
-| Author Name | LibreNMS Bot |
+| Author Name | twentyfouronline Bot |
 | Icon | `:scream:` |
+
+
+
+

@@ -18,16 +18,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2024 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-use LibreNMS\OS;
+use twentyfouronline\OS;
 
 if (! isset($os) || ! $os instanceof OS) {
     $os = OS::make($device);
 }
 
-(new \LibreNMS\Modules\Transceivers())->discover($os);
+(new \twentyfouronline\Modules\Transceivers())->discover($os);
+
+
+
+

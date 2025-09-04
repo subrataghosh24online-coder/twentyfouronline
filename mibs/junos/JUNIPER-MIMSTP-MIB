@@ -2381,3 +2381,7 @@ jnxMIMstMstiPortLoopProtectStateChangeTrap NOTIFICATION-TYPE
 -- TRAP MIB END
 
 END
+
+
+
+

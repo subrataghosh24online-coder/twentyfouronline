@@ -4,7 +4,7 @@
 1. Copy the shell script to the desired host.
 
 ```bash
-wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/cape -O /etc/snmp/cape
+wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/cape -O /etc/snmp/cape
 ```
 
 2. Make the script executable
@@ -31,3 +31,7 @@ extend cape /etc/snmp/cape
 The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under `SNMP
 Extend` heading top of page.
+
+
+
+

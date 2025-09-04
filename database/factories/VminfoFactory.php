@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LibreNMS\Enum\PowerState;
+use twentyfouronline\Enum\PowerState;
 
 /** @extends Factory<\App\Models\Vminfo> */
 class VminfoFactory extends Factory
@@ -24,3 +24,7 @@ class VminfoFactory extends Factory
         ];
     }
 }
+
+
+
+

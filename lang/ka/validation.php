@@ -13,7 +13,7 @@ return [
     |
     */
 
-    // Librenms specific
+    // twentyfouronline specific
     'alpha_space' => ':attribute შეიძლება, მხოლოდ, ლათინურ ასოებს, ციფრებს, ქვედატირეებს და ჰარეებს შეიცავდეს.',
     'ip_or_hostname' => ':attribute სწორი IP მისამართი/ქსელი, ან ჰოსტის სახელი უნდა იყოს.',
     'is_regex' => ':attribute სწორი რეგულარული გამოსახულება არაა',
@@ -167,3 +167,7 @@ return [
         ],
     ],
 ];
+
+
+
+

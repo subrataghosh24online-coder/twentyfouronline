@@ -172,7 +172,7 @@ if ($device['os_group'] == 'cisco') {
                     }//end foreach
                 }//end if
 
-                // If temperature sensor, set low thresholds to -1 and -5. Many sensors don't return low thresholds, therefore LibreNMS takes the runtime low
+                // If temperature sensor, set low thresholds to -1 and -5. Many sensors don't return low thresholds, therefore twentyfouronline takes the runtime low
                 // Also changing 0 values (not just null) as Libre loses these somewhere along the line and shows an empty value in the Web UI
                 if ($type == 'temperature') {
                     if ($warn_limit_low == 0) {
@@ -262,3 +262,7 @@ if ($device['os_group'] == 'cisco') {
         app('sensor-discovery')->sync(sensor_class: $type, poller_type: 'snmp');
     }
 }//end if
+
+
+
+

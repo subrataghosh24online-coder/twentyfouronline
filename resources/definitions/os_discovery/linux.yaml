@@ -164,3 +164,7 @@ modules:
                         - { descr: not availible    , graph: 0, value: -1, generic: 3 }
                         - { descr: needsReplacement , graph: 0, value:  1, generic: 2 }
                         - { descr: ok               , graph: 0, value:  0, generic: 0 }
+
+
+
+

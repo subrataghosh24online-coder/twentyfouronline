@@ -2,3 +2,7 @@ modules:
     os:
         sysDescr_regex: '/(?<hardware>[\w\-\.\_ ]+)/'
         serial: ENTITY-MIB::entPhysicalSerialNum.1
+
+
+
+

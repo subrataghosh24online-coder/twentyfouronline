@@ -299,3 +299,7 @@ begemotAtmHWSoftVersion OBJECT-TYPE
 begemotAtmSysGroup	OBJECT IDENTIFIER ::= { begemotAtmObjects 4 }
 
 END
+
+
+
+

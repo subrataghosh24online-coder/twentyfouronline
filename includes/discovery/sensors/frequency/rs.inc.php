@@ -14,3 +14,7 @@ foreach ($oids as $id => $data) {
     discover_sensor(null, 'frequency', $device, $num_oid, $index, $type, $descr, '1', '1', null, null, null, null, $current);
     $count++;
 }
+
+
+
+

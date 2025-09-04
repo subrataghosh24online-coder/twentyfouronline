@@ -47,3 +47,7 @@ FixedPoint2Dec ::= TEXTUAL-CONVENTION
     SYNTAX       Integer32
 
 END
+
+
+
+

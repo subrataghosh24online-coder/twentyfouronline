@@ -31,3 +31,7 @@ discovery_modules:
 discovery:
     -
         sysDescr: 'Barracuda Web Application Firewall'
+
+
+
+

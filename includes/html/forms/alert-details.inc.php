@@ -38,3 +38,7 @@ exit(json_encode([
     'message' => $message,
     'details' => $details,
 ]));
+
+
+
+

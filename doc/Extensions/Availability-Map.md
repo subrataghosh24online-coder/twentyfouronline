@@ -1,6 +1,6 @@
 # Availability Map
 
-LibreNMS has the following page to show an availability map:
+twentyfouronline has the following page to show an availability map:
 
  - Overview -> Maps -> Availability
 
@@ -25,3 +25,7 @@ lnms config:set webui.availability_map_sort_status false
 # Show the device group drop-down on the availabiltiy map page
 lnms config:set webui.availability_map_use_device_groups true
 ```
+
+
+
+

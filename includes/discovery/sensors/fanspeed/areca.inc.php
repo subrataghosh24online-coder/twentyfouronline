@@ -19,3 +19,7 @@ foreach (explode("\n", $oids) as $data) {
         discover_sensor(null, 'fanspeed', $device, $oid, $index, 'areca', trim($descr, '"'), '1', '1', null, null, null, null, $current);
     }
 }
+
+
+
+

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class HrDevice extends DeviceRelatedModel implements Keyable
 {
@@ -23,3 +23,7 @@ class HrDevice extends DeviceRelatedModel implements Keyable
         return $this->hrDeviceIndex;
     }
 }
+
+
+
+

@@ -4,14 +4,14 @@ namespace App\Console\Commands;
 
 use App\Console\Commands\Traits\CompletesConfigArgument;
 use App\Console\LnmsCommand;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use JsonSchema\Constraints\Constraint;
 use JsonSchema\Exception\ValidationException;
 use JsonSchema\Validator;
-use LibreNMS\DB\Eloquent;
-use LibreNMS\Util\DynamicConfig;
+use twentyfouronline\DB\Eloquent;
+use twentyfouronline\Util\DynamicConfig;
 use Symfony\Component\Console\Input\InputArgument;
 
 class SetConfigCommand extends LnmsCommand
@@ -85,7 +85,7 @@ class SetConfigCommand extends LnmsCommand
         // handle appending to arrays
         if (Str::endsWith($setting, '.+')) {
             $setting = substr($setting, 0, -2);
-            $sub_data = LibrenmsConfig::get($setting, []);
+            $sub_data = twentyfouronlineConfig::get($setting, []);
             if (! is_array($sub_data)) {
                 $this->error(trans('commands.config:set.errors.append'));
 
@@ -98,7 +98,7 @@ class SetConfigCommand extends LnmsCommand
 
         // handle setting value inside multi-dimensional array
         if ($parent && $parent !== $setting) {
-            $parent_data = LibrenmsConfig::get($parent);
+            $parent_data = twentyfouronlineConfig::get($parent);
             Arr::set($parent_data, $this->getChildPath($setting, $parent), $value);
             $value = $parent_data;
             $setting = $parent;
@@ -117,7 +117,7 @@ class SetConfigCommand extends LnmsCommand
             return 2;
         }
 
-        if (LibrenmsConfig::persist($setting, $value)) {
+        if (twentyfouronlineConfig::persist($setting, $value)) {
             return 0;
         }
 
@@ -157,7 +157,7 @@ class SetConfigCommand extends LnmsCommand
     private function erase($setting, $parent = null)
     {
         if ($parent) {
-            $data = LibrenmsConfig::get($parent);
+            $data = twentyfouronlineConfig::get($parent);
 
             if (preg_match("/^$parent\.?(?<sub>.+)\\.(?<index>\\d+)\$/", $setting, $matches)) {
                 // nested inside the parent setting, update just the required part
@@ -169,10 +169,10 @@ class SetConfigCommand extends LnmsCommand
                 $this->forgetWithIndex($data, $this->getChildPath($setting, $parent));
             }
 
-            return LibrenmsConfig::persist($parent, $data);
+            return twentyfouronlineConfig::persist($parent, $data);
         }
 
-        return LibrenmsConfig::erase($setting);
+        return twentyfouronlineConfig::erase($setting);
     }
 
     private function getChildPath($setting, $parent = null): string
@@ -209,7 +209,7 @@ class SetConfigCommand extends LnmsCommand
     private function validateOsSetting(string $os, string $setting, $value)
     {
         // prep data to be validated
-        $os_data = LibrenmsConfig::get("os.$os");
+        $os_data = twentyfouronlineConfig::get("os.$os");
         if ($os_data === null) {
             throw new ValidationException(trans('commands.config:set.errors.invalid_os', ['os' => $os]));
         }
@@ -259,3 +259,7 @@ class SetConfigCommand extends LnmsCommand
         }
     }
 }
+
+
+
+

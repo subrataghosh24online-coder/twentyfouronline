@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('javascript')
     <script src="{{ asset('js/jquery-qrcode.min.js') }}"></script>
@@ -100,3 +100,7 @@
 </div>
 </div>
 @endsection
+
+
+
+

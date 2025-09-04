@@ -19,3 +19,7 @@ if (isset($vars['id']) && is_numeric($vars['id'])) {
         $auth = true;
     }
 }
+
+
+
+

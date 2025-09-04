@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 echo 'RFC1628 ';
 
@@ -125,3 +125,7 @@ foreach ($bypass_current as $index => $data) {
 }
 
 unset($battery_current, $output_current, $input_current, $bypass_current);
+
+
+
+

@@ -18,21 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2022 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Unit\Alert\Transports;
+namespace twentyfouronline\Tests\Unit\Alert\Transports;
 
 use App\Models\AlertTransport;
 use App\Models\Device;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
-use LibreNMS\Alert\AlertData;
-use LibreNMS\Alert\Transport;
-use LibreNMS\Tests\TestCase;
+use twentyfouronline\Alert\AlertData;
+use twentyfouronline\Alert\Transport;
+use twentyfouronline\Tests\TestCase;
 
 class SlackTest extends TestCase
 {
@@ -56,7 +56,7 @@ class SlackTest extends TestCase
                         [
                             'fallback' => 'This is a test alert',
                             'color' => '#ff0000',
-                            'title' => 'Testing transport from LibreNMS',
+                            'title' => 'Testing transport from twentyfouronline',
                             'text' => 'This is a test alert',
                             'mrkdwn_in' => [
                                 'text',
@@ -96,7 +96,7 @@ class SlackTest extends TestCase
                         [
                             'fallback' => 'This is a test alert',
                             'color' => '#ff0000',
-                            'title' => 'Testing transport from LibreNMS',
+                            'title' => 'Testing transport from twentyfouronline',
                             'text' => 'This is a test alert',
                             'mrkdwn_in' => [
                                 'text',
@@ -139,7 +139,7 @@ class SlackTest extends TestCase
                         [
                             'fallback' => 'This is a test alert',
                             'color' => '#ff0000',
-                            'title' => 'Testing transport from LibreNMS',
+                            'title' => 'Testing transport from twentyfouronline',
                             'text' => 'This is a test alert',
                             'mrkdwn_in' => [
                                 'text',
@@ -154,3 +154,7 @@ class SlackTest extends TestCase
         });
     }
 }
+
+
+
+

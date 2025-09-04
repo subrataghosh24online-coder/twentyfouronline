@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS Calix E5-1xx Temperature Discovery module
+ * twentyfouronline Calix E5-1xx Temperature Discovery module
  *
  * Copyright (c) 2016 Chris A. Evans <thecityofguanyu@outlook.com>
  *
@@ -95,3 +95,7 @@ if (strstr($device['sysObjectID'], '.1.3.6.1.4.1.6321.1.2.3')) { // E5-1xx Serie
         }
     }
 }
+
+
+
+

@@ -122,7 +122,7 @@ if (isset($vars['vmif']) and isset($vars['vm'])) {
     // This is likely to be unknown if the device is not up and running
     //
     // Likely not relevant for libvirt as it can't do interface re-use. And vnet interfaces are likely set to be ignored as
-    // it bringing them up and down spam the LibreNMS logs. Also massiving spams the RRD dir as well... even more so if
+    // it bringing them up and down spam the twentyfouronline logs. Also massiving spams the RRD dir as well... even more so if
     // it is a CAPE box.
     // $config['bad_if'][] = 'vnet';  <--- a must for Libvirt boxes. :(
     //
@@ -246,7 +246,7 @@ foreach ($graphs as $key => $text) {
     $graph_type = $key;
     $graph_array['height'] = '100';
     $graph_array['width'] = '215';
-    $graph_array['to'] = \App\Facades\LibrenmsConfig::get('time.now');
+    $graph_array['to'] = \App\Facades\twentyfouronlineConfig::get('time.now');
     $graph_array['id'] = $app['app_id'];
     $graph_array['type'] = 'application_' . $key;
 
@@ -275,3 +275,7 @@ foreach ($graphs as $key => $text) {
     echo '</div>';
     echo '</div>';
 }
+
+
+
+

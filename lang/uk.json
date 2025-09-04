@@ -134,7 +134,7 @@
     "The user could not be deleted": "Користувач не може бути видалений",
     "Whoops, the web server could not write required files to the filesystem.": "Упс, веб сервер не зміг записати необхідні файли до файлової системи.",
     "Running the following commands will fix the issue most of the time:": "Виконання наступних команд у більшості випадків призведе до вирішення проблеми:",
-    "Whoops, looks like something went wrong. Check your librenms.log.": "Упс, щось пішло не так. Перевірте свій librenms.log.",
+    "Whoops, looks like something went wrong. Check your twentyfouronline.log.": "Упс, щось пішло не так. Перевірте свій twentyfouronline.log.",
     "Public Devices": "Публічні пристрої",
     "System Status": "Статус системи",
     "Logon": "Вхід",
@@ -319,12 +319,12 @@
     "See the <a href=\":url\">list of contributors</a> on GitHub.": "Переглянути <a href=\":url\"> список розробників </a> на GitHub.",
     "Docs": "Документація",
     "Close": "Закрити",
-    "LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system": "LibreNMS це система моніторингу мереж з функцією автовіднайдення що використовує PHP/MySQL.",
+    "twentyfouronline is an autodiscovering PHP/MySQL-based network monitoring system": "twentyfouronline це система моніторингу мереж з функцією автовіднайдення що використовує PHP/MySQL.",
     "Packages": "Пакети",
     "Version": "Версія",
     "Database Schema": "Схема бази даних",
     "Web Server": "Веб сервер",
-   "LibreNMS is a community-based project": "LibreNMS є проєктом спільноти",
+   "twentyfouronline is a community-based project": "twentyfouronline є проєктом спільноти",
    "Please feel free to join us and contribute code, documentation, and bug reports:": "Ласково просимо приєднатися та зробити внесок у вигляді коду, документації та звітах про баги:",
    "Web site": "Веб сайт",
    "Bug tracker": "Баг трекер",
@@ -333,7 +333,7 @@
    "Local git log": "Локальний лог git",
    "Contributors": "Розробники",
    "Acknowledgements": "Згадки",
-   "Opt in to send anonymous usage statistics to LibreNMS?": "Чи надсилати анонімну статистику використання до LibreNMS?",
+   "Opt in to send anonymous usage statistics to twentyfouronline?": "Чи надсилати анонімну статистику використання до twentyfouronline?",
    "Online stats:": "Онлайн статистика:",
    "Clear remote stats": "Очистити статистику",
    "IPv4 Addresses": "Адреси IPv4",
@@ -376,3 +376,7 @@
    "Virtual Machines": "Віртуальні машини",
    "Device Groups": "Групи пристроїв"
 }
+
+
+
+

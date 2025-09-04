@@ -124,3 +124,7 @@ foreach ($temperatures as $temperature) {
         discover_sensor(null, 'temperature', $device, $temperature['oid'], $index, 'pcoweb', $temperature['descr'], $temperature['precision'], '1', $low_limit, null, null, $high_limit, $current);
     }
 }
+
+
+
+

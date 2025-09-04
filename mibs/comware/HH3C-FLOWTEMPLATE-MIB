@@ -412,3 +412,7 @@ HH3C-FLOWTEMPLATE-MIB DEFINITIONS ::= BEGIN
                 "RowStatus."
             ::= { hh3cFTIfApplyEntry 2 }
 END 
+
+
+
+

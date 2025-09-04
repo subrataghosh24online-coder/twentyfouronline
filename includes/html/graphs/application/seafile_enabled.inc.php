@@ -10,3 +10,7 @@ $category = 'acc';
 $rrdVar = 'enabled';
 
 require 'seafile-common.inc.php';
+
+
+
+

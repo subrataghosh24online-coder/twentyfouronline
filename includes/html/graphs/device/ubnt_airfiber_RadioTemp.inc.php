@@ -18,3 +18,7 @@ if (Rrd::checkRrdExists($rrdfilename)) {
     $rrd_options .= ' GPRINT:radio1TempC:MIN:%0.2lf%s ';
     $rrd_options .= ' GPRINT:radio1TempC:MAX:%0.2lf%s\\\l ';
 }
+
+
+
+

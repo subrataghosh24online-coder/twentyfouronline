@@ -13,3 +13,7 @@ discovery:
             oid: 'NET-SNMP-EXTEND-MIB::nsExtendOutput1Line."distro"'
             op: starts
             value: OpenWrt
+
+
+
+

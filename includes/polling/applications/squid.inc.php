@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'squid';
 
@@ -176,3 +176,7 @@ app('Datastore')->put($device, 'app', $tags, $fields);
 
 $squid_app_status = ($returnedoids == false) ? false : 'Data ok';
 update_application($app, $squid_app_status, $fields);
+
+
+
+

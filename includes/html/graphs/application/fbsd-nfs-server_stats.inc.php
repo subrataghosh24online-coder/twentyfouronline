@@ -144,7 +144,11 @@ if (Rrd::checkRrdExists($rrd_filename)) {
         ],
     ];
 } else {
-    throw new \LibreNMS\Exceptions\RrdGraphException("No Data file $rrd_filename");
+    throw new \twentyfouronline\Exceptions\RrdGraphException("No Data file $rrd_filename");
 }
 
 require 'includes/html/graphs/generic_v3_multiline.inc.php';
+
+
+
+

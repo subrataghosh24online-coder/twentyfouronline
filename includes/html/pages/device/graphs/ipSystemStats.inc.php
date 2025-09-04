@@ -18,3 +18,7 @@ if (Rrd::checkRrdExists(Rrd::name($device['hostname'], 'ipSystemStats-ipv4'))) {
 
     include 'includes/html/print-device-graph.php';
 }
+
+
+
+

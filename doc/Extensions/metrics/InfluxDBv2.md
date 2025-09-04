@@ -24,7 +24,7 @@ really able to provide any help with this side of things.
 - Support for InfluxDB, we would highly recommend that you
   have some level of experience with these.
 
-RRD will continue to function as normal so LibreNMS itself should
+RRD will continue to function as normal so twentyfouronline itself should
 continue to function as normal.
 
 ## Configuration
@@ -35,12 +35,12 @@ continue to function as normal.
     lnms config:set influxdbv2.transport http
     lnms config:set influxdbv2.host '127.0.0.1'
     lnms config:set influxdbv2.port 8086
-    lnms config:set influxdbv2.bucket 'librenms'
+    lnms config:set influxdbv2.bucket 'twentyfouronline'
     lnms config:set influxdbv2.token 'admin'
     lnms config:set influxdbv2.allow_redirect true
-    lnms config:set influxdbv2.organization 'librenms'
+    lnms config:set influxdbv2.organization 'twentyfouronline'
     lnms config:set influxdbv2.debug false
-    lnms config:set influxdbv2.log_file '/opt/librenms/logs/influxdbv2.log'
+    lnms config:set influxdbv2.log_file '/opt/twentyfouronline/logs/influxdbv2.log'
     lnms config:set influxdbv2.groups-exclude ["group_name_1","group_name_2"]
     lnms config:set influxdbv2.timeout 5
     lnms config:set influxdbv2.verify false
@@ -53,3 +53,7 @@ recorded. You can then create graphs within Grafana or InfluxDB to display the
 information you need.
 
 Please note that polling will slow down when the poller isn't able to reach or write data to InfluxDBv2.
+
+
+
+

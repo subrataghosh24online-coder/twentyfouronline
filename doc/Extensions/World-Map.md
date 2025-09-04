@@ -1,6 +1,6 @@
 # World Map Configuration
 
-LibreNMS comes with a configurable Geo Map based on World Map Widget
+twentyfouronline comes with a configurable Geo Map based on World Map Widget
 to visualize where your equipment is located geographically.
 
 ## World Map Widget
@@ -135,3 +135,7 @@ lnms config:set mapael.default_zoom 20
 ```
 
 A list of maps can be found in ```html/js/maps/``` or ```html/js/mapael-maps/```.
+
+
+
+

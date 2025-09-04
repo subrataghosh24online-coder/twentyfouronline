@@ -48,3 +48,7 @@ modules:
                     index: 'fsPethPsPortPowerMeasurementsWattage.{{ $index }}'
                     descr: 'Port {{ $subindex1 }} Wattage'
                     divisor: 1000
+
+
+
+

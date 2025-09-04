@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class PortStack extends DeviceRelatedModel implements Keyable
 {
@@ -23,3 +23,7 @@ class PortStack extends DeviceRelatedModel implements Keyable
         return $this->high_ifIndex . '-' . $this->low_ifIndex;
     }
 }
+
+
+
+

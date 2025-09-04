@@ -22,20 +22,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 KanREN, Inc
  * @author     Heath Barnhart <hbarnhart@kanren.net>
  */
 
-namespace LibreNMS\Tests\Feature\SnmpTraps;
+namespace twentyfouronline\Tests\Feature\SnmpTraps;
 
 use App\Models\Device;
 use App\Models\OspfPort;
 use App\Models\Port;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Tests\Traits\RequiresDatabase;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Tests\Traits\RequiresDatabase;
 
 class OspfIfStateChangeTest extends SnmpTrapTestCase
 {
@@ -246,3 +246,7 @@ SNMPv2-MIB::snmpTrapEnterprise.0 JUNIPER-CHASSIS-DEFINES-MIB::jnxProductNameSRX2
         $this->assertEquals($ospfIf->ospfIfState, 'loopback');
     }
 }
+
+
+
+

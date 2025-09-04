@@ -64,7 +64,7 @@ return [
         // add git information, but cache it unlike the upstream provider
         App\Logging\Reporting\Middleware\AddGitInformation::class,
 
-        // Add more LibreNMS related info
+        // Add more twentyfouronline related info
         App\Logging\Reporting\Middleware\CleanContext::class,
         App\Logging\Reporting\Middleware\SetGroups::class,
         App\Logging\Reporting\Middleware\SetInstanceId::class,
@@ -73,7 +73,7 @@ return [
             'censor_fields' => [
                 'password',
                 'password_confirmation',
-                // LibreNMS
+                // twentyfouronline
                 'username',
                 'sysContact',
                 'community',
@@ -101,3 +101,7 @@ return [
 
     'send_logs_as_events' => false,
 ];
+
+
+
+

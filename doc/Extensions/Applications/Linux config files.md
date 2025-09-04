@@ -9,7 +9,7 @@ Fedora/RHEL: Rpmconf is a utility that analyzes rpm configuration files using th
 1. Copy the python script, linux_config_files.py, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/linux_config_files.py -O /etc/snmp/linux_config_files.py
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/linux_config_files.py -O /etc/snmp/linux_config_files.py
     ```
 
 2. Make the script executable
@@ -43,3 +43,7 @@ Fedora/RHEL: Rpmconf is a utility that analyzes rpm configuration files using th
     ```bash
     sudo systemctl restart snmpd
     ```
+
+
+
+

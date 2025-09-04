@@ -16,3 +16,7 @@ $graph_max = 1;
 $unit_text = 'Logs per second';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

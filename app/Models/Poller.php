@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -39,15 +39,19 @@ class Poller extends Model
 
     public function scopeIsInactive(Builder $query): Builder
     {
-        $default = (int) \App\Facades\LibrenmsConfig::get('rrd.step');
+        $default = (int) \App\Facades\twentyfouronlineConfig::get('rrd.step');
 
         return $query->where('last_polled', '<', \DB::raw("DATE_SUB(NOW(),INTERVAL $default SECOND)"));
     }
 
     public function scopeIsActive(Builder $query): Builder
     {
-        $default = (int) \App\Facades\LibrenmsConfig::get('rrd.step');
+        $default = (int) \App\Facades\twentyfouronlineConfig::get('rrd.step');
 
         return $query->where('last_polled', '>=', \DB::raw("DATE_SUB(NOW(),INTERVAL $default SECOND)"));
     }
 }
+
+
+
+

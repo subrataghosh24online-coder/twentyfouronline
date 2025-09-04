@@ -1,11 +1,11 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
- *   This file is part of LibreNMS.
+ *   This file is part of twentyfouronline.
  *
- * @package    librenms
+ * @package    twentyfouronline
  * @subpackage billing
  * @copyright  (C) 2006 - 2012 Adam Armstrong
  */
@@ -48,3 +48,7 @@ foreach ($urlargs as $name => $value) {
 
 header("Location: $url", false, 301);
 exit;
+
+
+
+

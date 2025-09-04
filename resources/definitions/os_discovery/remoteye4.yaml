@@ -138,3 +138,7 @@ modules:
                         - { descr: batteryDepleted, graph: 1, value: 4, generic: 2 }
                         - { descr: batteryDischarging, graph: 1, value: 5, generic: 2 }
                         - { descr: batteryFailure, graph: 1, value: 6, generic: 2 }
+
+
+
+

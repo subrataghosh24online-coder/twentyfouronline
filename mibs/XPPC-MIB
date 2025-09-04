@@ -2347,3 +2347,7 @@ upsLowBatteryShutdown TRAP-TYPE
  ::= 67
  
 END
+
+
+
+

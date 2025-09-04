@@ -11,10 +11,14 @@
     </div>
     <div>
         @if($transceiver->cable)<p>{{ __('port.transceivers.fields.cable', $transceiver->only('cable')) }}</p>@endif
-        @if($transceiver->distance)<p>{{ __('port.transceivers.fields.distance', ['distance' => \LibreNMS\Util\Number::formatSi($transceiver->distance, suffix: 'm')]) }}</p>@endif
+        @if($transceiver->distance)<p>{{ __('port.transceivers.fields.distance', ['distance' => \twentyfouronline\Util\Number::formatSi($transceiver->distance, suffix: 'm')]) }}</p>@endif
         @if($transceiver->wavelength)<p>{{ __('port.transceivers.fields.wavelength', ['wavelength' => $transceiver->wavelength . 'nm']) }}</p>@endif
         @if($transceiver->encoding)<p>{{ __('port.transceivers.fields.encoding', $transceiver->only('encoding')) }}</p>@endif
         @if($transceiver->connector)<p>{{ __('port.transceivers.fields.connector', $transceiver->only('connector')) }}</p>@endif
         @if($transceiver->channels > 1)<p>{{ __('port.transceivers.fields.channels', $transceiver->only('channels')) }}</p>@endif
     </div>
 </div>
+
+
+
+

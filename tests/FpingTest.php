@@ -18,17 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Data\Source\Fping;
-use LibreNMS\Data\Source\FpingResponse;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Data\Source\Fping;
+use twentyfouronline\Data\Source\FpingResponse;
 use Symfony\Component\Process\Process;
 
 class FpingTest extends TestCase
@@ -139,7 +139,7 @@ OUT;
         $hosts = array_keys($expected);
 
         $process = \Mockery::mock(Process::class);
-        $process->shouldReceive('setTimeout')->with(LibrenmsConfig::get('rrd.step', 300) * 2);
+        $process->shouldReceive('setTimeout')->with(twentyfouronlineConfig::get('rrd.step', 300) * 2);
         $process->shouldReceive('setInput')->with(implode("\n", $hosts) . "\n");
         $process->shouldReceive('getCommandLine');
         $process->shouldReceive('run')->withArgs(function ($callback) {
@@ -178,3 +178,7 @@ OUT;
         $this->assertEquals(count($expected), $calls);
     }
 }
+
+
+
+

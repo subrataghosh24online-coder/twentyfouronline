@@ -3,7 +3,7 @@
 /**
  * Menu.php
  *
- * Builds data for LibreNMS menu
+ * Builds data for twentyfouronline menu
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\AlertRule;
 use App\Models\BgpPeer;
 use App\Models\CustomMap;
@@ -47,9 +47,9 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use LibreNMS\Interfaces\Plugins\Hooks\MenuEntryHook;
-use LibreNMS\Plugins;
-use LibreNMS\Util\ObjectCache;
+use twentyfouronline\Interfaces\Plugins\Hooks\MenuEntryHook;
+use twentyfouronline\Plugins;
+use twentyfouronline\Util\ObjectCache;
 use PluginManager;
 
 class MenuComposer
@@ -74,7 +74,7 @@ class MenuComposer
         //TODO: should be handled via CSS Themes
         $vars['navbar'] = in_array($site_style, ['mono']) ? 'navbar-inverse' : '';
 
-        $vars['project_name'] = LibrenmsConfig::get('project_name', 'LibreNMS');
+        $vars['project_name'] = twentyfouronlineConfig::get('project_name', 'twentyfouronline');
 
         //Dashboards
         $vars['dashboards'] = Dashboard::select('dashboard_id', 'dashboard_name')->allAvailable($user)->orderBy('dashboard_name')->get();
@@ -83,7 +83,7 @@ class MenuComposer
         $vars['device_groups'] = DeviceGroup::hasAccess($user)->orderBy('name')->get(['device_groups.id', 'name', 'desc']);
         $vars['package_count'] = Package::hasAccess($user)->count();
 
-        $configDeviceTypes = Arr::keyBy(LibrenmsConfig::get('device_types'), 'type');
+        $configDeviceTypes = Arr::keyBy(twentyfouronlineConfig::get('device_types'), 'type');
         $vars['device_types'] = Device::hasAccess($user)
             ->select('type')
             ->distinct()
@@ -94,7 +94,7 @@ class MenuComposer
             ->map(fn ($type) => $configDeviceTypes[$type]['icon'] ?? 'angle-double-right');
         $vars['no_devices_added'] = ! Device::hasAccess($user)->exists();
 
-        $vars['locations'] = (LibrenmsConfig::get('show_locations') && LibrenmsConfig::get('show_locations_dropdown')) ?
+        $vars['locations'] = (twentyfouronlineConfig::get('show_locations') && twentyfouronlineConfig::get('show_locations_dropdown')) ?
             Location::hasAccess($user)->where('location', '!=', '')->orderBy('location')->get(['location', 'id']) :
             new Collection();
         $vars['show_vmwinfo'] = Vminfo::hasAccess($user)->exists();
@@ -106,18 +106,18 @@ class MenuComposer
         $vars['custommaps'] = CustomMap::select(['custom_map_id', 'name', 'menu_group'])->hasAccess($user)->orderBy('name')->get()->groupBy('menu_group')->sortKeys();
 
         // Service menu
-        if (LibrenmsConfig::get('show_services')) {
+        if (twentyfouronlineConfig::get('show_services')) {
             $vars['service_counts'] = ObjectCache::serviceCounts(['warning', 'critical']);
         }
 
         // Port menu
         $vars['port_counts'] = ObjectCache::portCounts(['errored', 'ignored', 'deleted', 'shutdown', 'down']);
-        $vars['port_counts']['pseudowire'] = LibrenmsConfig::get('enable_pseudowires') ? ObjectCache::portCounts(['pseudowire'])['pseudowire'] : 0;
+        $vars['port_counts']['pseudowire'] = twentyfouronlineConfig::get('enable_pseudowires') ? ObjectCache::portCounts(['pseudowire'])['pseudowire'] : 0;
 
         $vars['port_counts']['alerted'] = 0; // not actually supported on old...
 
         $custom_descr = [];
-        foreach ((array) LibrenmsConfig::get('custom_descr', []) as $descr) {
+        foreach ((array) twentyfouronlineConfig::get('custom_descr', []) as $descr) {
             $custom_descr_name = is_array($descr) ? $descr[0] : $descr;
             if (empty($custom_descr_name)) {
                 continue;
@@ -127,11 +127,11 @@ class MenuComposer
             ];
         }
         $vars['custom_port_descr'] = collect($custom_descr)->filter();
-        $vars['port_groups_exist'] = LibrenmsConfig::get('int_customers') ||
-            LibrenmsConfig::get('int_transit') ||
-            LibrenmsConfig::get('int_peering') ||
-            LibrenmsConfig::get('int_core') ||
-            LibrenmsConfig::get('int_l2tp') ||
+        $vars['port_groups_exist'] = twentyfouronlineConfig::get('int_customers') ||
+            twentyfouronlineConfig::get('int_transit') ||
+            twentyfouronlineConfig::get('int_peering') ||
+            twentyfouronlineConfig::get('int_core') ||
+            twentyfouronlineConfig::get('int_l2tp') ||
             $vars['custom_port_descr']->isNotEmpty();
 
         $vars['port_groups'] = PortGroup::hasAccess($user)->orderBy('name')->get(['port_groups.id', 'name', 'desc']);
@@ -142,7 +142,7 @@ class MenuComposer
         $vars['sensor_menu'] = ObjectCache::sensors();
 
         // Wireless menu
-        $wireless_menu_order = array_keys(\LibreNMS\Device\WirelessSensor::getTypes());
+        $wireless_menu_order = array_keys(\twentyfouronline\Device\WirelessSensor::getTypes());
         $vars['wireless_menu'] = WirelessSensor::hasAccess($user)
             ->groupBy('sensor_class')
             ->get(['sensor_class'])
@@ -222,7 +222,7 @@ class MenuComposer
             }
 
             if ($routing_count['bgp']) {
-                $vars['show_peeringdb'] = LibrenmsConfig::get('peeringdb.enabled', false);
+                $vars['show_peeringdb'] = twentyfouronlineConfig::get('peeringdb.enabled', false);
                 $vars['bgp_alerts'] = BgpPeer::hasAccess($user)->inAlarm()->count();
                 $routing_menu[] = [
                     [
@@ -286,7 +286,7 @@ class MenuComposer
         $vars['poller_clusters'] = \App\Models\PollerCluster::exists();
 
         // Search bar
-        $vars['typeahead_limit'] = LibrenmsConfig::get('webui.global_search_result_limit');
+        $vars['typeahead_limit'] = twentyfouronlineConfig::get('webui.global_search_result_limit');
         $vars['global_search_ctrlf_focus'] = UserPref::getPref(Auth::user(), 'global_search_ctrlf_focus');
 
         // Plugins
@@ -300,3 +300,7 @@ class MenuComposer
         $view->with($vars);
     }
 }
+
+
+
+

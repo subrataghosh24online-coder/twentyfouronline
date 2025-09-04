@@ -844,3 +844,7 @@ CTELS100-NG-MIB DEFINITIONS ::= BEGIN
               ::= { els100Switch 18 }
 
 END
+
+
+
+

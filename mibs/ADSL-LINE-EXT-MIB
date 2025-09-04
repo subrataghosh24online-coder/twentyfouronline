@@ -1219,3 +1219,7 @@ ADSL-LINE-EXT-MIB DEFINITIONS ::= BEGIN
             ::= { adslExtGroups 6 }
 
 END
+
+
+
+

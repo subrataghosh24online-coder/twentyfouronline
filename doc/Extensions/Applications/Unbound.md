@@ -25,7 +25,7 @@ working by running `unbound-control stats`.
     1. Copy the shell script, unbound, to the desired host
 
     ```bash
-    wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound
+    wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/unbound -O /etc/snmp/unbound
     ```
 
     2. Make the script executable
@@ -49,3 +49,7 @@ working by running `unbound-control stats`.
 === "Agent"
 
     [Install the agent](../Agent-Setup.md) on this device if it isn't already and copy the `unbound.sh` script to `/usr/lib/check_mk_agent/local/`
+
+
+
+

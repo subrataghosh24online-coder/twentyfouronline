@@ -16,8 +16,8 @@
   - You should have received a copy of the GNU General Public License
   - along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -
-  - @package    LibreNMS
-  - @link       https://www.librenms.org
+  - @package    twentyfouronline
+  - @link       https://www.twentyfouronline.org
   - @copyright  2020 Tony Murray
   - @author     Tony Murray <murraytony@gmail.com>
   -->
@@ -37,11 +37,11 @@
                          v-for="setting in settings[id]"
                          v-if="!setting.advanced || advanced"
                          :key="setting.name">
-                        <librenms-setting
+                        <twentyfouronline-setting
                             prefix="poller.settings"
                             :setting='setting'
                             :id="poller.id"
-                        ></librenms-setting>
+                        ></twentyfouronline-setting>
                     </div>
                 </v-tab>
             </vue-tabs>
@@ -75,3 +75,7 @@
         margin-bottom: 10px;
     }
 </style>
+
+
+
+

@@ -36,3 +36,7 @@ class PortsFdb extends PortRelatedModel
         return $this->hasMany(Ipv4Mac::class, 'mac_address', 'mac_address');
     }
 }
+
+
+
+

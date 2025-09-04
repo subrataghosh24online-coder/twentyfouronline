@@ -498,3 +498,7 @@ nbsOsaTrapPortOSNRTooHigh  NOTIFICATION-TYPE
                  This Notification should be of Severity ERROR."
         ::= { nbsOsaTraps 8 }
 END
+
+
+
+

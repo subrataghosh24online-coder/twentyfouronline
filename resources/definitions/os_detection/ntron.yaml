@@ -11,3 +11,7 @@ discovery:
             - .1.3.6.1.4.1.28381.
 bad_ifname_regexp:
     - "/^cpu/"
+
+
+
+

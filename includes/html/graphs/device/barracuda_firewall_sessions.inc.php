@@ -16,3 +16,7 @@ $colour_area_max = '9999cc';
 $unit_text = 'Sessions';
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

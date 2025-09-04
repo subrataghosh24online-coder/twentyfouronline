@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Http\Controllers\Table;
 
 use App\Models\Device;
 use App\Models\Vminfo;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Url;
 
 class VminfoController extends TableController
 {
@@ -82,3 +82,7 @@ class VminfoController extends TableController
         return '<a class="list-device" href="' . Url::deviceUrl($device) . '">' . $device->hostname . '</a><br>' . $device->sysName;
     }
 }
+
+
+
+

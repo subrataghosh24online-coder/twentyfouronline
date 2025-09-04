@@ -1,9 +1,9 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Eventlog;
-use LibreNMS\Exceptions\JsonAppException;
-use LibreNMS\RRD\RrdDefinition;
+use twentyfouronline\Exceptions\JsonAppException;
+use twentyfouronline\RRD\RrdDefinition;
 
 $name = 'suricata';
 try {
@@ -183,7 +183,7 @@ if ($suricata['version'] == 1) {
     $new_data['version'] = 2;
 
     // Nothing here is used by version 1.
-    include LibrenmsConfig::get('install_dir') . '/includes/suricata-shared.php';
+    include twentyfouronlineConfig::get('install_dir') . '/includes/suricata-shared.php';
 
     $counter_rrd_def = RrdDefinition::make()
         ->addDataset('data', 'DERIVE', 0);
@@ -259,3 +259,7 @@ $app->data = $new_data;
 // all done so update the app metrics
 //
 update_application($app, 'OK', $metrics);
+
+
+
+

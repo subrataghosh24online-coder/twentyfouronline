@@ -80,3 +80,7 @@ $scale_min = '0';
 $nototal = 1;
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

@@ -10,3 +10,7 @@ if ($descr != '' && is_numeric($temperature) && $temperature > '0') {
     $descr = trim(str_replace('"', '', $descr));
     discover_sensor(null, 'temperature', $device, $temperature_oid, '1', 'papouch-tme', $descr, '10', '1', null, null, null, null, $temperature);
 }
+
+
+
+

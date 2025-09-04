@@ -1,6 +1,6 @@
 ## PagerDuty
 
-LibreNMS can make use of PagerDuty, this is done by utilizing an API
+twentyfouronline can make use of PagerDuty, this is done by utilizing an API
 key and Integraton Key.
 
 API Keys can be found under 'API Access' in the PagerDuty portal.
@@ -14,3 +14,7 @@ Service you have created in the PagerDuty portal.
 | ------ | ------- |
 | API Key | randomsample |
 | Integration Key | somerandomstring |
+
+
+
+

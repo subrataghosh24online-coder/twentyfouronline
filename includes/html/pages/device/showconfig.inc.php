@@ -1,7 +1,7 @@
 <?php
 
 // FIXME svn stuff still using optc etc, won't work, needs updating!
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Symfony\Component\Process\Process;
 
 if (Auth::user()->hasGlobalAdmin()) {
@@ -20,8 +20,8 @@ if (Auth::user()->hasGlobalAdmin()) {
             echo generate_link('Latest', ['page' => 'device', 'device' => $device['device_id'], 'tab' => 'showconfig']);
         }
 
-        if (LibrenmsConfig::get('rancid_repo_type') == 'svn') {
-            $svn_binary = LibrenmsConfig::locateBinary('svn');
+        if (twentyfouronlineConfig::get('rancid_repo_type') == 'svn') {
+            $svn_binary = twentyfouronlineConfig::locateBinary('svn');
             if (is_executable($svn_binary)) {
                 $sep = ' | ';
 
@@ -47,7 +47,7 @@ if (Auth::user()->hasGlobalAdmin()) {
                         echo '<span class="pagemenu-selected">';
                     }
 
-                    $linktext = 'r' . $svnlog['rev'] . ' <small>' . date(LibrenmsConfig::get('dateformat.byminute'), $svnlog['date']) . '</small>';
+                    $linktext = 'r' . $svnlog['rev'] . ' <small>' . date(twentyfouronlineConfig::get('dateformat.byminute'), $svnlog['date']) . '</small>';
                     echo generate_link($linktext, ['page' => 'device', 'device' => $device['device_id'], 'tab' => 'showconfig', 'rev' => $svnlog['rev']]);
 
                     if ($vars['rev'] == $svnlog['rev']) {
@@ -58,7 +58,7 @@ if (Auth::user()->hasGlobalAdmin()) {
                 }
             }
         }//end if
-        if (LibrenmsConfig::get('rancid_repo_type') == 'git') {
+        if (twentyfouronlineConfig::get('rancid_repo_type') == 'git') {
             $sep = ' | ';
 
             $process = new Process(['git', 'log', '-n 8', '--pretty=format:%h;%ct', $rancid_file], $rancid_path);
@@ -81,7 +81,7 @@ if (Auth::user()->hasGlobalAdmin()) {
                     echo '<span class="pagemenu-selected">';
                 }
 
-                $linktext = 'r' . $gitlog['rev'] . ' <small>' . date(LibrenmsConfig::get('dateformat.byminute'), $gitlog['date']) . '</small>';
+                $linktext = 'r' . $gitlog['rev'] . ' <small>' . date(twentyfouronlineConfig::get('dateformat.byminute'), $gitlog['date']) . '</small>';
                 echo generate_link($linktext, ['page' => 'device', 'device' => $device['device_id'], 'tab' => 'showconfig', 'rev' => $gitlog['rev']]);
 
                 if ($vars['rev'] == $gitlog['rev']) {
@@ -94,8 +94,8 @@ if (Auth::user()->hasGlobalAdmin()) {
 
         print_optionbar_end();
 
-        if (LibrenmsConfig::get('rancid_repo_type') == 'svn') {
-            $svn_binary = LibrenmsConfig::locateBinary('svn');
+        if (twentyfouronlineConfig::get('rancid_repo_type') == 'svn') {
+            $svn_binary = twentyfouronlineConfig::locateBinary('svn');
             if (is_executable($svn_binary) && in_array($vars['rev'], $revlist)) {
                 $process = new Process([$svn_binary, 'diff', '-c', 'r' . $vars['rev'], $rancid_file], $rancid_path);
                 $process->run();
@@ -121,7 +121,7 @@ if (Auth::user()->hasGlobalAdmin()) {
                 $text = fread($fh, filesize($rancid_file));
                 fclose($fh);
             }
-        } elseif (LibrenmsConfig::get('rancid_repo_type') == 'git') {
+        } elseif (twentyfouronlineConfig::get('rancid_repo_type') == 'git') {
             if (in_array($vars['rev'], $revlist)) {
                 $process = new Process(['git', 'diff', $vars['rev'] . '^', $vars['rev'], $rancid_file], $rancid_path);
                 $process->run();
@@ -149,7 +149,7 @@ if (Auth::user()->hasGlobalAdmin()) {
             }
         }
 
-        if (LibrenmsConfig::get('rancid_ignorecomments')) {
+        if (twentyfouronlineConfig::get('rancid_ignorecomments')) {
             $lines = explode("\n", $text);
             for ($i = 0; $i < count($lines); $i++) {
                 if ($lines[$i][0] == '#') {
@@ -159,17 +159,17 @@ if (Auth::user()->hasGlobalAdmin()) {
 
             $text = join("\n", $lines);
         }
-    } elseif (LibrenmsConfig::get('oxidized.enabled') === true && LibrenmsConfig::has('oxidized.url')) {
-        // Try with hostname as set in librenms first
+    } elseif (twentyfouronlineConfig::get('oxidized.enabled') === true && twentyfouronlineConfig::has('oxidized.url')) {
+        // Try with hostname as set in twentyfouronline first
         $oxidized_hostname = $device['hostname'];
         // fetch info about the node and then a list of versions for that node
         $response = (new \App\ApiClients\Oxidized())->getContent('/node/show/' . $oxidized_hostname . '?format=json');
         $node_info = json_decode($response, true);
         if (! empty($node_info['last']['start'])) {
-            $node_info['last']['start'] = date(LibrenmsConfig::get('dateformat.long'), strtotime($node_info['last']['start']));
+            $node_info['last']['start'] = date(twentyfouronlineConfig::get('dateformat.long'), strtotime($node_info['last']['start']));
         }
         if (! empty($node_info['last']['end'])) {
-            $node_info['last']['end'] = date(LibrenmsConfig::get('dateformat.long'), strtotime($node_info['last']['end']));
+            $node_info['last']['end'] = date(twentyfouronlineConfig::get('dateformat.long'), strtotime($node_info['last']['end']));
         }
         // Try other hostname format if Oxidized request failed
         if (! $node_info) {
@@ -177,8 +177,8 @@ if (Auth::user()->hasGlobalAdmin()) {
             if (strpos($oxidized_hostname, '.') !== false) {
                 // Use short name
                 $oxidized_hostname = strtok($device['hostname'], '.');
-            } elseif (LibrenmsConfig::get('mydomain')) {
-                $oxidized_hostname = $device['hostname'] . '.' . LibrenmsConfig::get('mydomain');
+            } elseif (twentyfouronlineConfig::get('mydomain')) {
+                $oxidized_hostname = $device['hostname'] . '.' . twentyfouronlineConfig::get('mydomain');
             }
 
             // Try Oxidized again with new hostname, if it has changed
@@ -187,7 +187,7 @@ if (Auth::user()->hasGlobalAdmin()) {
             }
         }
 
-        if (LibrenmsConfig::get('oxidized.features.versioning') === true) { // fetch a list of versions
+        if (twentyfouronlineConfig::get('oxidized.features.versioning') === true) { // fetch a list of versions
             $config_versions = json_decode((new \App\ApiClients\Oxidized())->getContent('/node/version?node_full=' . (isset($node_info['full_name']) ? $node_info['full_name'] : $oxidized_hostname) . '&format=json'), true);
         }
 
@@ -336,7 +336,7 @@ if (Auth::user()->hasGlobalAdmin()) {
                           </div>';
     }
     if (! empty($text)) {
-        $language = isset($previous_config) ? 'diff' : LibrenmsConfig::getOsSetting($device['os'], 'config_highlighting', 'ios');
+        $language = isset($previous_config) ? 'diff' : twentyfouronlineConfig::getOsSetting($device['os'], 'config_highlighting', 'ios');
         $geshi = new GeSHi(htmlspecialchars_decode($text, ENT_QUOTES | ENT_HTML5), $language);
         $geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS);
         $geshi->set_overall_style('color: black;');
@@ -349,3 +349,7 @@ if (Auth::user()->hasGlobalAdmin()) {
 }//end if
 
 $pagetitle[] = 'Config';
+
+
+
+

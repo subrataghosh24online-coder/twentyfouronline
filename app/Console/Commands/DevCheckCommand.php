@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -28,7 +28,7 @@ namespace App\Console\Commands;
 
 use App\Console\LnmsCommand;
 use Illuminate\Support\Arr;
-use LibreNMS\Util\CiHelper;
+use twentyfouronline\Util\CiHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -128,3 +128,7 @@ class DevCheckCommand extends LnmsCommand
         }
     }
 }
+
+
+
+

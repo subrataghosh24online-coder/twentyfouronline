@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Exceptions\InvalidModuleException;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\ModuleTestHelper;
-use LibreNMS\Util\Snmpsim;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Exceptions\InvalidModuleException;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\ModuleTestHelper;
+use twentyfouronline\Util\Snmpsim;
 
 global $device;
 
@@ -143,7 +143,7 @@ try {
         }
         echo PHP_EOL;
 
-        LibrenmsConfig::invalidateAndReload();
+        twentyfouronlineConfig::invalidateAndReload();
         $tester = new ModuleTestHelper($modules, $target_os, $target_variant);
         if (! $no_save && ! empty($output_file)) {
             $tester->setJsonSavePath($output_file);
@@ -159,3 +159,7 @@ try {
 }
 
 $snmpsim->stop();
+
+
+
+

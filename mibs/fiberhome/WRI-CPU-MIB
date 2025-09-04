@@ -223,3 +223,6 @@ WRI-CPU-MIB DEFINITIONS ::= BEGIN
 						"Enable cpu monitor or not."
 				::= { cpuGeneral 3 }
 END
+
+
+

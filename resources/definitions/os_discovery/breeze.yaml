@@ -2,3 +2,7 @@ modules:
   os:
     version: ALVARION-DOT11-WLAN-MIB::brzaccVLRunningSoftwareVersion.0
     sysDescr_regex: '/Alvarion - (?<hardware>.*) , Version: (?<version>\S+)/'
+
+
+
+

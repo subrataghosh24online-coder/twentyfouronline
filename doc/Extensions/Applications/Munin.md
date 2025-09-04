@@ -5,7 +5,7 @@
 1. Install the script to your agent:
 
     ```bash
-    wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/munin -O /usr/lib/check_mk_agent/local/munin
+    wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/agent-local/munin -O /usr/lib/check_mk_agent/local/munin
     ```
 
 2. Make the script executable
@@ -39,3 +39,7 @@ if [ "$1" = "config" ]; then
 fi
 echo -n "foobar.value " $(date +%s) #Populate a value, here unix-timestamp
 ```
+
+
+
+

@@ -140,3 +140,7 @@ modules:
             - { value: 2, generic: 1, graph: 1, descr: 'warning' }
             - { value: 3, generic: -1, graph: 1, descr: 'notAvailable' }
             - { value: 4, generic: 2, graph: 1, descr: 'critical' }
+
+
+
+

@@ -24,10 +24,10 @@ if ($width > '500') {
     $rrd_options .= " COMMENT:'" . substr(str_pad($unit_text, $descr_len + 5), 0, $descr_len + 5) . "Total      Used      Free\l'";
 }
 
-$descr = \LibreNMS\Data\Store\Rrd::fixedSafeDescr(short_hrDeviceDescr($mempool['mempool_descr']), $descr_len);
+$descr = \twentyfouronline\Data\Store\Rrd::fixedSafeDescr(short_hrDeviceDescr($mempool['mempool_descr']), $descr_len);
 
 $perc = round($mempool['mempool_perc'], 0);
-$background = \LibreNMS\Util\Color::percentage($perc, $mempool['mempool_perc_warn']);
+$background = \twentyfouronline\Util\Color::percentage($perc, $mempool['mempool_perc_warn']);
 
 $rrd_options .= " DEF:{$mempool['mempool_id']}used=$rrd_filename:used:AVERAGE";
 $rrd_options .= " DEF:{$mempool['mempool_id']}free=$rrd_filename:free:AVERAGE";
@@ -61,3 +61,7 @@ if ($width > '500') {
     $rrd_options .= " GPRINT:{$mempool['mempool_id']}percx:LAST:'%5.2lf%% '";
     $rrd_options .= " COMMENT:'\l'";
 }//end if
+
+
+
+

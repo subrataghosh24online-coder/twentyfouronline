@@ -38,3 +38,7 @@ if (isset($pre_cache['sdbDevOutMtActualCurrent']) && is_array($pre_cache['sdbDev
         discover_sensor(null, 'current', $device, $current_oid, $serial_output, 'schleifenbauer', $descr, $divisor, '1', null, null, $warn_limit, $high_limit, $current, 'snmp', $entPhysicalIndex);
     }
 }
+
+
+
+

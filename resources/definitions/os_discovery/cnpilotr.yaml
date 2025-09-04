@@ -3,3 +3,7 @@ modules:
     hardware: CAMBIUM-MIB::productName.0
     serial: CAMBIUM-MIB::serialNumber.0
     version: CAMBIUM-MIB::hardwareVersion.0
+
+
+
+

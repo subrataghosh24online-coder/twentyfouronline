@@ -8381,3 +8381,7 @@ PAN-TRAPS DEFINITIONS ::= BEGIN
 	   "SD-WAN vif status change to down."
 	 ::={panCommonEventEventsV2 4301}
 END
+
+
+
+

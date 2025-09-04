@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Mikael Sipilainen
  * @author     Mikael Sipilainen <mikael.sipilainen@gmail.com>
@@ -74,3 +74,7 @@ foreach ($count as &$countValue) {
         discover_sensor(null, 'state', $device, $num_oid, $index, $state_name, $descr, $divisor, '1', null, null, null, $limit, $state);
     }
 }
+
+
+
+

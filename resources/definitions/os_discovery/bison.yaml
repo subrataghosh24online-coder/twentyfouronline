@@ -14,3 +14,7 @@ modules:
                         - { descr: OK, graph: 0, value: 2, generic: 0 }
                         - { descr: Failed, graph: 0, value: 3, generic: 2 }
 
+
+
+
+

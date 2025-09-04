@@ -28,3 +28,7 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = AppServiceProvider::HOME;
 }
+
+
+
+

@@ -2,7 +2,7 @@
 
 $simple_rrd = true;
 
-foreach ((array) \App\Facades\LibrenmsConfig::get('nfsen_rrds', []) as $nfsenrrds) {
+foreach ((array) \App\Facades\twentyfouronlineConfig::get('nfsen_rrds', []) as $nfsenrrds) {
     if ($nfsenrrds[strlen($nfsenrrds) - 1] != '/') {
         $nfsenrrds .= '/';
     }
@@ -38,3 +38,7 @@ foreach ((array) \App\Facades\LibrenmsConfig::get('nfsen_rrds', []) as $nfsenrrd
 }
 
 require 'includes/html/graphs/generic_multi_simplex_seperated.inc.php';
+
+
+
+

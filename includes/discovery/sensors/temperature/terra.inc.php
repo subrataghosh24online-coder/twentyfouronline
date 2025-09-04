@@ -17,3 +17,7 @@ if ($device['os'] === 'terra') {
 
     unset($query);
 }
+
+
+
+

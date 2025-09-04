@@ -7,11 +7,11 @@
  * option) any later version.  Please see LICENSE.txt at the top level of
  * the source code distribution for details.
  *
- * LibreNMS module to capture Cisco QFP Statistics
+ * twentyfouronline module to capture Cisco QFP Statistics
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
- * @copyright  2019 LibreNMS
+ * @copyright  2019 twentyfouronline
  * @author     Pavle Obradovic <pobradovic08@gmail.com>
  */
 if ($device['os_group'] == 'cisco') {
@@ -43,7 +43,7 @@ if ($device['os_group'] == 'cisco') {
     /*
      * Get module's components for a device
      */
-    $component = new LibreNMS\Component();
+    $component = new twentyfouronline\Component();
     $components = $component->getComponents($device['device_id'], ['type' => $module]);
     $components = $components[$device['device_id']] ?? [];
 
@@ -120,3 +120,7 @@ if ($device['os_group'] == 'cisco') {
 
     echo "\n";
 }
+
+
+
+

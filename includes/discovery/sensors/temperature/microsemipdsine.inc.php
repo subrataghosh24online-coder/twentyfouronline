@@ -3,7 +3,7 @@
 /**
  * microsemipdsine.inc.php
  *
- * LibreNMS temperature sensor discovery module for Microsemi PoE Switches
+ * twentyfouronline temperature sensor discovery module for Microsemi PoE Switches
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Lorenzo Zafra
  * @author     Lorenzo Zafra<zafra@ualberta.ca>
@@ -46,3 +46,7 @@ if (! empty($temperature_unit) && ! empty($temperature)) {
 
     discover_sensor(null, 'temperature', $device, $oid, $index, $type, $descr, $divisor, '1', null, null, null, null, $current_value, 'snmp', null, null, $function);
 }
+
+
+
+

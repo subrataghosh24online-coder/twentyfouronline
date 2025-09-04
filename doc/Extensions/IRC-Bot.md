@@ -1,6 +1,6 @@
 # IRC Bot
 
-LibreNMS has an easy to use IRC-Interface for basic tasks like viewing
+twentyfouronline has an easy to use IRC-Interface for basic tasks like viewing
 last log-entry, current device/port status and such.
 
 By default the IRC-Bot will not start when executed and will return an
@@ -9,7 +9,7 @@ has been specified inside `config.php`. (To start the IRC-Bot run
 ./irc.php )
 
 If no channel has been specified with `$config['irc_chan']`,
-`##librenms` will be used. The default Nick for the bot is `LibreNMS`.
+`##twentyfouronline` will be used. The default Nick for the bot is `twentyfouronline`.
 
 The Bot will reply the same way it's being called. If you send it the
 commands via Query, it will respond in the Query. If you send the
@@ -24,16 +24,16 @@ Option | Default-Value | Notes
 `$config['irc_alert_utf8']` | `false` | Optional; Enables use of strikethrough in alerts via UTF-8 encoded characters. Might cause trouble for some clients.
 `$config['irc_alert_short']` | `false` | Optional; Send a one line alert summary instead of multi-line detailed alert.
 `$config['irc_authtime']` | `3` | Optional; Defines how long in Hours an auth-session is valid.
-`$config['irc_chan']` | `##librenms` | Optional; Multiple channels can be defined as Array or delimited with `,`. Passwords are defined after a `space-character`.
+`$config['irc_chan']` | `##twentyfouronline` | Optional; Multiple channels can be defined as Array or delimited with `,`. Passwords are defined after a `space-character`.
 `$config['irc_debug']` | `false` | Optional; Enables debug output (Wall of text)
 `$config['irc_external']` |  | Optional; Array or `,` delimited string with commands to include from `includes/ircbot/*.inc.php`
 `$config['irc_host']` |  | Required; Domain or IP to connect. If it's an IPv6 Address, embed it in `[]`.  (Example: `[::1]`)
 `$config['irc_maxretry']` | `5` | Optional; How many connection attempts should be made before giving up
-`$config['irc_nick']` | `LibreNMS` | Optional;
+`$config['irc_nick']` | `twentyfouronline` | Optional;
 `$config['irc_pass']` |  | Optional; This sends the IRC-PASS Sequence to IRC-Servers that require Password on Connect
 `$config['irc_port']` | `6667` | Required; To enable SSL append a `+` before the Port. (Example: `+6697`)
 `$config['irc_ctcp']` | `false` | Optional; Enable/disable ctcp-replies from the bot (currently VERSION, PING and TIME).
-`$config['irc_ctcp_version']` | `LibreNMS IRCbot. https://www.librenms.org/` | Optional; Reply-string to CTCP VERSION requests
+`$config['irc_ctcp_version']` | `twentyfouronline IRCbot. https://www.twentyfouronline.org/` | Optional; Reply-string to CTCP VERSION requests
 `$config['irc_auth']` |  | Optional; Array of hostmasks that are automatically authenticated.
 
 ## IRC-Commands
@@ -93,7 +93,7 @@ Channels can be defined using Array-Notation like:
 
 ```php
    ...
-   $config['irc_chan'][] = "#librenms";
+   $config['irc_chan'][] = "#twentyfouronline";
    $config['irc_chan'][] = "#otherchan";
    $config['irc_chan'][] = "#noc";
    ...
@@ -103,7 +103,7 @@ Or using a single string using `,` as delimiter between various channels:
 
 ```php
    ...
-   $config['irc_chan'] = "#librenms,#otherchan,#noc";
+   $config['irc_chan'] = "#twentyfouronline,#otherchan,#noc";
    ...
 ```
 
@@ -118,8 +118,8 @@ Or using a single string using `,` as delimiter between various channels:
 ```
 
 Any client matching one of the first two hostmasks will automatically
-be authenticated as the "admin" user in LibreNMS, and clients matching
-the last line will be authenticated as the user "john" in LibreNMS,
+be authenticated as the "admin" user in twentyfouronline, and clients matching
+the last line will be authenticated as the user "john" in twentyfouronline,
 without using .auth and a waiting for a valid token.
 
 ## Extensions?!
@@ -162,18 +162,22 @@ File: includes/ircbot/echo.inc.php
 Basic systemd start up script to be placed in /etc/systemd/system/ to
 start irc service at boot.
 
-librenms-irc.service script is located at /opt/librenms/misc/
+twentyfouronline-irc.service script is located at /opt/twentyfouronline/misc/
 
 Once copied to /etc/systemd/system/ you must run the following commands:
 
-a) chmod 664 /etc/systemd/system/librenms-irc.service
+a) chmod 664 /etc/systemd/system/twentyfouronline-irc.service
 
 b) systemctl daemon-reload
 
-c) systemctl enable librenms-irc.service
+c) systemctl enable twentyfouronline-irc.service
 
-d) systemctl start librenms-irc.service
+d) systemctl start twentyfouronline-irc.service
 
 It can be stopped or started just like any other systemd script such
-as systemctl start librenms-irc.service
+as systemctl start twentyfouronline-irc.service
+
+
+
+
 

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to display F5 LTM Virtual Server Details
+ * twentyfouronline module to display F5 LTM Virtual Server Details
  *
  * Copyright (c) 2016 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-$component = new LibreNMS\Component();
+$component = new twentyfouronline\Component();
 $options = [];
 $options['filter']['type'] = ['=', 'f5-ltm-vs'];
 $components = $component->getComponents($device['device_id'], $options);
@@ -46,3 +46,7 @@ if (isset($components[$vars['id']])) {
         $rrd_options .= " GPRINT:OUTBITS:MAX:%6.2lf%s\l ";
     }
 }
+
+
+
+

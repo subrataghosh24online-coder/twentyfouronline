@@ -93,7 +93,7 @@ return [
             ],
             'watchdog_log' => [
                 'description' => '监视的日志文件',
-                'help' => '默认为 LibreNMS 日志文件。',
+                'help' => '默认为 twentyfouronline 日志文件。',
             ],
         ],
         'units' => [
@@ -102,3 +102,7 @@ return [
         ],
     ],
 ];
+
+
+
+

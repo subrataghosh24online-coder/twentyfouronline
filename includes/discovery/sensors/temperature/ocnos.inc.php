@@ -4,7 +4,7 @@ if (empty($os)) {
     $os = OS::make($device);
 }
 
-if ($os instanceof \LibreNMS\OS\Ocnos) {
+if ($os instanceof \twentyfouronline\OS\Ocnos) {
     $metric_data = \SnmpQuery::cache()->enumStrings()->walk(['IPI-CMM-CHASSIS-MIB::cmmTransDDMTable', 'IPI-CMM-CHASSIS-MIB::cmmTransType'])->table(3);
     $divisor = 100;
 
@@ -40,3 +40,7 @@ if ($os instanceof \LibreNMS\OS\Ocnos) {
         }
     }
 }
+
+
+
+

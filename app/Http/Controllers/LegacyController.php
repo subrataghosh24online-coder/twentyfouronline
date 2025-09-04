@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Checks;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 class LegacyController extends Controller
 {
@@ -24,7 +24,7 @@ class LegacyController extends Controller
         Debug::set(Str::contains($request->path(), 'debug'));
 
         ob_start(); // protect against bad plugins that output during start
-        \LibreNMS\Plugins::start();
+        \twentyfouronline\Plugins::start();
         ob_end_clean();
 
         if (Str::contains($request->path(), 'widescreen=yes')) {
@@ -35,16 +35,16 @@ class LegacyController extends Controller
         }
 
         // Load the settings for Multi-Tenancy.
-        if (LibrenmsConfig::has('branding') && is_array(LibrenmsConfig::get('branding'))) {
-            $branding = Arr::dot(LibrenmsConfig::get('branding.' . $request->server('SERVER_NAME'), LibrenmsConfig::get('branding.default')));
+        if (twentyfouronlineConfig::has('branding') && is_array(twentyfouronlineConfig::get('branding'))) {
+            $branding = Arr::dot(twentyfouronlineConfig::get('branding.' . $request->server('SERVER_NAME'), twentyfouronlineConfig::get('branding.default')));
             foreach ($branding as $key => $value) {
-                LibrenmsConfig::set($key, $value);
+                twentyfouronlineConfig::set($key, $value);
             }
         }
 
         // page_title_prefix is displayed, unless page_title is set FIXME: NEEDED?
-        if (LibrenmsConfig::has('page_title')) {
-            LibrenmsConfig::set('page_title_prefix', LibrenmsConfig::get('page_title'));
+        if (twentyfouronlineConfig::has('page_title')) {
+            twentyfouronlineConfig::set('page_title_prefix', twentyfouronlineConfig::get('page_title'));
         }
 
         // render page
@@ -61,13 +61,13 @@ class LegacyController extends Controller
 
         if (isset($pagetitle) && is_array($pagetitle)) {
             // if prefix is set, put it in front
-            if (LibrenmsConfig::get('page_title_prefix')) {
-                array_unshift($pagetitle, LibrenmsConfig::get('page_title_prefix'));
+            if (twentyfouronlineConfig::get('page_title_prefix')) {
+                array_unshift($pagetitle, twentyfouronlineConfig::get('page_title_prefix'));
             }
 
             // if suffix is set, put it in the back
-            if (LibrenmsConfig::get('page_title_suffix')) {
-                $pagetitle[] = LibrenmsConfig::get('page_title_suffix');
+            if (twentyfouronlineConfig::get('page_title_suffix')) {
+                $pagetitle[] = twentyfouronlineConfig::get('page_title_suffix');
             }
 
             // create and set the title
@@ -77,7 +77,7 @@ class LegacyController extends Controller
 
         return response()->view('layouts.legacy_page', [
             'content' => $html,
-            'refresh' => $no_refresh ? 0 : LibrenmsConfig::get('page_refresh'),
+            'refresh' => $no_refresh ? 0 : twentyfouronlineConfig::get('page_refresh'),
         ]);
     }
 
@@ -86,3 +86,7 @@ class LegacyController extends Controller
         return 'Dummy page';
     }
 }
+
+
+
+

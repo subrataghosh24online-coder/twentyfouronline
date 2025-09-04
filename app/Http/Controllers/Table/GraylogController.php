@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -27,7 +27,7 @@
 namespace App\Http\Controllers\Table;
 
 use App\ApiClients\GraylogApi;
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Device;
 use DateInterval;
 use DateTime;
@@ -42,7 +42,7 @@ class GraylogController extends SimpleTableController
 
     public function __construct()
     {
-        $timezone = LibrenmsConfig::get('graylog.timezone');
+        $timezone = twentyfouronlineConfig::get('graylog.timezone');
         $this->timezone = $timezone ? new DateTimeZone($timezone) : null;
     }
 
@@ -68,7 +68,7 @@ class GraylogController extends SimpleTableController
         $limit = (int) $request->get('rowCount', 10);
         $page = (int) $request->get('current', 1);
         $offset = (int) (($page - 1) * $limit);
-        $loglevel = $request->get('loglevel') ?? LibrenmsConfig::get('graylog.loglevel');
+        $loglevel = $request->get('loglevel') ?? twentyfouronlineConfig::get('graylog.loglevel');
 
         $query = $api->buildSimpleQuery($search, $device) .
             ($loglevel !== null ? ' AND level: <=' . $loglevel : '');
@@ -164,3 +164,7 @@ class GraylogController extends SimpleTableController
         return $this->deviceLinkCache[$source];
     }
 }
+
+
+
+

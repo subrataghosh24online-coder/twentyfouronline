@@ -1284,3 +1284,7 @@ ccBchannelDirection OBJECT-TYPE
     ::= { ccBchannelEntry 7 }
 
 END
+
+
+
+

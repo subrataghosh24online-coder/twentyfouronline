@@ -34,7 +34,7 @@ return [
 
         'log_file' => [
             'driver' => 'single',
-            'path' => env('APP_LOG', base_path('logs/librenms.log')),
+            'path' => env('APP_LOG', base_path('logs/twentyfouronline.log')),
             'formatter' => App\Logging\LogFileFormatter::class,
             'level' => env('LOG_LEVEL', 'warning'),
             'replace_placeholders' => true,
@@ -76,3 +76,7 @@ return [
     ],
 
 ];
+
+
+
+

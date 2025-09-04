@@ -1,15 +1,15 @@
 # Dashboards
 
-Create customised dashboards in LibreNMS per user. You can share
+Create customised dashboards in twentyfouronline per user. You can share
 dashboards with other users. You can also make a custom dashboard and
-default it for all users in LibreNMS.
+default it for all users in twentyfouronline.
 
 Example Dashboard
 ![Example Dashboard](../img/example-dashboard.png)
 
 ## Widgets
 
-LibreNMS has a whole list of Widgets to select from.
+twentyfouronline has a whole list of Widgets to select from.
 
 - Alerts Widget: Displays all alert notifications.
 - Availability Map: Displays all devices with colored tiles, green up,
@@ -21,9 +21,9 @@ LibreNMS has a whole list of Widgets to select from.
   disabled. Same for ports and services.
 - Device Summary vertical: List device totals, up, down, ignored,
   disabled. Same for ports and services.
-- Eventlog: Displays all events with your devices and LibreNMS.
+- Eventlog: Displays all events with your devices and twentyfouronline.
 - External Image: can be used to show external images on your
-  dashboard. Or images from inside LibreNMS.
+  dashboard. Or images from inside twentyfouronline.
 - Globe Map: Will display map of the globe.
 - Graph: Can be used to display graphs from devices.
 - Graylog: Displays all Graylog's syslog entries.
@@ -98,5 +98,9 @@ You can add `@AUTO_HEIGHT@` and `@AUTO_WIDTH@` to the Image URL as parameters.
 
 Examples:
 
-- <http://librenms.example.com/graph.php?id=333%2C444&type=multiport_bits_separate&legend=no&absolute=1&from=-14200&width=@AUTO_WIDTH@&height=@AUTO_HEIGHT@>
+- <http://twentyfouronline.example.com/graph.php?id=333%2C444&type=multiport_bits_separate&legend=no&absolute=1&from=-14200&width=@AUTO_WIDTH@&height=@AUTO_HEIGHT@>
 - <http://example.com/myimage.php?size=@AUTO_WIDTH@x@AUTO_HEIGHT@>
+
+
+
+

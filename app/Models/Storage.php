@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Log;
-use LibreNMS\Exceptions\InsufficientDataException;
-use LibreNMS\Interfaces\Models\Keyable;
-use LibreNMS\Util\Number;
+use twentyfouronline\Exceptions\InsufficientDataException;
+use twentyfouronline\Interfaces\Models\Keyable;
+use twentyfouronline\Util\Number;
 
 class Storage extends DeviceRelatedModel implements Keyable
 {
@@ -51,7 +51,7 @@ class Storage extends DeviceRelatedModel implements Keyable
     public function isValid(string $os): bool
     {
         // filter by mounts ignores
-        foreach (\App\Facades\LibrenmsConfig::getCombined($os, 'ignore_mount') as $im) {
+        foreach (\App\Facades\twentyfouronlineConfig::getCombined($os, 'ignore_mount') as $im) {
             if ($im == $this->storage_descr) {
                 Log::debug("ignored $this->storage_descr\n");
 
@@ -59,7 +59,7 @@ class Storage extends DeviceRelatedModel implements Keyable
             }
         }
 
-        foreach (\App\Facades\LibrenmsConfig::getCombined($os, 'ignore_mount_string') as $ims) {
+        foreach (\App\Facades\twentyfouronlineConfig::getCombined($os, 'ignore_mount_string') as $ims) {
             if (str_contains($this->storage_descr, $ims)) {
                 Log::debug("ignored $this->storage_descr (matched: $ims)\n");
 
@@ -67,7 +67,7 @@ class Storage extends DeviceRelatedModel implements Keyable
             }
         }
 
-        foreach (\App\Facades\LibrenmsConfig::getCombined($os, 'ignore_mount_regexp') as $imr) {
+        foreach (\App\Facades\twentyfouronlineConfig::getCombined($os, 'ignore_mount_regexp') as $imr) {
             if (preg_match($imr, $this->storage_descr)) {
                 Log::debug("ignored $this->storage_descr (matched: $imr)\n");
 
@@ -76,7 +76,7 @@ class Storage extends DeviceRelatedModel implements Keyable
         }
 
         // filter by type
-        foreach (\App\Facades\LibrenmsConfig::getCombined($os, 'ignore_mount_type') as $imt) {
+        foreach (\App\Facades\twentyfouronlineConfig::getCombined($os, 'ignore_mount_type') as $imt) {
             if ($imt == $this->storage_type) {
                 Log::debug("ignored type $this->storage_type\n");
 
@@ -87,3 +87,7 @@ class Storage extends DeviceRelatedModel implements Keyable
         return true;
     }
 }
+
+
+
+

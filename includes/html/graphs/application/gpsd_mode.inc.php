@@ -14,9 +14,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
-* @copyright  2016 Karl Shea, LibreNMS
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
+* @copyright  2016 Karl Shea, twentyfouronline
 * @author     Karl Shea <karl@karlshea.com>
 *
 */
@@ -35,3 +35,7 @@ $gpsd = Rrd::name($device['hostname'], ['app', 'gpsd', $app->app_id]);
 $rrd_filename = $gpsd;
 
 require 'includes/html/graphs/generic_simplex.inc.php';
+
+
+
+

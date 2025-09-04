@@ -14,3 +14,7 @@ alerts from many other monitoring tools on a single screen.
 | Apy key | api key with write permission |
 | Alert state | critical |
 | Recover state | cleared |
+
+
+
+

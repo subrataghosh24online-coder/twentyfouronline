@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Validation\Rule;
-use LibreNMS\Enum\Severity;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Url;
+use twentyfouronline\Enum\Severity;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Url;
 
 class SensorsController extends TableController
 {
@@ -22,7 +22,7 @@ class SensorsController extends TableController
     {
         return [
             'view' => Rule::in(['detail', 'graphs']),
-            'class' => Rule::in(\LibreNMS\Enum\Sensor::values()),
+            'class' => Rule::in(\twentyfouronline\Enum\Sensor::values()),
         ];
     }
 
@@ -159,3 +159,7 @@ class SensorsController extends TableController
         return parent::export($request);
     }
 }
+
+
+
+

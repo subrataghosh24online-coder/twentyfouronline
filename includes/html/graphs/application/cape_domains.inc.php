@@ -60,3 +60,7 @@ if (isset($vars['stddev']) && $vars['stddev'] == 'on') {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

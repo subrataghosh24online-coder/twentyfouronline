@@ -68,3 +68,7 @@ modules:
                     states:
                         - { descr: Low, graph: 0, value: 0, generic: 0 }
                         - { descr: High, graph: 1, value: 1, generic: 1 }
+
+
+
+

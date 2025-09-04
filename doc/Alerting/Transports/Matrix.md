@@ -15,4 +15,8 @@ beginning of the ``_matrix/client/r0/...`` API-part.
 | Matrix-Server URL | <https://matrix.example.com/> |
 | Room | !ajPbbPalmVbNuQoBDK:example.com |
 | Auth_token: | MDAyYmxvY2F0aW9uI...z1DCn6lz_uOhtW3XRICg |
-| Message: | Alert: {{ $msg }} https://librenms.example.com |
+| Message: | Alert: {{ $msg }} https://twentyfouronline.example.com |
+
+
+
+

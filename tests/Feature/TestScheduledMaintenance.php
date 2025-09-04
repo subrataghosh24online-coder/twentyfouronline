@@ -1,12 +1,12 @@
 <?php
 
-namespace LibreNMS\Tests\Feature;
+namespace twentyfouronline\Tests\Feature;
 
 use App\Models\AlertSchedule;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
-use LibreNMS\Enum\AlertScheduleStatus;
-use LibreNMS\Tests\DBTestCase;
+use twentyfouronline\Enum\AlertScheduleStatus;
+use twentyfouronline\Tests\DBTestCase;
 
 class TestScheduledMaintenance extends DBTestCase
 {
@@ -110,3 +110,7 @@ class TestScheduledMaintenance extends DBTestCase
         parent::tearDown();
     }
 }
+
+
+
+

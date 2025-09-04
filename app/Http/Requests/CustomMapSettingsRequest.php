@@ -55,3 +55,7 @@ class CustomMapSettingsRequest extends FormRequest
         ];
     }
 }
+
+
+
+

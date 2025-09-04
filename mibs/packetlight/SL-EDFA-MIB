@@ -539,3 +539,7 @@ edfaControlModeChange0 NOTIFICATION-TYPE
 	::= { edfaTraps0 2 }
 
 END
+
+
+
+

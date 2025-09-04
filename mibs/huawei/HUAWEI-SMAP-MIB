@@ -162,3 +162,7 @@ HUAWEI-SMAP-MIB DEFINITIONS ::= BEGIN
         ::= { hwSmapMibGroup 1 }
 
 END
+
+
+
+

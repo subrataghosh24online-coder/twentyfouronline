@@ -1,8 +1,8 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 
-if (LibrenmsConfig::get('enable_pseudowires') && $device['os_group'] == 'cisco') {
+if (twentyfouronlineConfig::get('enable_pseudowires') && $device['os_group'] == 'cisco') {
     $pws_db = [];
     // Pre-cache the existing state of pseudowires for this device from the database
     $pws_db_raw = dbFetchRows('SELECT * FROM `pseudowires` WHERE `device_id` = ?', [$device['device_id']]);
@@ -29,7 +29,7 @@ if (LibrenmsConfig::get('enable_pseudowires') && $device['os_group'] == 'cisco')
 
         [$cpw_remote_id] = explode(':', $pw['cpwVcMplsPeerLdpID']);
 
-        if (\LibreNMS\Util\IPv4::isValid($cpw_remote_id)) {
+        if (\twentyfouronline\Util\IPv4::isValid($cpw_remote_id)) {
             //If cpwVcMplsPeerLdpID is in the IP form, then convert it to number to store it in DB to avoid failing
             $cpw_remote_id = ip2long($cpw_remote_id);
         }
@@ -71,3 +71,7 @@ if (LibrenmsConfig::get('enable_pseudowires') && $device['os_group'] == 'cisco')
 } //end if
 
 unset($pws_db, $pws_db_raw, $pw_db);
+
+
+
+

@@ -125,3 +125,7 @@ FA-EXT-MIB DEFINITIONS ::= BEGIN
   ::= { swSfpStatEntry 8 }
 
 END
+
+
+
+

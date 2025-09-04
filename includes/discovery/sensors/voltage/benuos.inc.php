@@ -18,3 +18,7 @@ for ($index = 10; $index <= 11; $index++) { //Benu Voltage Sensors are index 10 
     discover_sensor(null, 'voltage', $device, $sensor_oid, $sensor_index, 'benuos', $descr, '1', '1', null, null, null, null, $current);
     $sensor_index++;
 }//end loop
+
+
+
+

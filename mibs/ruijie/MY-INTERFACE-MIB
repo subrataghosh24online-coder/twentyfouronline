@@ -647,3 +647,7 @@ myIfLineDetectGroup OBJECT-GROUP
         ::= { myInterfaceMIBGroups 4 }           
                 
 END
+
+
+
+

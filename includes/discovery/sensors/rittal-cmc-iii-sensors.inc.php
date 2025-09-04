@@ -3,7 +3,7 @@
 /**
  * rittal-cmc-iii-sensors.inc.php
  *
- * LibreNMS sensors discovery module for Rittal CMC III
+ * twentyfouronline sensors discovery module for Rittal CMC III
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link      https://www.librenms.org
+ * @link      https://www.twentyfouronline.org
  *
  * @copyright 2020 Denny Friebe
  * @author    Denny Friebe <denny.friebe@icera-network.de>
  */
 
-use LibreNMS\Util\Number;
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Util\Number;
+use twentyfouronline\Util\StringHelpers;
 
 $cmc_iii_var_table = snmpwalk_cache_oid($device, 'cmcIIIVarTable', [], 'RITTAL-CMC-III-MIB', null);
 $cmc_iii_sensors = [];
@@ -231,3 +231,7 @@ foreach ($cmc_iii_sensors as $sensor_id => $sensor_data) {
 }
 
 unset($cmc_iii_var_table, $cmc_iii_sensors, $last_index_prefix, $current_index_prefix, $unique_desc_counter, $index, $entry, $var_name_parts, $sensor_name, $sensor_desc, $var_type, $sensor_id, $sensor_logic, $unit, $type, $sensor_data, $serial_number);
+
+
+
+

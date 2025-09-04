@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use LibreNMS\Util\Dns;
+use twentyfouronline\Util\Dns;
 
 /**
  * @method static \Database\Factories\LocationFactory factory(...$parameters)
@@ -95,7 +95,7 @@ class Location extends Model
             return true;
         }
 
-        if ($hostname && \App\Facades\LibrenmsConfig::get('geoloc.dns')) {
+        if ($hostname && \App\Facades\twentyfouronlineConfig::get('geoloc.dns')) {
             $coord = app(Dns::class)->getCoordinates($hostname);
 
             if (! empty($coord)) {
@@ -105,7 +105,7 @@ class Location extends Model
             }
         }
 
-        if ($this->location && ! $this->hasCoordinates() && \App\Facades\LibrenmsConfig::get('geoloc.latlng', true)) {
+        if ($this->location && ! $this->hasCoordinates() && \App\Facades\twentyfouronlineConfig::get('geoloc.latlng', true)) {
             return $this->fetchCoordinates();
         }
 
@@ -138,8 +138,8 @@ class Location extends Model
     protected function fetchCoordinates()
     {
         try {
-            /** @var \LibreNMS\Interfaces\Geocoder $api */
-            $api = app(\LibreNMS\Interfaces\Geocoder::class);
+            /** @var \twentyfouronline\Interfaces\Geocoder $api */
+            $api = app(\twentyfouronline\Interfaces\Geocoder::class);
 
             // Removes Location info inside () when looking up lat/lng
             $this->fill($api->getCoordinates(preg_replace($this->location_ignore_regex, '', $this->location)));
@@ -194,3 +194,7 @@ class Location extends Model
         return $this->location;
     }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS module to capture Cisco OTV Details
+ * twentyfouronline module to capture Cisco OTV Details
  *
  * Copyright (c) 2015 Aaron Daniels <aaron@daniels.id.au>
  *
@@ -59,7 +59,7 @@ if ($device['os_group'] == 'cisco') {
 
     $module = 'Cisco-OTV';
 
-    $component = new LibreNMS\Component();
+    $component = new twentyfouronline\Component();
     $components = $component->getComponents($device['device_id'], ['type' => $module]);
 
     // We only care about our device id.
@@ -250,3 +250,7 @@ if ($device['os_group'] == 'cisco') {
         echo "\n";
     } // End if not error
 }
+
+
+
+

@@ -12,7 +12,7 @@ except ImportError:
     pass
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-import LibreNMS
+import twentyfouronline
 
 
 class TestLocks(unittest.TestCase):
@@ -28,7 +28,7 @@ class TestLocks(unittest.TestCase):
             manager.unlock(lock_name, "lock_thread")
 
     def test_threading_lock(self):
-        lm = LibreNMS.ThreadingLock()
+        lm = twentyfouronline.ThreadingLock()
 
         thread = threading.Thread(
             target=self.lock_thread, args=(lm, "first.lock", 2, 1)
@@ -74,7 +74,7 @@ class TestLocks(unittest.TestCase):
             rc = redis.Redis()
             rc.delete("lock:redis.lock")  # make sure no previous data exists
 
-            lm = LibreNMS.RedisLock(namespace="lock")
+            lm = twentyfouronline.RedisLock(namespace="lock")
             thread = threading.Thread(
                 target=self.lock_thread, args=(lm, "redis.lock", 2, 1)
             )
@@ -119,7 +119,7 @@ class TestLocks(unittest.TestCase):
         else:
             rc = redis.Redis()
             rc.delete("queue:testing")  # make sure no previous data exists
-            qm = LibreNMS.RedisUniqueQueue("testing", namespace="queue")
+            qm = twentyfouronline.RedisUniqueQueue("testing", namespace="queue")
 
             thread = threading.Thread(target=self.queue_thread, args=(qm, None, False))
             thread.daemon = True
@@ -151,7 +151,7 @@ class TestTimer(unittest.TestCase):
 
     def test_recurring_timer(self):
         self.assertEqual(0, self.counter)
-        timer = LibreNMS.RecurringTimer(0.5, self.count)
+        timer = twentyfouronline.RecurringTimer(0.5, self.count)
         timer.start()
         self.assertEqual(0, self.counter)
         sleep(0.5)
@@ -171,3 +171,7 @@ class TestTimer(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+
+

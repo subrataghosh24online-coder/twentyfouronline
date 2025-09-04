@@ -73,3 +73,7 @@ return [
         'power' => 'Output Powers',
     ],
 ];
+
+
+
+

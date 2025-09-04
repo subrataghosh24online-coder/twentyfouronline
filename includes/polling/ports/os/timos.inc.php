@@ -3,7 +3,7 @@
 /**
  * timos.inc.php
  *
- * LibreNMS include timos (nokia) virtual router ports
+ * twentyfouronline include timos (nokia) virtual router ports
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Vitali Kari
  * @author     Vitali Kari <vitali.kari@gmail.com>
@@ -73,3 +73,7 @@ foreach ($timos_stats as $index => $value) {
 }
 $port_stats = array_replace_recursive($timos_ports, $port_stats);
 unset($timos_ports);
+
+
+
+

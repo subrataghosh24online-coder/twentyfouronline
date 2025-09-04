@@ -14,8 +14,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *
-* @package    LibreNMS
-* @link       https://www.librenms.org
+* @package    twentyfouronline
+* @link       https://www.twentyfouronline.org
 *
 * @copyright  2021 Peca Nesovanovic
 * @author     Peca Nesovanovic <peca.nesovanovic@sattrakt.com>
@@ -26,3 +26,7 @@ $unit = 'bps';
 $unit_long = 'bps';
 
 require 'includes/html/graphs/device/sensor.inc.php';
+
+
+
+

@@ -17,3 +17,7 @@ $descr = 'CPU%';
 $ds = 'pcpu';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

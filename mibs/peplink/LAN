@@ -84,3 +84,7 @@ PortSpeedType ::= TEXTUAL-CONVENTION
 						1000baseTx-HD."
 			::= { lanStatus 3 }
 END
+
+
+
+

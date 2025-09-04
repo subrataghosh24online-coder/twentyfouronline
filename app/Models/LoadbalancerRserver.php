@@ -10,3 +10,7 @@ class LoadbalancerRserver extends Model
     protected $primaryKey = 'rserver_id';
     public $timestamps = false;
 }
+
+
+
+

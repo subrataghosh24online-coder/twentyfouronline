@@ -3,7 +3,7 @@
 /**
  * geist-watchdog.inc.php
  *
- * LibreNMS humidity discovery module for Geist Watchdog
+ * twentyfouronline humidity discovery module for Geist Watchdog
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Neil Lathwood
  * @author     Neil Lathwood <gh+n@laf.io>
  */
 
-use LibreNMS\Util\Number;
+use twentyfouronline\Util\Number;
 
 $value = Number::cast(SnmpQuery::get('GEIST-MIB-V3::climateHumidity')->value());
 if ($value) {
@@ -32,3 +32,7 @@ if ($value) {
     $descr = 'Humidity';
     discover_sensor(null, 'humidity', $device, $current_oid, 'climateHumidity', 'geist-watchdog', $descr, 1, 1, null, null, null, null, $value);
 }
+
+
+
+

@@ -19,3 +19,7 @@ class TnmsneInfo extends Model
         'neOpState',
     ];
 }
+
+
+
+

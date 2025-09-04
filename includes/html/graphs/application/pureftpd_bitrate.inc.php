@@ -26,3 +26,7 @@ foreach ($array as $ds => $descr) {
 }
 
 require 'includes/html/graphs/generic_multi_line_exact_numbers.inc.php';
+
+
+
+

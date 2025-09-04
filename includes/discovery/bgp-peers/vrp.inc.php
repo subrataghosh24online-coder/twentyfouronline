@@ -3,7 +3,7 @@
 /**
  * vrp.inc.php
  *
- * LibreNMS bgp_peers for Huawei VRP
+ * twentyfouronline bgp_peers for Huawei VRP
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 PipoCanaja
  * @author     PipoCanaja
  */
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Util\IP;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Util\IP;
 
 $bgpPeersCache = snmpwalk_cache_oid($device, 'hwBgpPeerRemoteAs', [], 'HUAWEI-BGP-VPN-MIB');
 
@@ -91,7 +91,7 @@ if (count($bgpPeersCache) > 0 || count($bgpPeersCache_ietf) == 0) {
         }
 
         foreach ($vrf as $address => $value) {
-            $astext = \LibreNMS\Util\AutonomousSystem::get($value['hwBgpPeerRemoteAs'])->name();
+            $astext = \twentyfouronline\Util\AutonomousSystem::get($value['hwBgpPeerRemoteAs'])->name();
             if (! DeviceCache::getPrimary()->bgppeers()->where('bgpPeerIdentifier', $address)->where('vrf_id', $vrfId)->exists()) {
                 $peers = [
                     'device_id' => $device['device_id'],
@@ -118,7 +118,7 @@ if (count($bgpPeersCache) > 0 || count($bgpPeersCache_ietf) == 0) {
                 }
                 $seenPeerID[] = DeviceCache::getPrimary()->bgppeers()->create($peers)->bgpPeer_id;
 
-                if (LibrenmsConfig::get('autodiscovery.bgp')) {
+                if (twentyfouronlineConfig::get('autodiscovery.bgp')) {
                     $name = gethostbyaddr($address);
                     discover_new_device($name, $device, 'BGP');
                 }
@@ -180,3 +180,7 @@ if (count($bgpPeersCache) > 0 || count($bgpPeersCache_ietf) == 0) {
     }
 }
 // If not, we continue with standard BGP4 MIB
+
+
+
+

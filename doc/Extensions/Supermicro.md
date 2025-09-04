@@ -1,6 +1,6 @@
 # Supermicro
 
-For some Supermicro information to show up in LibreNMS, you will need to install an agent.
+For some Supermicro information to show up in twentyfouronline, you will need to install an agent.
 
 ## Supermicro SuperDoctor
 Install Supermicro SuperDoctor onto the device you want to monitor.
@@ -16,3 +16,7 @@ Restart net-snmp:
 ```bash
 service snmpd restart
 ```
+
+
+
+

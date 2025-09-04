@@ -66,3 +66,7 @@ if (is_numeric($pre_cache['websensor_valuesInt']['tempInt.0'])) {
     $low_limit = $pre_cache['websensor_settings']['tempLowInt.0'] / 10;
     discover_sensor(null, 'temperature', $device, $temperature_oid, $temperature_index, 'websensor', $descr, '10', '1', $low_limit, null, null, $high_limit, $temperature, 'snmp', null, null, $user_func);
 }
+
+
+
+

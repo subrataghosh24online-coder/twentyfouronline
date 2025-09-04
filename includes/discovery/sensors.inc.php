@@ -1,8 +1,8 @@
 <?php
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Enum\Sensor;
-use LibreNMS\OS;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Enum\Sensor;
+use twentyfouronline\OS;
 
 /** @var OS $os */
 $pre_cache = $os->preCache();
@@ -45,7 +45,7 @@ if ($device['os'] == 'gw-eydfa') {
 }
 
 // filter submodules
-$run_sensors = array_intersect(Sensor::values(), LibrenmsConfig::get('discovery_submodules.sensors', Sensor::values()));
+$run_sensors = array_intersect(Sensor::values(), twentyfouronlineConfig::get('discovery_submodules.sensors', Sensor::values()));
 
 sensors($run_sensors, $os, $pre_cache);
 unset(
@@ -53,3 +53,7 @@ unset(
     $run_sensors,
     $entitysensor
 );
+
+
+
+

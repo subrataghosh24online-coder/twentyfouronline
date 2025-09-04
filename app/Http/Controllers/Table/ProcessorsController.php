@@ -6,8 +6,8 @@ use App\Models\Processor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
-use LibreNMS\Util\Html;
-use LibreNMS\Util\Url;
+use twentyfouronline\Util\Html;
+use twentyfouronline\Util\Url;
 
 class ProcessorsController extends TableController
 {
@@ -106,3 +106,7 @@ class ProcessorsController extends TableController
         ];
     }
 }
+
+
+
+

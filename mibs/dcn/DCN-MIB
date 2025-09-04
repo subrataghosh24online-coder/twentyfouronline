@@ -22700,3 +22700,7 @@ mstpTcnTrapOID           OBJECT IDENTIFIER ::= { mstp 1 }
     powerPresentTrap      OBJECT IDENTIFIER ::= { powerGroup  4 }                                               
  END
  
+
+
+
+

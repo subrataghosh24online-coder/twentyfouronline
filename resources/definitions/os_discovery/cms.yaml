@@ -88,3 +88,7 @@ modules:
                         - { value: 6, descr: Partially Down, graph: 0, generic: 1 }
                         - { value: 7, descr: Down - Remote Fault, graph: 0, generic: 1 }
                         - { value: 8, descr: Down - Local Fault, graph: 0, generic: 2 }
+
+
+
+

@@ -98,3 +98,7 @@ rlEnvPhySensorLocation OBJECT-TYPE
         ::= { rlEntPhySensorEntry 4 }
 END
 
+
+
+
+

@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2017 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -33,9 +33,9 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use LibreNMS\DB\Eloquent;
-use LibreNMS\Util\Debug;
-use LibreNMS\Util\Version;
+use twentyfouronline\DB\Eloquent;
+use twentyfouronline\Util\Debug;
+use twentyfouronline\Util\Version;
 use Log;
 use Symfony\Component\Yaml\Yaml;
 
@@ -51,8 +51,8 @@ class ConfigRepository
     public function __construct()
     {
         // load config settings that can be cached
-        $cache_ttl = config('librenms.config_cache_ttl');
-        $this->config = Cache::driver($cache_ttl == 0 ? 'null' : 'file')->remember('librenms-config', $cache_ttl, function () {
+        $cache_ttl = config('twentyfouronline.config_cache_ttl');
+        $this->config = Cache::driver($cache_ttl == 0 ? 'null' : 'file')->remember('twentyfouronline-config', $cache_ttl, function () {
             $this->config = [];
             // merge all config sources together config_definitions.json & os defs > db config > config.php
             $this->loadPreUserConfigDefaults();
@@ -315,7 +315,7 @@ class ConfigRepository
      */
     public function invalidateCache(): void
     {
-        Cache::driver('file')->forget('librenms-config');
+        Cache::driver('file')->forget('twentyfouronline-config');
     }
 
     /**
@@ -571,8 +571,8 @@ class ConfigRepository
         $db = config('database.default');
 
         $this->set('db_host', config("database.connections.$db.host", 'localhost'));
-        $this->set('db_name', config("database.connections.$db.database", 'librenms'));
-        $this->set('db_user', config("database.connections.$db.username", 'librenms'));
+        $this->set('db_name', config("database.connections.$db.database", 'twentyfouronline'));
+        $this->set('db_user', config("database.connections.$db.username", 'twentyfouronline'));
         $this->set('db_pass', config("database.connections.$db.password"));
         $this->set('db_port', config("database.connections.$db.port", 3306));
         $this->set('db_socket', config("database.connections.$db.unix_socket"));
@@ -593,3 +593,7 @@ class ConfigRepository
         }
     }
 }
+
+
+
+

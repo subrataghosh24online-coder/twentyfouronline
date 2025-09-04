@@ -75,7 +75,7 @@ rndc = The path to rndc. Default: /usr/bin/env rndc
 call_rndc = A 0/1 boolean on whether or not to call rndc stats.
     Suggest to set to 0 if using netdata. Default: 1
 stats_file = The path to the named stats file. Default: /var/cache/bind/stats
-agent = A 0/1 boolean for if this is being used as a LibreNMS
+agent = A 0/1 boolean for if this is being used as a twentyfouronline
     agent or not. Default: 0
 zero_stats = A 0/1 boolean for if the stats file should be zeroed
     first. Default: 0 (1 if guessed)
@@ -91,7 +91,7 @@ and it will print out what it thinks it should be.
     1. Copy the bind shell script, to the desired host.
 
         ```bash
-        wget https://github.com/librenms/librenms-agent/raw/master/snmp/bind -O /etc/snmp/bind
+        wget https://github.com/twentyfouronline/twentyfouronline-agent/raw/master/snmp/bind -O /etc/snmp/bind
         ```
 
     2. Make the script executable
@@ -119,7 +119,7 @@ and it will print out what it thinks it should be.
     2. Download the script onto the desired host:
 
         ```bash
-        wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/bind -O /usr/lib/check_mk_agent/local/bind
+        wget https://raw.githubusercontent.com/twentyfouronline/twentyfouronline-agent/master/snmp/bind -O /usr/lib/check_mk_agent/local/bind
         ```
 
     3. Make the script executable
@@ -129,4 +129,8 @@ and it will print out what it thinks it should be.
         ```
 
     4. Set the variable 'agent' to '1' in the config.
+
+
+
+
 

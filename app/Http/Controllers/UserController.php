@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -26,7 +26,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Http\Interfaces\ToastInterface;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -36,7 +36,7 @@ use App\Models\User;
 use App\Models\UserPref;
 use Auth;
 use Illuminate\Support\Str;
-use LibreNMS\Authentication\LegacyAuth;
+use twentyfouronline\Authentication\LegacyAuth;
 use Spatie\Permission\Models\Role;
 use URL;
 
@@ -151,8 +151,8 @@ class UserController extends Controller
             'timezone' => UserPref::getPref($user, 'timezone') ?: 'default',
         ];
 
-        if (LibrenmsConfig::get('twofactor')) {
-            $lockout_time = LibrenmsConfig::get('twofactor_lock');
+        if (twentyfouronlineConfig::get('twofactor')) {
+            $lockout_time = twentyfouronlineConfig::get('twofactor_lock');
             $twofactor = UserPref::getPref($user, 'twofactor');
             $data['twofactor_enabled'] = isset($twofactor['key']);
 
@@ -289,3 +289,7 @@ class UserController extends Controller
         ]);
     }
 }
+
+
+
+

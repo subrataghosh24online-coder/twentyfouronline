@@ -588,3 +588,7 @@ ALGPOWER-v2-MIB DEFINITIONS ::= BEGIN
 		::= {bat-tst 8}
 
 END
+
+
+
+

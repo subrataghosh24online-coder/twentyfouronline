@@ -906,3 +906,7 @@ jnxJVAECNSensorOk NOTIFICATION-TYPE
     ::= { jnxJVAENodeNotifications  14 }
 
 END
+
+
+
+

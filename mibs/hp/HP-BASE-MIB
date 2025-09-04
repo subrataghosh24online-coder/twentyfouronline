@@ -35,3 +35,7 @@ HP-BASE-MIB DEFINITIONS ::= BEGIN
     hpProcurveCommon	     OBJECT IDENTIFIER 	::= { hpSwitchModuleJ8162A 1 }
 
 END
+
+
+
+

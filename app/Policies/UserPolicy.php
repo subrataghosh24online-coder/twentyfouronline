@@ -28,7 +28,7 @@ class UserPolicy
     public function create(User $user): ?bool
     {
         // if not mysql, forbid, otherwise defer to bouncer
-        if (\App\Facades\LibrenmsConfig::get('auth_mechanism') != 'mysql') {
+        if (\App\Facades\twentyfouronlineConfig::get('auth_mechanism') != 'mysql') {
             return false;
         }
 
@@ -61,3 +61,7 @@ class UserPolicy
         return $target->is($user) ? false : null; // do not allow users to delete themselves or defer to bouncer
     }
 }
+
+
+
+

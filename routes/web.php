@@ -360,3 +360,7 @@ Route::any('/dummy_legacy_unauth/{path?}', [LegacyController::class, 'dummy']);
 Route::any('/{path?}', [LegacyController::class, 'index'])
     ->where('path', '^((?!_debugbar).)*')
     ->middleware('auth');
+
+
+
+

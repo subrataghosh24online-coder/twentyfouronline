@@ -3393,3 +3393,7 @@ atiL2PriorityQueue      OBJECT-TYPE
         ::=  { atiL2TrafficMappingEntry 2 }
 
 END
+
+
+
+

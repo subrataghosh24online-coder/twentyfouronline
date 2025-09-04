@@ -73,3 +73,7 @@ return [
         'power' => 'Potências de Saída',
     ],
 ];
+
+
+
+

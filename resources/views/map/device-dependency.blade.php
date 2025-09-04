@@ -1,4 +1,4 @@
-@extends('layouts.librenmsv1')
+@extends('layouts.twentyfouronlinev1')
 
 @section('title', __('Device Dependency Map'))
 
@@ -264,3 +264,7 @@
 </script>
 <x-refresh-timer :refresh="$page_refresh" callback="refreshMap"></x-refresh-timer>
 @endsection
+
+
+
+

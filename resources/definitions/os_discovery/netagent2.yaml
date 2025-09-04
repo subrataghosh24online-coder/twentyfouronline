@@ -45,3 +45,7 @@ modules:
                         - { descr: unknown, graph: 0, value: 0, generic: 3 }
                         - { descr: normal, graph: 0, value: 1, generic: 0 }
                         - { descr: abnormal, graph: 0, value: 2, generic: 2 }
+
+
+
+

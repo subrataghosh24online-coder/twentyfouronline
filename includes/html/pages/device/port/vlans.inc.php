@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\Rewrite;
+use twentyfouronline\Util\Rewrite;
 
 $vlans = dbFetchRows("SELECT * FROM `ports_vlans` AS PV, vlans AS V WHERE PV.`port_id` = '" . $port['port_id'] . "' and PV.`device_id` = '" . $device['device_id'] . "' AND V.`vlan_vlan` = PV.vlan AND V.device_id = PV.device_id");
 
@@ -12,9 +12,9 @@ $row = 0;
 foreach ($vlans as $vlan) {
     $row++;
     if (is_integer($row / 2)) {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.even');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.even');
     } else {
-        $row_colour = \App\Facades\LibrenmsConfig::get('list_colour.odd');
+        $row_colour = \App\Facades\twentyfouronlineConfig::get('list_colour.odd');
     }
 
     echo '<tr bgcolor="' . $row_colour . '">';
@@ -71,3 +71,7 @@ foreach ($vlans as $vlan) {
 }//end foreach
 
 echo '</table>';
+
+
+
+

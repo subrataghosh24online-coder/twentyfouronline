@@ -57,3 +57,7 @@ foreach (array_keys($oids) as $index) {
 
     discover_sensor(null, 'temperature', $device, $oid, $index, 'axiscam', 'Temperature Sensor ' . $index, '1', '1', $low_limit, $low_warn_limit, $high_warn_limit, $high_limit, $current);
 }
+
+
+
+

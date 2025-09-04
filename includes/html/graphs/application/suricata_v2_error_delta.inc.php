@@ -26,3 +26,7 @@ if (Rrd::checkRrdExists($error_delta_rrd_filename)) {
 }
 
 require 'includes/html/graphs/generic_multi_line.inc.php';
+
+
+
+

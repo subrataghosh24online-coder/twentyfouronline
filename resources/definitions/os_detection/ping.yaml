@@ -3,3 +3,7 @@ text: 'Ping only'
 over:
     - { graph: device_ping_perf, text: 'ICMP Response' }
 type: server
+
+
+
+

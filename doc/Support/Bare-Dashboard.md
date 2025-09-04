@@ -11,3 +11,7 @@ attach `?bare=yes` on URL
 
 To hide Search Field in Dashboard Widgets take a look into
 Widget Settings.
+
+
+
+

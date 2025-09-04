@@ -8,7 +8,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use LibreNMS\Util\EnvHelper;
+use twentyfouronline\Util\EnvHelper;
 use Symfony\Component\Console\Input\InputArgument;
 
 class KeyRotate extends LnmsCommand
@@ -144,18 +144,18 @@ class KeyRotate extends LnmsCommand
 
     private function rekeyConfigData(string $key): bool
     {
-        if (! \App\Facades\LibrenmsConfig::has($key)) {
+        if (! \App\Facades\twentyfouronlineConfig::has($key)) {
             return true;
         }
 
         try {
-            $data = $this->decrypt->decryptString(\App\Facades\LibrenmsConfig::get($key));
-            \App\Facades\LibrenmsConfig::persist($key, $this->encrypt->encryptString($data));
+            $data = $this->decrypt->decryptString(\App\Facades\twentyfouronlineConfig::get($key));
+            \App\Facades\twentyfouronlineConfig::persist($key, $this->encrypt->encryptString($data));
 
             return true;
         } catch (DecryptException $e) {
             try {
-                $this->encrypt->decryptString(\App\Facades\LibrenmsConfig::get($key));
+                $this->encrypt->decryptString(\App\Facades\twentyfouronlineConfig::get($key));
 
                 return true; // already rotated
             } catch (DecryptException $e) {
@@ -166,3 +166,7 @@ class KeyRotate extends LnmsCommand
         }
     }
 }
+
+
+
+

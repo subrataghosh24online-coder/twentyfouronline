@@ -5172,3 +5172,7 @@ HH3C-IFQOS2-MIB DEFINITIONS ::= BEGIN
             ::= { hh3cIfQoSCoppFlowStatEntry 7 }
 
 END
+
+
+
+

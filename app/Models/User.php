@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
-use LibreNMS\Authentication\LegacyAuth;
+use twentyfouronline\Authentication\LegacyAuth;
 use NotificationChannels\WebPush\HasPushSubscriptions;
 use Permissions;
 use Spatie\Permission\Traits\HasRoles;
@@ -322,3 +322,7 @@ class User extends Authenticatable
         return $this->hasMany(UserWidget::class, 'user_id');
     }
 }
+
+
+
+

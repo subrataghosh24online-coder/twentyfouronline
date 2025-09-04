@@ -43,3 +43,7 @@ if (Rrd::checkRrdExists(Rrd::name($device['hostname'], Rrd::portName($port['port
 
     include 'includes/html/print-interface-graphs.inc.php';
 }
+
+
+
+

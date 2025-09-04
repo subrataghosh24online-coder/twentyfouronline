@@ -1,7 +1,7 @@
 <?php
 
-use LibreNMS\Util\IP;
-use LibreNMS\Util\Mac;
+use twentyfouronline\Util\IP;
+use twentyfouronline\Util\Mac;
 
 $param = [];
 $where = '';
@@ -92,8 +92,8 @@ if ($rowCount != -1) {
 $sql = "SELECT *,`I`.`ifDescr` AS `interface` $sql";
 
 foreach (dbFetchRows($sql, $param) as $interface) {
-    $speed = \LibreNMS\Util\Number::formatSi($interface['ifSpeed'], 2, 0, 'bps');
-    $type = \LibreNMS\Util\Rewrite::normalizeIfType($interface['ifType']);
+    $speed = \twentyfouronline\Util\Number::formatSi($interface['ifSpeed'], 2, 0, 'bps');
+    $type = \twentyfouronline\Util\Rewrite::normalizeIfType($interface['ifType']);
 
     if ($search_type == 'ipv6') {
         $address = (string) IP::parse($interface['ipv6_address'], true) . '/' . $interface['ipv6_prefixlen'];
@@ -133,3 +133,7 @@ $output = [
     'total' => $total,
 ];
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+
+
+

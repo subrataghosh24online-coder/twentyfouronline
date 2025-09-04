@@ -3040,3 +3040,7 @@ gwConsoleBaudRate	OBJECT-TYPE
 		::=  {  gwConsoleCfgGroup  5  }                   
 
 END
+
+
+
+

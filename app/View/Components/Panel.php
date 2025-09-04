@@ -41,3 +41,7 @@ class Panel extends Component
         return view('components.panel');
     }
 }
+
+
+
+

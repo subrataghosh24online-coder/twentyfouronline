@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
@@ -42,9 +42,9 @@ class HandleCors extends \Illuminate\Http\Middleware\HandleCors
     public function __construct(Container $container, CorsService $cors)
     {
         // load legacy config settings before booting the CorsService
-        if (\App\Facades\LibrenmsConfig::get('api.cors.enabled')) {
+        if (\App\Facades\twentyfouronlineConfig::get('api.cors.enabled')) {
             $laravel_config = $container['config']->get('cors');
-            $legacy = \App\Facades\LibrenmsConfig::get('api.cors');
+            $legacy = \App\Facades\twentyfouronlineConfig::get('api.cors');
 
             $laravel_config['paths'][] = 'api/*';
 
@@ -62,3 +62,7 @@ class HandleCors extends \Illuminate\Http\Middleware\HandleCors
         parent::__construct($container, $cors);
     }
 }
+
+
+
+

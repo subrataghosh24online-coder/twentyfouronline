@@ -709,3 +709,7 @@ wlsxHaTrapDefinitionGroup   OBJECT IDENTIFIER ::= { wlsxHighAvalabilityTraps 2 }
              request from standby controller or AP trying to preempt back to active controller"
          ::= { wlsxHaTrapDefinitionGroup 6 }
 END
+
+
+
+

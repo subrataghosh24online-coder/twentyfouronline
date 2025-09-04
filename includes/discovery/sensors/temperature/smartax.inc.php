@@ -3,7 +3,7 @@
 /**
  * smartax.inc.php
  *
- * LibreNMS temperature discovery module for Huawei SmartAX
+ * twentyfouronline temperature discovery module for Huawei SmartAX
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 TheGreatDoc
  * @author     TheGreatDoc
@@ -40,3 +40,7 @@ foreach ($data as $index => $value) {
         discover_sensor(null, 'temperature', $device, $temperature_oid, $index, 'smartax', $descr, '1', '1', null, null, null, null, $tempCurr);
     }
 }
+
+
+
+

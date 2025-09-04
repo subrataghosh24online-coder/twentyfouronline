@@ -17,3 +17,7 @@ discovery:
             oid: '.1.3.6.1.4.1.59732.2.7.1.1.0'
             op: starts
             value: 'Skyhigh Secure Web Gateway'
+
+
+
+

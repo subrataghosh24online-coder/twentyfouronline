@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\LibrenmsConfig;
+use App\Facades\twentyfouronlineConfig;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use LibreNMS\Util\Html;
+use twentyfouronline\Util\Html;
 
 class LocationController extends Controller
 {
@@ -13,14 +13,14 @@ class LocationController extends Controller
     {
         $data = [
             'maps_config' => [
-                'engine' => LibrenmsConfig::get('geoloc.engine'),
-                'api_key' => LibrenmsConfig::get('geoloc.api_key'),
-                'tile_url' => LibrenmsConfig::get('leaflet.tile_url', '{s}.tile.openstreetmap.org'),
+                'engine' => twentyfouronlineConfig::get('geoloc.engine'),
+                'api_key' => twentyfouronlineConfig::get('geoloc.api_key'),
+                'tile_url' => twentyfouronlineConfig::get('leaflet.tile_url', '{s}.tile.openstreetmap.org'),
             ],
             'graph_template' => '',
         ];
 
-        LibrenmsConfig::set('enable_lazy_load', false);
+        twentyfouronlineConfig::set('enable_lazy_load', false);
         $graph_array = [
             'type' => 'location_bits',
             'height' => '100',
@@ -79,3 +79,7 @@ class LocationController extends Controller
         return response()->json(['status' => 'success']);
     }
 }
+
+
+
+

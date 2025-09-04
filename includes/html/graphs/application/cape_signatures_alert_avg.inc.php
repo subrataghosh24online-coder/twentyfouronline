@@ -22,3 +22,7 @@ $descr = 'Average';
 $ds = 's3signatures_alert';
 
 require 'includes/html/graphs/generic_stats.inc.php';
+
+
+
+

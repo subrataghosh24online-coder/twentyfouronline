@@ -18,13 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2019 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests\Browser\Pages;
+namespace twentyfouronline\Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 
@@ -64,3 +64,7 @@ class TwoFactorPage extends Page
         ];
     }
 }
+
+
+
+

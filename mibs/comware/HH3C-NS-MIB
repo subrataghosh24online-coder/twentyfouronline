@@ -612,3 +612,7 @@ HH3C-NS-MIB DEFINITIONS ::= BEGIN
         ::= { hh3cNSStatusEntry 11 }
 
 END
+
+
+
+

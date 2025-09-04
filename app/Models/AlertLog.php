@@ -21,3 +21,7 @@ class AlertLog extends DeviceRelatedModel
         )->shouldCache();
     }
 }
+
+
+
+

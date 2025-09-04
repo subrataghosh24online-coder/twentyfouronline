@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use LibreNMS\Interfaces\Models\Keyable;
+use twentyfouronline\Interfaces\Models\Keyable;
 
 class EntPhysical extends DeviceRelatedModel implements Keyable
 {
@@ -34,3 +34,7 @@ class EntPhysical extends DeviceRelatedModel implements Keyable
         return $this->entPhysicalIndex;
     }
 }
+
+
+
+

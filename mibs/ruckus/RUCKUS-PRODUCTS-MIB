@@ -760,3 +760,7 @@ ruckusSZ100 OBJECT IDENTIFIER  ::= { ruckusWirelessSmartZoneProducts 1 }
 ruckusSZ50 OBJECT IDENTIFIER  ::= { ruckusWirelessSmartZoneProducts 2 }
 
 END
+
+
+
+

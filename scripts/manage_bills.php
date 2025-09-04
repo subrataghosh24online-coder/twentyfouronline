@@ -200,3 +200,7 @@ if ($flush) {
 }
 
 $ret = add_ports_to_bill($devices, $intf_glob, $id);
+
+
+
+

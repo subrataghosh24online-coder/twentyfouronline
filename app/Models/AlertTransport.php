@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use LibreNMS\Alert\Transport;
-use LibreNMS\Alert\Transport\Dummy;
+use twentyfouronline\Alert\Transport;
+use twentyfouronline\Alert\Transport\Dummy;
 
 class AlertTransport extends Model
 {
@@ -37,3 +37,7 @@ class AlertTransport extends Model
         return new Dummy;
     }
 }
+
+
+
+

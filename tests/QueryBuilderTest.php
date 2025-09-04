@@ -18,16 +18,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2018 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
 
-namespace LibreNMS\Tests;
+namespace twentyfouronline\Tests;
 
-use App\Facades\LibrenmsConfig;
-use LibreNMS\Alerting\QueryBuilderFluentParser;
+use App\Facades\twentyfouronlineConfig;
+use twentyfouronline\Alerting\QueryBuilderFluentParser;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class QueryBuilderTest extends TestCase
@@ -62,9 +62,13 @@ class QueryBuilderTest extends TestCase
 
     public static function loadQueryData(): array
     {
-        $base = LibrenmsConfig::get('install_dir');
+        $base = twentyfouronlineConfig::get('install_dir');
         $data = file_get_contents("$base/" . self::$data_file);
 
         return json_decode($data, true);
     }
 }
+
+
+
+

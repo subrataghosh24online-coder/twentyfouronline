@@ -10,3 +10,7 @@ discovery:
     -
         sysDescr_regex:
             - '/^Sinetica UPSController./'
+
+
+
+

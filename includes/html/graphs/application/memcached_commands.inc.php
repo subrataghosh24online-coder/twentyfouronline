@@ -21,3 +21,7 @@ $colour_area_in_max = 'CC88CC';
 $colour_area_out_max = 'FFEFAA';
 
 require 'includes/html/graphs/generic_duplex.inc.php';
+
+
+
+

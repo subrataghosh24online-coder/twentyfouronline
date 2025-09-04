@@ -6,9 +6,9 @@ High-Availability with Redis can be achieved through multiple Redis nodes connec
 
 For more information about high availability using Redis with Sentinel, refer to the official [Redis Sentinel Documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/).
 
-## Configure Redis Sentinel cluster with LibreNMS
+## Configure Redis Sentinel cluster with twentyfouronline
 
-Both LibreNMS WebUI and Poller can be configured to use a Redis Sentinel cluster as their backend.
+Both twentyfouronline WebUI and Poller can be configured to use a Redis Sentinel cluster as their backend.
 
 ### Web UI Configuration
 
@@ -49,4 +49,8 @@ For additional information on distributed polling configuration, see [Distribute
 
 ## Testing Your Configuration
 
-To verify your Redis Sentinel setup is working correctly with LibreNMS you can connect to the Redis Sentinel cluster using the `redis-cli` and execute the `MONITOR` command. This command will show you the commands being executed on the Redis cluster.
+To verify your Redis Sentinel setup is working correctly with twentyfouronline you can connect to the Redis Sentinel cluster using the `redis-cli` and execute the `MONITOR` command. This command will show you the commands being executed on the Redis cluster.
+
+
+
+

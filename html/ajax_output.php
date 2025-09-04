@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * twentyfouronline
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -12,7 +12,7 @@
  * the source code distribution for details.
  */
 
-use LibreNMS\Util\Debug;
+use twentyfouronline\Util\Debug;
 
 session_start();
 session_write_close();
@@ -31,6 +31,10 @@ if (isset($_SESSION['stage']) && $_SESSION['stage'] == 2) {
 Debug::set($_REQUEST['debug'] ?? false);
 $id = basename($_REQUEST['id']);
 
-if ($id && is_file(\App\Facades\LibrenmsConfig::get('install_dir') . "/includes/html/output/$id.inc.php")) {
-    require \App\Facades\LibrenmsConfig::get('install_dir') . "/includes/html/output/$id.inc.php";
+if ($id && is_file(\App\Facades\twentyfouronlineConfig::get('install_dir') . "/includes/html/output/$id.inc.php")) {
+    require \App\Facades\twentyfouronlineConfig::get('install_dir') . "/includes/html/output/$id.inc.php";
 }
+
+
+
+

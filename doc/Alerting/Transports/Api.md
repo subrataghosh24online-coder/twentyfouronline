@@ -27,8 +27,8 @@ A few variables commonly used :
 | {{ $hostname }}     | Hostname |
 | {{ $sysName }}      | SysName |
 | {{ $sysDescr }}     | SysDescr |
-| {{ $os }}           | OS of device (librenms defined) |
-| {{ $type }}         | Type of device (librenms defined) |
+| {{ $os }}           | OS of device (twentyfouronline defined) |
+| {{ $type }}         | Type of device (twentyfouronline defined) |
 | {{ $ip }}           | IP Address |
 | {{ $hardware }}     | Hardware |
 | {{ $version }}      | Version |
@@ -73,3 +73,7 @@ authentication and content type required.
 | API Headers   | X-Token=HASH
 |               | Content-Type=application/json
 | API Body      | { "status": 2 }
+
+
+
+

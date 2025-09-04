@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Observium to LibreNMS conversion
+# Observium to twentyfouronline conversion
 
 ####################### SCRIPT DESCRIPTION ########################
-# First we SSH to LibreNMS and create necessary directories with  #
+# First we SSH to twentyfouronline and create necessary directories with  #
 # the mkdir script. Then the script enters each Observium RRD dir #
-# and SCPs the RRD files to the correct directory on LibreNMS.    #
-# After that we add all of the devices to LibreNMS using the      #
+# and SCPs the RRD files to the correct directory on twentyfouronline.    #
+# After that we add all of the devices to twentyfouronline using the      #
 # destwork script.                                                #
 ###################################################################
 
@@ -18,15 +18,15 @@
 ###################################################################
 
 ############################# CREDITS #############################             
-# LibreNMS work is done by a great group - https://www.librenms.org    #
+# twentyfouronline work is done by a great group - https://www.twentyfouronline.org    #
 # Script Written by - Dan Brown - http://vlan50.com               #
 ###################################################################
 
 
-# Enter LibreNMS IP or hostname here
+# Enter twentyfouronline IP or hostname here
 DEST=10.0.253.35
-# Enter LibreNMS RRD path here
-L_RRDPATH=/opt/librenms/rrd/
+# Enter twentyfouronline RRD path here
+L_RRDPATH=/opt/twentyfouronline/rrd/
 # Enter Observium RRD path here
 O_RRDPATH=/opt/observium/rrd/
 # Enter path to mkdir script here
@@ -36,18 +36,22 @@ DESTSCRIPT=/tmp/destwork.sh
 # Enter path to nodelist text file
 NODELIST=/tmp/nodelist.txt
 
-# This line SSHs to LibreNMS server and makes directories based on node list text file
+# This line SSHs to twentyfouronline server and makes directories based on node list text file
 ssh root@$DEST 'bash -s' < $MKDIR
 
 # Conversion and transfer loop 
 while read line; 
 	# Enter RRD Directory
 	do cd $O_RRDPATH"${line%/*}" 
-		# Transfer RRD files to LibreNMS Server
+		# Transfer RRD files to twentyfouronline Server
 		scp *.rrd root@$DEST:$L_RRDPATH"${line%/*}"/ 
 		# Exit to parent dir
 		cd ..
 	done < $NODELIST
 
-# This line SSHs to LibreNMS server and runs the destwork script to finish conversion
+# This line SSHs to twentyfouronline server and runs the destwork script to finish conversion
 ssh root@$DEST 'bash -s' < $DESTSCRIPT
+
+
+
+

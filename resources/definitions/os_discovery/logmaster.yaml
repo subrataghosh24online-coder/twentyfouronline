@@ -125,3 +125,7 @@ modules:
                     states:
                         - { descr: normal, graph: 0, value: 1, generic: 0 }
                         - { descr: abnormal, graph: 0, value: 2, generic: 1 }
+
+
+
+

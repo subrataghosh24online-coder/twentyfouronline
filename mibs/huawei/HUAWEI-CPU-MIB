@@ -293,3 +293,7 @@ HUAWEI-CPU-MIB DEFINITIONS ::= BEGIN
 				"
 			::= { hwMultiCpuDevEntry 4 }
 END
+
+
+
+

@@ -7,8 +7,8 @@ use App\Models\AlertRule;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use LibreNMS\Alerting\QueryBuilderParser;
-use LibreNMS\Util\Time;
+use twentyfouronline\Alerting\QueryBuilderParser;
+use twentyfouronline\Util\Time;
 
 class AlertRuleController extends Controller
 {
@@ -239,3 +239,7 @@ class AlertRuleController extends Controller
         $alertRule->transportGroups()->syncWithPivotValues($transportGroupIds, ['target_type' => 'group']);
     }
 }
+
+
+
+

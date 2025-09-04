@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @link       https://www.librenms.org
+ * @link       https://www.twentyfouronline.org
  *
  * @copyright  2020 Thomas Berberich
  * @author     Thomas Berberich <sourcehhdoctor@gmail.com>
@@ -31,3 +31,7 @@ class DeviceOutage extends DeviceRelatedModel
     public $timestamps = false;
     protected $fillable = ['going_down', 'up_again'];
 }
+
+
+
+

@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    LibreNMS
- * @link       http://librenms.org
+ * @package    twentyfouronline
+ * @link       http://twentyfouronline.org
  * @copyright  2021 Tony Murray
  * @author     Tony Murray <murraytony@gmail.com>
  */
@@ -30,7 +30,7 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Str;
 
-abstract class SettingsHook implements \LibreNMS\Interfaces\Plugins\Hooks\SettingsHook
+abstract class SettingsHook implements \twentyfouronline\Interfaces\Plugins\Hooks\SettingsHook
 {
     public string $view = 'resources.views.settings';
 
@@ -55,3 +55,7 @@ abstract class SettingsHook implements \LibreNMS\Interfaces\Plugins\Hooks\Settin
         ])));
     }
 }
+
+
+
+

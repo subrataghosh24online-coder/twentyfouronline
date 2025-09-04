@@ -1,6 +1,6 @@
 <?php
 
-use LibreNMS\Util\StringHelpers;
+use twentyfouronline\Util\StringHelpers;
 
 $graph_type = 'toner_usage';
 
@@ -26,17 +26,17 @@ foreach ($supplies as $type => $supply) {
             $graph_array = [
                 'height' => 100,
                 'width' => 210,
-                'to' => \App\Facades\LibrenmsConfig::get('time.now'),
+                'to' => \App\Facades\twentyfouronlineConfig::get('time.now'),
                 'id' => $toner['supply_id'],
                 'type' => $graph_type,
-                'from' => \App\Facades\LibrenmsConfig::get('time.day'),
+                'from' => \App\Facades\twentyfouronlineConfig::get('time.day'),
                 'legend' => 'no',
             ];
 
             $link_array = $graph_array;
             $link_array['page'] = 'graphs';
             unset($link_array['height'], $link_array['width'], $link_array['legend']);
-            $link = \LibreNMS\Util\Url::generate($link_array);
+            $link = \twentyfouronline\Util\Url::generate($link_array);
 
             $overlib_content = generate_overlib_content($graph_array, $device['hostname'] . ' - ' . $toner['supply_descr']);
 
@@ -44,12 +44,12 @@ foreach ($supplies as $type => $supply) {
             $graph_array['height'] = 20;
             $graph_array['bg'] = 'ffffff00';
             // the 00 at the end makes the area transparent.
-            $minigraph = \LibreNMS\Util\Url::lazyGraphTag($graph_array);
+            $minigraph = \twentyfouronline\Util\Url::lazyGraphTag($graph_array);
 
             echo '<tr>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $toner['supply_descr'], $overlib_content) . '</td>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
-            <td class="col-md-4">' . \LibreNMS\Util\Url::overlibLink($link, print_percentage_bar(200, 20, $percent, null, 'ffffff', $background['left'], $percent . '%', 'ffffff', $background['right']), $overlib_content) . '
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $toner['supply_descr'], $overlib_content) . '</td>
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, $minigraph, $overlib_content) . '</td>
+            <td class="col-md-4">' . \twentyfouronline\Util\Url::overlibLink($link, print_percentage_bar(200, 20, $percent, null, 'ffffff', $background['left'], $percent . '%', 'ffffff', $background['right']), $overlib_content) . '
            </a></td>
          </tr>';
         }//end foreach
@@ -62,3 +62,7 @@ foreach ($supplies as $type => $supply) {
 }
 
 unset($toner_rows);
+
+
+
+

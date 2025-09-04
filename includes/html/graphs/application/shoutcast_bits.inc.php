@@ -22,3 +22,7 @@ $hostname = $vars['hostname'] ?? 'unknown';
 $rrd_filename = Rrd::name($device['hostname'], ['app', 'shoutcast', $app->app_id, $hostname]);
 
 require 'includes/html/graphs/generic_data.inc.php';
+
+
+
+

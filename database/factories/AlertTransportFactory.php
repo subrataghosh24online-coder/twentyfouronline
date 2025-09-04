@@ -21,7 +21,7 @@ class AlertTransportFactory extends Factory
         string $options = '',
         string $method = 'get',
         string $body = '',
-        string $url = 'https://librenms.org',
+        string $url = 'https://twentyfouronline.org',
         string $headers = 'test=header',
         string $username = '',
         string $password = ''
@@ -44,3 +44,7 @@ class AlertTransportFactory extends Factory
         });
     }
 }
+
+
+
+

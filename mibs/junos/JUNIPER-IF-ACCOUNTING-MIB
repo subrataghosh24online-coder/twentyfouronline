@@ -327,3 +327,7 @@ jnxIfAccountingStats        MODULE-IDENTITY
             "The bytes rate egressed per second."
         ::= { jnxIfFcInlineAccountingStatEntry 8 }		
 END
+
+
+
+

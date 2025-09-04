@@ -17,3 +17,7 @@ class Ipv4NetworkFactory extends Factory
         ];
     }
 }
+
+
+
+
