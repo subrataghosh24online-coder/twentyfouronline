@@ -47,7 +47,9 @@ class ErrorReporting
     $exceptions->reportable([$this, 'reportable']);
      $exceptions->reportable([$this, 'report']);
 
-    $exceptions->render([$this, 'render']);
+ 
+    $exceptions->render(request(), $exception);  
+
 
     Flare::determineVersionUsing(function () {
         return \twentyfouronline\Util\Version::VERSION;
